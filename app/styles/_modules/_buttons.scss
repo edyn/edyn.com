@@ -1,0 +1,31 @@
+.button {
+	$button-font-color: $amber;
+	$button-font-color-hover: $white;
+	$button-font-family: $proxima-semibold;
+	$button-background-color: transparent;
+	$button-background-color-hover: $amber;
+	$button-border-radius: em(30);
+	$button-border: 1.5px solid $button-font-color;
+
+	background: $button-background-color;
+	border: $button-border;
+	border-radius: $button-border-radius;
+	color: $button-font-color;
+	display: block;
+	font: {
+		family: $button-font-family;
+		size: em(20);
+	}
+	margin: 0 auto;
+	padding: em(12) 0;
+	text-align: center;
+	width: 90%;
+
+	&:active,
+	&:focus,
+	&:hover {
+		background: $button-background-color-hover;
+		color: $button-font-color-hover;
+		text-decoration: none;
+	}
+}
