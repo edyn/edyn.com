@@ -11,5 +11,14 @@
 @import "_base/typography";
 @import "_base/base";
 
+// Layouts
+@import "_layouts/global";
+@import "_layouts/header";
+@import "_layouts/section";
+@import "_layouts/footer";
+
 // Modules
+@import "_modules/icons";
 @import "_modules/buttons";
+@import "_modules/navigation";
+@import "_modules/hero";

@@ -1,6 +1,7 @@
 // Settings
 $base-font-color: $judge-gray;
 $base-font-family: $proxima-light;
+$base-font-size: em(18);
 $base-background-color: $white;
 $action-color: $amber;
 $heading-font-family: $proxima-bold;
@@ -14,6 +15,8 @@ body {
 		family: $base-font-family;
 		size: $base-font-size;
 	}
+	padding: 0;
+	margin: 0;
 }
 
 a {
@@ -38,17 +41,17 @@ h6 {
 }
 
 h2 {
-	font-size: em(30);
+	font-size: em(26);
 }
 
 h3 {
-	font-size: em(25);
+	font-size: em(22);
 }
 
 blockquote {
 	font: {
 		family: $quote-font-family;
-		size: em(25);
+		size: em(22);
 	}
 	line-height: $quote-line-height;
 }

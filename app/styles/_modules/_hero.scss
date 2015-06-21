@@ -1,0 +1,28 @@
+.hero {
+	$hero-font-color: $white;
+	$hero-background-color: rgba($black, 0.3);
+
+	background: {
+		color: $hero-background-color;
+		image: url('../../images/edyn-web-hero-top.jpg');
+		position: 50% 50%;
+		repeat: no-repeat;
+		size: cover;
+	}
+	background-blend-mode: darken;
+	color: $hero-font-color;
+	min-height: em(500);
+	padding-top: em(240);
+	position: relative;
+	text-align: center;
+	z-index: 0;
+
+	h2 {
+		margin-top: em(10);
+	}
+
+	h2, p {
+		@include shift(1);
+		@include span-columns(10);
+	}
+}

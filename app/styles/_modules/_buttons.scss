@@ -2,10 +2,12 @@
 	$button-font-color: $amber;
 	$button-font-color-hover: $white;
 	$button-font-family: $proxima-semibold;
+	$button-font-family-alternate: $proxima-bold;
 	$button-background-color: transparent;
 	$button-background-color-hover: $amber;
 	$button-border-radius: em(30);
 	$button-border: 1.5px solid $button-font-color;
+	$button-border-hover: 1.5px solid $button-font-color-hover;
 
 	background: $button-background-color;
 	border: $button-border;
@@ -27,5 +29,40 @@
 		background: $button-background-color-hover;
 		color: $button-font-color-hover;
 		text-decoration: none;
+	}
+
+	&-icon {
+		background: none;
+		border: none;
+		display: inline-block;
+		font: {
+			family: $button-font-family-alternate;
+			size: em(16);
+		}
+		padding: 0;
+		text-transform: uppercase;
+		width: inherit;
+
+		&:active,
+		&:focus,
+		&:hover {
+			background: none;
+			text-decoration: underline;
+
+			&::before {
+				border: $button-border-hover;
+				text-decoration: none;
+			}
+		}
+
+		&::before {
+			border: $button-border;
+			border-radius: 50%;
+			font-size: em(18);
+			margin-right: em(10);
+			padding: em(6) em(6) em(6) em(10);
+
+			@include size(2em);
+		}
 	}
 }
