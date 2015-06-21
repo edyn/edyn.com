@@ -1,7 +1,7 @@
 header {
 	text-align: center;
 	@include position(absolute, 0 0 0 0);
-	@include size(100% 100%);
+	//@include size(100% 100%);
 
 	h1 {
 		margin: 0;

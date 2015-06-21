@@ -14,7 +14,7 @@
 	$menu-background-color: rgba($black, 0.85);
 	$menu-font-family: $proxima-semibold;
 
-	@include size(100% 100%);
+	// @include size(100% 100%);
 
 	.menu-icon {
 		cursor: pointer;
@@ -112,7 +112,8 @@
 			display: none;
 			background: $menu-background-color;
 			padding-top: em(75);
-			@include size(100% 100%);
+			//@include size(100% 100%);
+			height: 100vh;
 		}
 	}
 
