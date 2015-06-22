@@ -1,8 +1,103 @@
 section {
-	&.section-system {}
-	&.section-sensor {}
-	&.section-app {}
-	&.section-valve {}
-	&.section-gallery {}
-	&.section-press {}
+	$section-system-font-color: $white;
+	$section-system-background-color: $judge-gray;
+
+	$section-sensor-font-color: $judge-gray;
+	$section-sensor-background-color: $amber;
+
+	$section-app-font-color: $white;
+	$section-app-background-color: $judge-gray;
+
+	$section-valve-font-color: $judge-gray;
+	$section-valve-background-color: $ebb;
+
+	$section-press-font-color: $white;
+	$section-press-background-color: $amber;
+
+	padding: em(50) 0;
+	text-align: center;
+	@include clearfix();
+
+	.button {
+		clear: both;
+	}
+
+	&.section-system {
+		background: $section-system-background-color;
+		color: $section-system-font-color;
+
+		@include keyframes(fadeIn) {
+			0% {
+				opacity: 0;
+			}
+			50% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		svg {
+			.signal-small, .signal-medium, .signal-big {
+				@include animation-name(fadeIn);
+				@include animation-duration(2s);
+				@include animation-delay(0s);
+				@include animation-timing-function(ease);
+				@include animation-iteration-count(infinite);
+			}
+
+			.signal-medium {
+				@include animation-delay(0.2s);
+			}
+
+			.signal-big {
+				@include animation-delay(0.4s);
+			}
+		}
+	}
+	&.section-sensor {
+		@include retina-image('../../images/edyn_web_hero_sensor', 245px 586px);
+		background:  {
+			color: $section-sensor-background-color;
+			position: 50% 0%;
+			repeat: no-repeat;
+		}
+		color: $section-sensor-font-color;
+		padding-top: em(540);
+
+		h3, p {
+			@include shift(1);
+			@include span-columns(10);
+		}
+
+		p {
+			margin-bottom: em(35);
+		}
+	}
+	&.section-app {
+		background: $section-app-background-color;
+		color: $section-app-font-color;
+	}
+	&.section-valve {
+		@include retina-image('../../images/edyn_web_hero_valve', 480px 480px);
+		background:  {
+			color: $section-valve-background-color;
+			position: 50% 180%;
+			repeat: no-repeat;
+		}
+		color: $section-valve-font-color;
+		padding-bottom: em(290);
+
+		p {
+			margin-bottom: em(35);
+		}
+	}
+	&.section-gallery {
+		padding: 0;
+	}
+	&.section-press {
+		background: $section-press-background-color;
+		color: $section-press-font-color;
+	}
 }
