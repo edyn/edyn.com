@@ -1,0 +1,20 @@
+footer {
+	$footer-font-color: rgba($white, 0.3);
+	$footer-background-color: $fuscous-gray;
+
+	background: $footer-background-color;
+	color: $footer-font-color;
+	font-size: em(10);
+	padding: em(25) 0;
+	text-align: center;
+
+	@include outer-container();
+
+	.app {
+		margin: em(35) 0 em(70);
+	}
+
+	.social {
+		margin: em(20) 0;
+	}
+}

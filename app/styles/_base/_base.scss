@@ -1,0 +1,57 @@
+// Settings
+$base-font-color: $judge-gray;
+$base-font-family: $proxima-light;
+$base-font-size: em(18);
+$base-background-color: $white;
+$action-color: $amber;
+$heading-font-family: $proxima-bold;
+$quote-font-family: $proxima-semibold;
+$quote-line-height: 1.2;
+
+body {
+	background: $base-background-color;
+	color: $base-font-color;
+	font: {
+		family: $base-font-family;
+		size: $base-font-size;
+	}
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	color: $action-color;
+	text-decoration: none;
+
+	&:active,
+	&:focus,
+	&:hover {
+		color: $action-color;
+		text-decoration: underline;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $heading-font-family;
+}
+
+h2 {
+	font-size: em(26);
+}
+
+h3 {
+	font-size: em(22);
+}
+
+blockquote {
+	font: {
+		family: $quote-font-family;
+		size: em(22);
+	}
+	line-height: $quote-line-height;
+}

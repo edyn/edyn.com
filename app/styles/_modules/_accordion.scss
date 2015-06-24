@@ -1,0 +1,14 @@
+.accordion {}
+	.accordion-item {}
+		.accordion-content {
+			display: none;
+		}
+		.accordion-picture {
+			cursor: pointer;
+			opacity: 0.4;
+		}
+	.accordion-item.is-active {
+		.accordion-content {
+			display: block;
+		}
+	}

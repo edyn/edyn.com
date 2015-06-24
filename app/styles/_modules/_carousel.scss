@@ -1,0 +1,30 @@
+.carousel {
+	.carousel-item {
+		@include shift(1);
+		@include span-columns(10);
+
+		img, svg {
+			margin-bottom: em(80);
+
+			@include shift(2);
+			@include span-columns(8);
+		}
+		h3 {}
+		p {}
+	}
+	.carousel-controls {
+		a {}
+	}
+
+	&-full {
+		.carousel-item {
+			margin: 0;
+			@include fill-parent();
+
+			img {
+				margin: 0;
+				@include fill-parent();
+			}
+		}
+	}
+}

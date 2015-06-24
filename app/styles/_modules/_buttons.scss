@@ -1,0 +1,127 @@
+.button {
+	$button-font-color: $amber;
+	$button-font-color-hover: $white;
+	$button-font-family: $proxima-semibold;
+	$button-font-family-alternate: $proxima-bold;
+	$button-background-color: transparent;
+	$button-background-color-hover: $amber;
+	$button-border-radius: em(30);
+	$button-border: 1.5px solid $button-font-color;
+	$button-border-hover: 1.5px solid $button-font-color-hover;
+
+	$button-font-color-alternate: $judge-gray;
+	$button-background-color-hover-alternate: $judge-gray;
+	$button-border-alternate: 1.5px solid $button-font-color-alternate;
+	$button-border-hover-alternate: 1.5px solid $button-background-color-hover-alternate;
+
+	$social-font-color: $white;
+	$social-background-color: $tuatara;
+
+	background: $button-background-color;
+	border: $button-border;
+	border-radius: $button-border-radius;
+	color: $button-font-color;
+	display: block;
+	font: {
+		family: $button-font-family;
+		size: em(20);
+	}
+	margin: 0 auto;
+	padding: em(12) 0;
+	text-align: center;
+	width: 90%;
+
+	&:active,
+	&:focus,
+	&:hover {
+		background: $button-background-color-hover;
+		color: $button-font-color-hover;
+		text-decoration: none;
+	}
+
+	&-icon {
+		background: none;
+		border: none;
+		display: inline-block;
+		font: {
+			family: $button-font-family-alternate;
+			size: em(16);
+		}
+		padding: 0;
+		text-transform: uppercase;
+		width: inherit;
+
+		&:active,
+		&:focus,
+		&:hover {
+			background: none;
+			text-decoration: underline;
+
+			&::before {
+				border: $button-border-hover;
+				text-decoration: none;
+			}
+		}
+
+		&::before {
+			border: $button-border;
+			border-radius: 50%;
+			font-size: em(18);
+			margin-right: em(10);
+			padding: em(6) em(6) em(6) em(10);
+
+			@include size(2em);
+		}
+	}
+
+	&-alternate {
+		border: $button-border-alternate;
+		color: $button-font-color-alternate;
+
+		&:active,
+		&:focus,
+		&:hover {
+			background: $button-background-color-hover-alternate;
+		}
+	}
+
+	&-appstore {
+		display: inline-block;
+		margin: 0 em(2);
+
+		@include hide-text;
+		@include retina-image('../../images/appstore-button', 130px 55px);
+		@include size(130px 55px);
+	}
+
+	&-googleplay {
+		display: inline-block;
+		margin: 0 em(2);
+
+		@include hide-text;
+		@include retina-image('../../images/googleplay-button', 130px 55px);
+		@include size(130px 55px);
+	}
+
+	&-social {
+		background: $social-background-color;
+		border-radius: em(8);
+		display: inline-block;
+		color: $social-font-color;
+		font-size: em(24);
+		margin: 0 em(10);
+		padding: em(10);
+
+		@include transform(rotate(45deg));
+
+		&::before {
+			@include transform(rotate(-45deg));
+		}
+
+		&:active,
+		&:focus,
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}

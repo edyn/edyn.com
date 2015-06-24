@@ -1,0 +1,134 @@
+.logo {
+	display: block;
+	z-index: 2;
+
+	@include hide-text;
+	@include position(absolute, 2% null null 5%);
+	@include retina-image('../../images/edyn-logo', 127px 35px);
+	@include size(127px 35px);
+}
+
+.menu {
+	$menu-action-color: $action-color;
+	$menu-action-color-alternate: $white;
+	$menu-background-color: rgba($black, 0.85);
+	$menu-font-family: $proxima-semibold;
+
+	// @include size(100% 100%);
+
+	.menu-icon {
+		cursor: pointer;
+		position: relative;
+		z-index: 2;
+
+		@include size(54px);
+		@include position(absolute, 0% 2% null null);
+		@include transition(transform 0.5s);
+
+		span {
+			background-color: $menu-action-color;
+			border-radius: 1px;
+			display: block;
+			@include position(absolute, 50% null null 50%);
+			@include size(22px 2px);
+			@include transform(translateX(-50%) translateY(-50%));
+			@include transition(background 0.5s);
+
+			&::before, &::after {
+				content: '';
+				display: block;
+				background-color: $menu-action-color;
+				border-radius: 1px;
+				@include size(22px 2px);
+				@include transition(transform 0.5s);
+			}
+
+			&::before {
+				@include transform(translateY(-6px));
+				@include position(absolute, -2px null null 0);
+			}
+
+			&::after {
+				@include transform(translateY(6px));
+				@include position(absolute, 2px null null 0);
+			}
+		}
+
+		&.is-open {
+			@include transform(rotate(180deg));
+
+			span {
+				background: transparent;
+				@include size(28px 2px);
+
+				&::before, &::after {
+					@include size(28px 2px);
+				}
+
+				&::before {
+					@include transform(translateY(0) rotate(45deg));
+					@include position(absolute, 0 null null 0);
+				}
+
+				&::after {
+					@include transform(translateY(0) rotate(-45deg));
+					@include position(absolute, 0 null null 0);
+				}
+			}
+
+			& + .menu-list {
+				display: block;
+			}
+		}
+	}
+	.menu-list {
+		position: relative;
+		z-index: 1;
+	}
+		.menu-item {
+			padding: em(15) 0;
+			font: {
+				family: $menu-font-family;
+				size: em(20);
+			}
+
+			a {
+				&.button {
+					font-size: em(18);
+				}
+			}
+
+			&-alternate {
+				a {
+					color: $menu-action-color-alternate;
+				}
+			}
+		}
+
+	&.menu-header {
+		@include position(absolute, 0 0 0 0);
+
+		.menu-list {
+			display: none;
+			background: $menu-background-color;
+			padding-top: em(75);
+			//@include size(100% 100%);
+			height: 100vh;
+		}
+	}
+
+	&.menu-footer {
+		.menu-list {
+			display: block;
+		}
+
+		.menu-item {
+			display: inline-block;
+			margin: 0 em(10);
+
+			a {
+				font-size: em(18);
+			}
+		}
+	}
+}
