@@ -43,6 +43,7 @@
     "browserify": "^10.2.4",
     "browserify-shim": "^3.8.9",
     "express": "^4.13.0",
-    "gzippo": "^0.2.0"
+    "gzippo": "^0.2.0",
+    "morgan": "^1.6.0"
   }
 }
