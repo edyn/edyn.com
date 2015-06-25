@@ -1,4 +1,10 @@
 .carousel {
+	$carousel-pagination-color: $white;
+	$carousel-navigation-color: $carousel-pagination-color;
+
+	$carousel-pagination-color-alternate: $judge-gray;
+	$carousel-navigation-color-alternate: $carousel-pagination-color-alternate;
+
 	.carousel-item {
 		@include shift(1);
 		@include span-columns(10);
@@ -8,12 +14,97 @@
 
 			@include shift(2);
 			@include span-columns(8);
+
+			@include media($bp-medium) {
+				margin-bottom: em(20);
+			}
 		}
-		h3 {}
-		p {}
+		h3 {
+			clear: both;
+
+			@include media($bp-medium) {
+				font-size: em(18);
+			}
+		}
+		p {
+			@include media($bp-medium) {
+				font-size: em(16);
+			}
+		}
 	}
-	.carousel-controls {
-		a {}
+
+	.owl-pagination {
+		@include position(absolute, 50% 0 0 50%);
+		@include transform(translateX(-50%));
+	}
+
+	.owl-page {
+		display: inline-block;
+		zoom: 1;
+
+		span {
+			display: block;
+			width: 14px;
+			height: 14px;
+			margin: 5px 7px;
+			-webkit-border-radius: 20px;
+			-moz-border-radius: 20px;
+			border-radius: 20px;
+			background: transparent;
+			border: 2.5px solid $carousel-pagination-color;
+		}
+
+		&.active {
+			span {
+				background: $carousel-pagination-color;
+			}
+		}
+	}
+
+	.owl-prev {
+		color: $carousel-navigation-color;
+		@include position(absolute, 20% null null 0%);
+		&::before {
+			content: '\e805';
+			font-family: "fontello";
+			font-style: normal;
+			font-weight: normal;
+			speak: none;
+			display: inline-block;
+			text-decoration: inherit;
+			width: 1em;
+			margin-right: .2em;
+			text-align: center;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1em;
+			margin-left: .2em;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+	}
+
+	.owl-next {
+		color: $carousel-navigation-color;
+		@include position(absolute, 20% 0% null null);
+		&::before {
+			content: '\e806';
+			font-family: "fontello";
+			font-style: normal;
+			font-weight: normal;
+			speak: none;
+			display: inline-block;
+			text-decoration: inherit;
+			width: 1em;
+			margin-right: .2em;
+			text-align: center;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1em;
+			margin-left: .2em;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
 	}
 
 	&-full {

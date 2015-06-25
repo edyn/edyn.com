@@ -31,6 +31,13 @@
 	text-align: center;
 	width: 90%;
 
+	@include media($bp-medium) {
+		border-width: 1px;
+		font-size: em(14);
+		padding: em(12) em(50);
+		width: inherit;
+	}
+
 	&:active,
 	&:focus,
 	&:hover {
@@ -77,6 +84,14 @@
 	&-alternate {
 		border: $button-border-alternate;
 		color: $button-font-color-alternate;
+
+		@include media($bp-medium) {
+			border-width: 1px;
+			font-size: em(14);
+			padding: em(12) em(50);
+			width: inherit;
+			max-width: 14em;
+		}
 
 		&:active,
 		&:focus,

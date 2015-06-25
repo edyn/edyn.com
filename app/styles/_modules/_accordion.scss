@@ -1,14 +1,41 @@
-.accordion {}
-	.accordion-item {}
+.accordion {
+	padding: em(30) 0;
+}
+	.accordion-item {
+		@include media($bp-medium) {
+			display: inline;
+		}
+
+		&.is-active {
+			.accordion-content {
+				display: block;
+
+				@include media($bp-medium) {
+					display: none;
+				}
+			}
+
+			.accordion-picture {
+				opacity: 1;
+			}
+		}
+	}
 		.accordion-content {
 			display: none;
 		}
 		.accordion-picture {
 			cursor: pointer;
 			opacity: 0.4;
+
+			@include media($bp-medium) {
+				margin: 0 em(25);
+			}
 		}
-	.accordion-item.is-active {
-		.accordion-content {
-			display: block;
+		.accordion-target {
+			display: none;
+			@include media($bp-medium) {
+				@extend blockquote;
+				display: block;
+				margin: em(20) 0 em(30) 0;
+			}
 		}
-	}

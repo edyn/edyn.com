@@ -42,6 +42,10 @@ h6 {
 
 h2 {
 	font-size: em(26);
+
+	@include media($bp-medium) {
+		font-size: em(40);
+	}
 }
 
 h3 {
@@ -54,4 +58,8 @@ blockquote {
 		size: em(22);
 	}
 	line-height: $quote-line-height;
+
+	@include media($bp-medium) {
+		font-family: $base-font-family;
+	}
 }

@@ -5,8 +5,8 @@ section {
 	$section-sensor-font-color: $judge-gray;
 	$section-sensor-background-color: $amber;
 
-	$section-app-font-color: $white;
-	$section-app-background-color: $judge-gray;
+	$section-app-font-color: $judge-gray;
+	$section-app-background-color: $desert-storm;
 
 	$section-valve-font-color: $judge-gray;
 	$section-valve-background-color: $ebb;
@@ -25,6 +25,22 @@ section {
 	&.section-system {
 		background: $section-system-background-color;
 		color: $section-system-font-color;
+		position: relative;
+
+		&::before {
+			@include position(absolute, 0 0 0 0);
+			@include size(100%);
+			background: {
+				attachment: fixed;
+				color: $section-system-background-color;
+				image: url('../../images/edyn-web-hero-top-blurred.jpg');
+				position: 50% 50%;
+				repeat: no-repeat;
+				size: auto 100%;
+			}
+			content: "";
+			display: block;
+		}
 
 		@include keyframes(fadeIn) {
 			0% {
@@ -36,6 +52,10 @@ section {
 			100% {
 				opacity: 0;
 			}
+		}
+
+		h2 {
+			position: relative;
 		}
 
 		svg {
@@ -65,19 +85,114 @@ section {
 		}
 		color: $section-sensor-font-color;
 		padding-top: em(540);
+		position: relative;
 
-		h3, p {
+		.section-item {
 			@include shift(1);
 			@include span-columns(10);
+			@include position(absolute, 60% 0 0 0);
+
+			@include media($bp-medium) {
+				@include shift(6);
+				@include span-columns(6);
+
+				text-align: center;
+			}
+
+			img {
+				display: none;
+				@include media($bp-medium) {
+					display: inline;
+					width: 65%;
+					margin-bottom: em(35);
+				}
+			}
+		}
+
+		h3, p {
+			@include media($bp-medium) {
+				text-align: left;
+			}
 		}
 
 		p {
 			margin-bottom: em(35);
 		}
+
+		.button {
+			@include media($bp-medium) {
+				display: none;
+			}
+		}
+
+		@include media($bp-medium) {
+			@include retina-image('../../images/edyn_web_hero_sensor', 55% auto);
+			background:  {
+				attachment: fixed;
+				position: 0% -75%;
+			}
+			padding-top: 50%;
+			padding-bottom: 50%;
+		}
 	}
 	&.section-app {
 		background: $section-app-background-color;
 		color: $section-app-font-color;
+		position: relative;
+
+		@include media($bp-medium) {
+			padding-top: 50%;
+			padding-bottom: 50%;
+		}
+
+		.owl-prev, .owl-next {
+			color: rgba($section-app-font-color, 0.3);
+		}
+
+		.owl-page {
+			span {
+				border-color: $section-app-font-color;
+			}
+
+			&.active {
+				span {
+					background: $section-app-font-color;
+				}
+			}
+		}
+
+		.owl-pagination {
+			@include position(absolute, 45% 0 0 50%);
+		}
+
+		.carousel {
+			.carousel-item {
+				position: relative;
+				@include clearfix();
+
+				@include media($bp-medium) {
+					@include direction-context(right-to-left) {
+						.carousel-content {
+							@include span-columns(6);
+						}
+
+						img {
+							@include span-columns(5);
+						}
+					}
+
+					.carousel-content {
+						position: absolute;
+						text-align: left;
+						bottom: 10%;
+
+						h3 {
+							font-size: em(20);
+						}
+					}
+				}
+			}
+		}
 	}
 	&.section-valve {
 		@include retina-image('../../images/edyn_web_hero_valve', 480px 480px);
@@ -89,12 +204,53 @@ section {
 		color: $section-valve-font-color;
 		padding-bottom: em(290);
 
+		@include media($bp-medium) {
+			@include retina-image('../../images/edyn_web_hero_valve', 700px 700px);
+			background-position: 50% em(320);
+			padding-bottom: em(350);
+		}
+
+		h3 {
+			@include media($bp-medium) {
+				@include span-columns(6);
+				@include shift(3);
+			}
+		}
+
 		p {
+			clear: both;
 			margin-bottom: em(35);
+			@include media($bp-medium) {
+				@include span-columns(8);
+				@include shift(2);
+			}
 		}
 	}
 	&.section-gallery {
 		padding: 0;
+		position: relative;
+
+		.owl-prev {
+			@include position(absolute, 50% null null 0%);
+			@include transform(translateY(-50%));
+		}
+
+		.owl-next {
+			@include position(absolute, 50% 0% null null);
+			@include transform(translateY(-50%));
+		}
+
+		.owl-pagination {
+			@include position(absolute, inherit null 0% 50%);
+		}
+
+		@include media($bp-medium) {
+			.container {
+				max-width: inherit;
+				@include fill-parent();
+				margin: 0;
+			}
+		}
 	}
 	&.section-press {
 		background: $section-press-background-color;

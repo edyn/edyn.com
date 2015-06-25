@@ -1,4 +1,6 @@
 // bower:scss
+@import "bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
+@import "bower_components/neat/app/assets/stylesheets/_neat.scss";
 // endbower
 
 // Frameworks
@@ -9,6 +11,7 @@
 // Base
 @import "_base/colors";
 @import "_base/typography";
+@import "_base/breakpoints";
 @import "_base/base";
 
 // Layouts

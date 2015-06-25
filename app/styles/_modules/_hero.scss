@@ -3,16 +3,17 @@
 	$hero-background-color: rgba($black, 0.3);
 
 	background: {
+		attachment: fixed;
 		color: $hero-background-color;
 		image: url('../../images/edyn-web-hero-top.jpg');
 		position: 50% 50%;
 		repeat: no-repeat;
-		size: cover;
+		size: auto 100%;
 	}
 	background-blend-mode: darken;
 	color: $hero-font-color;
-	min-height: em(500);
-	padding-top: em(240);
+	height: 100vh;
+	padding-top: em(340);
 	position: relative;
 	text-align: center;
 	z-index: 0;
@@ -24,5 +25,12 @@
 	h2, p {
 		@include shift(1);
 		@include span-columns(10);
+	}
+
+	p {
+		@include media($bp-medium) {
+			@include shift(2);
+			@include span-columns(8);
+		}
 	}
 }

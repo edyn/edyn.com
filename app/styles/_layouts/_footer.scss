@@ -7,14 +7,40 @@ footer {
 	font-size: em(10);
 	padding: em(25) 0;
 	text-align: center;
+	position: relative;
 
-	@include outer-container();
+	.container {
+		@include media($bp-medium) {
+			@include fill-parent();
+			max-width: inherit;
+		}
+	}
+
+	p {
+		clear: both;
+
+		@include media($bp-medium) {
+			padding-top: em(50);
+		}
+	}
 
 	.app {
 		margin: em(35) 0 em(70);
+
+		@include media($bp-medium) {
+			@include span-columns(6 of 12);
+			margin: 1% 1% 0 0;
+			text-align: right;
+		}
 	}
 
 	.social {
 		margin: em(20) 0;
+		@include span-columns(12);
+
+		@include media($bp-medium) {
+			position: absolute;
+			top: 15%;
+		}
 	}
 }
