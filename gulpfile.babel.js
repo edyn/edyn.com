@@ -134,14 +134,6 @@ gulp.task('serve:test', () => {
   gulp.watch('test/spec/**/*.js', ['lint:test']);
 });
 
-gulp.task('serveprod', function() {
-  connect.server({
-    root: '',
-    port: process.env.PORT || 5000, // localhost:5000
-    livereload: false
-  });
-});
-
 // inject bower components
 gulp.task('wiredep', () => {
   gulp.src('app/styles/*.scss')
