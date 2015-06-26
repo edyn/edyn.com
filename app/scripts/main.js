@@ -119,11 +119,9 @@
 	//--- END press accordion
 
 	// Transitions
-	jQuery(document).on('scroll', onScroll);
-	function onScroll(event){
-		var scrollPosition = $(document).scrollTop();
-		var hero = jQuery('.hero .container'),
-			systemSection = jQuery('.section-system'),
+	function onScroll(){
+		var scrollPosition = jQuery(document).scrollTop();
+		var systemSection = jQuery('.section-system'),
 			sensorSection = jQuery('.section-sensor'),
 			appSection = jQuery('.section-app'),
 			valveSection = jQuery('.section-valve'),
@@ -132,7 +130,7 @@
 
 		if(systemSection.position().top <= scrollPosition && systemSection.position().top + systemSection.outerHeight() > scrollPosition) {
 			jQuery(systemSection.find('.carousel-item')).each(function(i) {
-				jQuery(this).addClass('animated slideInUp'+(i+1));
+				jQuery(this).addClass('animated slideInUp' + (i + 1));
 			});
 		} else if(sensorSection.position().top <= scrollPosition && sensorSection.position().top + sensorSection.outerHeight() > scrollPosition) {
 			logo.addClass('white');
@@ -149,6 +147,7 @@
 			menu.find('.button').removeClass('button-alternate');
 		}
 	}
+	jQuery(document).on('scroll', onScroll);
 	//--- END transitions
 
 })();
