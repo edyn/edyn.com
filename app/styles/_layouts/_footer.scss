@@ -18,6 +18,7 @@ footer {
 
 	p {
 		clear: both;
+		padding-top: em(20);
 
 		@include media($bp-medium) {
 			padding-top: em(50);
@@ -25,7 +26,7 @@ footer {
 	}
 
 	.app {
-		margin: em(35) 0 em(70);
+		margin: em(50) 0;
 
 		@include media($bp-medium) {
 			@include span-columns(6 of 12);

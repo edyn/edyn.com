@@ -2,6 +2,8 @@
 	padding: em(30) 0;
 }
 	.accordion-item {
+		padding-bottom: em(15);
+
 		@include media($bp-medium) {
 			display: inline;
 		}

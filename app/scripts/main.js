@@ -1,22 +1,112 @@
 (function(){
 	'use strict';
 
-	// Init
-		jQuery('.section-sensor .section-item').not(':eq(0)').hide();
-		jQuery('.section-app .carousel-item').not(':eq(0)').hide();
-	//--- END init
+	// Whatever happens for resolutions under 47.5em
+	if (window.matchMedia('(max-width: 47.5em)').matches) {
+		// Mobile hamburger menu events
+			var headerMenuList = jQuery('.menu-header ul');
+			var footerMenuElements = jQuery('.menu-footer li').clone();
 
-	// Mobile hamburger menu events
-		var headerMenuList = jQuery('.menu-header ul');
-		var footerMenuElements = jQuery('.menu-footer li').clone();
+			jQuery('.menu-icon').click(function() {
+				headerMenuList.append(footerMenuElements);
+				jQuery(this).toggleClass('is-open');
+			});
+		//--- END mobile hamburger menu
 
-		jQuery('.menu-icon').click(function() {
-			headerMenuList.append(footerMenuElements);
-			jQuery(this).toggleClass('is-open');
+		// Carousel activation
+		jQuery('.section-system .carousel').owlCarousel({
+			navigation: true,
+			navigationText: false,
+			items: 3,
+			itemsDesktop: [1000, 3],
+			itemsDesktopSmall: [900, 3],
+			itemsTablet: [600, 1],
+			itemsMobile: [480, 1]
 		});
-	//--- END mobile hamburger menu
+
+		jQuery('.section-app .carousel').owlCarousel({
+			navigation: true,
+			navigationText: false,
+			items: 3,
+			itemsDesktop: [1000, 3],
+			itemsDesktopSmall: [900, 3],
+			itemsTablet: [600, 1],
+			itemsMobile: [480, 1]
+		});
+
+		jQuery('.section-gallery .carousel').owlCarousel({
+			navigation: true,
+			navigationText: false,
+			items: 3,
+			itemsDesktop: [1000, 3],
+			itemsDesktopSmall: [900, 3],
+			itemsTablet: [600, 1],
+			itemsMobile: [480, 1]
+		});
+		//--- END carousel
+	}
 
 
+	// Whatever happens for resolutions over 47.5em
+	if (window.matchMedia('(min-width: 47.5em)').matches) {
+		// Carousel activation
+		jQuery('.section-gallery .carousel').owlCarousel({
+			navigation: true,
+			navigationText: false,
+			items: 1,
+			itemsDesktop: [1000, 1],
+			itemsDesktopSmall: [900, 1],
+			itemsTablet: [600, 1],
+			itemsMobile: [480, 1]
+		});
+
+		jQuery('.section-system .carousel').owlCarousel({
+			navigation: true,
+			navigationText: false,
+			items: 3,
+			itemsDesktop: [1000, 3],
+			itemsDesktopSmall: [900, 3],
+			itemsTablet: [600, 1],
+			itemsMobile: [480, 1]
+		});
+		//--- END carousel
+
+		// Bind Parallax data
+		jQuery('.section-sensor').attr('data-0-top', 'background-position: 10% -30%;');
+		jQuery('.section-sensor').attr('data-100-top-bottom', 'background-position: 10% -10%;');
+
+		jQuery('.section-sensor .section-item').attr('data-0-top-top', 'opacity: 1;');
+		jQuery('.section-sensor .section-item').attr('data--100-top-top', 'opacity: 0;');
+
+		jQuery('.section-app .carousel-item-1').attr('data--50p-top-bottom', 'opacity: 0;');
+		jQuery('.section-app .carousel-item-1').attr('data--40p-top-bottom', 'opacity: 1;');
+		jQuery('.section-app .carousel-item-1').attr('data-0-top-bottom', 'opacity: 1;');
+		jQuery('.section-app .carousel-item-1').attr('data-10p-top-bottom', 'opacity: 0;');
+		jQuery('.section-app .carousel-item-1').attr('data-anchor-target', '.carousel-item-1 h3');
+
+		jQuery('.section-app .carousel-item-2').attr('data--200p-top-bottom', 'opacity: 0;');
+		jQuery('.section-app .carousel-item-2').attr('data--190p-top-bottom', 'opacity: 1;');
+		jQuery('.section-app .carousel-item-2').attr('data--150p-top-bottom', 'opacity: 1;');
+		jQuery('.section-app .carousel-item-2').attr('data--140p-top-bottom', 'opacity: 0;');
+		jQuery('.section-app .carousel-item-2').attr('data-anchor-target', '.carousel-item-2 h3');
+
+		jQuery('.section-app .carousel-item-3').attr('data--350p-top-bottom', 'opacity: 0;');
+		jQuery('.section-app .carousel-item-3').attr('data--340p-top-bottom', 'opacity: 1;');
+		jQuery('.section-app .carousel-item-3').attr('data--290p-top-bottom', 'opacity: 1;');
+		jQuery('.section-app .carousel-item-3').attr('data--280p-top-bottom', 'opacity: 0;');
+		jQuery('.section-app .carousel-item-3').attr('data-anchor-target', '.carousel-item-3 h3');
+		//--- END bind parallax data
+
+		// Init parallax plugin
+		skrollr.init({
+			render: function(data) {
+				console.log(data.curTop);
+			}
+		});
+		//--- END parallax plugin
+	}
+
+	// Everything that will be loaded for any resolution
 	// Press accordion events
 		jQuery('.accordion-picture').click(function() {
 			var accordion = jQuery(this).parents('.accordion:first'),
@@ -28,109 +118,37 @@
 		});
 	//--- END press accordion
 
-	// Carousel settings
-		if (window.matchMedia('(max-width: 47.5em)').matches) {
-			jQuery('.carousel').owlCarousel({
-				navigation: true,
-				navigationText: false,
-				items: 3,
-				itemsDesktop: [1000, 3],
-				itemsDesktopSmall: [900, 3],
-				itemsTablet: [600, 1],
-				itemsMobile: [480, 1]
+	// Transitions
+	jQuery(document).on('scroll', onScroll);
+	function onScroll(event){
+		var scrollPosition = $(document).scrollTop();
+		var hero = jQuery('.hero .container'),
+			systemSection = jQuery('.section-system'),
+			sensorSection = jQuery('.section-sensor'),
+			appSection = jQuery('.section-app'),
+			valveSection = jQuery('.section-valve'),
+			menu = jQuery('.menu-header'),
+			logo = jQuery('.logo');
+
+		if(systemSection.position().top <= scrollPosition && systemSection.position().top + systemSection.outerHeight() > scrollPosition) {
+			jQuery(systemSection.find('.carousel-item')).each(function(i) {
+				jQuery(this).addClass('animated slideInUp'+(i+1));
 			});
+		} else if(sensorSection.position().top <= scrollPosition && sensorSection.position().top + sensorSection.outerHeight() > scrollPosition) {
+			logo.addClass('white');
+			menu.addClass('dark');
+			menu.find('.button').addClass('button-alternate');
+			logo.removeClass('dark');
+		} else if (appSection.position().top <= scrollPosition && valveSection.position().top + valveSection.outerHeight() > scrollPosition) {
+			logo.addClass('dark');
+			logo.removeClass('white');
+		} else {
+			logo.removeClass('dark');
+			logo.removeClass('white');
+			menu.removeClass('dark');
+			menu.find('.button').removeClass('button-alternate');
 		}
-
-		if (window.matchMedia('(min-width: 47.5em)').matches) {
-			jQuery('.section-gallery .carousel').owlCarousel({
-				navigation: true,
-				navigationText: false,
-				items: 1,
-				itemsDesktop: [1000, 1],
-				itemsDesktopSmall: [900, 1],
-				itemsTablet: [600, 1],
-				itemsMobile: [480, 1]
-			});
-
-			jQuery('.section-system .carousel').owlCarousel({
-				navigation: true,
-				navigationText: false,
-				items: 3,
-				itemsDesktop: [1000, 3],
-				itemsDesktopSmall: [900, 3],
-				itemsTablet: [600, 1],
-				itemsMobile: [480, 1]
-			});
-		}
-	//--- END carousel settings
-
-
-	// Parallax transitions
-		if (window.matchMedia('(min-width: 47.5em)').matches) {
-			// Bind parallax transitions to hero unit
-			jQuery('.hero .container').attr('data-start', 'opacity: 1;');
-			jQuery('.hero .container').attr('data-400-start', 'opacity: 0;');
-
-			// Bind parralax transitions to system section elements
-			jQuery('.section-system .container').attr('data-start', 'opacity: 0; position: relative; top: 200px;');
-			jQuery('.section-system .container').attr('data-400-start', 'opacity: 1; position: relative; top: 0;');
-
-			// Bind parralax transitions to sensor section elements
-			jQuery('.section-sensor').attr('data-600-bottom', 'background-position: 0% -40%;');
-			jQuery('.section-sensor').attr('data-500-bottom', 'background-position: 0% -30%;');
-			jQuery('.section-sensor').attr('data-400-bottom', 'background-position: 0% -20%;');
-			jQuery('.section-sensor').attr('data-300-bottom', 'background-position: 0% -10%;');
-			jQuery('.section-sensor').attr('data-200-bottom', 'background-position: 0% 0%;');
-			jQuery('.section-sensor').attr('data-100-bottom', 'background-position: 0% 10%;');
-			jQuery('.section-sensor').attr('data-bottom', 'background-position: 0% 20%;');
-
-			jQuery('.section-sensor .section-item').eq(0).attr('data-650-top', 'opacity: 0; top: 50%; position: absolute;');
-			jQuery('.section-sensor .section-item').eq(0).attr('data-600-top', 'opacity:1; top: 40%; position: absolute;');
-			jQuery('.section-sensor .section-item').eq(0).attr('data-450-top', 'opacity: 1; top: 10%; position: absolute;');
-			jQuery('.section-sensor .section-item').eq(0).attr('data-400-top', 'opacity: 0; top: 0%; position: absolute;');
-
-			jQuery('.section-sensor .section-item').eq(1).attr('data--1900-top', 'opacity: 0; top: 20%; position: absolute; display: block;');
-			jQuery('.section-sensor .section-item').eq(1).attr('data--1850-top', 'opacity: 1; top: 70%; position: absolute; display: block;');
-			jQuery('.section-sensor .section-item').eq(1).attr('data--1800-top', 'opacity: 0; top: 100%; position: absolute; display: block;');
-
-			// jQuery('.section-sensor .section-item').eq(1).attr('data--500-top', 'opacity: 0; top: 30%; position: absolute; display: block;');
-			// jQuery('.section-sensor .section-item').eq(1).attr('data--200-top', 'opacity:1; top: 40%; position: absolute; display: block;');
-			// jQuery('.section-sensor .section-item').eq(1).attr('data--100-top', 'opacity: 0; top: 60%; position: absolute; display: block;');
-
-			jQuery('.section-app .carousel-item').eq(0).attr('data-650-top', 'opacity: 0; top: 50%; position: absolute;');
-			jQuery('.section-app .carousel-item').eq(0).attr('data-600-top', 'opacity:1; top: 40%; position: absolute;');
-			jQuery('.section-app .carousel-item').eq(0).attr('data-450-top', 'opacity: 1; top: 10%; position: absolute;');
-			jQuery('.section-app .carousel-item').eq(0).attr('data-400-top', 'opacity: 0; top: 0%; position: absolute;');
-
-			jQuery('.section-app .carousel-item').eq(1).attr('data-650-top', 'opacity: 0; top: 50%; position: absolute;');
-			jQuery('.section-app .carousel-item').eq(1).attr('data-600-top', 'opacity:1; top: 40%; position: absolute;');
-			jQuery('.section-app .carousel-item').eq(1).attr('data-450-top', 'opacity: 1; top: 10%; position: absolute;');
-			jQuery('.section-app .carousel-item').eq(1).attr('data-400-top', 'opacity: 0; top: 0%; position: absolute;');
-
-			jQuery('.section-app .carousel-item').eq(2).attr('data-650-top', 'opacity: 0; top: 50%; position: absolute;');
-			jQuery('.section-app .carousel-item').eq(2).attr('data-600-top', 'opacity:1; top: 40%; position: absolute;');
-			jQuery('.section-app .carousel-item').eq(2).attr('data-450-top', 'opacity: 1; top: 10%; position: absolute;');
-			jQuery('.section-app .carousel-item').eq(2).attr('data-400-top', 'opacity: 0; top: 0%; position: absolute;');
-
-			jQuery('.section-app .carousel-item').eq(3).attr('data-650-top', 'opacity: 0; top: 50%; position: absolute;');
-			jQuery('.section-app .carousel-item').eq(3).attr('data-600-top', 'opacity:1; top: 40%; position: absolute;');
-			jQuery('.section-app .carousel-item').eq(3).attr('data-450-top', 'opacity: 1; top: 10%; position: absolute;');
-			jQuery('.section-app .carousel-item').eq(3).attr('data-400-top', 'opacity: 0; top: 0%; position: absolute;');
-		}
-
-		skrollr.init({
-			render: function(data) {
-				var sectionSystem = jQuery('.section-system');
-				var posSectionSystem = sectionSystem.offset().top;
-				if(data.curTop >= posSectionSystem) {
-					if(!(sectionSystem.hasClass('.is-blurred'))) {
-						sectionSystem.addClass('is-blurred');
-					}
-				} else {
-					sectionSystem.removeClass('is-blurred');
-				}
-			}
-		});
-	//--- END parallax transitions
+	}
+	//--- END transitions
 
 })();

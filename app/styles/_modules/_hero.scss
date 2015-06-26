@@ -12,11 +12,14 @@
 	}
 	background-blend-mode: darken;
 	color: $hero-font-color;
-	height: 100vh;
 	padding-top: em(340);
 	position: relative;
 	text-align: center;
 	z-index: 0;
+
+	@include media($bp-medium) {
+		height: 100vh;
+	}
 
 	h2 {
 		margin-top: em(10);

@@ -1,0 +1,27 @@
+.animated {
+	animation-duration: 1s;
+	animation-fill-mode: both;
+}
+
+
+
+@keyframes slideInUp {
+	0% {
+		opacity: 0;
+		transform: translate3d(0, 100%, 0);
+		visibility: visible;
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+.slideInUp {
+	animation-name: slideInUp;
+}
+
+.slideInUp1 {animation-name: slideInUp; animation-delay: 0s;}
+.slideInUp2 {animation-name: slideInUp; animation-delay: .2s;}
+.slideInUp3 {animation-name: slideInUp; animation-delay: .4s;}

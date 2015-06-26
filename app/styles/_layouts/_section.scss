@@ -75,26 +75,50 @@ section {
 				@include animation-delay(0.4s);
 			}
 		}
+
+		.carousel-item {
+			opacity: 0;
+			@include media($bp-medium) {
+				position: relative;
+				&::after {
+					content: "";
+					display: block;
+					@include size(134px 26px);
+					@include position(absolute, 30% null null 90%);
+					@include retina-image('../../images/edyn-web-hero-arrow', 134px 26px);
+				}
+			}
+		}
+
+		.owl-item:last-of-type {
+			.carousel-item {
+				&::after {
+					display: none;
+				}
+			}
+		}
 	}
 	&.section-sensor {
-		@include retina-image('../../images/edyn_web_hero_sensor', 245px 586px);
+		@include retina-image('../../images/edyn-web-hero-sensor', auto 35rem);
 		background:  {
 			color: $section-sensor-background-color;
-			position: 50% 0%;
+			position: 50% 5%;
 			repeat: no-repeat;
 		}
 		color: $section-sensor-font-color;
-		padding-top: em(540);
+		padding-top: 10rem;
 		position: relative;
 
 		.section-item {
 			@include shift(1);
 			@include span-columns(10);
-			@include position(absolute, 60% 0 0 0);
+			position: relative;
+			margin: 10rem 0;
+			//@include position(absolute, 55% 0 0 0);
 
 			@include media($bp-medium) {
 				@include shift(6);
-				@include span-columns(6);
+				@include span-columns(5);
 
 				text-align: center;
 			}
@@ -102,10 +126,17 @@ section {
 			img {
 				display: none;
 				@include media($bp-medium) {
-					display: inline;
-					width: 65%;
+					display: block;
+					margin-left: 10%;
+					width: 60%;
 					margin-bottom: em(35);
 				}
+			}
+		}
+
+		h3 {
+			@include media($bp-medium) {
+				font-size: em(30);
 			}
 		}
 
@@ -126,13 +157,11 @@ section {
 		}
 
 		@include media($bp-medium) {
-			@include retina-image('../../images/edyn_web_hero_sensor', 55% auto);
+			@include retina-image('../../images/edyn_web_hero_sensor', 45% auto);
 			background:  {
 				attachment: fixed;
-				position: 0% -75%;
+				position: 10% -30%;
 			}
-			padding-top: 50%;
-			padding-bottom: 50%;
 		}
 	}
 	&.section-app {
@@ -140,10 +169,6 @@ section {
 		color: $section-app-font-color;
 		position: relative;
 
-		@include media($bp-medium) {
-			padding-top: 50%;
-			padding-bottom: 50%;
-		}
 
 		.owl-prev, .owl-next {
 			color: rgba($section-app-font-color, 0.3);
@@ -162,7 +187,7 @@ section {
 		}
 
 		.owl-pagination {
-			@include position(absolute, 45% 0 0 50%);
+			@include position(absolute, 50% 0 0 50%);
 		}
 
 		.carousel {
@@ -171,23 +196,27 @@ section {
 				@include clearfix();
 
 				@include media($bp-medium) {
+					@include fill-parent();
+					margin: 0;
+					padding: 0 0 0 2%;
+
 					@include direction-context(right-to-left) {
 						.carousel-content {
-							@include span-columns(6);
+							@include span-columns(5);
 						}
 
 						img {
-							@include span-columns(5);
+							@include span-columns(6);
 						}
 					}
 
 					.carousel-content {
 						position: absolute;
 						text-align: left;
-						bottom: 10%;
+						top: 50%;
 
 						h3 {
-							font-size: em(20);
+							font-size: em(30);
 						}
 					}
 				}
@@ -221,8 +250,8 @@ section {
 			clear: both;
 			margin-bottom: em(35);
 			@include media($bp-medium) {
-				@include span-columns(8);
-				@include shift(2);
+				@include span-columns(6);
+				@include shift(3);
 			}
 		}
 	}

@@ -10,9 +10,10 @@
 	$button-border-hover: 1.5px solid $button-font-color-hover;
 
 	$button-font-color-alternate: $judge-gray;
-	$button-background-color-hover-alternate: $judge-gray;
-	$button-border-alternate: 1.5px solid $button-font-color-alternate;
-	$button-border-hover-alternate: 1.5px solid $button-background-color-hover-alternate;
+	$button-font-color-alternate-hover: $white;
+	$button-background-color-alternate-hover: $judge-gray;
+	$button-border-alternate: 1.5px solid $judge-gray;
+	$button-border-hover-alternate: 1.5px solid $button-background-color-alternate-hover;
 
 	$social-font-color: $white;
 	$social-background-color: $tuatara;
@@ -96,7 +97,8 @@
 		&:active,
 		&:focus,
 		&:hover {
-			background: $button-background-color-hover-alternate;
+			background: $button-background-color-alternate-hover;
+			color: $button-font-color-alternate-hover;
 		}
 	}
 

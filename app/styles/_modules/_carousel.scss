@@ -34,7 +34,7 @@
 	}
 
 	.owl-pagination {
-		@include position(absolute, 50% 0 0 50%);
+		@include position(absolute, 55% 0 0 50%);
 		@include transform(translateX(-50%));
 	}
 

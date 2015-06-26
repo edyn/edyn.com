@@ -4,13 +4,24 @@
 
 	@include hide-text;
 	@include position(absolute, 2% null null 5%);
-	@include retina-image('../../images/edyn-logo', 127px 35px);
+	@include retina-image('../../images/edyn-logo', 127px 105px);
 	@include size(127px 35px);
+	//@include transition(0.2s background);
+	background-repeat: no-repeat;
+
+	&.white {
+		background-position: 0 -35px;
+	}
+
+	&.dark {
+		background-position: 0 -70px;
+	}
 }
 
 .menu {
 	$menu-action-color: $action-color;
 	$menu-action-color-alternate: $white;
+	$menu-action-color-dark: $judge-gray;
 	$menu-background-color: rgba($black, 0.85);
 	$menu-font-family: $proxima-semibold;
 
@@ -94,7 +105,7 @@
 		}
 	}
 		.menu-item {
-			padding: em(15) 0;
+			padding: em(12) 0;
 			font: {
 				family: $menu-font-family;
 				size: em(20);
@@ -105,7 +116,7 @@
 					font-size: em(18);
 
 					@include media($bp-medium) {
-						font-size: em(14);
+						font-size: em(12);
 					}
 				}
 
@@ -115,7 +126,7 @@
 				}
 
 				@include media($bp-medium) {
-					font-size: em(14);
+					font-size: em(12);
 				}
 			}
 
@@ -151,6 +162,15 @@
 				height: inherit;
 				padding-top: 0;
 				position: relative;
+				right: 5%;
+			}
+		}
+
+		&.dark {
+			.menu-item {
+				a:not(.button) {
+					color: $menu-action-color-dark;
+				}
 			}
 		}
 	}
