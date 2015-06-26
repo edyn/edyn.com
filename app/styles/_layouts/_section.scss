@@ -99,21 +99,21 @@ section {
 		}
 	}
 	&.section-sensor {
-		@include retina-image('../../images/edyn-web-hero-sensor', auto 35rem);
+		@include retina-image('../../images/edyn_web_hero_sensor', auto 35rem);
 		background:  {
 			color: $section-sensor-background-color;
 			position: 50% 5%;
 			repeat: no-repeat;
 		}
 		color: $section-sensor-font-color;
-		padding-top: 10rem;
+		padding-top: 36rem;
 		position: relative;
 
 		.section-item {
 			@include shift(1);
 			@include span-columns(10);
 			position: relative;
-			margin: 10rem 0;
+			//margin: 5rem 0;
 			//@include position(absolute, 55% 0 0 0);
 
 			@include media($bp-medium) {
