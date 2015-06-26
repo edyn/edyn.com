@@ -8,7 +8,7 @@
 		image: url('../../images/edyn-web-hero-top.jpg');
 		position: 50% 50%;
 		repeat: no-repeat;
-		size: auto 100%;
+		size: cover;
 	}
 	background-blend-mode: darken;
 	color: $hero-font-color;
