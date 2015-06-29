@@ -4,7 +4,7 @@
 
 	@include hide-text;
 	@include position(absolute, 2% null null 5%);
-	@include retina-image('../../images/edyn-logo', 127px 105px);
+	@include retina-image('../../images/edyn-logo', 127px 140px);
 	@include size(127px 35px);
 	//@include transition(0.2s background);
 	background-repeat: no-repeat;
@@ -196,6 +196,34 @@
 		@include media($bp-medium) {
 			@include span-columns(6 of 12);
 			margin: 0 0 0 1%;
+		}
+	}
+}
+
+&.about {
+	.logo {
+		background-position: 0 -105px;
+	}
+
+	.menu-icon {
+		span, span::before, span::after {
+			background-color: $white;
+		}
+	}
+
+	.menu-item {
+		a {
+			color: $white;
+		}
+
+		a.button {
+			border-color: $white;
+
+			&:hover {
+				background: $white;
+				border-color: transparent;
+				color: $judge-gray;
+			}
 		}
 	}
 }

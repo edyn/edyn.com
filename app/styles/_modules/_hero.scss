@@ -1,6 +1,8 @@
 .hero {
 	$hero-font-color: $white;
+	$hero-font-color-alternate: $judge-gray;
 	$hero-background-color: rgba($black, 0.3);
+	$hero-background-color-overlay: rgba($amber, 0.7);
 
 	background: {
 		attachment: fixed;
@@ -35,5 +37,31 @@
 			@include shift(2);
 			@include span-columns(8);
 		}
+	}
+
+	span {
+		color: $hero-font-color-alternate;
+		font: {
+			size: em(20);
+			family: $proxima-semibold;
+		}
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+
+	.overlay {
+		background: $hero-background-color-overlay;
+		content: '';
+		display: block;
+		z-index: -1;
+		@include position(absolute, 0 0 0 0);
+		@include size(100%);
+	}
+}
+
+&.about {
+	.hero {
+		background-image: url('../../images/edyn-web-hero-top-yellow.jpg');
+		height: 100vh;
 	}
 }

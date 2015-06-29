@@ -5,3 +5,10 @@
 .container {
 	@include outer-container();
 }
+
+.center {
+	&-vertical {
+		@include position(absolute, 50% 0 null 0);
+		@include transform(translateY(-50%));
+	}
+}

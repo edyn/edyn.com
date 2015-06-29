@@ -141,4 +141,13 @@
 			text-decoration: none;
 		}
 	}
+
+	&-small {
+		width: em(180);
+		font-size: em(18);
+
+		@include media($bp-medium) {
+			width: em(300);
+		}
+	}
 }

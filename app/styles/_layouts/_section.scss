@@ -14,6 +14,15 @@ section {
 	$section-press-font-color: $white;
 	$section-press-background-color: $amber;
 
+	$section-people-font-color: $judge-gray;
+	$section-people-font-color-alternate: $amber;
+	$section-people-background-color: $white;
+	$section-people-background-color-alternate: $desert-storm;
+	$section-people-border-color: $swirl;
+
+	$section-careers-font-color: $white;
+	$section-careers-background-color: $judge-gray;
+
 	padding: em(50) 0;
 	text-align: center;
 	@include clearfix();
@@ -284,5 +293,122 @@ section {
 	&.section-press {
 		background: $section-press-background-color;
 		color: $section-press-font-color;
+	}
+	&.section-people {
+		background: $section-people-background-color;
+		padding-bottom: 0;
+
+		.container {
+			@include fill-parent();
+			max-width: 100%;
+		}
+
+		.section-item {
+			padding-bottom: em(50);
+
+			@include media($bp-medium) {
+				@include span-columns(12);
+
+				p {
+					@include span-columns(6);
+					@include shift(3);
+				}
+
+				h3, h4 {
+					text-align: center;
+				}
+			}
+		}
+
+		.section-item-alternate {
+			padding-top: em(70);
+			background: $section-people-background-color-alternate;
+
+			@include media($bp-medium) {
+				@include span-columns(4 of 12);
+				@include omega();
+
+				p {
+					@include span-columns(12);
+					@include shift(0);
+				}
+			}
+		}
+
+		h2, h3, h4 {
+			font: {
+				family: $proxima-light;
+				weight: normal;
+			}
+		}
+		h2 {
+			color: $section-people-font-color;
+			font-size: em(32);
+			letter-spacing: 1px;
+			margin-bottom: em(30);
+			text-align: center;
+
+			&::after {
+				content: '';
+				display: block;
+				margin: 0.25em auto 0;
+				height: 1px;
+				width: em(30);
+				background: $section-people-border-color;
+			}
+		}
+
+		h3, h4 {
+			font-size: em(24);
+			margin-bottom: 0;
+
+			@include media($bp-medium) {
+				font-size: em(20);
+				text-align: left;
+				@include span-columns(12);
+				@include shift(0);
+			}
+		}
+
+		h4 {
+			color: $section-people-font-color-alternate;
+			margin-bottom: 1em;
+		}
+
+		p {
+			font-size: em(18);
+			padding: 0 em(20);
+
+			@include media($bp-medium) {
+				font-size: em(16);
+				text-align: left;
+			}
+		}
+
+		.image-wrapper {
+			display: block;
+			border-radius: 50%;
+			margin: 0 auto em(50);
+			overflow: hidden;
+			@include size(em(250));
+		}
+	}
+	&.section-careers {
+		background: {
+			color: $section-careers-background-color;
+			image: url('../../images/edyn_web_hero_comework-portrait.jpg');
+			position: 50% top;
+			repeat: no-repeat;
+			size: cover;
+		}
+		height: 90vh;
+		position: relative;
+		@include media($bp-medium) {
+			background-image: url('../../images/edyn_web_hero_comework.jpg');
+			background-position: 50% top;
+		}
+		h2 {
+			color: $section-careers-font-color;
+		}
 	}
 }
