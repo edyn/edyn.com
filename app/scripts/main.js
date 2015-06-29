@@ -98,11 +98,11 @@
 		//--- END bind parallax data
 
 		// Init parallax plugin
-		skrollr.init({
-			render: function(data) {
-				console.log(data.curTop);
-			}
-		});
+		// skrollr.init({
+		// 	render: function(data) {
+		// 		console.log(data.curTop);
+		// 	}
+		// });
 		//--- END parallax plugin
 	}
 

@@ -4,6 +4,11 @@
 
 .container {
 	@include outer-container();
+
+	&-full {
+		@include fill-parent();
+		max-width: 100%;
+	}
 }
 
 .center {
@@ -11,4 +16,8 @@
 		@include position(absolute, 50% 0 null 0);
 		@include transform(translateY(-50%));
 	}
+}
+
+.clearfix {
+	clear: both;
 }
