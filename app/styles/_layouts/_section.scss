@@ -156,7 +156,7 @@ section {
 				@include span-columns(5);
 
 				text-align: left;
-				margin-bottom: 20vh;
+				margin-bottom: 40vh;
 			}
 
 			img {
@@ -214,6 +214,10 @@ section {
 		color: $section-app-font-color;
 		position: relative;
 
+		@include media($bp-medium) {
+			padding-bottom: 60vh;
+		}
+
 
 		.owl-prev, .owl-next {
 			color: rgba($section-app-font-color, 0.3);
@@ -236,14 +240,16 @@ section {
 		}
 
 		.carousel {
+			position: relative;
 			.carousel-item {
-				position: relative;
 				@include clearfix();
 
 				@include media($bp-medium) {
 					@include fill-parent();
 					margin: 0;
 					padding: 9vh 4% 0 2%;
+					margin-top: 60vh;
+					position: relative;
 
 					@include direction-context(right-to-left) {
 						.carousel-content {
@@ -258,7 +264,6 @@ section {
 					.carousel-content {
 						position: absolute;
 						text-align: left;
-						top: 40vh;
 
 						h3 {
 							font-size: em(24);

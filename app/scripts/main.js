@@ -72,37 +72,69 @@
 		//--- END carousel
 
 		// Bind Parallax data
-		jQuery('.section-sensor').attr('data-0-top', 'background-position: 10% -30%;');
-		jQuery('.section-sensor').attr('data-100-top-bottom', 'background-position: 10% -10%;');
+		jQuery('.hero .container').attr('data-0-top-top', 'opacity: 1; top: 0%; position: relative;');
+		jQuery('.hero .container').attr('data-0p-top-center', 'opacity: 0; top: -20%; position: relative;');
 
-		jQuery('.section-sensor .section-item').attr('data-0-top-top', 'opacity: 1;');
-		jQuery('.section-sensor .section-item').attr('data--100-top-top', 'opacity: 0;');
+		jQuery('.section-sensor .section-item:first').attr('data-0-bottom-bottom', 'opacity: 0; position: relative; top: 40vh;');
+		jQuery('.section-sensor .section-item:first').attr('data--20p-bottom-bottom', 'opacity: 1; position: relative; top: 20vh;');
+		jQuery('.section-sensor .section-item:first').attr('data-0p-top-top', 'opacity: 1; position: relative; top: 20vh;');
+		jQuery('.section-sensor .section-item:first').attr('data--20p-top-top', 'opacity: 0; position: relative; top: 0vh;');
 
-		jQuery('.section-app .carousel-item-1').attr('data--50p-top-bottom', 'opacity: 0;');
-		jQuery('.section-app .carousel-item-1').attr('data--40p-top-bottom', 'opacity: 1;');
-		jQuery('.section-app .carousel-item-1').attr('data-0-top-bottom', 'opacity: 1;');
-		jQuery('.section-app .carousel-item-1').attr('data-10p-top-bottom', 'opacity: 0;');
-		jQuery('.section-app .carousel-item-1').attr('data-anchor-target', '.carousel-item-1 h3');
+		jQuery('.section-sensor .section-item').eq(1).attr('data-0-bottom-bottom', 'opacity: 0; position: relative; top: 20vh;');
+		jQuery('.section-sensor .section-item').eq(1).attr('data--20p-bottom-bottom', 'opacity: 1; position: relative; top: 0vh;');
+		jQuery('.section-sensor .section-item').eq(1).attr('data-0p-top-top', 'opacity: 1; position: relative; top: 0vh;');
+		jQuery('.section-sensor .section-item').eq(1).attr('data--20p-top-top', 'opacity: 0; position: relative; top: -20vh;');
 
-		jQuery('.section-app .carousel-item-2').attr('data--200p-top-bottom', 'opacity: 0;');
-		jQuery('.section-app .carousel-item-2').attr('data--190p-top-bottom', 'opacity: 1;');
-		jQuery('.section-app .carousel-item-2').attr('data--150p-top-bottom', 'opacity: 1;');
-		jQuery('.section-app .carousel-item-2').attr('data--140p-top-bottom', 'opacity: 0;');
-		jQuery('.section-app .carousel-item-2').attr('data-anchor-target', '.carousel-item-2 h3');
+		jQuery('.section-sensor').attr('data-80p-top-top', 'background-position: 10% 100vh;');
+		jQuery('.section-sensor').attr('data-20p-top-top', 'background-position: 10% 30vh; background-attachment: fixed;');
+		jQuery('.section-sensor').attr('data--80p-top-top', 'background-position: 10% 15vh; background-attachment: fixed;');
+		jQuery('.section-sensor').attr('data--120p-top-top', 'background-position: 10% 0vh; ');
 
-		jQuery('.section-app .carousel-item-3').attr('data--350p-top-bottom', 'opacity: 0;');
-		jQuery('.section-app .carousel-item-3').attr('data--340p-top-bottom', 'opacity: 1;');
-		jQuery('.section-app .carousel-item-3').attr('data--290p-top-bottom', 'opacity: 1;');
-		jQuery('.section-app .carousel-item-3').attr('data--280p-top-bottom', 'opacity: 0;');
-		jQuery('.section-app .carousel-item-3').attr('data-anchor-target', '.carousel-item-3 h3');
+		jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data-0p-bottom-bottom', 'opacity: 0;');
+		jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data--20p-bottom-bottom', 'opacity: 1;');
+		jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data-0p-top-top', 'opacity: 1;');
+		jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
+		jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data-anchor-target', '.carousel-item-1');
+
+		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data--10p-bottom-bottom', 'opacity: 0; position: fixed; right: 0; top: 100vh;');
+		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data--20p-bottom-bottom', 'opacity: 1; top: 10vh;');
+		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data-0p-top-top', 'opacity: 1;');
+		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data--10p-top-top', 'opacity: 0;');
+		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data-anchor-target', '.carousel-item-1');
+
+		jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data-0p-bottom-bottom', 'opacity: 0;');
+		jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data--20p-bottom-bottom', 'opacity: 1;');
+		jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data-0p-top-top', 'opacity: 1;');
+		jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
+		jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data-anchor-target', '.carousel-item-2');
+
+		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data-0p-bottom-bottom', 'opacity: 0; position: fixed; right: 0; top: 10vh;');
+		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data--20p-bottom-bottom', 'opacity: 1;');
+		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data-0p-top-top', 'opacity: 1;');
+		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data--10p-top-top', 'opacity: 0;');
+		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data-anchor-target', '.carousel-item-2');
+
+		jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data-0p-bottom-bottom', 'opacity: 0;');
+		jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data--20p-bottom-bottom', 'opacity: 1;');
+		jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data-0p-top-top', 'opacity: 1;');
+		jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
+		jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data-anchor-target', '.carousel-item-3');
+
+		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data-0p-bottom-bottom', 'opacity: 0; position: fixed; right: 0; top: 10vh;');
+		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data--20p-bottom-bottom', 'opacity: 1;');
+		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data-0p-top-top', 'opacity: 1;');
+		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data--10p-top-top', 'opacity: 0;');
+		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data-anchor-target', '.carousel-item-3');
+
+
 		//--- END bind parallax data
 
 		// Init parallax plugin
-		// skrollr.init({
-		// 	render: function(data) {
-		// 		console.log(data.curTop);
-		// 	}
-		// });
+		skrollr.init({
+			render: function(data) {
+				console.log(data.curTop);
+			}
+		});
 		//--- END parallax plugin
 	}
 
