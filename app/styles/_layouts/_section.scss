@@ -154,6 +154,7 @@ section {
 
 						img {
 							@include span-columns(5 of 12);
+							display: none;
 						}
 					}
 
@@ -174,6 +175,17 @@ section {
 				}
 			}
 		}
+
+		// .device {
+		// 	display: none;
+		// 	@include media($bp-medium) {
+		// 		display: block;
+		// 		position: fixed; top: 10vh;
+		// 		@include direction-context(right-to-left) {
+		// 			@include span-columns(5 of 12);
+		// 		}
+		// 	}
+		// }
 	}
 	&.section-valve {
 		position: relative;
