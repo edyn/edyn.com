@@ -112,8 +112,8 @@
 		jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
 		jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data-anchor-target', '.carousel-item-2');
 
-		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data-0p-bottom-bottom', 'opacity: 0; position: fixed; right: 0; top: 10vh;');
-		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data--20p-bottom-bottom', 'opacity: 1;');
+		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data--10p-bottom-bottom', 'opacity: 0; right: 0; top: 20vh;');
+		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data--60p-bottom-bottom', 'opacity: 1; position: fixed; top: 10vh;');
 		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data-0p-top-top', 'opacity: 1;');
 		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data--10p-top-top', 'opacity: 0;');
 		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data-anchor-target', '.carousel-item-2');
@@ -124,8 +124,8 @@
 		jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
 		jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data-anchor-target', '.carousel-item-3');
 
-		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data-0p-bottom-bottom', 'opacity: 0; position: fixed; right: 0; top: 10vh;');
-		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data--20p-bottom-bottom', 'opacity: 1;');
+		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data--10p-bottom-bottom', 'opacity: 0; right: 0; top: 20vh;');
+		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data--60p-bottom-bottom', 'opacity: 1; position: fixed; top: 10vh;');
 		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data-0p-top-top', 'opacity: 1;');
 		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data--10p-top-top', 'opacity: 0;');
 		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data-anchor-target', '.carousel-item-3');
