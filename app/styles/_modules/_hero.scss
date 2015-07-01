@@ -20,7 +20,7 @@
 			position: 50% 50%;
 			repeat: no-repeat;
 			size: cover;
-			blend-mode: darken
+			//blend-mode: darken
 		}
 	}
 
@@ -30,17 +30,17 @@
 		@include position(fixed, 0 0 0 0);
 
 		background: {
-			attachment: fixed;
+			//attachment: fixed;
 			color: $hero-background-color;
 			image: url('../../images/edyn-web-hero-top.jpg');
 			position: 50% 50%;
 			repeat: no-repeat;
 			size: cover;
-			blend-mode: darken
+			//blend-mode: darken
 		}
 		width: 100%;
 	  	height: 100%;
-	  	min-height: 100vh;
+	  	//min-height: 100vh;
 	  	//@include transition(all 2.0s);
 
 	  	&::after {
@@ -51,7 +51,7 @@
 	  		@include size(100%);
 	  		z-index: -999;
 	  		background: {
-				attachment: fixed;
+				//attachment: fixed;
 				color: $hero-background-color;
 				image: url('../../images/edyn-web-hero-top-blurred.jpg');
 				position: 50% 50%;
