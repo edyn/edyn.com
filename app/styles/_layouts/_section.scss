@@ -176,6 +176,7 @@ section {
 		}
 	}
 	&.section-valve {
+		position: relative;
 		@include retina-image('../../images/edyn_web_hero_valve', 480px 480px);
 		background:  {
 			color: $section-valve-background-color;
@@ -239,6 +240,7 @@ section {
 	&.section-press {
 		background: $section-press-background-color;
 		color: $section-press-font-color;
+		position: relative;
 	}
 	&.section-people {
 		background: $section-people-background-color;

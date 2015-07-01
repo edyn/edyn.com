@@ -139,7 +139,7 @@
 
 			@include media($bp-medium) {
 				font-size: em(32);
-				margin-bottom: em(50);
+				margin-bottom: em(25);
 			}
 		}
 
@@ -161,20 +161,32 @@
 			}
 
 			@include media($bp-medium) {
-				height: 28vh;
+				height: 100%;
 				width: auto;
+
+				// &.svg-sensor {
+				// 	height: 150%;
+				// 	position: relative;
+				// 	margin-top: -50%;
+				// }
+
+				// &.svg-app, &.svg-valve {
+				// 	position:relative;
+				// 	top: -32.5%;
+				// }
 			}
 		}
 
 		.carousel {
 			@include media($bp-medium) {
-				padding-top: 10%;
+				padding-top: 0%;
 			}
 		}
 
 		.carousel-item {
 			opacity: 0;
 			@include media($bp-medium) {
+				// padding-top: 25.5%;
 				position: relative;
 				&::after {
 					content: "";
@@ -182,6 +194,12 @@
 					@include size(134px 26px);
 					@include position(absolute, 25% null null 90%);
 					@include retina-image('../../images/edyn-web-hero-arrow', 134px 26px);
+				}
+			}
+
+			.carousel-image {
+				@include media($bp-medium) {
+					height: 30vh;
 				}
 			}
 
@@ -208,6 +226,20 @@
 					display: none;
 				}
 			}
+		}
+
+		.owl-pagination {
+			@include position(absolute, 60% 0 0 50%);
+		}
+
+		.owl-prev {
+			@include position(absolute, 40% null null 0%);
+			@include transform(translateY(-50%));
+		}
+
+		.owl-next {
+			@include position(absolute, 40% 0% null null);
+			@include transform(translateY(-50%));
 		}
 	}
 }
