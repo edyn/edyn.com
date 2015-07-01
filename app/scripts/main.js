@@ -3,6 +3,11 @@
 
 	// Whatever happens for resolutions under 47.5em
 	if (window.matchMedia('(max-width: 47.5em)').matches) {
+		// Fixing the jumpy background image due to "vh" unit
+		var hero = $('.hero');
+    	var h = window.innerHeight;
+    	hero.css('min-height', h);
+
 		// Mobile hamburger menu events
 			var headerMenuList = jQuery('.menu-header ul');
 			var footerMenuElements = jQuery('.menu-footer li').clone();
