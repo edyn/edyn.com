@@ -4,9 +4,9 @@
 	// Whatever happens for resolutions under 47.5em
 	if (window.matchMedia('(max-width: 47.5em)').matches) {
 		// Fixing the jumpy background image due to "vh" unit
-		var hero = $('.hero');
+		var heroBg = $('.hero-background');
     	var h = window.innerHeight;
-    	hero.css('min-height', h);
+    	heroBg.css('min-height', h);
 
 		// Mobile hamburger menu events
 			var headerMenuList = jQuery('.menu-header ul');
@@ -19,7 +19,7 @@
 		//--- END mobile hamburger menu
 
 		// Carousel activation
-		jQuery('.section-system .carousel').owlCarousel({
+		jQuery('.hero-content .carousel').owlCarousel({
 			navigation: true,
 			navigationText: false,
 			items: 3,
@@ -65,7 +65,7 @@
 			itemsMobile: [480, 1]
 		});
 
-		jQuery('.section-system .carousel').owlCarousel({
+		jQuery('.hero-content .carousel').owlCarousel({
 			navigation: true,
 			navigationText: false,
 			items: 3,
@@ -77,8 +77,18 @@
 		//--- END carousel
 
 		// Bind Parallax data
-		jQuery('.hero .container').attr('data-0-top-top', 'opacity: 1; top: 0%; position: relative;');
-		jQuery('.hero .container').attr('data-0p-top-center', 'opacity: 0; top: -20%; position: relative;');
+		jQuery('.hero .hero-content').eq(0).find('a').attr('data-0p-bottom-bottom', 'opacity: 1; ');
+		jQuery('.hero .hero-content').eq(0).find('a').attr('data--50p-bottom-bottom', 'opacity: 0;');
+		jQuery('.hero .hero-content').eq(0).find('a').attr('data-anchor-target', '.hero-content');
+		jQuery('.hero .hero-content').eq(0).find('h2').attr('data-0p-bottom-bottom', 'opacity: 1; ');
+		jQuery('.hero .hero-content').eq(0).find('h2').attr('data--50p-bottom-bottom', 'opacity: 0;');
+		jQuery('.hero .hero-content').eq(0).find('h2').attr('data-anchor-target', '.hero-content');
+		jQuery('.hero .hero-content').eq(0).find('p').attr('data-0p-bottom-bottom', 'opacity: 1; ');
+		jQuery('.hero .hero-content').eq(0).find('p').attr('data--50p-bottom-bottom', 'opacity: 0;');
+		jQuery('.hero .hero-content').eq(0).find('p').attr('data-anchor-target', '.hero-content');
+
+		jQuery('.hero-background').attr('data-0p-top-top', 'opacity: 1;');
+		jQuery('.hero-background').attr('data--10p-top-top', 'opacity: 0;');
 
 		jQuery('.section-sensor .section-item:first').attr('data-0-bottom-bottom', 'opacity: 0; position: relative; top: 40vh;');
 		jQuery('.section-sensor .section-item:first').attr('data--20p-bottom-bottom', 'opacity: 1; position: relative; top: 20vh;');
@@ -101,8 +111,8 @@
 		jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
 		jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data-anchor-target', '.carousel-item-1');
 
-		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data--10p-bottom-bottom', 'opacity: 0; position: fixed; right: 0; top: 100vh;');
-		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data--20p-bottom-bottom', 'opacity: 1; top: 10vh;');
+		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data--10p-bottom-bottom', 'opacity: 0; right: 0; top: 20vh;');
+		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data--60p-bottom-bottom', 'opacity: 1; position: fixed; top: 10vh;');
 		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data-0p-top-top', 'opacity: 1;');
 		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data--10p-top-top', 'opacity: 0;');
 		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data-anchor-target', '.carousel-item-1');
@@ -143,17 +153,17 @@
 		//--- END parallax plugin
 	}
 
-	// Everything that will be loaded for any resolution
-	// Press accordion events
-		jQuery('.accordion-picture').click(function() {
-			var accordion = jQuery(this).parents('.accordion:first'),
-				element = jQuery(this).parents('.accordion-item:first');
+	// // Everything that will be loaded for any resolution
+	// // Press accordion events
+	// 	jQuery('.accordion-picture').click(function() {
+	// 		var accordion = jQuery(this).parents('.accordion:first'),
+	// 			element = jQuery(this).parents('.accordion-item:first');
 
-			accordion.find('.accordion-target').text(element.text());
-			accordion.find('.is-active').removeClass('is-active');
-			element.addClass('is-active');
-		});
-	//--- END press accordion
+	// 		accordion.find('.accordion-target').text(element.text());
+	// 		accordion.find('.is-active').removeClass('is-active');
+	// 		element.addClass('is-active');
+	// 	});
+	// //--- END press accordion
 
 	// Transitions
 	function onScroll(){
@@ -165,7 +175,7 @@
 			menu = jQuery('.menu-header'),
 			logo = jQuery('.logo');
 
-		if(systemSection.position().top <= scrollPosition && systemSection.position().top + systemSection.outerHeight() > scrollPosition) {
+		if(systemSection.position().top <= scrollPosition + 200 && systemSection.position().top + systemSection.outerHeight() > scrollPosition + 200) {
 			jQuery(systemSection.find('.carousel-item')).each(function(i) {
 				jQuery(this).addClass('animated slideInUp' + (i + 1));
 			});
