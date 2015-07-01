@@ -6,7 +6,7 @@
 		// Fixing the jumpy background image due to "vh" unit
 		var heroBg = $('.hero-background');
     	var h = window.innerHeight;
-    	heroBg.css('min-height', h);
+    	heroBg.css('height', h);
 
 		// Mobile hamburger menu events
 			var headerMenuList = jQuery('.menu-header ul');
@@ -76,17 +76,6 @@
 		});
 		//--- END carousel
 
-		// Bind Parallax data
-		jQuery('.hero .hero-content').eq(0).find('a').attr('data-0p-bottom-bottom', 'opacity: 1; ');
-		jQuery('.hero .hero-content').eq(0).find('a').attr('data--50p-bottom-bottom', 'opacity: 0;');
-		jQuery('.hero .hero-content').eq(0).find('a').attr('data-anchor-target', '.hero-content');
-		jQuery('.hero .hero-content').eq(0).find('h2').attr('data-0p-bottom-bottom', 'opacity: 1; ');
-		jQuery('.hero .hero-content').eq(0).find('h2').attr('data--50p-bottom-bottom', 'opacity: 0;');
-		jQuery('.hero .hero-content').eq(0).find('h2').attr('data-anchor-target', '.hero-content');
-		jQuery('.hero .hero-content').eq(0).find('p').attr('data-0p-bottom-bottom', 'opacity: 1; ');
-		jQuery('.hero .hero-content').eq(0).find('p').attr('data--50p-bottom-bottom', 'opacity: 0;');
-		jQuery('.hero .hero-content').eq(0).find('p').attr('data-anchor-target', '.hero-content');
-
 		jQuery('.hero-background').attr('data-0p-top-top', 'opacity: 1;');
 		jQuery('.hero-background').attr('data--10p-top-top', 'opacity: 0;');
 
@@ -140,18 +129,34 @@
 		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data-0p-top-top', 'opacity: 1;');
 		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data--10p-top-top', 'opacity: 0;');
 		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data-anchor-target', '.carousel-item-3');
-
-
-		//--- END bind parallax data
-
-		// Init parallax plugin
-		skrollr.init({
-			render: function(data) {
-				console.log(data.curTop);
-			}
-		});
-		//--- END parallax plugin
 	}
+
+	jQuery('.hero .hero-content').eq(0).find('a').attr('data-0p-bottom-bottom', 'opacity: 1; ');
+	jQuery('.hero .hero-content').eq(0).find('a').attr('data--50p-bottom-bottom', 'opacity: 0;');
+	jQuery('.hero .hero-content').eq(0).find('a').attr('data-anchor-target', '.hero-content');
+	jQuery('.hero .hero-content').eq(0).find('h2').attr('data-0p-bottom-bottom', 'opacity: 1; ');
+	jQuery('.hero .hero-content').eq(0).find('h2').attr('data--50p-bottom-bottom', 'opacity: 0;');
+	jQuery('.hero .hero-content').eq(0).find('h2').attr('data-anchor-target', '.hero-content');
+	jQuery('.hero .hero-content').eq(0).find('p').attr('data-0p-bottom-bottom', 'opacity: 1; ');
+	jQuery('.hero .hero-content').eq(0).find('p').attr('data--50p-bottom-bottom', 'opacity: 0;');
+	jQuery('.hero .hero-content').eq(0).find('p').attr('data-anchor-target', '.hero-content');
+
+
+
+
+	//--- END bind parallax data
+
+	// Init parallax plugin
+	skrollr.init({
+		render: function(data) {
+			console.log(data.curTop);
+		},
+		mobileCheck: function() {
+            //hack - forces mobile version to be off
+            return false;
+        }
+	});
+	//--- END parallax plugin
 
 	// // Everything that will be loaded for any resolution
 	// // Press accordion events
@@ -173,7 +178,8 @@
 			appSection = jQuery('.section-app'),
 			valveSection = jQuery('.section-valve'),
 			menu = jQuery('.menu-header'),
-			logo = jQuery('.logo');
+			logo = jQuery('.logo'),
+			hero = jQuery('.hero');
 
 		if(systemSection.position().top <= scrollPosition + 200 && systemSection.position().top + systemSection.outerHeight() > scrollPosition + 200) {
 			jQuery(systemSection.find('.carousel-item')).each(function(i) {
@@ -192,6 +198,14 @@
 			logo.removeClass('white');
 			menu.removeClass('dark');
 			menu.find('.button').removeClass('button-alternate');
+		}
+
+		if (window.matchMedia('(max-width: 47.5em)').matches) {
+			if(scrollPosition <= 0) {
+				hero.find('.hero-background').removeClass('blurred');
+			} else {
+				hero.find('.hero-background').addClass('blurred');
+			}
 		}
 	}
 	jQuery(document).on('scroll', onScroll);
