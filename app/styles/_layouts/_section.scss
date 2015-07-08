@@ -6,7 +6,7 @@ section {
 	$section-sensor-background-color: $amber;
 
 	$section-app-font-color: $judge-gray;
-	$section-app-background-color: $desert-storm;
+	$section-app-background-color: $white;
 
 	$section-valve-font-color: $judge-gray;
 	$section-valve-background-color: $ebb;
@@ -39,7 +39,7 @@ section {
 			repeat: no-repeat;
 		}
 		color: $section-sensor-font-color;
-		padding-top: 150%;
+		padding-top: 190%;
 		position: relative;
 
 		.section-item {
@@ -52,7 +52,7 @@ section {
 				@include span-columns(5);
 
 				text-align: left;
-				margin-bottom: 40vh;
+				margin-bottom: 20vh;
 			}
 
 			img {
@@ -75,6 +75,7 @@ section {
 		h3, p {
 			@include media($bp-medium) {
 				text-align: left;
+					@include span-columns(10);
 			}
 		}
 
@@ -84,12 +85,11 @@ section {
 			@include media($bp-medium) {
 				font-size: em(14);
 				line-height: 1.3em;
-				@include span-columns(10);
 			}
 		}
 
 		.button {
-			display: none;
+			// display: none;
 			@include media($bp-medium) {
 				display: block;
 				margin: 0;
@@ -132,7 +132,11 @@ section {
 		}
 
 		.owl-pagination {
-			@include position(absolute, 50% 0 0 50%);
+			@include position(absolute, 44% 0 0 50%);
+
+			@include media($bp-medium) {
+				@include position(absolute, 50% 0 0 50%);
+			}
 		}
 
 		.carousel {
@@ -200,9 +204,14 @@ section {
 
 		@include media($bp-medium) {
 			@include retina-image('../../images/edyn_web_hero_valve', 700px 700px);
-			background-position: 50% em(300);
+			background-position: 50% 50vh;
 			padding-top: 15vh;
 			height: 100vh;
+		}
+
+		@include media($bp-large) {
+			background-position: 50% 110%;
+			background-size: 65vh;
 		}
 
 		h3 {

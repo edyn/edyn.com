@@ -2,10 +2,11 @@
 	padding: em(30) 0;
 }
 	.accordion-item {
-		padding-bottom: em(15);
+		padding-bottom: em(30);
 
 		@include media($bp-medium) {
 			display: inline;
+			padding-bottom: em(15);
 		}
 
 		&.is-active {
@@ -20,6 +21,10 @@
 			.accordion-picture {
 				opacity: 1;
 			}
+		}
+
+		blockquote {
+			padding-bottom: 10px;
 		}
 	}
 		.accordion-content {
@@ -37,6 +42,7 @@
 			display: none;
 			@include media($bp-medium) {
 				@extend blockquote;
+				font-size: 30px;
 				display: block;
 				margin: em(20) 0 em(30) 0;
 			}

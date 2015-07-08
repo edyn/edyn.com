@@ -2,6 +2,12 @@
 // 	@include size(100% 100%);
 // }
 
+body.no-scroll {
+	overflow: hidden;
+	position: fixed;
+	height: 100vh !important;
+}
+
 .container {
 	@include outer-container();
 

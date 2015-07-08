@@ -21,7 +21,19 @@ footer {
 		padding-top: em(20);
 
 		@include media($bp-medium) {
-			padding-top: em(50);
+			margin-top: 8%;
+			position: relative;
+			top: 2%;
+		}
+	}
+
+	.menu {
+		@include media($bp-medium) {
+			@include position(absolute, 50% null null 1%);
+			@include transform(translateY(-50%));
+			margin: 0;
+			padding: 0;
+			width: initial;
 		}
 	}
 
@@ -30,8 +42,12 @@ footer {
 
 		@include media($bp-medium) {
 			@include span-columns(6 of 12);
-			margin: 1% 1% 0 0;
+			@include position(absolute, 50% 1% null null);
+			@include transform(translateY(-50%));
+			margin: 0;
+			padding: 0;
 			text-align: right;
+			width: initial;
 		}
 	}
 
@@ -40,8 +56,11 @@ footer {
 		@include span-columns(12);
 
 		@include media($bp-medium) {
-			position: absolute;
-			top: 15%;
+			@include position(absolute, 50% null null 50%);
+			@include transform(translate(-50%, -50%));
+			margin: 0;
+			padding: 0;
+			width: initial;
 		}
 	}
 }
