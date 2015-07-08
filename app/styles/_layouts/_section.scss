@@ -204,7 +204,7 @@ section {
 
 		@include media($bp-medium) {
 			@include retina-image('../../images/edyn_web_hero_valve', 700px 700px);
-			background-position: 50% 50vh;
+			background-position: 50% em(300);
 			padding-top: 15vh;
 			height: 100vh;
 		}
