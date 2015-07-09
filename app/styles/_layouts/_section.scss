@@ -39,7 +39,7 @@ section {
 			repeat: no-repeat;
 		}
 		color: $section-sensor-font-color;
-		padding-top: 190%;
+		padding-top: 160%;
 		position: relative;
 
 		.section-item {
@@ -132,7 +132,7 @@ section {
 		}
 
 		.owl-pagination {
-			@include position(absolute, 44% 0 0 50%);
+			@include position(absolute, 45.5% 0 null 50%);
 
 			@include media($bp-medium) {
 				@include position(absolute, 50% 0 0 50%);
@@ -200,7 +200,7 @@ section {
 			repeat: no-repeat;
 		}
 		color: $section-valve-font-color;
-		padding-bottom: em(290);
+		padding-bottom: em(260);
 
 		@include media($bp-medium) {
 			@include retina-image('../../images/edyn_web_hero_valve', 700px 700px);
@@ -215,6 +215,9 @@ section {
 		}
 
 		h3 {
+			@include span-columns(10);
+			@include shift(1);
+
 			@include media($bp-medium) {
 				@include span-columns(6);
 				@include shift(3);
@@ -224,6 +227,9 @@ section {
 		p {
 			clear: both;
 			margin-bottom: em(35);
+			@include span-columns(10);
+			@include shift(1);
+
 			@include media($bp-medium) {
 				@include span-columns(6);
 				@include shift(3);

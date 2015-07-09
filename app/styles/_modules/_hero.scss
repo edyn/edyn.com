@@ -11,17 +11,16 @@
 	padding-top: 50%;
 
 	@include media($bp-medium) {
-		padding-top: 35%;
-	}
-
-	background: {
-		attachment: fixed;
-		color: $hero-background-color;
-		image: url('../../images/edyn-web-hero-top-blurred.jpg');
-		position: 50% 50%;
-		repeat: no-repeat;
-		size: cover;
-		//blend-mode: darken
+		padding-top: 30%;
+		background: {
+			attachment: fixed;
+			color: $hero-background-color;
+			image: url('../../images/edyn-web-hero-top-blurred.jpg');
+			position: 50% 50%;
+			repeat: no-repeat;
+			size: cover;
+			//blend-mode: darken
+		}
 	}
 
 	&-background {
@@ -59,7 +58,7 @@
 				size: cover;
 				blend-mode: darken
 			}
-			@include transition(opacity 0.1s);
+			@include transition(opacity 1s);
 	  	}
 
 	  	&.blurred {
@@ -111,7 +110,7 @@
 	}
 
 	p {
-		@include span-columns(12);
+		padding: 0 5%;
 	}
 
 	p {

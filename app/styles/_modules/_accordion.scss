@@ -33,6 +33,7 @@
 		.accordion-picture {
 			cursor: pointer;
 			opacity: 0.4;
+			vertical-align: middle;
 
 			@include media($bp-medium) {
 				margin: 0 em(25);
