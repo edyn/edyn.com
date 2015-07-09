@@ -221,19 +221,19 @@
 		}
 	}
 
-	if(jQuery('.home .hero .hero-content').eq(0).find('a').find('img').length) {
+	if(jQuery('.home .hero .hero-content').eq(0).find('a').length) {
 		jQuery('.hero .hero-content').eq(0).find('a').attr('data-0p-bottom-bottom', 'opacity: 1; ');
 		jQuery('.hero .hero-content').eq(0).find('a').attr('data--90p-bottom-bottom', 'opacity: 0;');
 		jQuery('.hero .hero-content').eq(0).find('a').attr('data-anchor-target', '.hero-content');
 	}
 
-	if(jQuery('.home .hero .hero-content').eq(0).find('h2').find('img').length) {
+	if(jQuery('.home .hero .hero-content').eq(0).find('h2').length) {
 		jQuery('.hero .hero-content').eq(0).find('h2').attr('data-0p-bottom-bottom', 'opacity: 1; ');
 		jQuery('.hero .hero-content').eq(0).find('h2').attr('data--90p-bottom-bottom', 'opacity: 0;');
 		jQuery('.hero .hero-content').eq(0).find('h2').attr('data-anchor-target', '.hero-content');
 	}
 
-	if(jQuery('.home .hero .hero-content').eq(0).find('p').find('img').length) {
+	if(jQuery('.home .hero .hero-content').eq(0).find('p').length) {
 		jQuery('.hero .hero-content').eq(0).find('p').attr('data-0p-bottom-bottom', 'opacity: 1; ');
 		jQuery('.hero .hero-content').eq(0).find('p').attr('data--90p-bottom-bottom', 'opacity: 0;');
 		jQuery('.hero .hero-content').eq(0).find('p').attr('data-anchor-target', '.hero-content');
