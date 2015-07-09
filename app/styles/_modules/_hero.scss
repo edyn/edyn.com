@@ -59,6 +59,10 @@
 				blend-mode: darken
 			}
 			@include transition(opacity 1s);
+
+			@include media($bp-medium) {
+				display: none;
+			}
 	  	}
 
 	  	&.blurred {
