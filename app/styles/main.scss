@@ -1,8 +1,3 @@
-// bower:scss
-@import "bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
-@import "bower_components/neat/app/assets/stylesheets/_neat.scss";
-// endbower
-
 // Frameworks
 @import "../../bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "../../bower_components/neat/app/assets/stylesheets/neat";
@@ -28,3 +23,6 @@
 @import "_modules/hero";
 @import "_modules/carousel";
 @import "_modules/accordion";
+
+// Plugins
+@import "_plugins/owl";
