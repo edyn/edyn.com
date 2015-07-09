@@ -201,6 +201,10 @@
 &.about {
 	.logo {
 		background-position: 0 -105px;
+
+		&.dark {
+			background-position: 0 -70px;
+		}
 	}
 
 	.menu-icon {
@@ -223,6 +227,20 @@
 				background: $white;
 				border-color: transparent;
 				color: $judge-gray;
+			}
+		}
+	}
+
+	.menu-header {
+		&.dark {
+			.menu-item {
+				a {
+					color: $judge-gray;
+				}
+
+				a.button {
+					border-color: $judge-gray;
+				}
 			}
 		}
 	}

@@ -284,12 +284,12 @@ section {
 					display: block;
 
 					.section-image {
-						@include span-columns(4);
-						@include shift(2);
+						@include span-columns(5);
+						@include shift(1);
 					}
 
 					.section-content {
-						@include span-columns(4);
+						@include span-columns(5);
 						margin-top: em(75);
 					}
 

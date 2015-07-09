@@ -20,36 +20,42 @@
 		//--- END mobile hamburger menu
 
 		// Carousel activation
-		jQuery('.hero-content .carousel').owlCarousel({
-			navigation: true,
-			navigationText: false,
-			items: 3,
-			itemsDesktop: [1000, 3],
-			itemsDesktopSmall: [900, 3],
-			itemsTablet: [600, 1],
-			itemsMobile: [480, 1]
-		});
+		if(jQuery('.hero-content .carousel').length) {
+			jQuery('.hero-content .carousel').owlCarousel({
+				navigation: true,
+				navigationText: false,
+				items: 3,
+				itemsDesktop: [1000, 3],
+				itemsDesktopSmall: [900, 3],
+				itemsTablet: [600, 1],
+				itemsMobile: [480, 1]
+			});
+		}
 
-		jQuery('.section-app .carousel').owlCarousel({
-			navigation: true,
-			navigationText: false,
-			items: 3,
-			itemsDesktop: [1000, 3],
-			itemsDesktopSmall: [900, 3],
-			itemsTablet: [600, 1],
-			itemsMobile: [480, 1]
-		});
+		if(jQuery('.section-app .carousel').length) {
+			jQuery('.section-app .carousel').owlCarousel({
+				navigation: true,
+				navigationText: false,
+				items: 3,
+				itemsDesktop: [1000, 3],
+				itemsDesktopSmall: [900, 3],
+				itemsTablet: [600, 1],
+				itemsMobile: [480, 1]
+			});
+		}
 
-		jQuery('.section-gallery .carousel').owlCarousel({
-			navigation: true,
-			navigationText: false,
-			items: 3,
-			itemsDesktop: [1000, 3],
-			itemsDesktopSmall: [900, 3],
-			itemsTablet: [600, 1],
-			itemsMobile: [480, 1],
-			transitionStyle: 'fade'
-		});
+		if(jQuery('.section-gallery .carousel').length) {
+			jQuery('.section-gallery .carousel').owlCarousel({
+				navigation: true,
+				navigationText: false,
+				items: 3,
+				itemsDesktop: [1000, 3],
+				itemsDesktopSmall: [900, 3],
+				itemsTablet: [600, 1],
+				itemsMobile: [480, 1],
+				transitionStyle: 'fade'
+			});
+		}
 		//--- END carousel
 	}
 
@@ -57,139 +63,185 @@
 	// Whatever happens for resolutions over 47.5em
 	if (window.matchMedia('(min-width: 47.5em)').matches) {
 		// Carousel activation
-		jQuery('.section-gallery .carousel').owlCarousel({
-			navigation: true,
-			navigationText: false,
-			items: 1,
-			itemsDesktop: [1000, 1],
-			itemsDesktopSmall: [900, 1],
-			itemsTablet: [600, 1],
-			itemsMobile: [480, 1],
-			singleItem: true,
-			transitionStyle: 'fade'
-		});
+		if(jQuery('.section-gallery .carousel').length) {
+			jQuery('.section-gallery .carousel').owlCarousel({
+				navigation: true,
+				navigationText: false,
+				items: 1,
+				itemsDesktop: [1000, 1],
+				itemsDesktopSmall: [900, 1],
+				itemsTablet: [600, 1],
+				itemsMobile: [480, 1],
+				singleItem: true,
+				transitionStyle: 'fade'
+			});
+		}
 
-		jQuery('.hero-content .carousel').owlCarousel({
-			navigation: true,
-			navigationText: false,
-			items: 3,
-			itemsDesktop: [1000, 3],
-			itemsDesktopSmall: [900, 3],
-			itemsTablet: [600, 1],
-			itemsMobile: [480, 1]
-		});
+		if(jQuery('.hero-content .carousel').length) {
+			jQuery('.hero-content .carousel').owlCarousel({
+				navigation: true,
+				navigationText: false,
+				items: 3,
+				itemsDesktop: [1000, 3],
+				itemsDesktopSmall: [900, 3],
+				itemsTablet: [600, 1],
+				itemsMobile: [480, 1]
+			});
+		}
 		//--- END carousel
 
-		jQuery('.hero-background').attr('data-0p-bottom-bottom', 'opacity: 1;');
-		jQuery('.hero-background').attr('data--70p-bottom-bottom', 'opacity: 0;');
-		jQuery('.hero-background').attr('data-anchor-target', '.hero-content');
+		if(jQuery('.hero-background').length) {
+			jQuery('.hero-background').attr('data-0p-bottom-bottom', 'opacity: 1;');
+			jQuery('.hero-background').attr('data--70p-bottom-bottom', 'opacity: 0;');
+			jQuery('.hero-background').attr('data-anchor-target', '.hero-content');
+		}
 
-		jQuery('.section-sensor .section-item:first').attr('data-0-bottom-bottom', 'opacity: 0; position: relative; top: 40vh;');
-		jQuery('.section-sensor .section-item:first').attr('data--30p-bottom-bottom', 'opacity: 1; position: relative; top: 20vh;');
-		jQuery('.section-sensor .section-item:first').attr('data-0p-top-top', 'opacity: 1; position: relative; top: 20vh;');
-		jQuery('.section-sensor .section-item:first').attr('data--30p-top-top', 'opacity: 0; position: relative; top: 0vh;');
+		if(jQuery('.section-sensor .section-item').length) {
+			jQuery('.section-sensor .section-item:first').attr('data-0-bottom-bottom', 'opacity: 0; position: relative; top: 40vh;');
+			jQuery('.section-sensor .section-item:first').attr('data--30p-bottom-bottom', 'opacity: 1; position: relative; top: 20vh;');
+			jQuery('.section-sensor .section-item:first').attr('data-0p-top-top', 'opacity: 1; position: relative; top: 20vh;');
+			jQuery('.section-sensor .section-item:first').attr('data--30p-top-top', 'opacity: 0; position: relative; top: 0vh;');
 
-		jQuery('.section-sensor .section-item').eq(1).attr('data-0-bottom-bottom', 'opacity: 0; position: relative; top: 20vh;');
-		jQuery('.section-sensor .section-item').eq(1).attr('data--30p-bottom-bottom', 'opacity: 1; position: relative; top: 0vh;');
-		jQuery('.section-sensor .section-item').eq(1).attr('data-0p-top-top', 'opacity: 1; position: relative; top: 0vh;');
-		jQuery('.section-sensor .section-item').eq(1).attr('data--30p-top-top', 'opacity: 0; position: relative; top: -20vh;');
+			jQuery('.section-sensor .section-item').eq(1).attr('data-0-bottom-bottom', 'opacity: 0; position: relative; top: 20vh;');
+			jQuery('.section-sensor .section-item').eq(1).attr('data--30p-bottom-bottom', 'opacity: 1; position: relative; top: 0vh;');
+			jQuery('.section-sensor .section-item').eq(1).attr('data-0p-top-top', 'opacity: 1; position: relative; top: 0vh;');
+			jQuery('.section-sensor .section-item').eq(1).attr('data--30p-top-top', 'opacity: 0; position: relative; top: -20vh;');
+		}
 
-		jQuery('.section-sensor').attr('data-20p-top-top', 'background-position: 10% 30vh; background-attachment: fixed;');
-		jQuery('.section-sensor').attr('data--80p-top-top', 'background-position: 10% 15vh; background-attachment: fixed;');
-		jQuery('.section-sensor').attr('data--120p-top-top', 'background-position: 10% 0vh; ');
+		if(jQuery('.section-sensor').length) {
+			jQuery('.section-sensor').attr('data-20p-top-top', 'background-position: 10% 30vh; background-attachment: fixed;');
+			jQuery('.section-sensor').attr('data--80p-top-top', 'background-position: 10% 15vh; background-attachment: fixed;');
+			jQuery('.section-sensor').attr('data--120p-top-top', 'background-position: 10% 0vh; ');
+		}
 
-		jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data-0p-bottom-bottom', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data--20p-bottom-bottom', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data-0p-top-top', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data-anchor-target', '.carousel-item-1');
+		if(jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').length) {
+			jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data-0p-bottom-bottom', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data--20p-bottom-bottom', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data-0p-top-top', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').attr('data-anchor-target', '.carousel-item-1');
+		}
 
-		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data--10p-bottom-bottom', 'display:block; opacity: 0; right: 0; top: 20vh;');
-		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data--60p-bottom-bottom', 'opacity: 1; position: fixed; top: 10vh;');
-		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data-0p-top-top', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data--10p-top-top', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(0).find('img').attr('data-anchor-target', '.carousel-item-1');
+		if(jQuery('.section-app .carousel-item').eq(0).find('img').length) {
+			jQuery('.section-app .carousel-item').eq(0).find('img').attr('data--10p-bottom-bottom', 'display:block; opacity: 0; right: 0; top: 20vh;');
+			jQuery('.section-app .carousel-item').eq(0).find('img').attr('data--60p-bottom-bottom', 'opacity: 1; position: fixed; top: 10vh;');
+			jQuery('.section-app .carousel-item').eq(0).find('img').attr('data-0p-top-top', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(0).find('img').attr('data--10p-top-top', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(0).find('img').attr('data-anchor-target', '.carousel-item-1');
+		}
 
-		jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data-0p-bottom-bottom', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data--20p-bottom-bottom', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data-0p-top-top', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data-anchor-target', '.carousel-item-2');
+		if(jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').length) {
+			jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data-0p-bottom-bottom', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data--20p-bottom-bottom', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data-0p-top-top', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(1).find('.carousel-content').attr('data-anchor-target', '.carousel-item-2');
+		}
 
-		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data--10p-bottom-bottom', 'display:block; opacity: 0; right: 0; top: 20vh;');
-		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data--60p-bottom-bottom', 'opacity: 1; position: fixed; top: 10vh;');
-		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data-0p-top-top', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data--10p-top-top', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(1).find('img').attr('data-anchor-target', '.carousel-item-2');
+		if(jQuery('.section-app .carousel-item').eq(1).find('img').length) {
+			jQuery('.section-app .carousel-item').eq(1).find('img').attr('data--10p-bottom-bottom', 'display:block; opacity: 0; right: 0; top: 20vh;');
+			jQuery('.section-app .carousel-item').eq(1).find('img').attr('data--60p-bottom-bottom', 'opacity: 1; position: fixed; top: 10vh;');
+			jQuery('.section-app .carousel-item').eq(1).find('img').attr('data-0p-top-top', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(1).find('img').attr('data--10p-top-top', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(1).find('img').attr('data-anchor-target', '.carousel-item-2');
+		}
 
-		jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data-0p-bottom-bottom', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data--20p-bottom-bottom', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data-0p-top-top', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data-anchor-target', '.carousel-item-3');
+		if(jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').length) {
+			jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data-0p-bottom-bottom', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data--20p-bottom-bottom', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data-0p-top-top', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(2).find('.carousel-content').attr('data-anchor-target', '.carousel-item-3');
+		}
 
-		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data--10p-bottom-bottom', 'display:block; opacity: 0; right: 0; top: 20vh;');
-		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data--60p-bottom-bottom', 'opacity: 1; position: fixed; top: 10vh;');
-		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data-0p-top-top', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data--10p-top-top', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(2).find('img').attr('data-anchor-target', '.carousel-item-3');
+		if(jQuery('.section-app .carousel-item').eq(2).find('img').length) {
+			jQuery('.section-app .carousel-item').eq(2).find('img').attr('data--10p-bottom-bottom', 'display:block; opacity: 0; right: 0; top: 20vh;');
+			jQuery('.section-app .carousel-item').eq(2).find('img').attr('data--60p-bottom-bottom', 'opacity: 1; position: fixed; top: 10vh;');
+			jQuery('.section-app .carousel-item').eq(2).find('img').attr('data-0p-top-top', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(2).find('img').attr('data--10p-top-top', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(2).find('img').attr('data-anchor-target', '.carousel-item-3');
+		}
 
-		jQuery('.section-app .carousel-item').eq(3).find('.carousel-content').attr('data-0p-bottom-bottom', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(3).find('.carousel-content').attr('data--20p-bottom-bottom', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(3).find('.carousel-content').attr('data-0p-top-top', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(3).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(3).find('.carousel-content').attr('data-anchor-target', '.carousel-item-4');
+		if(jQuery('.section-app .carousel-item').eq(3).find('.carousel-content').length) {
+			jQuery('.section-app .carousel-item').eq(3).find('.carousel-content').attr('data-0p-bottom-bottom', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(3).find('.carousel-content').attr('data--20p-bottom-bottom', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(3).find('.carousel-content').attr('data-0p-top-top', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(3).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(3).find('.carousel-content').attr('data-anchor-target', '.carousel-item-4');
+		}
 
-		jQuery('.section-app .carousel-item').eq(3).find('img').attr('data--10p-bottom-bottom', 'display:block; opacity: 0; right: 0; top: 20vh;');
-		jQuery('.section-app .carousel-item').eq(3).find('img').attr('data--60p-bottom-bottom', 'opacity: 1; position: fixed; top: 10vh;');
-		jQuery('.section-app .carousel-item').eq(3).find('img').attr('data-0p-top-top', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(3).find('img').attr('data--10p-top-top', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(3).find('img').attr('data-anchor-target', '.carousel-item-4');
+		if(jQuery('.section-app .carousel-item').eq(3).find('img').length) {
+			jQuery('.section-app .carousel-item').eq(3).find('img').attr('data--10p-bottom-bottom', 'display:block; opacity: 0; right: 0; top: 20vh;');
+			jQuery('.section-app .carousel-item').eq(3).find('img').attr('data--60p-bottom-bottom', 'opacity: 1; position: fixed; top: 10vh;');
+			jQuery('.section-app .carousel-item').eq(3).find('img').attr('data-0p-top-top', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(3).find('img').attr('data--10p-top-top', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(3).find('img').attr('data-anchor-target', '.carousel-item-4');
+		}
 
-		jQuery('.section-app .carousel-item').eq(4).find('.carousel-content').attr('data-0p-bottom-bottom', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(4).find('.carousel-content').attr('data--20p-bottom-bottom', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(4).find('.carousel-content').attr('data-0p-top-top', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(4).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(4).find('.carousel-content').attr('data-anchor-target', '.carousel-item-5');
+		if(jQuery('.section-app .carousel-item').eq(4).find('.carousel-content').length) {
+			jQuery('.section-app .carousel-item').eq(4).find('.carousel-content').attr('data-0p-bottom-bottom', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(4).find('.carousel-content').attr('data--20p-bottom-bottom', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(4).find('.carousel-content').attr('data-0p-top-top', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(4).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(4).find('.carousel-content').attr('data-anchor-target', '.carousel-item-5');
+		}
 
-		jQuery('.section-app .carousel-item').eq(4).find('img').attr('data--10p-bottom-bottom', 'display:block; opacity: 0; right: 0; top: 20vh;');
-		jQuery('.section-app .carousel-item').eq(4).find('img').attr('data--60p-bottom-bottom', 'opacity: 1; position: fixed; top: 10vh;');
-		jQuery('.section-app .carousel-item').eq(4).find('img').attr('data-0p-top-top', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(4).find('img').attr('data--10p-top-top', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(4).find('img').attr('data-anchor-target', '.carousel-item-5');
+		if(jQuery('.section-app .carousel-item').eq(4).find('img').length) {
+			jQuery('.section-app .carousel-item').eq(4).find('img').attr('data--10p-bottom-bottom', 'display:block; opacity: 0; right: 0; top: 20vh;');
+			jQuery('.section-app .carousel-item').eq(4).find('img').attr('data--60p-bottom-bottom', 'opacity: 1; position: fixed; top: 10vh;');
+			jQuery('.section-app .carousel-item').eq(4).find('img').attr('data-0p-top-top', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(4).find('img').attr('data--10p-top-top', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(4).find('img').attr('data-anchor-target', '.carousel-item-5');
+		}
 
-		jQuery('.section-app .carousel-item').eq(5).find('.carousel-content').attr('data-0p-bottom-bottom', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(5).find('.carousel-content').attr('data--20p-bottom-bottom', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(5).find('.carousel-content').attr('data-0p-top-top', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(5).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(5).find('.carousel-content').attr('data-anchor-target', '.carousel-item-6');
+		if(jQuery('.section-app .carousel-item').eq(5).find('.carousel-content').length) {
+			jQuery('.section-app .carousel-item').eq(5).find('.carousel-content').attr('data-0p-bottom-bottom', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(5).find('.carousel-content').attr('data--20p-bottom-bottom', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(5).find('.carousel-content').attr('data-0p-top-top', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(5).find('.carousel-content').attr('data--10p-top-top', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(5).find('.carousel-content').attr('data-anchor-target', '.carousel-item-6');
+		}
 
-		jQuery('.section-app .carousel-item').eq(5).find('img').attr('data--10p-bottom-bottom', 'display:block; opacity: 0; right: 0; top: 20vh;');
-		jQuery('.section-app .carousel-item').eq(5).find('img').attr('data--60p-bottom-bottom', 'opacity: 1; position: fixed; top: 10vh;');
-		jQuery('.section-app .carousel-item').eq(5).find('img').attr('data-0p-top-top', 'opacity: 1;');
-		jQuery('.section-app .carousel-item').eq(5).find('img').attr('data--10p-top-top', 'opacity: 0;');
-		jQuery('.section-app .carousel-item').eq(5).find('img').attr('data-anchor-target', '.carousel-item-6');
+		if(jQuery('.section-app .carousel-item').eq(5).find('img').length) {
+			jQuery('.section-app .carousel-item').eq(5).find('img').attr('data--10p-bottom-bottom', 'display:block; opacity: 0; right: 0; top: 20vh;');
+			jQuery('.section-app .carousel-item').eq(5).find('img').attr('data--60p-bottom-bottom', 'opacity: 1; position: fixed; top: 10vh;');
+			jQuery('.section-app .carousel-item').eq(5).find('img').attr('data-0p-top-top', 'opacity: 1;');
+			jQuery('.section-app .carousel-item').eq(5).find('img').attr('data--10p-top-top', 'opacity: 0;');
+			jQuery('.section-app .carousel-item').eq(5).find('img').attr('data-anchor-target', '.carousel-item-6');
+		}
 	}
 
-	jQuery('.hero .hero-content').eq(0).find('a').attr('data-0p-bottom-bottom', 'opacity: 1; ');
-	jQuery('.hero .hero-content').eq(0).find('a').attr('data--90p-bottom-bottom', 'opacity: 0;');
-	jQuery('.hero .hero-content').eq(0).find('a').attr('data-anchor-target', '.hero-content');
-	jQuery('.hero .hero-content').eq(0).find('h2').attr('data-0p-bottom-bottom', 'opacity: 1; ');
-	jQuery('.hero .hero-content').eq(0).find('h2').attr('data--90p-bottom-bottom', 'opacity: 0;');
-	jQuery('.hero .hero-content').eq(0).find('h2').attr('data-anchor-target', '.hero-content');
-	jQuery('.hero .hero-content').eq(0).find('p').attr('data-0p-bottom-bottom', 'opacity: 1; ');
-	jQuery('.hero .hero-content').eq(0).find('p').attr('data--90p-bottom-bottom', 'opacity: 0;');
-	jQuery('.hero .hero-content').eq(0).find('p').attr('data-anchor-target', '.hero-content');
+	if(jQuery('.home .hero .hero-content').eq(0).find('a').find('img').length) {
+		jQuery('.hero .hero-content').eq(0).find('a').attr('data-0p-bottom-bottom', 'opacity: 1; ');
+		jQuery('.hero .hero-content').eq(0).find('a').attr('data--90p-bottom-bottom', 'opacity: 0;');
+		jQuery('.hero .hero-content').eq(0).find('a').attr('data-anchor-target', '.hero-content');
+	}
 
-	jQuery('.hero .hero-arrow').attr('data-0p-bottom-bottom', 'opacity: 1; ');
-	jQuery('.hero .hero-arrow').attr('data--90p-bottom-bottom', 'opacity: 0;');
-	jQuery('.hero .hero-arrow').attr('data-anchor-target', '.hero-content');
+	if(jQuery('.home .hero .hero-content').eq(0).find('h2').find('img').length) {
+		jQuery('.hero .hero-content').eq(0).find('h2').attr('data-0p-bottom-bottom', 'opacity: 1; ');
+		jQuery('.hero .hero-content').eq(0).find('h2').attr('data--90p-bottom-bottom', 'opacity: 0;');
+		jQuery('.hero .hero-content').eq(0).find('h2').attr('data-anchor-target', '.hero-content');
+	}
+
+	if(jQuery('.home .hero .hero-content').eq(0).find('p').find('img').length) {
+		jQuery('.hero .hero-content').eq(0).find('p').attr('data-0p-bottom-bottom', 'opacity: 1; ');
+		jQuery('.hero .hero-content').eq(0).find('p').attr('data--90p-bottom-bottom', 'opacity: 0;');
+		jQuery('.hero .hero-content').eq(0).find('p').attr('data-anchor-target', '.hero-content');
+	}
+
+	if(jQuery('.home .hero .hero-arrow').length) {
+		jQuery('.hero .hero-arrow').attr('data-0p-bottom-bottom', 'opacity: 1; ');
+		jQuery('.hero .hero-arrow').attr('data--90p-bottom-bottom', 'opacity: 0;');
+		jQuery('.hero .hero-arrow').attr('data-anchor-target', '.hero-content');
+	}
 
 
 	if (window.matchMedia('(orientation: portrait)').matches) {
-		jQuery('.section-gallery').find('img').each(function() {
-			jQuery(this).attr('src', jQuery(this).attr('data-src'));
-		});
+		if(jQuery('.section-gallery').find('img').length) {
+			jQuery('.section-gallery').find('img').each(function() {
+				jQuery(this).attr('src', jQuery(this).attr('data-src'));
+			});
+		}
 	}
 
 	//--- END bind parallax data
@@ -197,7 +249,7 @@
 	// Init parallax plugin
 	skrollr.init({
 		render: function(data) {
-			console.log(data.curTop);
+			//console.log(data.curTop);
 		},
 		mobileCheck: function() {
             //hack - forces mobile version to be off
@@ -208,6 +260,7 @@
 
 	// Everything that will be loaded for any resolution
 	// Press accordion events
+	if(jQuery('.accordion-picture').length) {
 		jQuery('.accordion-picture').click(function() {
 			var accordion = jQuery(this).parents('.accordion:first'),
 				element = jQuery(this).parents('.accordion-item:first');
@@ -216,6 +269,7 @@
 			accordion.find('.is-active').removeClass('is-active');
 			element.addClass('is-active');
 		});
+	}
 	//--- END press accordion
 
 	// Transitions
@@ -225,38 +279,51 @@
 			sensorSection = jQuery('.section-sensor'),
 			appSection = jQuery('.section-app'),
 			valveSection = jQuery('.section-valve'),
+			peopleSection = jQuery('.section-people'),
 			menu = jQuery('.menu-header'),
 			logo = jQuery('.logo'),
 			hero = jQuery('.hero');
 
-		if(systemSection.position().top <= scrollPosition + 400 && systemSection.position().top + systemSection.outerHeight() > scrollPosition + 400) {
-			jQuery(systemSection.find('.carousel-item')).each(function(i) {
-				jQuery(this).find('.carousel-image').addClass('animated slideInUp' + (i + 1));
-				jQuery(this).find('h3').addClass('animated fadeInUp' + (i + 1));
-				jQuery(this).find('p').addClass('animated fadeInUp' + (i + 1));
-				jQuery(systemSection.find('h2')).addClass('animated fadeInUp');
+		if(systemSection.length && sensorSection.length && appSection.length && valveSection.length) {
+			if(systemSection.position().top <= scrollPosition + 400 && systemSection.position().top + systemSection.outerHeight() > scrollPosition + 400) {
+				jQuery(systemSection.find('.carousel-item')).each(function(i) {
+					jQuery(this).find('.carousel-image').addClass('animated slideInUp' + (i + 1));
+					jQuery(this).find('h3').addClass('animated fadeInUp' + (i + 1));
+					jQuery(this).find('p').addClass('animated fadeInUp' + (i + 1));
+					jQuery(systemSection.find('h2')).addClass('animated fadeInUp');
 
-				window.setTimeout(function(){
-					jQuery(systemSection.find('.carousel-item').eq(0)).addClass('animated');
-				}, 1600);
+					window.setTimeout(function(){
+						jQuery(systemSection.find('.carousel-item').eq(0)).addClass('animated');
+					}, 1600);
 
-				window.setTimeout(function(){
-					jQuery(systemSection.find('.carousel-item').eq(1)).addClass('animated');
-				}, 1800);
-			});
-		} else if(sensorSection.position().top - 5 <= scrollPosition && sensorSection.position().top + sensorSection.outerHeight() > scrollPosition - 5) {
-			logo.addClass('white');
-			menu.addClass('dark');
-			menu.find('.button').addClass('button-alternate');
-			logo.removeClass('dark');
-		} else if (appSection.position().top - 5 <= scrollPosition && valveSection.position().top + valveSection.outerHeight() > scrollPosition - 5) {
-			logo.addClass('dark');
-			logo.removeClass('white');
-		} else {
-			logo.removeClass('dark');
-			logo.removeClass('white');
-			menu.removeClass('dark');
-			menu.find('.button').removeClass('button-alternate');
+					window.setTimeout(function(){
+						jQuery(systemSection.find('.carousel-item').eq(1)).addClass('animated');
+					}, 1800);
+				});
+			} else if(sensorSection.position().top - 5 <= scrollPosition && sensorSection.position().top + sensorSection.outerHeight() > scrollPosition - 5) {
+				logo.addClass('white');
+				menu.addClass('dark');
+				menu.find('.button').addClass('button-alternate');
+				logo.removeClass('dark');
+			} else if (appSection.position().top - 5 <= scrollPosition && valveSection.position().top + valveSection.outerHeight() > scrollPosition - 5) {
+				logo.addClass('dark');
+				logo.removeClass('white');
+			} else {
+				logo.removeClass('dark');
+				logo.removeClass('white');
+				menu.removeClass('dark');
+				menu.find('.button').removeClass('button-alternate');
+			}
+		}
+
+		if(peopleSection.length) {
+			if (peopleSection.position().top - 5 <= scrollPosition && peopleSection.position().top + peopleSection.outerHeight() > scrollPosition - 5) {
+				logo.addClass('dark');
+				menu.addClass('dark');
+			} else {
+				logo.removeClass('dark');
+				menu.removeClass('dark');
+			}
 		}
 
 		if (window.matchMedia('(max-width: 47.5em)').matches) {
