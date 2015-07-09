@@ -98,14 +98,14 @@
 
 		if(jQuery('.section-sensor .section-item').length) {
 			jQuery('.section-sensor .section-item:first').attr('data-0-bottom-bottom', 'opacity: 0; position: relative; top: 40vh;');
-			jQuery('.section-sensor .section-item:first').attr('data--30p-bottom-bottom', 'opacity: 1; position: relative; top: 20vh;');
+			jQuery('.section-sensor .section-item:first').attr('data--50p-bottom-bottom', 'opacity: 1; position: relative; top: 20vh;');
 			jQuery('.section-sensor .section-item:first').attr('data-0p-top-top', 'opacity: 1; position: relative; top: 20vh;');
-			jQuery('.section-sensor .section-item:first').attr('data--30p-top-top', 'opacity: 0; position: relative; top: 0vh;');
+			jQuery('.section-sensor .section-item:first').attr('data--20p-top-top', 'opacity: 0; position: relative; top: 0vh;');
 
 			jQuery('.section-sensor .section-item').eq(1).attr('data-0-bottom-bottom', 'opacity: 0; position: relative; top: 20vh;');
-			jQuery('.section-sensor .section-item').eq(1).attr('data--30p-bottom-bottom', 'opacity: 1; position: relative; top: 0vh;');
+			jQuery('.section-sensor .section-item').eq(1).attr('data--50p-bottom-bottom', 'opacity: 1; position: relative; top: 0vh;');
 			jQuery('.section-sensor .section-item').eq(1).attr('data-0p-top-top', 'opacity: 1; position: relative; top: 0vh;');
-			jQuery('.section-sensor .section-item').eq(1).attr('data--30p-top-top', 'opacity: 0; position: relative; top: -20vh;');
+			jQuery('.section-sensor .section-item').eq(1).attr('data--20p-top-top', 'opacity: 0; position: relative; top: -20vh;');
 		}
 
 		if(jQuery('.section-sensor').length) {
@@ -248,7 +248,7 @@
 
 	// Init parallax plugin
 	skrollr.init({
-		render: function(data) {
+		render: function() {
 			//console.log(data.curTop);
 		},
 		mobileCheck: function() {
