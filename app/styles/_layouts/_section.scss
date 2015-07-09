@@ -272,16 +272,19 @@ section {
 	&.section-people {
 		background: $section-people-background-color;
 		padding-bottom: 0;
+		padding: 80px 0 0;
 
 		.section-item {
-			padding-bottom: em(50);
+			padding-bottom: 70px;
 			position: relative;
 
 			&-full {
 				@include clearfix;
+				padding-bottom: 60px;
 
 				@include media($bp-medium) {
 					display: block;
+					padding-bottom: 35px;
 
 					.section-image {
 						@include span-columns(5);
@@ -303,18 +306,13 @@ section {
 			}
 
 			&-alternate {
-				padding-top: em(70);
+				padding-top: 90px;
 				background: $section-people-background-color-alternate;
 
 				@include media($bp-medium) {
 					@include span-columns(4);
 				}
 			}
-		}
-
-		.section-item-alternate {
-			padding-top: em(70);
-			background: $section-people-background-color-alternate;
 		}
 
 		h2, h3, h4 {
@@ -327,7 +325,7 @@ section {
 			color: $section-people-font-color;
 			font-size: em(32);
 			letter-spacing: 1px;
-			margin-bottom: em(30);
+			margin-bottom: 70px;
 			text-align: center;
 
 			&::after {
@@ -381,7 +379,9 @@ section {
 		}
 
 		.section-content {
-			padding: 0 em(20);
+			@include media($bp-medium) {
+				padding: 0 em(20);
+			}
 		}
 	}
 	&.section-careers {
@@ -401,6 +401,8 @@ section {
 		}
 		h2 {
 			color: $section-careers-font-color;
+			font-size: 30px;
+			line-height: 1.2em;
 
 			@include media($bp-medium) {
 				font-size: 40px;
