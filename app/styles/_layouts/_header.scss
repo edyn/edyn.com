@@ -17,5 +17,12 @@ header {
 .about {
 	header {
 		position: absolute;
+
+		@include media($bp-medium) {
+			position: fixed;
+			z-index: 9999;
+			bottom: inherit;
+			top: 5%;
+		}
 	}
 }

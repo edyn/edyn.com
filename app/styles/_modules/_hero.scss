@@ -279,15 +279,24 @@
 
 &.about {
 	.hero {
-		background-image: url('../../images/edyn-web-hero-top-yellow.jpg');
+		position: relative;
+		background: {
+			//attachment: fixed;
+			color: $amber;
+			image: url('../../images/edyn-web-hero-top-yellow.jpg');
+			position: 50% 50%;
+			repeat: no-repeat;
+			size: cover;
+			//blend-mode: darken
+		}
 		height: 100vh;
 
 		p {
 			@include media($bp-medium) {
-				@include shift(3);
-				@include span-columns(6);
-				font-size: em(28);
-				line-height: 1.2em;
+				@include shift(1);
+				@include span-columns(10);
+				font-size: 40px;
+				line-height: 1.25em;
 			}
 		}
 
@@ -295,7 +304,27 @@
 			@include media($bp-medium) {
 				margin-top: 0;
 				margin-bottom: 0.95em;
+				font-size: 68px;
 			}
 		}
+
+		span {
+			color: $judge-gray;
+			@include media($bp-medium) {
+				font-size: 25px;
+			}
+		}
+
+		.hero-arrow {
+			@include media($bp-medium) {
+				@include position(absolute, null null 5% 50%);
+				@include transform(translateX(-50%));
+				@include retina-image('../../images/edyn-arrow-white', 40px 21px);
+			}
+		}
+
+		// .container {
+		// 	position: relative;
+		// }
 	}
 }

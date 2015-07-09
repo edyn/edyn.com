@@ -85,14 +85,14 @@
 		jQuery('.hero-background').attr('data-anchor-target', '.hero-content');
 
 		jQuery('.section-sensor .section-item:first').attr('data-0-bottom-bottom', 'opacity: 0; position: relative; top: 40vh;');
-		jQuery('.section-sensor .section-item:first').attr('data--20p-bottom-bottom', 'opacity: 1; position: relative; top: 20vh;');
+		jQuery('.section-sensor .section-item:first').attr('data--30p-bottom-bottom', 'opacity: 1; position: relative; top: 20vh;');
 		jQuery('.section-sensor .section-item:first').attr('data-0p-top-top', 'opacity: 1; position: relative; top: 20vh;');
-		jQuery('.section-sensor .section-item:first').attr('data--20p-top-top', 'opacity: 0; position: relative; top: 0vh;');
+		jQuery('.section-sensor .section-item:first').attr('data--30p-top-top', 'opacity: 0; position: relative; top: 0vh;');
 
 		jQuery('.section-sensor .section-item').eq(1).attr('data-0-bottom-bottom', 'opacity: 0; position: relative; top: 20vh;');
-		jQuery('.section-sensor .section-item').eq(1).attr('data--20p-bottom-bottom', 'opacity: 1; position: relative; top: 0vh;');
+		jQuery('.section-sensor .section-item').eq(1).attr('data--30p-bottom-bottom', 'opacity: 1; position: relative; top: 0vh;');
 		jQuery('.section-sensor .section-item').eq(1).attr('data-0p-top-top', 'opacity: 1; position: relative; top: 0vh;');
-		jQuery('.section-sensor .section-item').eq(1).attr('data--20p-top-top', 'opacity: 0; position: relative; top: -20vh;');
+		jQuery('.section-sensor .section-item').eq(1).attr('data--30p-top-top', 'opacity: 0; position: relative; top: -20vh;');
 
 		jQuery('.section-sensor').attr('data-20p-top-top', 'background-position: 10% 30vh; background-attachment: fixed;');
 		jQuery('.section-sensor').attr('data--80p-top-top', 'background-position: 10% 15vh; background-attachment: fixed;');

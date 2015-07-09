@@ -335,7 +335,7 @@ section {
 				display: block;
 				margin: 0.25em auto 0;
 				height: 1px;
-				width: em(30);
+				width: 40px;
 				background: $section-people-border-color;
 			}
 		}
@@ -345,7 +345,7 @@ section {
 			margin-bottom: 0;
 
 			@include media($bp-medium) {
-				font-size: em(20);
+				font-size: 25px;
 				text-align: left;
 			}
 		}
@@ -357,10 +357,11 @@ section {
 
 		p {
 			font-size: em(18);
+			line-height: 1.3em;
 			padding: 0 em(20);
 
 			@include media($bp-medium) {
-				font-size: em(14);
+				font-size: 20px;
 				line-height: 1.4em;
 				text-align: left;
 				padding: 0;
@@ -391,7 +392,7 @@ section {
 			repeat: no-repeat;
 			size: cover;
 		}
-		height: 60vh;
+		height: 450px;
 		position: relative;
 
 		@include media($bp-medium) {
@@ -402,12 +403,17 @@ section {
 			color: $section-careers-font-color;
 
 			@include media($bp-medium) {
-				font-size: em(28);
+				font-size: 40px;
 			}
 		}
 		.button {
 			width: em(230);
 			font-size: em(14);
+
+			@include media($bp-medium) {
+				font-size: 20px;
+				font-family: $proxima-bold;
+			}
 		}
 	}
 }
