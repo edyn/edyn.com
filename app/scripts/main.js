@@ -59,7 +59,6 @@
 		//--- END carousel
 	}
 
-
 	// Whatever happens for resolutions over 47.5em
 	if (window.matchMedia('(min-width: 47.5em)').matches) {
 		// Carousel activation
@@ -90,11 +89,7 @@
 		}
 		//--- END carousel
 
-		if(jQuery('.hero-background').length) {
-			jQuery('.hero-background').attr('data-0p-bottom-bottom', 'opacity: 1;');
-			jQuery('.hero-background').attr('data--70p-bottom-bottom', 'opacity: 0;');
-			jQuery('.hero-background').attr('data-anchor-target', '.hero-content');
-		}
+
 
 		if(jQuery('.section-sensor .section-item').length) {
 			jQuery('.section-sensor .section-item:first').attr('data-0-bottom-bottom', 'opacity: 0; position: relative; top: 40vh;');
@@ -221,6 +216,19 @@
 		}
 	}
 
+	if(jQuery('.hero-background').length) {
+		jQuery('.hero-background').attr('data-0p-bottom-bottom', 'opacity: 1; position: fixed;');
+		jQuery('.hero-background').attr('data--70p-bottom-bottom', 'opacity: 0; position: fixed;');
+		jQuery('.hero-background').attr('data--100p-bottom-bottom', 'opacity: 0; position: relative;');
+		jQuery('.hero-background').attr('data-anchor-target', '.hero-content');
+	}
+
+	if(jQuery('.hero-background-blurred').length) {
+		jQuery('.hero-background-blurred').attr('data-0p-bottom-bottom', 'position: fixed;');
+		jQuery('.hero-background-blurred').attr('data--100p-bottom-bottom', 'position: relative;');
+		jQuery('.hero-background-blurred').attr('data-anchor-target', '.hero .container');
+	}
+
 	if(jQuery('.home .hero .hero-content').eq(0).find('a').length) {
 		jQuery('.hero .hero-content').eq(0).find('a').attr('data-0p-bottom-bottom', 'opacity: 1; ');
 		jQuery('.hero .hero-content').eq(0).find('a').attr('data--90p-bottom-bottom', 'opacity: 0;');
@@ -336,13 +344,13 @@
 			}
 		}
 
-		if (window.matchMedia('(max-width: 47.5em)').matches) {
-			if(scrollPosition <= 0) {
-				hero.find('.hero-background').removeClass('blurred');
-			} else {
-				hero.find('.hero-background').addClass('blurred');
-			}
-		}
+		// if (window.matchMedia('(max-width: 47.5em)').matches) {
+		// 	if(scrollPosition <= 0) {
+		// 		hero.find('.hero-background').removeClass('blurred');
+		// 	} else {
+		// 		hero.find('.hero-background').addClass('blurred');
+		// 	}
+		// }
 	}
 	jQuery(document).on('scroll', onScroll);
 	//--- END transitions
