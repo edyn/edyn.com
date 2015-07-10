@@ -299,8 +299,8 @@
 			valveSection = jQuery('.section-valve'),
 			peopleSection = jQuery('.section-people'),
 			menu = jQuery('.menu-header'),
-			logo = jQuery('.logo'),
-			hero = jQuery('.hero');
+			logo = jQuery('.logo');
+			// hero = jQuery('.hero');
 
 		if(systemSection.length && sensorSection.length && appSection.length && valveSection.length) {
 			if(systemSection.position().top <= scrollPosition + 400 && systemSection.position().top + systemSection.outerHeight() > scrollPosition + 400) {
@@ -343,14 +343,6 @@
 				menu.removeClass('dark');
 			}
 		}
-
-		// if (window.matchMedia('(max-width: 47.5em)').matches) {
-		// 	if(scrollPosition <= 0) {
-		// 		hero.find('.hero-background').removeClass('blurred');
-		// 	} else {
-		// 		hero.find('.hero-background').addClass('blurred');
-		// 	}
-		// }
 	}
 	jQuery(document).on('scroll', onScroll);
 	//--- END transitions
