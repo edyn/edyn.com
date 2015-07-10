@@ -64,7 +64,7 @@
 		&:focus,
 		&:hover {
 			background: none;
-			text-decoration: underline;
+			text-decoration: none;
 
 			&::before {
 				border: $button-border-hover;
