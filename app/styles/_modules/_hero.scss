@@ -1,7 +1,7 @@
 .hero {
 	$hero-font-color: $white;
 	$hero-font-color-alternate: transparent;
-	$hero-background-color: rgba($black, 0.3);
+	$hero-background-color: $judge-gray;
 	$hero-background-color-overlay: rgba($amber, 0.7);
 
 	color: $hero-font-color;

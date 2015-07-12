@@ -41,6 +41,7 @@ section {
 		color: $section-sensor-font-color;
 		padding-top: 160%;
 		position: relative;
+		z-index: 1;
 
 		.section-item {
 			@include shift(1);
@@ -179,17 +180,6 @@ section {
 				}
 			}
 		}
-
-		// .device {
-		// 	display: none;
-		// 	@include media($bp-medium) {
-		// 		display: block;
-		// 		position: fixed; top: 10vh;
-		// 		@include direction-context(right-to-left) {
-		// 			@include span-columns(5 of 12);
-		// 		}
-		// 	}
-		// }
 	}
 	&.section-valve {
 		position: relative;
