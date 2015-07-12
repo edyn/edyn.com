@@ -92,21 +92,21 @@
 
 
 		if(jQuery('.section-sensor .section-item').length) {
-			jQuery('.section-sensor .section-item:first').attr('data-0-bottom-bottom', 'opacity: 0; position: relative; top: 40vh;');
-			jQuery('.section-sensor .section-item:first').attr('data--50p-bottom-bottom', 'opacity: 1; position: relative; top: 20vh;');
-			jQuery('.section-sensor .section-item:first').attr('data-0p-top-top', 'opacity: 1; position: relative; top: 20vh;');
-			jQuery('.section-sensor .section-item:first').attr('data--20p-top-top', 'opacity: 0; position: relative; top: 0vh;');
-
-			jQuery('.section-sensor .section-item').eq(1).attr('data-0-bottom-bottom', 'opacity: 0; position: relative; top: 20vh;');
-			jQuery('.section-sensor .section-item').eq(1).attr('data--50p-bottom-bottom', 'opacity: 1; position: relative; top: 0vh;');
-			jQuery('.section-sensor .section-item').eq(1).attr('data-0p-top-top', 'opacity: 1; position: relative; top: 0vh;');
-			jQuery('.section-sensor .section-item').eq(1).attr('data--20p-top-top', 'opacity: 0; position: relative; top: -20vh;');
+			jQuery('.section-sensor .section-item').eq(0).attr('data--50p-bottom-top', 'opacity: 0; position: relative; top: 40vh;');
+			jQuery('.section-sensor .section-item').eq(0).attr('data--10p-center', 'opacity: 1; position: relative; top: 20vh;');
+			jQuery('.section-sensor .section-item').eq(0).attr('data--50p-center', 'opacity: 1; position: relative; top: 20vh;');
+			jQuery('.section-sensor .section-item').eq(0).attr('data--75p-center', 'opacity: 0; position: relative; top: 0vh;');
+			
+			jQuery('.section-sensor .section-item').eq(1).attr('data--50p-bottom-top', 'opacity: 0; position: relative; top: 25vh;');
+			jQuery('.section-sensor .section-item').eq(1).attr('data--10p-center', 'opacity: 1; position: relative; top: 20vh;');
+			jQuery('.section-sensor .section-item').eq(1).attr('data--50p-center', 'opacity: 1; position: relative; top: 20vh;');
+			jQuery('.section-sensor .section-item').eq(1).attr('data--75p-center', 'opacity: 0; position: relative; top: 0vh;');
 		}
 
 		if(jQuery('.section-sensor').length) {
 			jQuery('.section-sensor').attr('data-20p-top-top', 'background-position: 10% 30vh; background-attachment: fixed;');
 			jQuery('.section-sensor').attr('data--80p-top-top', 'background-position: 10% 15vh; background-attachment: fixed;');
-			jQuery('.section-sensor').attr('data--120p-top-top', 'background-position: 10% 0vh; ');
+			jQuery('.section-sensor').attr('data--120p-top-top', 'background-position: 10% 0vh;');
 		}
 
 		if(jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').length) {
