@@ -102,6 +102,7 @@ section {
 			padding-top: 30vh;
 			@include retina-image('../../images/edyn_web_hero_sensor', 45% auto);
 			background:  {
+				attachment: fixed;
 				position: 10% 20vh;
 			}
 		}

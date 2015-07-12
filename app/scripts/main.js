@@ -104,7 +104,7 @@
 		}
 
 		if(jQuery('.section-sensor').length) {
-			jQuery('.section-sensor').attr('data-20p-top-top', 'background-position: 10% 30vh; background-attachment: fixed;');
+			jQuery('.section-sensor').attr('data-120p-top-top', 'background-position: 10% 30vh; background-attachment: fixed;');
 			jQuery('.section-sensor').attr('data--80p-top-top', 'background-position: 10% 15vh; background-attachment: fixed;');
 			jQuery('.section-sensor').attr('data--120p-top-top', 'background-position: 10% 0vh;');
 		}
