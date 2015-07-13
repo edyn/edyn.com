@@ -67,7 +67,9 @@ section {
 			}
 
 			&.section-item-2 {
-				margin-bottom: 50vh;
+				@include media($bp-medium) {
+					margin-bottom: 50vh;
+				}
 			}
 		}
 
