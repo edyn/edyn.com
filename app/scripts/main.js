@@ -347,4 +347,28 @@
 	jQuery(document).on('scroll', onScroll);
 	//--- END transitions
 
+	// Modal events
+	if(jQuery('.modal').length) {
+		var iframe = document.getElementById('nofocusvideo');
+		var player = $f(iframe);
+
+		jQuery('.modal-state').on('change', function() {
+			if (jQuery(this).is(':checked')) {
+				jQuery('body').addClass('modal-open');
+				player.api('play');
+			} else {
+				jQuery('body').removeClass('modal-open');
+				player.api('pause');
+			}
+		});
+
+		jQuery('.modal-fade-screen, .modal-close').on('click', function() {
+			jQuery('.modal-state:checked').prop('checked', false).change();
+		});
+
+		jQuery('.modal-inner').on('click', function(e) {
+			e.stopPropagation();
+		});
+	}
+
 })();

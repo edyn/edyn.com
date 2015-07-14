@@ -39,7 +39,7 @@
 		<div class="hero">
 			<div class="container">
 				<div class="hero-content animated slideInUp">
-					<a href="#" class="button button-icon icon-play">Watch video</a>
+					<label for="modal-video"><div class="button button-icon icon-play modal-trigger">Watch video</div></label>
 					<h2>Keep a good thing growing</h2>
 					<p>Edyn keeps you connected to your garden by giving you the tools to make your garden thrive — so you always know precisely what’s needed to keep your plants healthy.</p>
 					<div class="hero-arrow"></div>
@@ -210,7 +210,15 @@
 				<p>&copy; 2015 by Edyn. All rights reserved.</p>
 			</div>
 		</footer>
-
+		<div class="modal">
+			<input class="modal-state" id="modal-video" type="checkbox" />
+			<div class="modal-fade-screen">
+				<div class="modal-inner">
+					<div class="modal-close" for="modal-video"></div>
+					<iframe src="https://player.vimeo.com/video/97291773?autoplay=0&api=1&player_id=vimeoplayer" name="vimeoplayer" id="nofocusvideo" width="800" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 		<script>
 			(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -226,6 +234,7 @@
 		<script src="/bower_components/jquery/dist/jquery.js"></script>
 		<script src="/bower_components/owl-carousel/owl-carousel/owl.carousel.js"></script>
 		<script src="/bower_components/skrollr/src/skrollr.js"></script>
+		<script src="/bower_components/froogaloop/froogaloop.js"></script>
 		<!-- endbower -->
 		<!-- endbuild -->
 
