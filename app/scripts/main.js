@@ -349,7 +349,7 @@
 
 	// Modal events
 	if(jQuery('.modal').length) {
-		var iframe = document.getElementById('nofocusvideo');
+		var iframe = document.getElementById('vimeo-player');
 		var player = $f(iframe);
 
 		jQuery('.modal-state').on('change', function() {
