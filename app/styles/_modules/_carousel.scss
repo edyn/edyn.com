@@ -15,8 +15,15 @@
 			@include shift(2);
 			@include span-columns(8);
 
-			@include media($bp-medium) {
-				margin-bottom: em(20);
+			@include media($bp-small-1) {
+				// margin-bottom: em(40);
+				@include span-columns(4);
+				@include shift(4);
+			}
+
+			@include media($bp-small-2) {
+				@include shift(2);
+				@include span-columns(8);
 			}
 		}
 		h3 {

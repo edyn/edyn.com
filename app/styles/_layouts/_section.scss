@@ -39,7 +39,7 @@ section {
 			repeat: no-repeat;
 		}
 		color: $section-sensor-font-color;
-		padding-top: 160%;
+		padding-top: 37rem;
 		position: relative;
 		z-index: 1;
 
@@ -140,7 +140,19 @@ section {
 		}
 
 		.owl-pagination {
-			@include position(absolute, 45.5% 0 null 50%);
+			@include position(absolute, 40% 0 null 50%);
+
+			@include media($bp-xsmall) {
+				@include position(absolute, 50% 0 null 50%);
+			}
+
+			@include media($bp-small) {
+				@include position(absolute, 52.5% 0 null 50%);
+			}
+
+			@include media($bp-small-2) {
+				@include position(absolute, 68% 0 null 50%);
+			}
 
 			@include media($bp-medium) {
 				@include position(absolute, 50% 0 0 50%);
@@ -166,6 +178,7 @@ section {
 
 						img {
 							@include span-columns(5 of 12);
+							max-width: em(560);
 							display: none;
 						}
 					}

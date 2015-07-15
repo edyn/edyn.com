@@ -40,7 +40,8 @@
 				itemsDesktop: [1000, 3],
 				itemsDesktopSmall: [900, 3],
 				itemsTablet: [600, 1],
-				itemsMobile: [480, 1]
+				itemsMobile: [480, 1],
+				singleItem: true
 			});
 		}
 
