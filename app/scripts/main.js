@@ -9,15 +9,15 @@
 		// heroBg.css('height', h);
 
 		// Mobile hamburger menu events
-			var headerMenuList = jQuery('.menu-header ul');
-			var footerMenuElements = jQuery('.menu-footer li').clone();
+		var headerMenuList = jQuery('.menu-header ul');
+		var footerMenuElements = jQuery('.menu-footer li').clone();
 
-			jQuery('.menu-icon').click(function() {
-				headerMenuList.append(footerMenuElements);
-				jQuery(this).toggleClass('is-open');
-				jQuery('header').toggleClass('is-nav-open');
-				jQuery('body').toggleClass('no-scroll');
-			});
+		jQuery('.menu-icon').click(function() {
+			headerMenuList.append(footerMenuElements);
+			jQuery(this).toggleClass('is-open');
+			jQuery('header').toggleClass('is-nav-open');
+			jQuery('body').toggleClass('no-scroll');
+		});
 		//--- END mobile hamburger menu
 
 		// Carousel activation
@@ -350,6 +350,24 @@
 	}
 	jQuery(document).on('scroll', onScroll);
 	//--- END transitions
+
+	// Get the app lightbox event
+	jQuery('.toggle-lightbox').click(function(e) {
+		jQuery('.lightbox').show();
+		jQuery('body').toggleClass('no-scroll');
+
+		e.prevenDefault();
+		e.stopPropagation();
+	});
+
+	jQuery('.lightbox-close').click(function(e) {
+		jQuery('.lightbox').hide();
+		jQuery('body').toggleClass('no-scroll');
+
+		e.prevenDefault();
+		e.stopPropagation();
+	});
+	//--- END mobile hamburger menu
 
 	// Modal events
 	if(jQuery('.modal').length) {
