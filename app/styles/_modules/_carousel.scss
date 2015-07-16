@@ -21,10 +21,15 @@
 				@include shift(4);
 			}
 
-			@include media($bp-small-2) {
+			@include media($bp-medium) {
 				@include shift(2);
 				@include span-columns(8);
 			}
+
+			// @include media($bp-small-2) {
+			// 	@include shift(2);
+			// 	@include span-columns(8);
+			// }
 		}
 		h3 {
 			clear: both;
