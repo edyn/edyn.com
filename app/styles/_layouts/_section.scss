@@ -37,6 +37,7 @@ section {
 			color: $section-sensor-background-color;
 			position: 50% 5%;
 			repeat: no-repeat;
+			size: auto 35rem;
 		}
 		color: $section-sensor-font-color;
 		padding-top: 37rem;
@@ -110,6 +111,7 @@ section {
 			background:  {
 				attachment: fixed;
 				position: 10% 20vh;
+				size: 45% auto;
 			}
 		}
 	}

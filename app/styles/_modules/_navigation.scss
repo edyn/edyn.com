@@ -199,6 +199,32 @@
 }
 
 &.about {
+	.is-nav-open {
+		.logo {
+			background-position: 0 0px;
+		}
+
+		.menu-icon {
+			span::before, span::after {
+				background-color: $amber;
+			}
+		}
+	}
+
+	header {
+		&:not(.is-nav-open) {
+			.menu-item {
+				a {
+					color: $white;
+				}
+
+				a.button {
+					border-color: $white;
+				}
+			}
+		}
+	}
+
 	.logo {
 		background-position: 0 -105px;
 

@@ -15,6 +15,7 @@
 			jQuery('.menu-icon').click(function() {
 				headerMenuList.append(footerMenuElements);
 				jQuery(this).toggleClass('is-open');
+				jQuery('header').toggleClass('is-nav-open');
 				jQuery('body').toggleClass('no-scroll');
 			});
 		//--- END mobile hamburger menu
@@ -55,7 +56,8 @@
 				itemsDesktopSmall: [900, 3],
 				itemsTablet: [600, 1],
 				itemsMobile: [480, 1],
-				transitionStyle: 'fade'
+				transitionStyle: 'fade',
+				singleItem: true
 			});
 		}
 		//--- END carousel
