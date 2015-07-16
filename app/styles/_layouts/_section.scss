@@ -200,6 +200,20 @@ section {
 						}
 					}
 				}
+
+				@include media($bp-large) {
+					.carousel-content {
+						h3 {
+							font-size: em(30);
+							letter-spacing: 0;
+						}
+
+						p {
+							font-size: em(20);
+							line-height: 1.4em;
+						}
+					}
+				}
 			}
 		}
 	}
