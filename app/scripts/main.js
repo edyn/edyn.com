@@ -215,8 +215,8 @@
 		}
 
 		if(jQuery('.section-valve').length) {
-			jQuery('.section-valve').attr('data-10p-top-top', 'background-position: 50% 25em;');
-			jQuery('.section-valve').attr('data--10p-top-top', 'background-position: 50% 20em;');
+			jQuery('.section-valve').attr('data-100p-top', 'background-position: 50% 30em;');
+			jQuery('.section-valve').attr('data-0p-top-bottom', 'background-position: 50% 15em;');
 		}
 	}
 

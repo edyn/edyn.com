@@ -229,15 +229,18 @@ section {
 		padding-bottom: em(260);
 
 		@include media($bp-medium) {
-			@include retina-image('../../images/edyn_web_hero_valve', 700px 700px);
+			// @include retina-image('../../images/edyn_web_hero_valve', auto 100vh);
+			background-image: url('../../images/edyn_web_hero_valve_2x.png');
+			background-size: auto 100vh;
 			background-position: 50% em(300);
 			padding-top: 15vh;
 			height: 100vh;
 		}
 
 		@include media($bp-large) {
+			background-image: url('../../images/edyn_web_hero_valve_2x.png');
 			background-position: 50% 110%;
-			background-size: 65vh;
+			background-size: 100vh;
 		}
 
 		h3 {
