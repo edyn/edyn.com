@@ -107,9 +107,10 @@ section {
 
 		@include media($bp-medium) {
 			padding-top: 30vh;
-			@include retina-image('../../images/edyn_web_hero_sensor', 45% auto);
+			// @include retina-image('../../images/edyn_web_hero_sensor', 45% auto);
 			background:  {
 				attachment: fixed;
+				image: url('../../images/edyn_web_hero_sensor_2x.png');
 				position: 10% 20vh;
 				size: 45% auto;
 			}
