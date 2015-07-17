@@ -316,11 +316,11 @@
 
 					window.setTimeout(function(){
 						jQuery(systemSection.find('.carousel-item').eq(0)).addClass('animated');
-					}, 1600);
+					}, 1000);
 
 					window.setTimeout(function(){
 						jQuery(systemSection.find('.carousel-item').eq(1)).addClass('animated');
-					}, 1800);
+					}, 1200);
 				});
 			} else if(sensorSection.position().top - 5 <= scrollPosition && sensorSection.position().top + sensorSection.outerHeight() > scrollPosition - 5) {
 				logo.addClass('white');

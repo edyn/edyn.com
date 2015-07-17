@@ -82,10 +82,6 @@
 		@include clearfix;
 		margin-bottom: 30%;
 
-		@include media($bp-medium) {
-			margin-bottom: 15%;
-		}
-
 		.container {
 			height: 100%;
 			@include clearfix;
