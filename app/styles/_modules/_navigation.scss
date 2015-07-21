@@ -216,10 +216,19 @@
 			.menu-item {
 				a {
 					color: $white;
+
 				}
 
 				a.button {
 					border-color: $white;
+
+					&:active,
+					&:focus,
+					&:hover {
+						background: $white;
+						color: $judge-gray;
+						text-decoration: none;
+					}
 				}
 			}
 		}
@@ -248,6 +257,14 @@
 
 				a.button {
 					border-color: $judge-gray;
+
+					&:active,
+					&:focus,
+					&:hover {
+						background: $judge-gray;
+						color: $white;
+						text-decoration: none;
+					}
 				}
 			}
 		}
