@@ -6,7 +6,8 @@
     display: none;
     @include position(absolute, 0 0 0 0);
     padding-top: em(75);
-    height: 100vh;
+    height: 100%;
+    width: 100%;
     z-index: 9999;
     background: {
        		color: $lightbox-background-color;
@@ -20,6 +21,7 @@
     img, svg {
         @include shift(4);
         @include span-columns(4);
+        height: em(200);
 
         @include media($bp-medium) {
             @include shift(5);
@@ -44,8 +46,8 @@
     }
 
     p {
-        @include shift(1);
-        @include span-columns(10);
+        @include shift(2);
+        @include span-columns(8);
 
         @include media($bp-medium) {
             @include shift(4);
@@ -105,7 +107,7 @@
         @include clearfix();
 
         @include media($bp-medium) {
-            margin-bottom: em(45);
+            margin-bottom: em(15);
         }
     }
 

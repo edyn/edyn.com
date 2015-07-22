@@ -1,8 +1,8 @@
 (function(){
 	'use strict';
 
-	// Whatever happens for resolutions under 47.5em
-	if (window.matchMedia('(max-width: 47.5em)').matches) {
+	// Whatever happens for resolutions under 48.75em
+	if (window.matchMedia('(max-width: 48.75em)').matches) {
 		// Fixing the jumpy background image due to 'vh' unit
 		// var heroBg = jQuery('.hero-background');
 		// var h = window.innerHeight;
@@ -63,8 +63,8 @@
 		//--- END carousel
 	}
 
-	// Whatever happens for resolutions over 47.5em
-	if (window.matchMedia('(min-width: 47.5em)').matches) {
+	// Whatever happens for resolutions over 48.75em
+	if (window.matchMedia('(min-width: 48.75em)').matches) {
 		// Carousel activation
 		if(jQuery('.section-gallery .carousel').length) {
 			jQuery('.section-gallery .carousel').owlCarousel({
@@ -199,7 +199,7 @@
 		if(jQuery('.section-app .carousel-item').eq(5).find('img').length) {
 			jQuery('.section-app .carousel-item').eq(5).find('img').attr('data--20p-bottom-bottom', 'display:block; opacity: 1; right: 0; top: 0vh; z-index: -1;');
 			jQuery('.section-app .carousel-item').eq(5).find('img').attr('data--90p-bottom-bottom', 'opacity: 1; position: fixed; top: -5vh; z-index: 0;');
-			jQuery('.section-app .carousel-item').eq(5).find('img').attr('data--100p-top-top', 'top: -15vh;');
+			jQuery('.section-app .carousel-item').eq(5).find('img').attr('data--100p-top-top', 'top: -15vh; opacity: 0;');
 			jQuery('.section-app .carousel-item').eq(5).find('img').attr('data-anchor-target', '.carousel-item-6');
 		}
 
@@ -211,14 +211,14 @@
 
 	if(jQuery('.hero-background').length) {
 		jQuery('.hero-background').attr('data-0p-bottom-bottom', 'opacity: 1; position: fixed;');
-		jQuery('.hero-background').attr('data--70p-bottom-bottom', 'opacity: 0; position: fixed;');
+		// jQuery('.hero-background').attr('data--70p-bottom-bottom', 'opacity: 0; position: fixed;');
 		jQuery('.hero-background').attr('data--100p-bottom-bottom', 'opacity: 0; position: relative;');
 		jQuery('.hero-background').attr('data-anchor-target', '.hero-content');
 	}
 
 	if(jQuery('.hero-background-blurred').length) {
-		jQuery('.hero-background-blurred').attr('data-0p-bottom-bottom', 'position: fixed;');
-		jQuery('.hero-background-blurred').attr('data--100p-bottom-bottom', 'position: relative;');
+		jQuery('.hero-background-blurred').attr('data-0p-bottom-bottom', 'position: fixed; opacity: 1;');
+		jQuery('.hero-background-blurred').attr('data--100p-bottom-bottom', 'position: relative; opacity: 0;');
 		jQuery('.hero-background-blurred').attr('data-anchor-target', '.hero .container');
 	}
 
@@ -337,7 +337,9 @@
 			}
 		}
 	}
-	jQuery(document).on('scroll', onScroll);
+	if (window.matchMedia('(min-width: 48.75em)').matches) {
+		jQuery(document).on('scroll', onScroll);
+	}
 	//--- END transitions
 
 	// Get the app lightbox event

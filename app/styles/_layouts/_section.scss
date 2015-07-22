@@ -26,6 +26,8 @@ section {
 	padding: em(50) 0;
 	text-align: center;
 	@include clearfix();
+	position: relative;
+	// z-index: 1;
 
 	.button {
 		clear: both;
@@ -54,7 +56,7 @@ section {
 				@include span-columns(5);
 
 				text-align: left;
-				margin-bottom: 20vh;
+				margin-bottom: em(220);
 			}
 
 			img {
@@ -69,7 +71,7 @@ section {
 
 			&.section-item-2 {
 				@include media($bp-medium) {
-					margin-bottom: 50vh;
+					margin-bottom: em(380);
 				}
 			}
 		}
@@ -106,12 +108,12 @@ section {
 		}
 
 		@include media($bp-medium) {
-			padding-top: 30vh;
+			padding-top: em(220);
 			// @include retina-image('../../images/edyn_web_hero_sensor', 45% auto);
 			background:  {
-				attachment: fixed;
+				attachment: absolute;
 				image: url('../../images/edyn_web_hero_sensor_2x.png');
-				position: 10% 20vh;
+				position: 10% 20%;
 				size: 45% auto;
 			}
 		}
@@ -122,7 +124,7 @@ section {
 		position: relative;
 
 		@include media($bp-medium) {
-			padding-bottom: 60vh;
+			padding-bottom: em(400);
 		}
 
 
@@ -154,7 +156,7 @@ section {
 			}
 
 			@include media($bp-small-2) {
-				@include position(absolute, 68% 0 null 50%);
+				@include position(absolute, 60% 0 null 50%);
 			}
 
 			@include media($bp-medium) {
@@ -170,8 +172,8 @@ section {
 				@include media($bp-medium) {
 					@include fill-parent();
 					margin: 0;
-					padding: 9vh 4% 0 2%;
-					margin-top: 60vh;
+					padding: 10% 4% 0 2%;
+					margin-top: em(300);
 					position: relative;
 
 					@include direction-context(right-to-left) {
@@ -229,6 +231,7 @@ section {
 			color: $section-valve-background-color;
 			position: 50% 180%;
 			repeat: no-repeat;
+			size: auto 440px;
 		}
 		color: $section-valve-font-color;
 		padding-bottom: em(260);
@@ -236,10 +239,10 @@ section {
 		@include media($bp-medium) {
 			// @include retina-image('../../images/edyn_web_hero_valve', auto 100vh);
 			background-image: url('../../images/edyn_web_hero_valve_2x.png');
-			background-size: auto 100vh;
+			background-size: auto 100%;
 			background-position: 50% em(300);
-			padding-top: 15vh;
-			height: 100vh;
+			padding-top: em(100);
+			height: em(600);
 		}
 
 		@include media($bp-large) {
