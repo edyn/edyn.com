@@ -457,3 +457,9 @@ section {
 		}
 	}
 }
+
+html.ios {
+	section {
+		z-index: 1;
+	}
+}

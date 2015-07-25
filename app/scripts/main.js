@@ -257,17 +257,29 @@
 
 	//--- END bind parallax data
 
-	// Init parallax plugin
-	skrollr.init({
-		render: function() {
-			//console.log(data.curTop);
-		},
-		mobileCheck: function() {
-            //hack - forces mobile version to be off
-            return false;
-        }
-	});
-	//--- END parallax plugin
+	function isIOS() {
+		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+		if(userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ))
+    		return true;
+
+		return false;
+	}
+
+	if(!isIOS()) {
+		// Init parallax plugin (ONLY FOR non-IOS devices)
+		skrollr.init({
+			render: function() {
+				//console.log(data.curTop);
+			},
+			mobileCheck: function() {
+				//hack - forces mobile version to be off
+				return false;
+			}
+		});
+		//--- END parallax plugin
+	} else {
+		jQuery('html').addClass('ios');
+	}
 
 	// Everything that will be loaded for any resolution
 	// Press accordion events
