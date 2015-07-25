@@ -46,6 +46,17 @@ section {
 		position: relative;
 		z-index: 1;
 
+		@include media($bp-medium) {
+			padding-top: em(220);
+			// @include retina-image('../../images/edyn_web_hero_sensor', 45% auto);
+			background:  {
+				attachment: absolute;
+				image: url('../../images/edyn_web_hero_sensor_2x.png');
+				position: 17.5% 20%;
+				size: 32.5% auto;
+			}
+		}
+
 		.section-item {
 			@include shift(1);
 			@include span-columns(10);
@@ -104,17 +115,6 @@ section {
 				display: block;
 				margin: 0;
 				width: inherit;
-			}
-		}
-
-		@include media($bp-medium) {
-			padding-top: em(220);
-			// @include retina-image('../../images/edyn_web_hero_sensor', 45% auto);
-			background:  {
-				attachment: absolute;
-				image: url('../../images/edyn_web_hero_sensor_2x.png');
-				position: 10% 20%;
-				size: 45% auto;
 			}
 		}
 	}

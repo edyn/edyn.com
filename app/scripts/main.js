@@ -108,9 +108,9 @@
 		}
 
 		if(jQuery('.section-sensor').length) {
-			jQuery('.section-sensor').attr('data-120p-top-top', 'background-position: 10% 30vh; background-attachment: fixed;');
-			jQuery('.section-sensor').attr('data--200p-top-top', 'background-position: 10% 15vh; background-attachment: fixed;');
-			jQuery('.section-sensor').attr('data--220p-top-top', 'background-position: 10% 15vh;');
+			jQuery('.section-sensor').attr('data-120p-top-top', 'background-position: 17.5% 30vh; background-attachment: fixed;');
+			jQuery('.section-sensor').attr('data--200p-top-top', 'background-position: 17.5% 15vh; background-attachment: fixed;');
+			jQuery('.section-sensor').attr('data--220p-top-top', 'background-position: 17.5% 15vh;');
 		}
 
 		if(jQuery('.section-app .carousel-item').eq(0).find('.carousel-content').length) {
