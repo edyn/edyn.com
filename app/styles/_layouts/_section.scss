@@ -91,6 +91,11 @@ section {
 			@include media($bp-medium) {
 				font-size: em(26);
 			}
+
+			@include media($bp-large) {
+				font-size: em(30);
+				letter-spacing: 0;
+			}
 		}
 
 		h3, p {
@@ -106,6 +111,11 @@ section {
 			@include media($bp-medium) {
 				font-size: em(14);
 				line-height: 1.3em;
+			}
+
+			@include media($bp-large) {
+				font-size: em(20);
+				line-height: 1.4em;
 			}
 		}
 
@@ -187,7 +197,7 @@ section {
 							display: none;
 
 							@include media($bp-large) {
-								margin-right: 20%;
+								margin-right: 10%;
 							}
 						}
 					}
@@ -210,6 +220,7 @@ section {
 
 				@include media($bp-large) {
 					.carousel-content {
+						margin-top: em(100);
 						h3 {
 							font-size: em(30);
 							letter-spacing: 0;
@@ -229,12 +240,17 @@ section {
 		@include retina-image('../../images/edyn_web_hero_valve', 480px 480px);
 		background:  {
 			color: $section-valve-background-color;
-			position: 50% 180%;
+			position: 50% 170%;
 			repeat: no-repeat;
 			size: auto 440px;
 		}
 		color: $section-valve-font-color;
 		padding-bottom: em(260);
+
+
+		@include media($bp-small-1) {
+			background-position: 50% 220%;
+		}
 
 		@include media($bp-medium) {
 			// @include retina-image('../../images/edyn_web_hero_valve', auto 100vh);
@@ -259,6 +275,10 @@ section {
 				@include span-columns(6);
 				@include shift(3);
 			}
+
+			@include media($bp-large) {
+				font-size: em(30);
+			}
 		}
 
 		p {
@@ -271,6 +291,13 @@ section {
 				@include span-columns(6);
 				@include shift(3);
 				font-size: em(14);
+				line-height: 1.4em;
+			}
+
+			@include media($bp-large) {
+				@include span-columns(8);
+				@include shift(2);
+				font-size: em(20);
 				line-height: 1.4em;
 			}
 		}
