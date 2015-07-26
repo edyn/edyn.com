@@ -2,6 +2,28 @@
 // 	@include size(100% 100%);
 // }
 
+body.no-scroll {
+	overflow: hidden;
+	position: fixed;
+	height: 100vh !important;
+}
+
 .container {
 	@include outer-container();
+
+	&-full {
+		@include fill-parent();
+		max-width: 100%;
+	}
+}
+
+.center {
+	&-vertical {
+		@include position(absolute, 50% 0 null 0);
+		@include transform(translateY(-50%));
+	}
+}
+
+.clearfix {
+	clear: both;
 }

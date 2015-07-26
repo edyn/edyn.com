@@ -1,0 +1,6 @@
+$bp-xsmall: new-breakpoint(min-width em(360));
+$bp-small: new-breakpoint(min-width em(420));
+$bp-small-1: new-breakpoint(min-width em(560));
+$bp-small-2: new-breakpoint(min-width em(620));
+$bp-medium: new-breakpoint(min-width em(780));
+$bp-large: new-breakpoint(min-width em(1440));

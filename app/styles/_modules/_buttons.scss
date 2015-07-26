@@ -10,9 +10,10 @@
 	$button-border-hover: 1.5px solid $button-font-color-hover;
 
 	$button-font-color-alternate: $judge-gray;
-	$button-background-color-hover-alternate: $judge-gray;
-	$button-border-alternate: 1.5px solid $button-font-color-alternate;
-	$button-border-hover-alternate: 1.5px solid $button-background-color-hover-alternate;
+	$button-font-color-alternate-hover: $white;
+	$button-background-color-alternate-hover: $judge-gray;
+	$button-border-alternate: 1.5px solid $judge-gray;
+	$button-border-hover-alternate: 1.5px solid $button-background-color-alternate-hover;
 
 	$social-font-color: $white;
 	$social-background-color: $tuatara;
@@ -31,6 +32,13 @@
 	text-align: center;
 	width: 90%;
 
+	@include media($bp-medium) {
+		border-width: 1px;
+		font-size: em(14);
+		padding: em(12) em(50);
+		width: inherit;
+	}
+
 	&:active,
 	&:focus,
 	&:hover {
@@ -47,6 +55,7 @@
 			family: $button-font-family-alternate;
 			size: em(16);
 		}
+		letter-spacing: 1px;
 		padding: 0;
 		text-transform: uppercase;
 		width: inherit;
@@ -55,7 +64,7 @@
 		&:focus,
 		&:hover {
 			background: none;
-			text-decoration: underline;
+			text-decoration: none;
 
 			&::before {
 				border: $button-border-hover;
@@ -78,10 +87,19 @@
 		border: $button-border-alternate;
 		color: $button-font-color-alternate;
 
+		@include media($bp-medium) {
+			border-width: 1px;
+			font-size: em(14);
+			padding: em(12) em(50);
+			width: inherit;
+			max-width: 14em;
+		}
+
 		&:active,
 		&:focus,
 		&:hover {
-			background: $button-background-color-hover-alternate;
+			background: $button-background-color-alternate-hover;
+			color: $button-font-color-alternate-hover;
 		}
 	}
 
@@ -122,6 +140,15 @@
 		&:focus,
 		&:hover {
 			text-decoration: none;
+		}
+	}
+
+	&-small {
+		width: em(180);
+		font-size: em(18);
+
+		@include media($bp-medium) {
+			width: em(300);
 		}
 	}
 }

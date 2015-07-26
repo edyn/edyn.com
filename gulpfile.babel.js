@@ -19,6 +19,7 @@ gulp.task('styles', () => {
     }).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: ['last 1 version']}))
     .pipe($.sourcemaps.write())
+    .pipe($.cssretarget({ root: 'app' }))
     .pipe(gulp.dest('.tmp/styles'))
     .pipe(reload({stream: true}));
 });

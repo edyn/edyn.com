@@ -1,14 +1,50 @@
-.accordion {}
-	.accordion-item {}
+.accordion {
+	padding: em(30) 0;
+}
+	.accordion-item {
+		padding-bottom: em(30);
+
+		@include media($bp-medium) {
+			display: inline;
+			padding-bottom: em(15);
+		}
+
+		&.is-active {
+			.accordion-content {
+				display: block;
+
+				@include media($bp-medium) {
+					display: none;
+				}
+			}
+
+			.accordion-picture {
+				opacity: 1;
+			}
+		}
+
+		blockquote {
+			padding-bottom: 10px;
+		}
+	}
 		.accordion-content {
 			display: none;
 		}
 		.accordion-picture {
 			cursor: pointer;
 			opacity: 0.4;
+			vertical-align: middle;
+
+			@include media($bp-medium) {
+				margin: 0 em(25);
+			}
 		}
-	.accordion-item.is-active {
-		.accordion-content {
-			display: block;
+		.accordion-target {
+			display: none;
+			@include media($bp-medium) {
+				@extend blockquote;
+				font-size: 30px;
+				display: block;
+				margin: em(20) 0 em(30) 0;
+			}
 		}
-	}

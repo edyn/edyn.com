@@ -1,0 +1,123 @@
+.lightbox {
+    $lightbox-background-color: rgba($black, 0.7);
+    $lightbox-font-color: $white;
+    $lightbox-action-color: $amber;
+
+    display: none;
+    @include position(absolute, 0 0 0 0);
+    padding-top: em(75);
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    background: {
+       		color: $lightbox-background-color;
+       		image: url('../../images/edyn-web-hero-top-blurred.jpg');
+       		position: 50% 50%;
+       		repeat: no-repeat;
+       		size: cover;
+       		blend-mode: darken;
+    }
+
+    img, svg {
+        @include shift(4);
+        @include span-columns(4);
+        height: em(200);
+
+        @include media($bp-medium) {
+            @include shift(5);
+            @include span-columns(2);
+            margin-bottom: em(30);
+		}
+    }
+
+    h2, p {
+        text-align: center;
+        color: $lightbox-font-color;
+    }
+
+    h2 {
+        @include span-columns(12);
+        margin-bottom: em(5);
+        font-size: em(24);
+
+        @include media($bp-medium) {
+            font-size: em(34);
+		}
+    }
+
+    p {
+        @include shift(2);
+        @include span-columns(8);
+
+        @include media($bp-medium) {
+            @include shift(4);
+            @include span-columns(4);
+		}
+    }
+
+    .logo {
+        @include media($bp-medium) {
+            top: 5%;
+        }
+    }
+
+    .close-icon {
+		cursor: pointer;
+		z-index: 9999;
+
+		@include size(54px);
+		@include position(absolute, 0% 2.8% null null);
+		@include transition(transform 0.5s);
+
+        @include media($bp-medium) {
+            @include position(absolute, 5% 5% null null);
+        }
+
+		span {
+			background: transparent;
+			border-radius: 1px;
+			display: block;
+			@include position(absolute, 50% null null 50%);
+			@include size(22px 2px);
+			@include transform(translateX(-50%) translateY(-50%));
+			@include transition(background 0.5s);
+
+			&::before, &::after {
+				content: '';
+				display: block;
+				background-color: $lightbox-action-color;
+				border-radius: 1px;
+				@include size(28px 2px);
+				@include transition(transform 0.5s);
+			}
+
+			&::before {
+                @include transform(translateY(0) rotate(45deg));
+                @include position(absolute, 0 null null 0);
+			}
+
+			&::after {
+                @include transform(translateY(0) rotate(-45deg));
+                @include position(absolute, 0 null null 0);
+			}
+		}
+	}
+
+    &-content {
+        @include clearfix();
+
+        @include media($bp-medium) {
+            margin-bottom: em(15);
+        }
+    }
+
+    &-footer {
+        clear: both;
+        text-align: center;
+
+        p {
+            @include shift(0);
+            @include span-columns(12);
+        }
+    }
+}

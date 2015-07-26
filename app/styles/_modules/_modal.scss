@@ -1,0 +1,87 @@
+.modal {
+
+    .modal-state {
+        display: none;
+    }
+
+    .modal-fade-screen {
+        @include transition(opacity 0.25s ease);
+        @include position(fixed, 0);
+        background-color: rgba(black, 0.85);
+        opacity: 0;
+        padding-top: 0.6em;
+        text-align: left;
+        visibility: hidden;
+        z-index: 99999999999;
+
+        @include media($bp-medium) {
+            padding-top: 10em;
+        }
+
+        .modal-bg {
+              @include position(absolute, 0);
+              cursor: pointer;
+        }
+    }
+
+    .modal-close {
+        @include position(absolute, 0 0 null null);
+        @include size(1.5em);
+        cursor: pointer;
+
+        &:after,
+        &:before {
+            @include position(absolute, 3px 3px 0 50%);
+            @include transform(rotate(45deg));
+            @include size(0.15em 1.5em);
+            content: '';
+            display: block;
+            margin: -3px 0 0 -1px;
+            background: $ebb;
+        }
+
+        &:before {
+            @include transform(rotate(-45deg));
+        }
+    }
+
+    .modal-inner {
+        @include transition(opacity 0.25s ease);
+        margin-top: 0;
+        margin: auto;
+        overflow: auto;
+        padding: 40px 0 0 0;
+        position: relative;
+        width: 95%;
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        @include media($bp-medium) {
+            width: 800px;
+            height: 490px;
+        }
+    }
+
+    .modal-state:checked + .modal-fade-screen {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .modal-state:checked + .modal-fade-screen .modal-inner {
+        top: 0.5em;
+    }
+}
+
+.modal-open {
+    overflow: hidden;
+    position: fixed;
+}
+
+.modal-trigger {
+    cursor: pointer;
+}
+
+// Based on code by Kasper Mikiewicz

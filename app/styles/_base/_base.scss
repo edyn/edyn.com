@@ -2,7 +2,7 @@
 $base-font-color: $judge-gray;
 $base-font-family: $proxima-light;
 $base-font-size: em(18);
-$base-background-color: $white;
+$base-background-color: $judge-gray;
 $action-color: $amber;
 $heading-font-family: $proxima-bold;
 $quote-font-family: $proxima-semibold;
@@ -17,6 +17,7 @@ body {
 	}
 	padding: 0;
 	margin: 0;
+	width: 100%;
 }
 
 a {
@@ -41,11 +42,15 @@ h6 {
 }
 
 h2 {
-	font-size: em(26);
+	font-size: em(32);
+
+	@include media($bp-medium) {
+		font-size: em(40);
+	}
 }
 
 h3 {
-	font-size: em(22);
+	font-size: em(26);
 }
 
 blockquote {
@@ -54,4 +59,12 @@ blockquote {
 		size: em(22);
 	}
 	line-height: $quote-line-height;
+
+	@include media($bp-medium) {
+		font-family: $base-font-family;
+	}
+}
+
+strong {
+	font-family: $proxima-semibold;
 }

@@ -7,14 +7,61 @@ footer {
 	font-size: em(10);
 	padding: em(25) 0;
 	text-align: center;
+	position: relative;
+	z-index: 1;
 
-	@include outer-container();
+	.container {
+		@include media($bp-medium) {
+			@include fill-parent();
+			max-width: inherit;
+		}
+	}
+
+	p {
+		clear: both;
+		padding-top: em(20);
+
+		@include media($bp-medium) {
+			margin-top: 8%;
+			position: relative;
+			top: 2%;
+		}
+	}
+
+	.menu {
+		@include media($bp-medium) {
+			@include position(absolute, 50% null null 1%);
+			@include transform(translateY(-50%));
+			margin: 0;
+			padding: 0;
+			width: initial;
+		}
+	}
 
 	.app {
-		margin: em(35) 0 em(70);
+		margin: em(50) 0;
+
+		@include media($bp-medium) {
+			@include span-columns(6 of 12);
+			@include position(absolute, 50% 1% null null);
+			@include transform(translateY(-50%));
+			margin: 0;
+			padding: 0;
+			text-align: right;
+			width: initial;
+		}
 	}
 
 	.social {
 		margin: em(20) 0;
+		@include span-columns(12);
+
+		@include media($bp-medium) {
+			@include position(absolute, 50% null null 50%);
+			@include transform(translate(-50%, -50%));
+			margin: 0;
+			padding: 0;
+			width: initial;
+		}
 	}
 }

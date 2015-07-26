@@ -1,6 +1,3 @@
-// bower:scss
-// endbower
-
 // Frameworks
 @import "../../bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "../../bower_components/neat/app/assets/stylesheets/neat";
@@ -9,6 +6,7 @@
 // Base
 @import "_base/colors";
 @import "_base/typography";
+@import "_base/breakpoints";
 @import "_base/base";
 
 // Layouts
@@ -18,9 +16,15 @@
 @import "_layouts/footer";
 
 // Modules
+@import "_modules/animations";
 @import "_modules/icons";
 @import "_modules/buttons";
 @import "_modules/navigation";
 @import "_modules/hero";
 @import "_modules/carousel";
 @import "_modules/accordion";
+@import "_modules/modal";
+@import "_modules/lightbox";
+
+// Plugins
+@import "_plugins/owl";

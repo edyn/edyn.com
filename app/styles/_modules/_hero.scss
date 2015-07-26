@@ -1,28 +1,372 @@
 .hero {
 	$hero-font-color: $white;
-	$hero-background-color: rgba($black, 0.3);
+	$hero-font-color-alternate: transparent;
+	$hero-background-color: $judge-gray;
+	$hero-background-color-overlay: rgba($amber, 0.7);
 
-	background: {
-		color: $hero-background-color;
-		image: url('../../images/edyn-web-hero-top.jpg');
-		position: 50% 50%;
-		repeat: no-repeat;
-		size: cover;
-	}
-	background-blend-mode: darken;
 	color: $hero-font-color;
-	min-height: em(500);
-	padding-top: em(240);
+	background: $hero-background-color;
 	position: relative;
 	text-align: center;
-	z-index: 0;
+	z-index: 1;
+	padding-top: 50%;
+
+	@include media($bp-medium) {
+		padding-top: 30%;
+		// background: {
+		// 	attachment: fixed;
+		// 	color: $hero-background-color;
+		// 	image: url('../../images/edyn-web-hero-top-blurred.jpg');
+		// 	position: 50% 50%;
+		// 	repeat: no-repeat;
+		// 	size: cover;
+		// 	//blend-mode: darken
+		// }
+	}
+
+	&-background {
+		display: block;
+		z-index: -1;
+		@include position(fixed, 0 0 0 0);
+
+		background: {
+			//attachment: fixed;
+			color: $hero-background-color;
+			image: url('../../images/edyn-web-hero-top.jpg');
+			position: 50% 50%;
+			repeat: no-repeat;
+			size: cover;
+			//blend-mode: darken
+		}
+		width: 100%;
+	  	height: 100%;
+	  	//min-height: 100vh;
+	  	//@include transition(all 2.0s);
+
+		//  	&::after {
+	 //  		opacity: 0;
+	 //  		content: '';
+	 //  		display: block;
+	 //  		@include position(absolute, 0 0 0 0);
+	 //  		@include size(100%);
+	 //  		z-index: -999;
+	 //  		background: {
+		// 		//attachment: fixed;
+		// 		color: $hero-background-color;
+		// 		image: url('../../images/edyn-web-hero-top-blurred.jpg');
+		// 		position: 50% 50%;
+		// 		repeat: no-repeat;
+		// 		size: cover;
+		// 		blend-mode: darken
+		// 	}
+		// 	@include transition(opacity 1s);
+		//
+		// 	@include media($bp-medium) {
+		// 		display: none;
+		// 	}
+		//  	}
+		//
+		//  	&.blurred {
+	 //  		&::after {
+	 //  			opacity: 1;
+	 //  		}
+		//  	}
+	}
+
+	&-background-blurred {
+		@extend .hero-background;
+		background-image: url('../../images/edyn-web-hero-top-blurred.jpg');
+		z-index: -2;
+	}
+
+	&-content {
+		@include clearfix;
+		margin-bottom: 40%;
+
+		@include media($bp-medium) {
+			&:last-child {
+				margin-bottom: 15%;
+			}
+		}
+
+		.container {
+			height: 100%;
+			@include clearfix;
+		}
+	}
+
+	&-arrow {
+		display: none;
+
+		@include media($bp-medium) {
+			display: block;
+			@include hide-text;
+			@include size(40px 21px);
+			@include position(absolute, null null -15% 50%);
+			@include transform(translateX(-50%));
+			@include retina-image('../../images/edyn-arrow', 40px 21px);
+		}
+	}
 
 	h2 {
 		margin-top: em(10);
+		@include media($bp-medium) {
+			font-size: em(52);
+			margin-bottom: 0.25em;
+			letter-spacing: 0;
+		}
 	}
 
-	h2, p {
+	h2 {
 		@include shift(1);
 		@include span-columns(10);
+	}
+
+	p {
+		padding: 0 5%;
+	}
+
+	p {
+		@include media($bp-medium) {
+			@include shift(3);
+			@include span-columns(6);
+			font-size: em(16);
+		}
+	}
+
+	span {
+		color: $hero-font-color-alternate;
+		font: {
+			size: em(20);
+			family: $proxima-semibold;
+		}
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+
+	.overlay {
+		background: $hero-background-color-overlay;
+		content: '';
+		display: block;
+		z-index: -1;
+		@include position(absolute, 0 0 0 0);
+		@include size(100%);
+	}
+
+	.section-system {
+
+		@include keyframes(fadeIn) {
+			0% {
+				opacity: 0;
+			}
+			50% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		h2 {
+			position: relative;
+
+			@include media($bp-medium) {
+				opacity: 0;
+				font-size: em(32);
+				margin-bottom: em(25);
+			}
+		}
+
+		svg {
+			.signal-small, .signal-medium, .signal-big {
+				@include animation-name(fadeIn);
+				@include animation-duration(2s);
+				@include animation-delay(0s);
+				@include animation-timing-function(ease);
+				@include animation-iteration-count(infinite);
+			}
+
+			.signal-medium {
+				@include animation-delay(0.2s);
+			}
+
+			.signal-big {
+				@include animation-delay(0.4s);
+			}
+
+			@include media($bp-medium) {
+				height: 100%;
+				width: auto;
+
+				// &.svg-sensor {
+				// 	height: 150%;
+				// 	position: relative;
+				// 	margin-top: -50%;
+				// }
+
+				// &.svg-app, &.svg-valve {
+				// 	position:relative;
+				// 	top: -32.5%;
+				// }
+			}
+		}
+
+		.carousel {
+			@include media($bp-medium) {
+				padding-top: 0%;
+			}
+		}
+
+		.carousel-item {
+			// @include media($bp-small-2) {
+			// 	position: relative;
+			// 	&::after {
+			// 		content: "";
+			// 		display: block;
+			// 		@include size(0px 26px);
+			// 		@include position(absolute, 25% null null 90%);
+			// 		@include retina-image('../../images/edyn-web-hero-arrow', 103px 20px);
+			// 		background-repeat: no-repeat;
+			// 		-webkit-transition: width 0.4s ease-in-out;
+			// 	   -moz-transition: width 0.4s ease-in-out;
+			// 	   -o-transition: width 0.4s ease-in-out;
+			// 	   transition: width 0.4s ease-in-out;
+			// 	}
+			// }
+
+			@include media($bp-medium) {
+				// padding-top: 25.5%;
+				position: relative;
+				&::after {
+					content: "";
+					display: block;
+					@include size(0px 26px);
+					@include position(absolute, 25% null null 90%);
+					@include retina-image('../../images/edyn-web-hero-arrow', 134px 26px);
+					-webkit-transition: width 0.4s ease-in-out;
+				   -moz-transition: width 0.4s ease-in-out;
+				   -o-transition: width 0.4s ease-in-out;
+				   transition: width 0.4s ease-in-out;
+				}
+			}
+
+			&.animated {
+				&::after {
+					@include size(134px 26px);
+				}
+			}
+
+			.carousel-image {
+				height: em(220);
+
+				@include media($bp-medium) {
+					// height: 30vh;
+					opacity: 0;
+				}
+			}
+
+			h3 {
+
+				// @include media($bp-small-1) {
+				// 	font-size: em(16);
+				// }
+
+				@include media($bp-medium) {
+					font-size: em(20);
+					opacity: 0;
+				}
+			}
+
+			p {
+
+				// @include media($bp-small-1) {
+				// 	font-size: em(12);
+				// }
+				@include media($bp-medium) {
+					opacity: 0;
+					font-size: em(16);
+					line-height: 1.3em;
+					padding: 0 em(10);
+					width: 100%;
+					@include shift(0);
+				}
+			}
+		}
+
+		.owl-item:last-of-type {
+			.carousel-item {
+				&::after {
+					display: none;
+				}
+			}
+		}
+
+		.owl-pagination {
+			@include position(absolute, 60% 0 0 50%);
+		}
+
+		.owl-prev {
+			@include position(absolute, 40% null null 0%);
+			@include transform(translateY(-50%));
+		}
+
+		.owl-next {
+			@include position(absolute, 40% 0% null null);
+			@include transform(translateY(-50%));
+		}
+	}
+}
+
+&.about {
+	.hero {
+		position: relative;
+		background: {
+			//attachment: fixed;
+			color: $amber;
+			image: url('../../images/edyn-web-hero-top-yellow.jpg');
+			position: 50% 50%;
+			repeat: no-repeat;
+			size: cover;
+			//blend-mode: darken
+		}
+		height: 100vh;
+
+		p {
+			@include media($bp-medium) {
+				@include shift(1);
+				@include span-columns(10);
+				font-size: 40px;
+				line-height: 1.25em;
+			}
+		}
+
+		h2 {
+			font-size: 30px;
+			line-height: 1.2em;
+			@include media($bp-medium) {
+				margin-top: 0;
+				margin-bottom: 0.95em;
+				font-size: 68px;
+			}
+		}
+
+		span {
+			color: $judge-gray;
+			@include media($bp-medium) {
+				font-size: 25px;
+			}
+		}
+
+		.hero-arrow {
+			@include media($bp-medium) {
+				@include position(absolute, null null 5% 50%);
+				@include transform(translateX(-50%));
+				@include retina-image('../../images/edyn-arrow-white', 40px 21px);
+			}
+		}
+
+		// .container {
+		// 	position: relative;
+		// }
 	}
 }

@@ -1,29 +1,42 @@
 .logo {
 	display: block;
-	z-index: 2;
+	z-index: 3;
 
 	@include hide-text;
 	@include position(absolute, 2% null null 5%);
-	@include retina-image('../../images/edyn-logo', 127px 35px);
+	@include retina-image('../../images/edyn-logo', 127px 140px);
 	@include size(127px 35px);
+	//@include transition(0.2s background);
+	background-repeat: no-repeat;
+
+	&.white {
+		background-position: 0 -35px;
+	}
+
+	&.dark {
+		background-position: 0 -70px;
+	}
 }
 
 .menu {
 	$menu-action-color: $action-color;
 	$menu-action-color-alternate: $white;
+	$menu-action-color-dark: $judge-gray;
 	$menu-background-color: rgba($black, 0.85);
 	$menu-font-family: $proxima-semibold;
-
-	// @include size(100% 100%);
 
 	.menu-icon {
 		cursor: pointer;
 		position: relative;
-		z-index: 2;
+		z-index: 3;
 
 		@include size(54px);
 		@include position(absolute, 0% 2% null null);
 		@include transition(transform 0.5s);
+
+		@include media($bp-medium) {
+			display: none;
+		}
 
 		span {
 			background-color: $menu-action-color;
@@ -83,10 +96,14 @@
 	}
 	.menu-list {
 		position: relative;
-		z-index: 1;
+		z-index: 2;
+
+		@include media($bp-medium) {
+			@include clearfix();
+		}
 	}
 		.menu-item {
-			padding: em(15) 0;
+			padding: em(12) 0;
 			font: {
 				family: $menu-font-family;
 				size: em(20);
@@ -95,6 +112,19 @@
 			a {
 				&.button {
 					font-size: em(18);
+
+					@include media($bp-medium) {
+						font-size: em(11);
+					}
+				}
+
+				&:not(.button) {
+					position: relative;
+					top: em(6);
+				}
+
+				@include media($bp-medium) {
+					font-size: em(11);
 				}
 			}
 
@@ -102,6 +132,16 @@
 				a {
 					color: $menu-action-color-alternate;
 				}
+
+				@include media($bp-medium) {
+					display: none;
+				}
+			}
+
+			@include media($bp-medium) {
+				float: right;
+				margin: 0 em(12);
+				padding: 0;
 			}
 		}
 
@@ -112,8 +152,24 @@
 			display: none;
 			background: $menu-background-color;
 			padding-top: em(75);
-			//@include size(100% 100%);
 			height: 100vh;
+
+			@include media($bp-medium) {
+				background: transparent;
+				display: block;
+				height: inherit;
+				padding-top: 0;
+				position: relative;
+				right: 5%;
+			}
+		}
+
+		&.dark {
+			.menu-item {
+				a:not(.button) {
+					color: $menu-action-color-dark;
+				}
+			}
 		}
 	}
 
@@ -128,6 +184,88 @@
 
 			a {
 				font-size: em(18);
+			}
+
+			@include media($bp-medium) {
+				float: left;
+			}
+		}
+
+		@include media($bp-medium) {
+			@include span-columns(6 of 12);
+			margin: 0 0 0 1%;
+		}
+	}
+}
+
+&.about {
+	.is-nav-open {
+		.logo {
+			background-position: 0 0px;
+		}
+
+		.menu-icon {
+			span::before, span::after {
+				background-color: $amber;
+			}
+		}
+	}
+
+	header {
+		&:not(.is-nav-open) {
+			.menu-item {
+				a {
+					color: $white;
+
+				}
+
+				a.button {
+					border-color: $white;
+
+					&:active,
+					&:focus,
+					&:hover {
+						background: $white;
+						color: $judge-gray;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+
+	.logo {
+		background-position: 0 -105px;
+
+		&.dark {
+			background-position: 0 -70px;
+		}
+	}
+
+	.menu-icon {
+		span, span::before, span::after {
+			background-color: $white;
+		}
+	}
+
+	.menu-header {
+		&.dark {
+			.menu-item {
+				a {
+					color: $judge-gray;
+				}
+
+				a.button {
+					border-color: $judge-gray;
+
+					&:active,
+					&:focus,
+					&:hover {
+						background: $judge-gray;
+						color: $white;
+						text-decoration: none;
+					}
+				}
 			}
 		}
 	}
