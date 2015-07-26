@@ -266,6 +266,20 @@
 		return false;
 	}
 
+	function isAndroid() {
+		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+		if(userAgent.match( /Android/i )) {
+			return true;
+		}
+
+		return false;
+	}
+
+	if(isAndroid()) {
+		jQuery('.app-link').unbind('click');
+		jQuery('.app-link').attr('href', jQuery('.button-googleplay').attr('href'));
+	}
+
 	if(!isIOS()) {
 		// Init parallax plugin (ONLY FOR non-IOS devices)
 		skrollr.init({
@@ -280,6 +294,8 @@
 		//--- END parallax plugin
 	} else {
 		jQuery('html').addClass('ios');
+		jQuery('.app-link').unbind('click');
+		jQuery('.app-link').attr('href', jQuery('.button-appstore').attr('href'));
 	}
 
 	// Everything that will be loaded for any resolution
@@ -356,21 +372,23 @@
 	//--- END transitions
 
 	// Get the app lightbox event
-	jQuery('.toggle-lightbox').click(function(e) {
-		jQuery('.lightbox').show();
-		jQuery('body').toggleClass('no-scroll');
+	if (!isAndroid() && !isIOS()) {
+		jQuery('.toggle-lightbox').click(function(e) {
+			jQuery('.lightbox').show();
+			jQuery('body').toggleClass('no-scroll');
 
-		e.prevenDefault();
-		e.stopPropagation();
-	});
+			e.prevenDefault();
+			e.stopPropagation();
+		});
 
-	jQuery('.lightbox-close').click(function(e) {
-		jQuery('.lightbox').hide();
-		jQuery('body').toggleClass('no-scroll');
+		jQuery('.lightbox-close').click(function(e) {
+			jQuery('.lightbox').hide();
+			jQuery('body').toggleClass('no-scroll');
 
-		e.prevenDefault();
-		e.stopPropagation();
-	});
+			e.prevenDefault();
+			e.stopPropagation();
+		});
+	}
 	//--- END mobile hamburger menu
 
 	// Modal events
