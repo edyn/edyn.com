@@ -1,0 +1,29 @@
+- var bodyClass = '';
+block vars
+
+doctype html
+html.no-js(lang='en')
+
+    include ../includes/head.jade
+    
+    body(class='#{bodyClass}')
+        | <!--[if lt IE 10]>
+        |   <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        | <![endif]-->
+    
+        header
+            h1
+                a.logo(href='/') Edyn
+            nav.menu.menu-header
+                .menu-icon
+                    span
+                ul.menu-list
+                    li.menu-item
+                        a.button(href='http://www.homedepot.com/p/Edyn-Garden-Sensor-EDYN-001/205833447', target='_blank') Buy Now
+                    li.menu-item
+                        a.toggle-lightbox.app-link(href='#') Get the App
+         
+        block content
+        
+        include ../includes/footer.jade
+        include ../includes/scripts.jade
