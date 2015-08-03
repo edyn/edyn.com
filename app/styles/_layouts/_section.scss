@@ -452,8 +452,8 @@ section {
 	&.section-careers {
 		background: {
 			color: $section-careers-background-color;
-			image: url('../../images/edyn_web_hero_comework-portrait.jpg');
-			position: 50% top;
+			image: url('../../images/edyn_web_hero_comework.jpg');
+			position: 20% top;
 			repeat: no-repeat;
 			size: cover;
 		}
@@ -488,5 +488,28 @@ section {
 html.ios {
 	section {
 		z-index: 1;
+
+		&.section-app {
+			@include media($bp-medium) {
+				img {
+					display: block !important;
+					margin-top: em(-250);
+				}
+
+				.carousel-item {
+					padding-top: 0% !important;
+				}
+			}
+		}
+
+		&.section-sensor {
+			@include media($bp-medium) {
+				background-position: 15% center;
+				padding: 10rem 0;
+				.section-item {
+					margin-bottom: 0 !important;
+				}
+			}
+		}
 	}
 }
