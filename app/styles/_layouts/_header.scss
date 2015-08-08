@@ -26,3 +26,19 @@ header {
 		}
 	}
 }
+
+.page {
+	header {
+		background: $white;
+		@include position(absolute, 0 0 null 0);
+		height: em(80);
+
+		@include media($bp-medium) {
+			position: fixed;
+			z-index: 9999;
+			bottom: inherit;
+			top: 0%;
+			// height: em(80);
+		}
+	}
+}

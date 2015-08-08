@@ -14,4 +14,8 @@ app.get('/about', function(req, res) {
     res.sendfile('./dist/about.html');
 });
 
+app.get('/privacypolicy', function(req, res) {
+    res.sendfile('./dist/privacypolicy.html');
+});
+
 app.listen(process.env.PORT || 5000);

@@ -270,3 +270,51 @@
 		}
 	}
 }
+
+&.page {
+
+
+	header:not(.is-nav-open) {
+		.logo {
+			background-position: 0 -70px;
+
+			@include position(absolute, 50% null null 5%);
+			@include transform(translateY(-50%));
+		}
+
+		.menu-header {
+			.menu-item {
+				a {
+					color: $judge-gray;
+				}
+
+				a.button {
+					border-color: $judge-gray;
+
+					&:active,
+					&:focus,
+					&:hover {
+						background: $judge-gray;
+						color: $white;
+						text-decoration: none;
+					}
+				}
+			}
+
+			@include position(absolute, 50% null null 5%);
+			@include transform(translateY(-50%));
+		}
+	}
+
+
+	header.is-nav-open {
+		.logo {
+			@include position(absolute, 30% null null 5%);
+			@include transform(translateY(0%));
+		}
+
+		.menu-icon {
+			@include position(absolute, 25% 2% null null);
+		}
+	}
+}
