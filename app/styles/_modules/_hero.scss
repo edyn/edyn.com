@@ -371,3 +371,20 @@
 		// }
 	}
 }
+
+
+.ua-chrome.ua-ios {
+	.hero {
+		background: {
+			color: $judge-gray;
+			image: url('../../images/edyn-web-hero-top.jpg');
+			position: 70% top;
+			repeat: no-repeat;
+			size: auto 100%;
+		}
+
+		&-background {
+			display: none;
+		}
+	}
+}

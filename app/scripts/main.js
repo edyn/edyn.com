@@ -21,13 +21,6 @@
 
 	// Whatever happens for resolutions under 48.75em
 	if (window.matchMedia('(max-width: 48.75em)').matches) {
-		// Fixing the jumpy background image due to 'vh' unit
-		// var heroBg = jQuery('.hero-background'),
-		// 	heroBlurredBg = jQuery('.hero-background-blurred');
-		// var h = window.innerHeight;
-		// heroBg.css('height', h + 60);
-		// heroBlurredBg.css('height', h + 60);
-		// heroBg.remove();
 
 		// Mobile hamburger menu events
 		var headerMenuList = jQuery('.menu-header ul');
@@ -258,17 +251,21 @@
 		}
 	}
 
-	if(jQuery('.hero-background').length) {
-		jQuery('.hero-background').attr('data-0p-bottom-bottom', 'opacity: 1; position: fixed;');
-		// jQuery('.hero-background').attr('data--70p-bottom-bottom', 'opacity: 0; position: fixed;');
-		jQuery('.hero-background').attr('data--100p-bottom-bottom', 'opacity: 0; position: relative;');
-		jQuery('.hero-background').attr('data-anchor-target', '.hero-content');
-	}
+	if (!cssua.ua.ios || !cssua.ua.chrome) {
 
-	if(jQuery('.hero-background-blurred').length) {
-		jQuery('.hero-background-blurred').attr('data-0p-bottom-bottom', 'position: fixed; opacity: 1;');
-		jQuery('.hero-background-blurred').attr('data--100p-bottom-bottom', 'position: relative; opacity: 0;');
-		jQuery('.hero-background-blurred').attr('data-anchor-target', '.hero .container');
+		if(jQuery('.hero-background').length) {
+			jQuery('.hero-background').attr('data-0p-bottom-bottom', 'opacity: 1; position: fixed;');
+			// jQuery('.hero-background').attr('data--70p-bottom-bottom', 'opacity: 0; position: fixed;');
+			jQuery('.hero-background').attr('data--100p-bottom-bottom', 'opacity: 0; position: relative;');
+			jQuery('.hero-background').attr('data-anchor-target', '.hero-content');
+		}
+
+		if(jQuery('.hero-background-blurred').length) {
+			jQuery('.hero-background-blurred').attr('data-0p-bottom-bottom', 'position: fixed; opacity: 1;');
+			jQuery('.hero-background-blurred').attr('data--100p-bottom-bottom', 'position: relative; opacity: 0;');
+			jQuery('.hero-background-blurred').attr('data-anchor-target', '.hero .container');
+		}
+
 	}
 
 
