@@ -1,3 +1,9 @@
+.ios {
+	section {
+		z-index: 1;
+	}
+}
+
 section {
 	$section-system-font-color: $white;
 	$section-system-background-color: $judge-gray;
@@ -27,7 +33,7 @@ section {
 	text-align: center;
 	@include clearfix();
 	position: relative;
-	// z-index: 1;
+
 
 	.button {
 		clear: both;
