@@ -1,94 +1,180 @@
 (function(){
 	'use strict';
 
-	// // Whatever happens for resolutions under 48.75em
-	// if (window.matchMedia('(max-width: 48.75em)').matches) {
-	//
-	// 	// Mobile hamburger menu events
-	// 	var headerMenuList = jQuery('.menu-header ul');
-	// 	var footerMenuElements = jQuery('.menu-footer li').clone();
-	//
-	// 	jQuery('.menu-icon').click(function() {
-	// 		headerMenuList.append(footerMenuElements);
-	// 		jQuery(this).toggleClass('is-open');
-	// 		jQuery('header').toggleClass('is-nav-open');
-	// 		jQuery('body').toggleClass('no-scroll');
-	// 	});
-	// 	//--- END mobile hamburger menu
-	//
-	// 	// Carousel activation
-	// 	if(jQuery('.hero-content .carousel').length) {
-	// 		jQuery('.hero-content .carousel').owlCarousel({
-	// 			navigation: true,
-	// 			navigationText: false,
-	// 			items: 3,
-	// 			itemsDesktop: [1000, 3],
-	// 			itemsDesktopSmall: [900, 3],
-	// 			itemsTablet: [600, 1],
-	// 			itemsMobile: [480, 1],
-	// 			singleItem: true
-	// 		});
-	// 	}
-	//
-	// 	if(jQuery('.section-app .carousel').length) {
-	// 		jQuery('.section-app .carousel').owlCarousel({
-	// 			navigation: true,
-	// 			navigationText: false,
-	// 			items: 3,
-	// 			itemsDesktop: [1000, 3],
-	// 			itemsDesktopSmall: [900, 3],
-	// 			itemsTablet: [600, 1],
-	// 			itemsMobile: [480, 1],
-	// 			singleItem: true
-	// 		});
-	// 	}
-	//
-	// 	if(jQuery('.section-gallery .carousel').length) {
-	// 		jQuery('.section-gallery .carousel').owlCarousel({
-	// 			navigation: true,
-	// 			navigationText: false,
-	// 			items: 3,
-	// 			itemsDesktop: [1000, 3],
-	// 			itemsDesktopSmall: [900, 3],
-	// 			itemsTablet: [600, 1],
-	// 			itemsMobile: [480, 1],
-	// 			transitionStyle: 'fade',
-	// 			singleItem: true
-	// 		});
-	// 	}
-	// 	//--- END carousel
-	// }
+	// Whatever happens for resolutions under 48.75em
+	if (window.matchMedia('(max-width: 48.75em)').matches) {
+		// Mobile hamburger menu events
+		var headerMenuList = jQuery('.menu-header ul');
+		var footerMenuElements = jQuery('.menu-footer li').clone();
+
+		jQuery('.menu-icon').click(function() {
+			headerMenuList.append(footerMenuElements);
+			jQuery(this).toggleClass('is-open');
+			jQuery('header').toggleClass('is-nav-open');
+			jQuery('body').toggleClass('no-scroll');
+		});
+		//--- END mobile hamburger menu
+
+		// Carousel settings
+		if(jQuery('.hero-content .carousel').length) {
+			jQuery('.hero-content .carousel').owlCarousel({
+				navigation: true,
+				navigationText: false,
+				items: 3,
+				itemsDesktop: [1000, 3],
+				itemsDesktopSmall: [900, 3],
+				itemsTablet: [600, 1],
+				itemsMobile: [480, 1],
+				singleItem: true
+			});
+		}
+
+		if(jQuery('.section-app .carousel').length) {
+			jQuery('.section-app .carousel').owlCarousel({
+				navigation: true,
+				navigationText: false,
+				items: 3,
+				itemsDesktop: [1000, 3],
+				itemsDesktopSmall: [900, 3],
+				itemsTablet: [600, 1],
+				itemsMobile: [480, 1],
+				singleItem: true
+			});
+		}
+
+		if(jQuery('.section-gallery .carousel').length) {
+			jQuery('.section-gallery .carousel').owlCarousel({
+				navigation: true,
+				navigationText: false,
+				items: 3,
+				itemsDesktop: [1000, 3],
+				itemsDesktopSmall: [900, 3],
+				itemsTablet: [600, 1],
+				itemsMobile: [480, 1],
+				transitionStyle: 'fade',
+				singleItem: true
+			});
+		}
+		//--- END Carousel settings
+	}
+
+	// Whatever happens for resolutions over 48.75em
+	if (window.matchMedia('(min-width: 48.75em)').matches) {
+		// Carousel activation
+		if(jQuery('.section-gallery .carousel').length) {
+			jQuery('.section-gallery .carousel').owlCarousel({
+				navigation: true,
+				navigationText: false,
+				items: 1,
+				itemsDesktop: [1000, 1],
+				itemsDesktopSmall: [900, 1],
+				itemsTablet: [600, 1],
+				itemsMobile: [480, 1],
+				singleItem: true,
+				transitionStyle: 'fade'
+			});
+		}
+
+		if(jQuery('.hero-content .carousel').length) {
+			jQuery('.hero-content .carousel').owlCarousel({
+				navigation: true,
+				navigationText: false,
+				items: 3,
+				itemsDesktop: [1000, 3],
+				itemsDesktopSmall: [900, 3],
+				itemsTablet: [600, 1],
+				itemsMobile: [480, 1]
+			});
+		}
+		//--- END carousel
+	}
+
+	// Whatever happens on protrait mode
+	if (window.matchMedia('(orientation: portrait)').matches) {
+		if(jQuery('.section-gallery').find('img').length) {
+			jQuery('.section-gallery').find('img').each(function() {
+				jQuery(this).attr('src', jQuery(this).attr('data-src'));
+			});
+		}
+	}
+
+	// Whatever happens on iOS
+	if(cssua.ua.ios) {
+		jQuery('.app-link').unbind('click');
+		jQuery('.app-link').attr('href', jQuery('.button-appstore').attr('href'));
+	}
+
+	// Whatever happens on Android
+	if(cssua.ua.android) {
+		jQuery('.app-link').unbind('click');
+		jQuery('.app-link').attr('href', jQuery('.button-googleplay').attr('href'));
+	}
+
+	// Whetever happens on OS different than iOS & Android
+	// Get the app lightbox event
+	if (!cssua.ua.android && !cssua.ua.ios) {
+		jQuery('.toggle-lightbox').click(function(e) {
+			jQuery('.lightbox').show();
+			jQuery('body').toggleClass('no-scroll');
+
+			e.prevenDefault();
+			e.stopPropagation();
+		});
+
+		jQuery('.lightbox-close').click(function(e) {
+			jQuery('.lightbox').hide();
+			jQuery('body').toggleClass('no-scroll');
+
+			e.prevenDefault();
+			e.stopPropagation();
+		});
+	}
+	//--- END lightbox
+
+	// Everything that follows runs everywhere
+
+	// Press accordion events
+	if(jQuery('.accordion-picture').length) {
+		jQuery('.accordion-picture').click(function() {
+			var accordion = jQuery(this).parents('.accordion:first'),
+				element = jQuery(this).parents('.accordion-item:first');
+
+			accordion.find('.accordion-target').text(element.text());
+			accordion.find('.is-active').removeClass('is-active');
+			element.addClass('is-active');
+		});
+	}
+	//--- END press accordion
+
+	// Modal events
+	if(jQuery('.modal').length) {
+		var iframe = document.getElementById('vimeo-player');
+		var player = $f(iframe);
+
+		jQuery('.modal-state').on('change', function() {
+			if (jQuery(this).is(':checked')) {
+				jQuery('body').addClass('modal-open');
+				player.api('play');
+			} else {
+				jQuery('body').removeClass('modal-open');
+				player.api('pause');
+			}
+		});
+
+		jQuery('.modal-fade-screen, .modal-close').on('click', function() {
+			jQuery('.modal-state:checked').prop('checked', false).change();
+		});
+
+		jQuery('.modal-inner').on('click', function(e) {
+			e.stopPropagation();
+		});
+	}
+	//--- END modal events
+
 	//
 	// // Whatever happens for resolutions over 48.75em
 	// if (window.matchMedia('(min-width: 48.75em)').matches) {
-	// 	// Carousel activation
-	// 	if(jQuery('.section-gallery .carousel').length) {
-	// 		jQuery('.section-gallery .carousel').owlCarousel({
-	// 			navigation: true,
-	// 			navigationText: false,
-	// 			items: 1,
-	// 			itemsDesktop: [1000, 1],
-	// 			itemsDesktopSmall: [900, 1],
-	// 			itemsTablet: [600, 1],
-	// 			itemsMobile: [480, 1],
-	// 			singleItem: true,
-	// 			transitionStyle: 'fade'
-	// 		});
-	// 	}
-	//
-	// 	if(jQuery('.hero-content .carousel').length) {
-	// 		jQuery('.hero-content .carousel').owlCarousel({
-	// 			navigation: true,
-	// 			navigationText: false,
-	// 			items: 3,
-	// 			itemsDesktop: [1000, 3],
-	// 			itemsDesktopSmall: [900, 3],
-	// 			itemsTablet: [600, 1],
-	// 			itemsMobile: [480, 1]
-	// 		});
-	// 	}
-	// 	//--- END carousel
-	//
+	// 	//
 	//
 	// 	if(!isIOS()) {
 	// 		if(jQuery('.section-sensor .section-item').length) {
@@ -251,20 +337,9 @@
 	// }
 	//
 	//
-	// if (window.matchMedia('(orientation: portrait)').matches) {
-	// 	if(jQuery('.section-gallery').find('img').length) {
-	// 		jQuery('.section-gallery').find('img').each(function() {
-	// 			jQuery(this).attr('src', jQuery(this).attr('data-src'));
-	// 		});
-	// 	}
-	// }
-	//
 	// //--- END bind parallax data
 	//
-	// if(isAndroid()) {
-	// 	jQuery('.app-link').unbind('click');
-	// 	jQuery('.app-link').attr('href', jQuery('.button-googleplay').attr('href'));
-	// }
+
 	//
 	// // Init parallax plugin (ONLY FOR non-IOS devices)
 	// skrollr.init({
@@ -278,27 +353,8 @@
 	// });
 	// //--- END parallax plugin
 	//
-	// if(isIOS()) {
-	// 	jQuery('html').addClass('ios');
-	// 	jQuery('.app-link').unbind('click');
-	// 	jQuery('.app-link').attr('href', jQuery('.button-appstore').attr('href'));
 	//
-	// }
-	//
-	// // Everything that will be loaded for any resolution
-	// // Press accordion events
-	// if(jQuery('.accordion-picture').length) {
-	// 	jQuery('.accordion-picture').click(function() {
-	// 		var accordion = jQuery(this).parents('.accordion:first'),
-	// 			element = jQuery(this).parents('.accordion-item:first');
-	//
-	// 		accordion.find('.accordion-target').text(element.text());
-	// 		accordion.find('.is-active').removeClass('is-active');
-	// 		element.addClass('is-active');
-	// 	});
-	// }
-	// //--- END press accordion
-	//
+
 	// // Transitions
 	// function onScroll(){
 	// 	var scrollPosition = jQuery(document).scrollTop();
@@ -358,48 +414,5 @@
 	// }
 	// //--- END transitions
 	//
-	// // Get the app lightbox event
-	// if (!isAndroid() && !isIOS()) {
-	// 	jQuery('.toggle-lightbox').click(function(e) {
-	// 		jQuery('.lightbox').show();
-	// 		jQuery('body').toggleClass('no-scroll');
-	//
-	// 		e.prevenDefault();
-	// 		e.stopPropagation();
-	// 	});
-	//
-	// 	jQuery('.lightbox-close').click(function(e) {
-	// 		jQuery('.lightbox').hide();
-	// 		jQuery('body').toggleClass('no-scroll');
-	//
-	// 		e.prevenDefault();
-	// 		e.stopPropagation();
-	// 	});
-	// }
-	// //--- END mobile hamburger menu
-	//
-	// // Modal events
-	// if(jQuery('.modal').length) {
-	// 	var iframe = document.getElementById('vimeo-player');
-	// 	var player = $f(iframe);
-	//
-	// 	jQuery('.modal-state').on('change', function() {
-	// 		if (jQuery(this).is(':checked')) {
-	// 			jQuery('body').addClass('modal-open');
-	// 			player.api('play');
-	// 		} else {
-	// 			jQuery('body').removeClass('modal-open');
-	// 			player.api('pause');
-	// 		}
-	// 	});
-	//
-	// 	jQuery('.modal-fade-screen, .modal-close').on('click', function() {
-	// 		jQuery('.modal-state:checked').prop('checked', false).change();
-	// 	});
-	//
-	// 	jQuery('.modal-inner').on('click', function(e) {
-	// 		e.stopPropagation();
-	// 	});
-	// }
 
 })();

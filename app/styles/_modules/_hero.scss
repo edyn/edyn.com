@@ -155,7 +155,6 @@
 			position: relative;
 
 			@include media($bp-medium) {
-				opacity: 0;
 				font-size: em(32);
 				margin-bottom: em(25);
 			}
@@ -186,16 +185,6 @@
 				height: 100%;
 				width: auto;
 
-				// &.svg-sensor {
-				// 	height: 150%;
-				// 	position: relative;
-				// 	margin-top: -50%;
-				// }
-
-				// &.svg-app, &.svg-valve {
-				// 	position:relative;
-				// 	top: -32.5%;
-				// }
 			}
 		}
 
@@ -206,25 +195,10 @@
 		}
 
 		.carousel-item {
-			// @include media($bp-small-2) {
-			// 	position: relative;
-			// 	&::after {
-			// 		content: "";
-			// 		display: block;
-			// 		@include size(0px 26px);
-			// 		@include position(absolute, 25% null null 90%);
-			// 		@include retina-image('../../images/edyn-web-hero-arrow', 103px 20px);
-			// 		background-repeat: no-repeat;
-			// 		-webkit-transition: width 0.4s ease-in-out;
-			// 	   -moz-transition: width 0.4s ease-in-out;
-			// 	   -o-transition: width 0.4s ease-in-out;
-			// 	   transition: width 0.4s ease-in-out;
-			// 	}
-			// }
 
 			@include media($bp-medium) {
-				// padding-top: 25.5%;
 				position: relative;
+
 				&::after {
 					content: "";
 					display: block;
@@ -246,22 +220,11 @@
 
 			.carousel-image {
 				height: em(220);
-
-				@include media($bp-medium) {
-					// height: 30vh;
-					opacity: 0;
-				}
 			}
 
 			h3 {
-
-				// @include media($bp-small-1) {
-				// 	font-size: em(16);
-				// }
-
 				@include media($bp-medium) {
 					font-size: em(20);
-					opacity: 0;
 				}
 
 				@include media($bp-large) {
@@ -270,12 +233,7 @@
 			}
 
 			p {
-
-				// @include media($bp-small-1) {
-				// 	font-size: em(12);
-				// }
 				@include media($bp-medium) {
-					opacity: 0;
 					font-size: em(16);
 					line-height: 1.3em;
 					padding: 0 em(10);
