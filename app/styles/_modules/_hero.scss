@@ -22,7 +22,7 @@
 
 		background: {
 			color: $hero-background-color;
-			image: url('../../images/edyn-web-hero-top.jpg');
+			image: url('../../images/edyn-web-hero-top-small.jpg');
 			position: 70% center;
 			repeat: no-repeat;
 			size: auto 100%;
@@ -34,14 +34,19 @@
 			background: {
 				position: 50% 50%;
 				size: cover;
+				image: url('../../images/edyn-web-hero-top.jpg');
 			}
 		}
 	}
 
 	&-background-blurred {
 		@extend .hero-background;
-		background-image: url('../../images/edyn-web-hero-top-blurred.jpg');
+		background-image: url('../../images/edyn-web-hero-top-blurred-small.jpg');
 		z-index: -2;
+
+		@include media($bp-medium) {
+			background-image: url('../../images/edyn-web-hero-top-blurred.jpg');
+		}
 	}
 
 	&-content {
@@ -373,18 +378,38 @@
 }
 
 
+
 .ua-chrome.ua-ios {
 	.hero {
-		background: {
-			color: $judge-gray;
-			image: url('../../images/edyn-web-hero-top.jpg');
-			position: 70% top;
-			repeat: no-repeat;
-			size: auto 100%;
-		}
-
+		padding-top: 0%;
 		&-background {
 			display: none;
+		}
+		&-content {
+			margin-bottom: 0%;
+			padding-bottom: 40%;
+
+			&:first-child {
+				padding-top: 50%;
+				background: {
+					color: $judge-gray;
+					image: url('../../images/edyn-web-hero-top-small.jpg');
+					position: 70% center;
+					repeat: no-repeat;
+					size: auto 100%;
+				}
+			}
+
+			&:last-child {
+				padding-top: 40%;
+				background: {
+					color: $judge-gray;
+					image: url('../../images/edyn-web-hero-top-blurred-small.jpg');
+					position: 70% center;
+					repeat: no-repeat;
+					size: auto 100%;
+				}
+			}
 		}
 	}
 }
