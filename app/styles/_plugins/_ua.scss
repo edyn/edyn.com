@@ -26,7 +26,14 @@
 
 			&:last-child {
 				padding-top: 20%;
-				background-color: $judge-gray;
+				// background-color: $judge-gray;
+                background: {
+					color: $judge-gray;
+					image: url('../../images/edyn-web-hero-top-blurred-small.jpg');
+					position: 70% center;
+					repeat: no-repeat;
+					size: auto 100%;
+				}
 			}
         }
     }
