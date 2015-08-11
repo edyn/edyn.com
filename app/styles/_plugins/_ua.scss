@@ -11,7 +11,7 @@
 
         &-content {
             margin-bottom: 0;
-            padding-bottom: 40%;
+            padding-bottom: 20%;
 
 			&:first-child {
 				padding-top: 50%;
@@ -25,7 +25,7 @@
 			}
 
 			&:last-child {
-				padding-top: 40%;
+				padding-top: 20%;
 				background-color: $judge-gray;
 			}
         }

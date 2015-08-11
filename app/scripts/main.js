@@ -150,36 +150,6 @@
 		//--- END carousel
 
 		// Parallax settings
-		if(jQuery('.hero-background').length) {
-			jQuery('.hero-background').attr('data-0p-bottom-bottom', 'opacity: 1; position: fixed;');
-			jQuery('.hero-background').attr('data--70p-bottom-bottom', 'opacity: 0; position: relative;');
-			jQuery('.hero-background').attr('data-anchor-target', '.hero-content');
-		}
-
-		if(jQuery('.hero-background-blurred').length) {
-			jQuery('.hero-background-blurred').attr('data-0p-bottom-bottom', 'position: fixed; opacity: 1;');
-			jQuery('.hero-background-blurred').attr('data--70p-bottom-bottom', 'position: relative; opacity: 0;');
-			jQuery('.hero-background-blurred').attr('data-anchor-target', '.hero .container');
-		}
-
-		if(jQuery('.home .hero .hero-content').eq(0).find('a').length) {
-			jQuery('.hero .hero-content').eq(0).find('a').attr('data-0p-bottom-bottom', 'opacity: 1; ');
-			jQuery('.hero .hero-content').eq(0).find('a').attr('data--90p-bottom-bottom', 'opacity: 0;');
-			jQuery('.hero .hero-content').eq(0).find('a').attr('data-anchor-target', '.hero-content');
-		}
-
-		if(jQuery('.home .hero .hero-content').eq(0).find('h2').length) {
-			jQuery('.hero .hero-content').eq(0).find('h2').attr('data-0p-bottom-bottom', 'opacity: 1; ');
-			jQuery('.hero .hero-content').eq(0).find('h2').attr('data--90p-bottom-bottom', 'opacity: 0;');
-			jQuery('.hero .hero-content').eq(0).find('h2').attr('data-anchor-target', '.hero-content');
-		}
-
-		if(jQuery('.home .hero .hero-content').eq(0).find('p').length) {
-			jQuery('.hero .hero-content').eq(0).find('p').attr('data-0p-bottom-bottom', 'opacity: 1; ');
-			jQuery('.hero .hero-content').eq(0).find('p').attr('data--90p-bottom-bottom', 'opacity: 0;');
-			jQuery('.hero .hero-content').eq(0).find('p').attr('data-anchor-target', '.hero-content');
-		}
-
 		if(jQuery('.home .hero .hero-arrow').length) {
 			jQuery('.hero .hero-arrow').attr('data-0p-bottom-bottom', 'opacity: 1; ');
 			jQuery('.hero .hero-arrow').attr('data--90p-bottom-bottom', 'opacity: 0;');
@@ -304,6 +274,36 @@
 			jQuery('.section-valve').attr('data-0p-top-bottom', 'background-position: 50% 15em;');
 		}
 		//--- END parallax settings
+	}
+
+	if(jQuery('.hero-background').length) {
+		jQuery('.hero-background').attr('data-0p-bottom-bottom', 'opacity: 1; position: fixed;');
+		jQuery('.hero-background').attr('data--70p-bottom-bottom', 'opacity: 0; position: relative;');
+		jQuery('.hero-background').attr('data-anchor-target', '.hero-content');
+	}
+
+	if(jQuery('.hero-background-blurred').length) {
+		jQuery('.hero-background-blurred').attr('data-0p-bottom-bottom', 'position: fixed; opacity: 1;');
+		jQuery('.hero-background-blurred').attr('data--70p-bottom-bottom', 'position: relative; opacity: 0;');
+		jQuery('.hero-background-blurred').attr('data-anchor-target', '.hero .container');
+	}
+
+	if(jQuery('.home .hero .hero-content').eq(0).find('a').length) {
+		jQuery('.hero .hero-content').eq(0).find('a').attr('data-0p-bottom-bottom', 'opacity: 1; ');
+		jQuery('.hero .hero-content').eq(0).find('a').attr('data--90p-bottom-bottom', 'opacity: 0;');
+		jQuery('.hero .hero-content').eq(0).find('a').attr('data-anchor-target', '.hero-content');
+	}
+
+	if(jQuery('.home .hero .hero-content').eq(0).find('h2').length) {
+		jQuery('.hero .hero-content').eq(0).find('h2').attr('data-0p-bottom-bottom', 'opacity: 1; ');
+		jQuery('.hero .hero-content').eq(0).find('h2').attr('data--90p-bottom-bottom', 'opacity: 0;');
+		jQuery('.hero .hero-content').eq(0).find('h2').attr('data-anchor-target', '.hero-content');
+	}
+
+	if(jQuery('.home .hero .hero-content').eq(0).find('p').length) {
+		jQuery('.hero .hero-content').eq(0).find('p').attr('data-0p-bottom-bottom', 'opacity: 1; ');
+		jQuery('.hero .hero-content').eq(0).find('p').attr('data--90p-bottom-bottom', 'opacity: 0;');
+		jQuery('.hero .hero-content').eq(0).find('p').attr('data-anchor-target', '.hero-content');
 	}
 
 	// Whatever happens on protrait mode
