@@ -2,6 +2,7 @@
   "globals": {
     "jQuery": false,
     "skrollr": false,
-    "$f": false
+    "$f": false,
+    "cssua": false
   }
 }

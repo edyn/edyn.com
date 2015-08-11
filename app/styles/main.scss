@@ -13,6 +13,7 @@
 @import "_layouts/global";
 @import "_layouts/header";
 @import "_layouts/section";
+@import "_layouts/page";
 @import "_layouts/footer";
 
 // Modules
@@ -28,3 +29,4 @@
 
 // Plugins
 @import "_plugins/owl";
+@import "_plugins/ua";

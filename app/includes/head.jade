@@ -1,0 +1,18 @@
+//- includes/head.jade
+block head
+    head
+        meta(charset='utf-8')
+        meta(name='description', content='')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        block title
+        link(rel='apple-touch-icon', href='apple-touch-icon.png')
+        
+        // build:css styles/main.css
+        link(rel='stylesheet', href='styles/main.css')
+        link(rel='stylesheet', href='/bower_components/owl-carousel/owl-carousel/owl.carousel.css')
+        // endbuild
+
+        // build:js scripts/vendor/modernizr.js
+        script(src='/bower_components/modernizr/modernizr.js')
+        script(src='/bower_components/cssuseragent/cssua.js')
+        // endbuild

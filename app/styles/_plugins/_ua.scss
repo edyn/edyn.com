@@ -1,0 +1,33 @@
+/* User agent specific hacks */
+
+// ios
+.ua-ios {
+    .hero {
+        padding-top: 0%;
+
+        &-background {
+            display: none;
+        }
+
+        &-content {
+            margin-bottom: 0;
+            padding-bottom: 20%;
+
+			&:first-child {
+				padding-top: 50%;
+				background: {
+					color: $judge-gray;
+					image: url('../../images/edyn-web-hero-top-small.jpg');
+					position: 70% center;
+					repeat: no-repeat;
+					size: auto 100%;
+				}
+			}
+
+			&:last-child {
+				padding-top: 20%;
+				background-color: $judge-gray;
+			}
+        }
+    }
+}

@@ -27,7 +27,7 @@ section {
 	text-align: center;
 	@include clearfix();
 	position: relative;
-	// z-index: 1;
+	z-index: 1;
 
 	.button {
 		clear: both;
@@ -45,6 +45,17 @@ section {
 		padding-top: 37rem;
 		position: relative;
 		z-index: 1;
+
+		@include media($bp-medium) {
+			padding-top: em(220);
+			// @include retina-image('../../images/edyn_web_hero_sensor', 45% auto);
+			background:  {
+				attachment: absolute;
+				image: url('../../images/edyn_web_hero_sensor_2x.png');
+				position: 17.5% 20%;
+				size: 32.5% auto;
+			}
+		}
 
 		.section-item {
 			@include shift(1);
@@ -80,6 +91,11 @@ section {
 			@include media($bp-medium) {
 				font-size: em(26);
 			}
+
+			@include media($bp-large) {
+				font-size: em(30);
+				letter-spacing: 0;
+			}
 		}
 
 		h3, p {
@@ -96,6 +112,11 @@ section {
 				font-size: em(14);
 				line-height: 1.3em;
 			}
+
+			@include media($bp-large) {
+				font-size: em(20);
+				line-height: 1.4em;
+			}
 		}
 
 		.button {
@@ -104,17 +125,6 @@ section {
 				display: block;
 				margin: 0;
 				width: inherit;
-			}
-		}
-
-		@include media($bp-medium) {
-			padding-top: em(220);
-			// @include retina-image('../../images/edyn_web_hero_sensor', 45% auto);
-			background:  {
-				attachment: absolute;
-				image: url('../../images/edyn_web_hero_sensor_2x.png');
-				position: 10% 20%;
-				size: 45% auto;
 			}
 		}
 	}
@@ -187,7 +197,7 @@ section {
 							display: none;
 
 							@include media($bp-large) {
-								margin-right: 20%;
+								margin-right: 10%;
 							}
 						}
 					}
@@ -210,6 +220,7 @@ section {
 
 				@include media($bp-large) {
 					.carousel-content {
+						margin-top: em(100);
 						h3 {
 							font-size: em(30);
 							letter-spacing: 0;
@@ -229,12 +240,17 @@ section {
 		@include retina-image('../../images/edyn_web_hero_valve', 480px 480px);
 		background:  {
 			color: $section-valve-background-color;
-			position: 50% 180%;
+			position: 50% 170%;
 			repeat: no-repeat;
 			size: auto 440px;
 		}
 		color: $section-valve-font-color;
 		padding-bottom: em(260);
+
+
+		@include media($bp-small-1) {
+			background-position: 50% 220%;
+		}
 
 		@include media($bp-medium) {
 			// @include retina-image('../../images/edyn_web_hero_valve', auto 100vh);
@@ -249,6 +265,7 @@ section {
 			background-image: url('../../images/edyn_web_hero_valve_2x.png');
 			background-position: 50% 110%;
 			background-size: 100vh;
+			height: em(800);
 		}
 
 		h3 {
@@ -258,6 +275,10 @@ section {
 			@include media($bp-medium) {
 				@include span-columns(6);
 				@include shift(3);
+			}
+
+			@include media($bp-large) {
+				font-size: em(30);
 			}
 		}
 
@@ -271,6 +292,13 @@ section {
 				@include span-columns(6);
 				@include shift(3);
 				font-size: em(14);
+				line-height: 1.4em;
+			}
+
+			@include media($bp-large) {
+				@include span-columns(8);
+				@include shift(2);
+				font-size: em(20);
 				line-height: 1.4em;
 			}
 		}
@@ -425,8 +453,8 @@ section {
 	&.section-careers {
 		background: {
 			color: $section-careers-background-color;
-			image: url('../../images/edyn_web_hero_comework-portrait.jpg');
-			position: 50% top;
+			image: url('../../images/edyn_web_hero_comework.jpg');
+			position: 20% top;
 			repeat: no-repeat;
 			size: cover;
 		}
@@ -453,6 +481,35 @@ section {
 			@include media($bp-medium) {
 				font-size: 20px;
 				font-family: $proxima-bold;
+			}
+		}
+	}
+}
+
+html.ios {
+	section {
+		z-index: 1;
+
+		&.section-app {
+			@include media($bp-medium) {
+				img {
+					display: block !important;
+					margin-top: em(-250);
+				}
+
+				.carousel-item {
+					padding-top: 0% !important;
+				}
+			}
+		}
+
+		&.section-sensor {
+			@include media($bp-medium) {
+				background-position: 15% center;
+				padding: 10rem 0;
+				.section-item {
+					margin-bottom: 0 !important;
+				}
 			}
 		}
 	}
