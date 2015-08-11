@@ -1,6 +1,7 @@
 .ios {
 	section {
 		z-index: 1;
+		@include transform(translateZ(1px));
 	}
 }
 

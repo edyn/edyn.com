@@ -6,6 +6,8 @@ header {
 		margin: 0;
 	}
 
+	@include transform(translateZ(2px));
+
 	@include media($bp-medium) {
 		position: fixed;
 		z-index: 9999;

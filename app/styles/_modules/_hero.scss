@@ -10,6 +10,7 @@
 	text-align: center;
 	z-index: 1;
 	padding-top: 50%;
+	@include transform(translateZ(1px));
 
 	@include media($bp-medium) {
 		padding-top: 30%;
@@ -18,6 +19,7 @@
 	&-background {
 		display: block;
 		z-index: -1;
+		// @include transform(translateZ(-1px));
 		@include position(fixed, 0 0 0 0);
 
 		background: {
@@ -43,6 +45,7 @@
 		@extend .hero-background;
 		background-image: url('../../images/edyn-web-hero-top-blurred-small.jpg');
 		z-index: -2;
+		// @include transform(translateZ(-2px));
 
 		@include media($bp-medium) {
 			background-image: url('../../images/edyn-web-hero-top-blurred.jpg');
