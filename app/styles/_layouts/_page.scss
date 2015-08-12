@@ -46,7 +46,7 @@
 
 		h3, h4 {
 			margin-bottom: 0;
-            padding: 0 em(15);
+            padding: 0;
             font: {
 				family: $proxima-bold;
 				weight: normal;
@@ -55,7 +55,6 @@
 			@include media($bp-medium) {
 				font-size: 25px;
 				text-align: left;
-                padding: 0;
 			}
 		}
 
@@ -73,7 +72,7 @@
 		p {
 			font-size: em(18);
 			line-height: 1.3em;
-			padding: 0 em(20);
+			padding: 0;
 
 			@include media($bp-medium) {
 				font-size: 20px;
@@ -91,9 +90,13 @@
         ul {
             list-style: disc;
             list-style-position: inside;
-            padding: 0 em(40);
+            padding: 0 em(20);
             margin-bottom: em(20);
             line-height: 2em;
+
+            @include media($bp-medium) {
+				padding: 0 em(40);
+			}
         }
     }
 }

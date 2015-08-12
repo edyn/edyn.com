@@ -321,15 +321,17 @@
 		jQuery('.app-link').attr('href', jQuery('.button-appstore').attr('href'));
 	} else {
 		// Init parallax plugin (ONLY FOR non-IOS devices)
-		skrollr.init({
-			render: function() {
-				//console.log(data.curTop);
-			},
-			mobileCheck: function() {
-				//hack - forces mobile version to be off
-				return false;
-			}
-		});
+		if($('body').hasClass('parallax')) {
+			skrollr.init({
+				render: function() {
+					//console.log(data.curTop);
+				},
+				mobileCheck: function() {
+					//hack - forces mobile version to be off
+					return false;
+				}
+			});
+		}
 		//--- END parallax plugin
 	}
 
