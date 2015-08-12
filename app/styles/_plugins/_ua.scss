@@ -37,4 +37,31 @@
 			}
         }
     }
+
+    section {
+		z-index: 1;
+
+		&.section-app {
+			@include media($bp-medium) {
+				img {
+					display: block !important;
+					margin-top: em(-250);
+				}
+
+				.carousel-item {
+					padding-top: 0% !important;
+				}
+			}
+		}
+
+		&.section-sensor {
+			@include media($bp-medium) {
+				background-position: 15% center;
+				padding: 10rem 0;
+				.section-item {
+					margin-bottom: 0 !important;
+				}
+			}
+		}
+	}
 }
