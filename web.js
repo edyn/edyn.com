@@ -18,4 +18,8 @@ app.get('/privacy', function(req, res) {
     res.sendfile('./dist/privacy.html');
 });
 
+app.get('/getstarted', function(req, res) {
+    res.sendfile('./dist/getstarted.html');
+});
+
 app.listen(process.env.PORT || 5000);

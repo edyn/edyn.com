@@ -1,0 +1,168 @@
+extends layouts/default
+
+block vars
+    - var bodyClass = 'page';
+
+block title
+    title Get Started
+
+block content
+    .content
+      .container
+        .content-wrapper
+            h2 Edyn Garden Sensor Guide
+            p
+                a(href='#quick-start') Quick start
+            p
+                a(href='#getting-to-know') Getting to know your sensor
+            p
+                a(href='#connecting') Connecting your sensor
+            p
+                a(href='#where-to-place') Where to place your sensor
+            p
+                a(href='#battery') Battery & Charging
+            p
+                a(href='#safety') Safety & Support
+            h3#quick-start Quick start
+            h4 Get the app
+            ul
+                li
+                    | Download the 
+                    a(href='https://itunes.apple.com/us/app/edyn/id939748941?mt=8') Edyn app on the App Store
+            h4 Get connected
+            ul
+                li The Edyn app will walk you through how to connect your Garden Sensor. We recommend finding a spot near your router that’s away from direct light while connecting. You’ll also want to have your wifi password handy.
+                li
+                    | Here's a video showing 
+                    a(href='https://www.youtube.com/watch?v=XZfHwPO4z04') how to blink up your Edyn Garden Sensor
+                    | .
+                li
+                    | For additional support connecting your sensor, read the 
+                    a(href='#connecting') "Connecting your sensor"
+                    |  section below.
+            h4 Start growing
+            ul
+                li
+                    | Congratulations! 
+                    a(href='#where-to-place') Plant your sensor
+                    |  in the soil & start gardening.
+
+            h3#getting-to-know Getting to know your sensor
+            ul
+                li Power button:
+                    ul
+                        li
+                            | Turn your Garden Sensor 
+                            strong on
+                            |  with a short press of the power button.
+                        li
+                            Turn your Garden Sensor 
+                            strong off
+                            |  with a long press of the power button.
+                        li
+                            | Enter into 
+                            strong pairing mode
+                            |  with two quick presses of the power button.
+                        li
+                            strong Check battery
+                            |  status with a single short press of the power button.
+                li Light signal:
+                    ul
+                        li To preserve battery, your Garden Sensor will only show a light signal when it needs to communicate information. A short press of the power button will turn on the light signal for a few minutes.
+                        li
+                            strong Solid green:
+                            |  sensor is on
+                        li
+                            strong 1 second of quick white blinks:
+                            |  sensor is entering pairing mode
+                        li
+                            strong (After entering pairing mode) Flashing red OR flashing alternating amber and green OR flashing amber:
+                            |  sensor is in pairing mode
+                        li
+                            strong Quick succession of red > amber > green :
+                            |  Pairing successful
+                        li
+                            strong Flashing green:
+                            |  sensor is installing software updates
+                        li
+                            strong Solid red:
+                            |  low battery / error
+                        li
+                            strong Flashing red:
+                            |  pairing unsuccessful (due to incorrect network name (case sensitive), incorrect network password, etc.) (Note that there will be a series with other red flashes during the connection process - a persistently flashing red light signals that it failed to connect. Read the 
+                            a(href='#connecting') “Connecting your sensor”
+                            |  section below for a complete list of light signals for troubleshooting during the pairing process.)
+            h3#connecting Connecting your sensor
+            ul
+                li When you first turn on your Garden Sensor, it will immediately enter into pairing mode.
+                li To preserve battery, your sensor will only remain in pairing mode for 30 seconds. To reenter pairing mode, give the power button two short presses.
+                li The app will walk you through the pairing process with illustrations. Make sure you have your wifi password ready.
+                li Reconnect your sensor to a new wifi network by deleting the app from your phone and reinstalling it.
+                li
+                    | Troubleshooting wifi connection issues: 
+                    a(href='https://electricimp.com/docs/troubleshooting/blinkup/') Take a look at this troubleshooting guide.
+            h3#where-to-place Where to place your sensor
+            ul
+                li Find a spot with average conditions for the area you plan to monitor.
+                li Your sensor’s wifi chip works best up to 300ft from your router. Good line of sight from the router will increase the wifi range.
+                li
+                    | Make sure your sensor receives enough sunlight for solar charging. Read 
+                    a(href='#battery') “Battery & Charging”
+                    |  for more information.
+            h3#battery Battery & Charging
+            ul
+                li Battery:
+                    ul
+                        li Your sensor is powered by a rechargeable, LFP battery that lasts up to 7 years and is charged by solar energy.
+                        li In an update of the app coming soon, you will be able to check your sensor’s battery level in the app under Account Settings > Your Garden Sensors.
+                        li In an update of the sensor firmware coming soon, you will be able to check the battery level with a short press of the power button on your sensor. A solid red light indicates low battery.
+                li Charging:
+                    ul
+                        li To keep your sensor charged, it will need a decent amount of direct sunlight.
+                        li Make sure your sensor’s solar panel is clean and unobstructed to maintain proper functionality.
+                        li In an update of the app coming soon, you will be able to check how your sensor’s solar panel is operating in the app under Account Settings > Your Garden Sensors.
+                li
+                    | If your battery isn’t holding a charge or you believe it has stopped working, please contact us at 
+                    a(href='mailto:support@edyn.com') support@edyn.com
+                    |  for help troubleshooting. Please do not open up your device to check on the battery.
+            h3#safety Safety & Support
+            ul
+                li
+                    | Please email us at 
+                    a(href='mailto:support@edyn.com') support@edyn.com
+                    |  with any questions or for additional support.
+                li
+                    | We also have a more extensive FAQ about using the Edyn Sensor and the Edyn app 
+                    a(href='https://edyn.zendesk.com/hc/en-us') available on our Support Center page
+                    | .
+                li If your sensor breaks or is not working, please send us an email ASAP. We will provide you with an address to send in your sensor and will do our best to send you a replacement as quickly as possible. Please do not take apart your sensor as this might hurt other functioning components.
+                li We are still completing testing on how environmental elements impact sensor functionality. We’re working hard to make sure it hits a high standard for resistance to extreme temperatures, direct sun, rain, and moisture as well as common fertilizers and pesticides. Since your sensor is still in Beta, we may hit some bumps along the way. We appreciate your understanding and support in the process, and would be especially grateful if you can help us troubleshoot what may have caused an issue with your sensor, should that need arise.
+                li A few things to watch out for:
+                    ul
+                        li Do not submerge your sensor in water.
+                        li Be careful not to drop your sensor or scratch the top solar panel surface with a sharp or heavy object. Scratches to the solar panel could impact its ability to charge.
+                        li Please do not open up your sensor or take your sensor apart.
+
+            h4
+                | Please send any feedback (positive or negative) related to this guide to 
+                a(href='mailto:support@edyn.com') support@edyn.com
+                | . Happy gardening!
+        
+append footer
+      .lightbox
+         a.logo(href='/') Edyn
+         .lightbox-close.close-icon
+           span
+         .lightbox-content
+           svg.svg-app(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 150 216')
+             path(d='M73 100.6l-7.9-7.9-4.2 4.2L73 109m0 2.1L59.9 97.9l-4.2 4.2L73 119.5m0-33.1c-1.2.2-2.3.7-3.3 1.6l-3.6 3.6 6.9 6.9V86.4zm9.4 6.3l-7.9 7.9v8.4l12.1-12.1M77.7 88c-.9-.9-2.1-1.4-3.3-1.6v12.1l6.9-6.9-3.6-3.6zm-23.1 15.2l-.6.6c-2.2 2.2-2.2 5.8 0 8l15.7 15.7c.9.9 2.1 1.4 3.3 1.6v-7.6l-18.4-18.3zm33-5.3l-13.1 13.2v8.4l17.3-17.4m1.7 1.7l-.6-.6-18.4 18.4v7.6c1.2-.2 2.3-.7 3.3-1.6l15.7-15.7c2.2-2.3 2.2-5.9 0-8.1z', fill='#FDC115')
+             g(fill='none', stroke='#FFF', stroke-width='2', stroke-miterlimit='10')
+               path(d='M32.3 171.1h82.9m0-126.6H32.3m82.9 137.1c0 6-4.8 10.8-10.8 10.8H43.1c-6 0-10.8-4.8-10.8-10.8V31.7c0-6 4.8-10.8 10.8-10.8h61.3c6 0 10.8 4.8 10.8 10.8v149.9z')
+               circle(cx='73.8', cy='181.6', r='6')
+           h2 Get the Edyn app
+           p
+             | Track your garden&rsquo;s growth, get recommendations, and access Edyn&rsquo;s database of over 5,000 plants.
+         .lightbox-footer
+           p Choose a store below
+           a.button-appstore(href='https://itunes.apple.com/us/app/edyn/id939748941?mt=8', target='_blank') Download from the App Store
+           a.button-googleplay(href='https://play.google.com/store/apps/details?id=com.edyn.apps.edyn', target='_blank') Get it on Google play
