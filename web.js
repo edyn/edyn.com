@@ -22,4 +22,23 @@ app.get('/getstarted', function(req, res) {
     res.sendfile('./dist/getstarted.html');
 });
 
+///
+// Backwards compatibility with the old website
+///
+app.get('/order', function(req, res) {
+    res.redirect('/');
+});
+
+app.get('/faq', function(req, res) {
+    res.redirect('https://edyn.zendesk.com/hc/en-us');
+});
+
+app.get('/company', function(req, res) {
+    res.redirect('/about');
+});
+///
+// End of backwards compatibility section
+///
+
+
 app.listen(process.env.PORT || 5000);
