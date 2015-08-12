@@ -36,6 +36,10 @@
 				}
 			}
         }
+
+        &-arrow {
+    		display: none;
+    	}
     }
 
     section {
@@ -51,6 +55,8 @@
 				.carousel-item {
 					padding-top: 0% !important;
 				}
+
+                padding-bottom: em(0);
 			}
 		}
 
