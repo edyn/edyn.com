@@ -1,6 +1,6 @@
 .page {
     $page-font-color: $judge-gray;
-	$page-action-color: $amber;
+	$page-action-color: darken($amber, 8%);
 	$page-background-color: $desert-storm;
     $page-border-color: $swirl;
 
@@ -45,9 +45,8 @@
 		}
 
 		h3, h4 {
-			font-size: em(24);
 			margin-bottom: 0;
-            padding: 0 em(15);
+            padding: 0;
             font: {
 				family: $proxima-bold;
 				weight: normal;
@@ -56,23 +55,24 @@
 			@include media($bp-medium) {
 				font-size: 25px;
 				text-align: left;
-                padding: 0;
 			}
 		}
 
         h3 {
             margin: em(35) 0 em(25);
+            font-size: em(24);
         }
 
 		h4 {
 			color: $page-font-color;
 			margin-bottom: 0;
+            font-size: em(20);
 		}
 
 		p {
 			font-size: em(18);
 			line-height: 1.3em;
-			padding: 0 em(20);
+			padding: 0;
 
 			@include media($bp-medium) {
 				font-size: 20px;
@@ -83,15 +83,20 @@
 		}
 
         a {
-            font-family: $proxima-semibold;
+            font-family: $proxima-regular;
+            color: $page-action-color;
         }
 
         ul {
             list-style: disc;
             list-style-position: inside;
-            padding: 0 em(40);
+            padding: 0 em(20);
             margin-bottom: em(20);
             line-height: 2em;
+
+            @include media($bp-medium) {
+				padding: 0 em(40);
+			}
         }
     }
 }
