@@ -321,7 +321,7 @@
 		jQuery('.app-link').attr('href', jQuery('.button-appstore').attr('href'));
 	} else {
 		// Init parallax plugin (ONLY FOR non-IOS devices)
-		if($('body').hasClass('parallax')) {
+		if(jQuery('body').hasClass('parallax')) {
 			skrollr.init({
 				render: function() {
 					//console.log(data.curTop);
