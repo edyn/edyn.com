@@ -260,12 +260,12 @@
 		}
 
 		.owl-prev {
-			@include position(absolute, 40% null null 0%);
+			@include position(absolute, 40% null null 2%);
 			@include transform(translateY(-50%));
 		}
 
 		.owl-next {
-			@include position(absolute, 40% 0% null null);
+			@include position(absolute, 40% 2% null null);
 			@include transform(translateY(-50%));
 		}
 	}

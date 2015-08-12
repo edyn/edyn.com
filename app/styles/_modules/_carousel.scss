@@ -70,7 +70,7 @@
 
 	.owl-prev {
 		color: $carousel-navigation-color;
-		@include position(absolute, 20% null null 0%);
+		@include position(absolute, 20% null null 2%);
 		&::before {
 			content: '\e805';
 			font-family: "fontello";
@@ -93,7 +93,7 @@
 
 	.owl-next {
 		color: $carousel-navigation-color;
-		@include position(absolute, 20% 0% null null);
+		@include position(absolute, 20% 2% null null);
 		&::before {
 			content: '\e806';
 			font-family: "fontello";
