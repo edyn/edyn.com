@@ -14,9 +14,13 @@ block content
             p
                 a(href='#quick-start') Quick start
             p
-                a(href='#getting-to-know') Getting to know your sensor
+                a(href='#getting-to-know-old') Getting to know your sensor (Before Aug. 7th firmware update)
             p
-                a(href='#connecting') Connecting your sensor
+                a(href='#connecting-old') Connecting your sensor (Before Aug. 7th firmware update)
+            p
+                a(href='#getting-to-know') Getting to know your sensor (After Aug. 7th firmware update)
+            p
+                a(href='#connecting') Connecting your sensor (After Aug. 7th firmware update)
             p
                 a(href='#where-to-place') Where to place your sensor
             p
@@ -27,8 +31,10 @@ block content
             h4 Get the app
             ul
                 li
-                    | Download the 
-                    a(href='https://itunes.apple.com/us/app/edyn/id939748941?mt=8', target="_blank") Edyn app on the App Store
+                    | Download the Edyn app 
+                    a(href='https://itunes.apple.com/us/app/edyn/id939748941?mt=8', target="_blank") on the App Store
+                    |  or the 
+                    a(href='https://play.google.com/store/apps/details?id=com.edyn.apps.edyn', target="_blank") Google Play Store
             h4 Get connected
             ul
                 li The Edyn app will walk you through how to connect your Garden Sensor. We recommend finding a spot near your router that’s away from direct light while connecting. You’ll also want to have your wifi password handy.
@@ -47,7 +53,7 @@ block content
                     a(href='#where-to-place') Plant your sensor
                     |  in the soil & start gardening.
 
-            h3#getting-to-know Getting to know your sensor
+            h3#getting-to-know-old Getting to know your sensor (Before Aug. 7th firmware update)
             h4 Power button
             ul
                 li
@@ -61,11 +67,11 @@ block content
                 li
                     | Enter into 
                     strong pairing mode
-                    |  with two quick presses of the power button.
+                    |  with two quick presses of the power button. Sometimes it requires 10 seconds to let the sensor boot before it's responsive to button presses.
                 li
                     strong Check battery
                     |  status with a single short press of the power button.
-            h4 Power button
+            h4 Light signal
             ul
                 li To preserve battery, your Garden Sensor will only show a light signal when it needs to communicate information. A short press of the power button will turn on the light signal for a few minutes.
                 li
@@ -79,7 +85,7 @@ block content
                     |  sensor is in pairing mode
                 li
                     strong Quick succession of red > amber > green :
-                    |  Pairing successful
+                    |  Successfully connected to wifi
                 li
                     strong Flashing green:
                     |  sensor is installing software updates
@@ -91,12 +97,62 @@ block content
                     |  pairing unsuccessful (due to incorrect network name (case sensitive), incorrect network password, etc.) (Note that there will be a series with other red flashes during the connection process - a persistently flashing red light signals that it failed to connect. Read the 
                     a(href='#connecting') “Connecting your sensor”
                     |  section below for a complete list of light signals for troubleshooting during the pairing process.)
-            h3#connecting Connecting your sensor
+            h3#connecting-old Connecting your sensor (Before Aug. 7th firmware update)
             ul
                 li When you first turn on your Garden Sensor, it will immediately enter into pairing mode.
                 li To preserve battery, your sensor will only remain in pairing mode for 30 seconds. To reenter pairing mode, give the power button two short presses.
                 li The app will walk you through the pairing process with illustrations. Make sure you have your wifi password ready.
-                li Reconnect your sensor to a new wifi network by deleting the app from your phone and reinstalling it.
+                li To reconnect your sensor to a new wifi network, click "add device" and then go through regular BlinkUp as if it were the first time pairing this sensor.
+                li
+                    | Troubleshooting wifi connection issues: 
+                    a(href='https://electricimp.com/docs/troubleshooting/blinkup/', target="_blank") Take a look at this troubleshooting guide.
+            h3#getting-to-know Getting to know your sensor (After Aug. 7th firmware update)
+            h4 Power button
+            ul
+                li
+                    | Turn your Garden Sensor 
+                    strong on
+                    |  with a short press of the power button.
+                li
+                    Turn your Garden Sensor 
+                    strong off
+                    |  with a long press of the power button.
+                li
+                    | Enter into 
+                    strong pairing mode
+                    |  with a short press of the power button.
+                li
+                    strong Check battery
+                    |  status using the Edyn app.
+            h4 Light signal
+            ul
+                li To preserve battery, your Garden Sensor will only show a light signal when it needs to communicate information. A short press of the power button will turn on the light signal for a few minutes.
+                li
+                    strong Solid white:
+                    |  sensor is in pairing mode
+                li
+                    strong Flashing amber:
+                    |  sensor is in pairing mode
+                li
+                    strong Quick succession of red > amber > green :
+                    |  successfully connected to wifi
+                li
+                    strong Solid green:
+                    |  sensor is installing software updates
+                li
+                    strong Flashing red (after normal operation):
+                    |  device lost connection
+                li
+                    strong Flashing red (after pairing):
+                    |  pairing unsuccessful (due to incorrect network name (case sensitive), incorrect network password, etc.) (Note that there will be a series with other red flashes during the connection process - a persistently flashing red light signals that it failed to connect. Read the 
+                    a(href='#connecting') “Connecting your sensor”
+                    |  section below for a complete list of light signals for troubleshooting during the pairing process.)
+            h3#connecting Connecting your sensor (After Aug. 7th firmware update)
+            ul
+                li When you first turn on your Garden Sensor, it will immediately enter into pairing mode.
+                li To preserve battery, your sensor will only remain in pairing mode for 60 seconds. To reenter pairing mode, give the power button a short press.
+                li The app will walk you through the pairing process with illustrations. Make sure you have your wifi password ready.
+                li To reconnect your sensor to a new wifi network, click "add device" and then go through regular BlinkUp as if it were the first time pairing this sensor.
                 li
                     | Troubleshooting wifi connection issues: 
                     a(href='https://electricimp.com/docs/troubleshooting/blinkup/', target="_blank") Take a look at this troubleshooting guide.
@@ -112,7 +168,7 @@ block content
             h4 Battery
             ul
                 li Your sensor is powered by a rechargeable, LFP battery that lasts up to 7 years and is charged by solar energy.
-                li In an update of the app coming soon, you will be able to check your sensor’s battery level in the app under Account Settings > Your Garden Sensors.
+                li In an update of the app coming soon, you will be able to check your sensor’s battery level in the app under Account Settings > My Devices.
                 li In an update of the sensor firmware coming soon, you will be able to check the battery level with a short press of the power button on your sensor. A solid red light indicates low battery.
             h4 Charging
             ul
@@ -136,7 +192,7 @@ block content
                     a(href='https://edyn.zendesk.com/hc/en-us', target="_blank") available on our Support Center page
                     | .
                 li If your sensor breaks or is not working, please send us an email ASAP. We will provide you with an address to send in your sensor and will do our best to send you a replacement as quickly as possible. Please do not take apart your sensor as this might hurt other functioning components.
-                li We are still completing testing on how environmental elements impact sensor functionality. We’re working hard to make sure it hits a high standard for resistance to extreme temperatures, direct sun, rain, and moisture as well as common fertilizers and pesticides. Since your sensor is still in Beta, we may hit some bumps along the way. We appreciate your understanding and support in the process, and would be especially grateful if you can help us troubleshoot what may have caused an issue with your sensor, should that need arise.
+                li We are still completing testing on how environmental elements impact sensor functionality. We’re working hard to make sure it hits a high standard for resistance to extreme temperatures, direct sun, rain, and moisture as well as common fertilizers and pesticides. We appreciate your understanding and support in the process, and we would be especially grateful if you can help us troubleshoot what may have caused an issue with your sensor, should that need arise.
             h4 A few things to watch out for
             ul
                 li Do not submerge your sensor in water.
