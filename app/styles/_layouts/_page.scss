@@ -1,6 +1,6 @@
 .page {
     $page-font-color: $judge-gray;
-	$page-action-color: $amber;
+	$page-action-color: darken($amber, 8%);
 	$page-background-color: $desert-storm;
     $page-border-color: $swirl;
 
@@ -45,7 +45,6 @@
 		}
 
 		h3, h4 {
-			font-size: em(24);
 			margin-bottom: 0;
             padding: 0 em(15);
             font: {
@@ -62,11 +61,13 @@
 
         h3 {
             margin: em(35) 0 em(25);
+            font-size: em(24);
         }
 
 		h4 {
 			color: $page-font-color;
 			margin-bottom: 0;
+            font-size: em(20);
 		}
 
 		p {
@@ -83,7 +84,8 @@
 		}
 
         a {
-            font-family: $proxima-semibold;
+            font-family: $proxima-regular;
+            color: $page-action-color;
         }
 
         ul {
