@@ -34,15 +34,15 @@ section {
 	}
 
 	&.section-sensor {
-		@include retina-image('../../images/edyn_web_hero_sensor', auto 35rem);
+		@include retina-image('../../images/edyn_web_hero_sensor', auto 25rem);
 		background:  {
 			color: $section-sensor-background-color;
 			position: 50% 5%;
 			repeat: no-repeat;
-			size: auto 35rem;
+			size: auto 25rem;
 		}
 		color: $section-sensor-font-color;
-		padding-top: 37rem;
+		padding-top: 28rem;
 		position: relative;
 		z-index: 1;
 
