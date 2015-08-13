@@ -2,7 +2,7 @@
 $base-font-color: $judge-gray;
 $base-font-family: $proxima-light;
 $base-font-size: em(18);
-$base-background-color: $judge-gray;
+$base-background-color: $desert-storm;
 $action-color: $amber;
 $heading-font-family: $proxima-bold;
 $quote-font-family: $proxima-semibold;
@@ -29,6 +29,14 @@ a {
 	&:hover {
 		color: $action-color;
 		text-decoration: underline;
+	}
+
+	&.anchor {
+		display: block; visibility: hidden;
+
+		@include media($bp-medium) {
+			position: relative; top: -100px;
+		}
 	}
 }
 
