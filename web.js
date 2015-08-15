@@ -36,6 +36,10 @@ app.get('/faq', function(req, res) {
 app.get('/company', function(req, res) {
     res.redirect('/about');
 });
+
+app.get('/support', function(req, res) {
+    res.redirect('https://edyn.zendesk.com/hc/en-us');
+});
 ///
 // End of backwards compatibility section
 ///
