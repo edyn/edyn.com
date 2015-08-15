@@ -121,17 +121,17 @@
 			});
 		}
 
-		if(jQuery('.hero-content .carousel').length) {
-			jQuery('.hero-content .carousel').owlCarousel({
-				navigation: true,
-				navigationText: false,
-				items: 3,
-				itemsDesktop: [1000, 3],
-				itemsDesktopSmall: [900, 3],
-				itemsTablet: [600, 1],
-				itemsMobile: [480, 1]
-			});
-		}
+		// if(jQuery('.hero-content .carousel').length) {
+		// 	jQuery('.hero-content .carousel').owlCarousel({
+		// 		navigation: true,
+		// 		navigationText: false,
+		// 		items: 3,
+		// 		itemsDesktop: [1000, 3],
+		// 		itemsDesktopSmall: [900, 3],
+		// 		itemsTablet: [600, 1],
+		// 		itemsMobile: [480, 1]
+		// 	});
+		// }
 		//--- END carousel
 
 		// Parallax settings
@@ -269,7 +269,7 @@
 
 	if(jQuery('.hero-background-blurred').length) {
 		jQuery('.hero-background-blurred').attr('data-0p-bottom-bottom', 'position: fixed; opacity: 1;');
-		jQuery('.hero-background-blurred').attr('data--70p-bottom-bottom', 'position: relative; opacity: 0;');
+		jQuery('.hero-background-blurred').attr('data--150p-bottom-bottom', 'position: relative; opacity: 0;');
 		jQuery('.hero-background-blurred').attr('data-anchor-target', '.hero .container');
 	}
 
@@ -292,28 +292,44 @@
 	}
 
 	if(jQuery('.index .hero .hero-content').eq(1).find('h2').length) {
-		jQuery('.hero .hero-content').eq(1).find('h2').attr('data-0p-bottom-bottom', 'position: fixed; top: 80%; opacity: 0; ');
-		jQuery('.hero .hero-content').eq(1).find('h2').attr('data--150p-bottom-bottom', 'position: fixed; top: -5%; opacity: 1;');
-		jQuery('.hero .hero-content').eq(1).find('h2').attr('data--160p-bottom-bottom', 'opacity: 0;');
+		jQuery('.hero .hero-content').eq(1).find('h2').attr('data-0p-bottom-bottom', 'position: fixed; top: 80%; opacity: 0; width: 100%;margin: 0;padding: 0; left: 0;');
+		jQuery('.hero .hero-content').eq(1).find('h2').attr('data--200p-bottom-bottom', 'position: fixed; top: 10%; opacity: 1; width: 100%;margin: 0;padding: 0; left: 0;');
+		jQuery('.hero .hero-content').eq(1).find('h2').attr('data--230p-bottom-bottom', 'opacity: 1;');
+		jQuery('.hero .hero-content').eq(1).find('h2').attr('data--250p-bottom-bottom', 'opacity: 0;');
 		jQuery('.hero .hero-content').eq(1).find('h2').attr('data-anchor-target', '.hero-content');
 	}
 
 	if(jQuery('.section-system .carousel-item').eq(0).length) {
-		jQuery('.section-system .carousel-item').eq(0).attr('data--60p-bottom-bottom', 'position: relative; top: 25em; opacity: 0;');
-		jQuery('.section-system .carousel-item').eq(0).attr('data--120p-bottom-bottom', 'position: relative; top: 15em; opacity: 1;');
+		jQuery('.section-system .carousel-item').eq(0).attr('data--75p-bottom-bottom', 'position: fixed; top: 80%; left: 0%; opacity: 0;');
+		jQuery('.section-system .carousel-item').eq(0).attr('data--200p-bottom-bottom', 'position: fixed; top: 25%; left: 0%; opacity: 1;');
+		jQuery('.section-system .carousel-item').eq(0).attr('data--250p-bottom-bottom', 'opacity: 0;');
 		jQuery('.section-system .carousel-item').eq(0).attr('data-anchor-target', '.hero-content');
 	}
 
 	if(jQuery('.section-system .carousel-item').eq(1).length) {
-		jQuery('.section-system .carousel-item').eq(1).attr('data--75p-bottom-bottom', 'position: relative; top: 25em; opacity: 0;');
-		jQuery('.section-system .carousel-item').eq(1).attr('data--135p-bottom-bottom', 'position: relative; top: 15em; opacity: 1;');
+		jQuery('.section-system .carousel-item').eq(1).attr('data--100p-bottom-bottom', 'position: fixed; top: 80%; left: 34%; opacity: 0;');
+		jQuery('.section-system .carousel-item').eq(1).attr('data--200p-bottom-bottom', 'position: fixed; top: 25%; left: 34%; opacity: 1;');
+		jQuery('.section-system .carousel-item').eq(1).attr('data--250p-bottom-bottom', 'opacity: 0;');
 		jQuery('.section-system .carousel-item').eq(1).attr('data-anchor-target', '.hero-content');
 	}
 
 	if(jQuery('.section-system .carousel-item').eq(2).length) {
-		jQuery('.section-system .carousel-item').eq(2).attr('data--90p-bottom-bottom', 'position: relative; top: 25em; opacity: 0;');
-		jQuery('.section-system .carousel-item').eq(2).attr('data--150p-bottom-bottom', 'position: relative; top: 15em; opacity: 1;');
+		jQuery('.section-system .carousel-item').eq(2).attr('data--125p-bottom-bottom', 'position: fixed; top: 80%; left: 68%; opacity: 0;');
+		jQuery('.section-system .carousel-item').eq(2).attr('data--200p-bottom-bottom', 'position: fixed; top: 25%; left: 68%; opacity: 1;');
+		jQuery('.section-system .carousel-item').eq(2).attr('data--250p-bottom-bottom', 'opacity: 0;');
 		jQuery('.section-system .carousel-item').eq(2).attr('data-anchor-target', '.hero-content');
+	}
+
+	if(jQuery('.section-system .carousel-item').eq(0).length) {
+		jQuery('.section-system .carousel-item').eq(0).find('.carousel-arrow').attr('data--75p-bottom-bottom', 'width: 0;');
+		jQuery('.section-system .carousel-item').eq(0).find('.carousel-arrow').attr('data--200p-bottom-bottom', 'width: 134px;');
+		jQuery('.section-system .carousel-item').eq(0).find('.carousel-arrow').attr('data-anchor-target', '.hero-content');
+	}
+
+	if(jQuery('.section-system .carousel-item').eq(1).length) {
+		jQuery('.section-system .carousel-item').eq(1).find('.carousel-arrow').attr('data--90p-bottom-bottom', 'width: 0;');
+		jQuery('.section-system .carousel-item').eq(1).find('.carousel-arrow').attr('data--215p-bottom-bottom', 'width: 134px;');
+		jQuery('.section-system .carousel-item').eq(1).find('.carousel-arrow').attr('data-anchor-target', '.hero-content');
 	}
 
 	// Whatever happens on protrait mode

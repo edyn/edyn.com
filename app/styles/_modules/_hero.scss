@@ -139,6 +139,10 @@
 
 	.section-system {
 
+		@include media($bp-medium) {
+			min-height: 200vh;
+		}
+
 		@include keyframes(fadeIn) {
 			0% {
 				opacity: 0;
@@ -199,18 +203,9 @@
 			@include media($bp-medium) {
 				position: relative;
 				padding-bottom: 20em;
-
-				&::after {
-					content: "";
-					display: block;
-					@include size(0px 26px);
-					@include position(absolute, 25% null null 90%);
-					@include retina-image('../../images/edyn-web-hero-arrow', 134px 26px);
-					-webkit-transition: width 0.4s ease-in-out;
-				   -moz-transition: width 0.4s ease-in-out;
-				   -o-transition: width 0.4s ease-in-out;
-				   transition: width 0.4s ease-in-out;
-				}
+				@include span-columns(4);
+				@include omega(3n);
+				margin-left: 0;
 			}
 
 			&.animated {
@@ -246,6 +241,22 @@
 					font-size: em(18);
 				}
 			}
+
+			.carousel-arrow {
+				display: none;
+
+				@include media($bp-medium) {
+					content: "";
+					display: block;
+					@include size(0 26px);
+					@include position(absolute, 12% null null 85%);
+					@include retina-image('../../images/edyn-web-hero-arrow', 134px 26px);
+					-webkit-transition: width 0.4s ease-in-out;
+					-moz-transition: width 0.4s ease-in-out;
+					-o-transition: width 0.4s ease-in-out;
+					transition: width 0.4s ease-in-out;
+				}
+			}
 		}
 
 		.owl-item:last-of-type {
@@ -253,6 +264,12 @@
 				&::after {
 					display: none;
 				}
+			}
+		}
+
+		.carousel-item:last-of-type {
+			&::after {
+				display: none;
 			}
 		}
 
