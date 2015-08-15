@@ -198,6 +198,7 @@
 
 			@include media($bp-medium) {
 				position: relative;
+				padding-bottom: 20em;
 
 				&::after {
 					content: "";
