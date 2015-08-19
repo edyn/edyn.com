@@ -225,6 +225,7 @@
 
 				@include media($bp-large) {
 					font-size: em(26);
+					padding: 0 em(20);
 				}
 			}
 
@@ -239,6 +240,7 @@
 
 				@include media($bp-large) {
 					font-size: em(18);
+					padding: 0 em(20);
 				}
 			}
 
