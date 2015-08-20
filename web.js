@@ -14,9 +14,9 @@ app.get('/about', function(req, res) {
     res.sendfile('./dist/about.html');
 });
 
-app.get('/privacy', function(req, res) {
-    res.sendfile('./dist/privacy.html');
-});
+// app.get('/privacy', function(req, res) {
+//     res.sendfile('./dist/privacy.html');
+// });
 
 app.get('/getstarted', function(req, res) {
     res.sendfile('./dist/getstarted.html');
