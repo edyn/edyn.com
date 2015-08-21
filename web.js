@@ -38,7 +38,7 @@ app.get('/company', function(req, res) {
 });
 
 app.get('/support', function(req, res) {
-    res.redirect('https://edyn.zendesk.com/hc/en-us');
+    res.redirect('/getstarted');
 });
 ///
 // End of backwards compatibility section
