@@ -379,6 +379,14 @@ section {
 				padding-bottom: 0px;
 				background: $section-people-background-color-alternate;
 
+				&:last-child {
+					padding-bottom: 70px;
+
+					@include media($bp-medium) {
+						padding-bottom: 0px;
+					}
+				}
+
 				@include media($bp-medium) {
 					@include span-columns(4);
 					@include omega(3n);
