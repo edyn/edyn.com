@@ -13,12 +13,12 @@
 			logo = jQuery('.logo');
 
 		if(systemSection.length && sensorSection.length && appSection.length && valveSection.length) {
-			if(sensorSection.position().top - 5 <= scrollPosition && sensorSection.position().top + sensorSection.outerHeight() > scrollPosition - 5) {
+			if(sensorSection.position().top - 70 <= scrollPosition && sensorSection.position().top + sensorSection.outerHeight() > scrollPosition + 70) {
 				logo.addClass('white');
 				menu.addClass('dark');
 				menu.find('.button').addClass('button-alternate');
 				logo.removeClass('dark');
-			} else if (appSection.position().top - 5 <= scrollPosition && valveSection.position().top + valveSection.outerHeight() > scrollPosition - 5) {
+			} else if (appSection.position().top - 70 <= scrollPosition && valveSection.position().top + valveSection.outerHeight() > scrollPosition + 70) {
 				logo.addClass('dark');
 				logo.removeClass('white');
 			} else {
@@ -30,7 +30,7 @@
 		}
 
 		if(peopleSection.length) {
-			if (peopleSection.position().top - 5 <= scrollPosition && peopleSection.position().top + peopleSection.outerHeight() > scrollPosition - 5) {
+			if (peopleSection.position().top - 70 <= scrollPosition && peopleSection.position().top + peopleSection.outerHeight() > scrollPosition) {
 				logo.addClass('dark');
 				menu.addClass('dark');
 			} else {
