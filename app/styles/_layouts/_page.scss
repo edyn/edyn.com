@@ -78,6 +78,10 @@
             font-size: em(20);
 		}
 
+        ul + h4 {
+            margin: em(35) 0 0;
+        }
+
 		p {
 			font-size: em(18);
 			line-height: 1.3em;
@@ -110,6 +114,7 @@
 
             @include media($bp-medium) {
 				padding-left: em(20);
+                margin: em(10) 0 0;
 			}
         }
     }

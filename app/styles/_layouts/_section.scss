@@ -182,7 +182,7 @@ section {
 				@include media($bp-medium) {
 					@include fill-parent();
 					margin: 0;
-					padding: 10% 4% 0 2%;
+					padding: 2% 4% 15% 2%;
 					margin-top: em(300);
 					position: relative;
 
@@ -378,6 +378,14 @@ section {
 				padding-top: 70px;
 				padding-bottom: 0px;
 				background: $section-people-background-color-alternate;
+
+				&:last-child {
+					padding-bottom: 70px;
+
+					@include media($bp-medium) {
+						padding-bottom: 0px;
+					}
+				}
 
 				@include media($bp-medium) {
 					@include span-columns(4);
