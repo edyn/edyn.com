@@ -1,7 +1,7 @@
 .hero {
 	$hero-font-color: $white;
 	$hero-font-color-alternate: transparent;
-	$hero-background-color: $judge-gray;
+	$hero-background-color: $amber;
 	$hero-background-color-overlay: rgba($amber, 0.7);
 
 	color: $hero-font-color;
@@ -353,13 +353,35 @@
 				@include retina-image('../../images/edyn-arrow-white', 40px 21px);
 			}
 		}
-
-		// .container {
-		// 	position: relative;
-		// }
 	}
 }
 
+.ua-ios {
+	.hero {
+		.container {
+			height: inherit;
+		}
+
+		&-content {
+			position: relative;
+			min-height: 100vh;
+			margin: 0;
+			padding: 0;
+
+		}
+
+		&-wrapper {
+			@include position(absolute, 50% null null null);
+			@include transform(translateY(-50%));
+		}
+
+		// .section-system {
+		// 	h2 {
+		// 		margin-top: 10vh;
+		// 	}
+		// }
+	}
+}
 
 
 // .ua-chrome.ua-ios {
