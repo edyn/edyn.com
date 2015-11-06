@@ -1,0 +1,89 @@
+extends layouts/default
+
+block vars
+    - var bodyClass = 'purchase';
+
+block title
+    title Purchase
+
+block content
+    .content
+        .container
+            .content-wrapper
+                .content-sidebar
+                    h1 Order details
+                    .order
+                        .order-product
+                            img(src="images/edyn_sensor_thumbnail_2x.png", alt="", width="200", height="200")
+                            h2 Edyn garden sensor
+                            span.order-price $99.99
+                        table.order-summary
+                            tbody
+                                tr
+                                    td Subtotal
+                                    td $99.99
+                                tr
+                                    td Standard shipping
+                                    td $5.62
+                                tr
+                                    td Tax
+                                    td $5.62
+                            tfoot
+                                tr
+                                    td Total
+                                    td $111.23
+                    
+                .content-main
+                    h2 Your order has been placed!
+                    h3 Order number 788x2cb5
+                    p 
+                        | We’re processing your order and we’ll send you an email when it’s ready. For now, you can download the Edyn App and start tracking your plants.
+                    p
+                        | Download for iOS or Android:
+                    a(class="button button-inverted", href="#") Download the Edyn App
+                    hr.hidden
+                    h1 Order details
+                    .order
+                        .order-product
+                            img(src="images/edyn_sensor_thumbnail_2x.png", alt="", width="200", height="200")
+                            h2 Edyn garden sensor
+                            span.order-price $99.99
+                        table.order-summary
+                            tbody
+                                tr
+                                    td Subtotal
+                                    td $99.99
+                                tr
+                                    td Standard shipping
+                                    td $5.62
+                                tr
+                                    td Tax
+                                    td $5.62
+                            tfoot
+                                tr
+                                    td Total
+                                    td $111.23
+                    h4 Shipping Address
+                    p
+                        |Nathan Van Nistelroy
+                        br
+                        |1214 Utah St.
+                        br
+                        |San Francisco CA 94159
+                        br
+                        |415 658 7213
+                    hr.hidden
+                    h4 Billing Address
+                    p
+                        |Nathan Van Nistelroy
+                        br
+                        |1214 Utah St.
+                        br
+                        |San Francisco CA 94159
+                        br
+                        |415 658 7213
+                    hr.hidden
+                    a(class="button button-inverted", href="#") Back to home                
+                    hr.hidden                
+append footer
+    include ./includes/lightbox.jade

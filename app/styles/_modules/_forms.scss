@@ -1,0 +1,163 @@
+form {}
+    fieldset {
+        margin: em(20) 0;
+        padding: 0;
+        border: 1px solid $swirl;
+        border-radius: 2px;
+        background: $white;
+
+        &.alternate {
+            background: $sugar-cane;
+            border-color: $limeade;
+
+            .input-wrapper {
+                border-color: $limeade;
+            }
+
+            label {
+                color: $limeade;
+            }
+
+            input {
+                &::-webkit-input-placeholder {
+                   color: rgba($limeade, 0.4);
+                }
+
+                &:-moz-placeholder {
+                   color: rgba($limeade, 0.4);
+                }
+
+                &::-moz-placeholder {
+                   color: rgba($limeade, 0.4);
+                }
+
+                &:-ms-input-placeholder {
+                   color: rgba($limeade, 0.4);
+                }
+            }
+        }
+    }
+    label {
+        font: {
+            family: $proxima-regular;
+            weight: normal;
+            size: em(16);
+        }
+        margin: 0;
+        text-transform: capitalize;
+    }
+    input {
+        &[type="color"], &[type="date"], &[type="datetime"],
+        &[type="datetime-local"], &[type="email"], &[type="month"],
+        &[type="number"], &[type="password"], &[type="search"],
+        &[type="tel"], &[type="text"], &[type="time"],
+        &[type="url"], &[type="week"] {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            padding: 0;
+            margin: 0;
+            font: {
+                family: $proxima-regular;
+                weight: normal;
+                size: em(16);
+            }
+            text-transform: capitalize;
+        }
+
+        &[type="checkbox"] {
+            @include appearance(none);
+            border: 1px solid $judge-gray;
+            border-radius: 2px;
+            background: $white;
+            width: em(24);
+            height: em(24);
+            padding: 0;
+            margin: 0 em(15) 0 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        &[type="radio"] {
+            @include appearance(none);
+            border: 1px solid $judge-gray;
+            border-radius: 50%;
+            background: $white;
+            width: em(24);
+            height: em(24);
+            padding: 0;
+            margin: 0 em(15) 0 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        &::-webkit-input-placeholder {
+           color: $silver;
+        }
+
+        &:-moz-placeholder {
+           color: $silver;
+        }
+
+        &::-moz-placeholder {
+           color: $silver;
+        }
+
+        &:-ms-input-placeholder {
+           color: $silver;
+        }
+    }
+    textarea {}
+    select {
+        @include appearance(none);
+        border: none;
+        background: transparent;
+        padding: 0;
+        margin: 0;
+        font: {
+            family: $proxima-regular;
+            weight: normal;
+            size: em(16);
+        }
+    }
+
+    .input-wrapper {
+        padding: em(10) em(15);
+        border-bottom: 1px solid $swirl;
+        @include clearfix;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        label, input, select {
+            width: 50%;
+            float: left;
+        }
+
+        label {
+            + input, + select {
+                position: relative;
+                top: 2px;
+            }
+        }
+
+        @include media($bp-medium) {
+            label {
+                width: 35%;
+            }
+
+            input, select {
+                width: 65%;
+            }
+        }
+    }
+
+    .input-notice {
+        color: $silver-chalice;
+        text-indent: em(24) + em(15);
+
+        @include media($bp-medium) {
+            display: inline;
+        }
+    }

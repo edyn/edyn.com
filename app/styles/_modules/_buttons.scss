@@ -1,4 +1,4 @@
-.button {
+.button, input.button {
 	$button-font-color: $amber;
 	$button-font-color-hover: $white;
 	$button-font-family: $proxima-semibold;
@@ -104,6 +104,15 @@
 		}
 	}
 
+	&-inverted {
+		background: $button-background-color-hover;
+		color: $button-font-color-hover;
+		font: {
+			size: em(14);
+		}
+		width: 100%;
+	}
+
 	&-appstore {
 		display: inline-block;
 		margin: 0 em(2);
@@ -150,6 +159,23 @@
 
 		@include media($bp-medium) {
 			width: em(300);
+		}
+	}
+
+	&-link {
+		background: none;
+		border: none;
+		display: inline-block;
+		padding: 0;
+		color: $amber;
+		font: {
+			family: $proxima-bold;
+		}
+		text-transform: capitalize;
+
+		&:hover {
+			background: none;
+			color: $amber;
 		}
 	}
 }

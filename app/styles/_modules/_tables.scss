@@ -1,0 +1,42 @@
+table {
+    background: $white;
+    border-radius: 2px;
+
+    td {
+        border: none;
+        padding: em(2) em(15);
+        width: 40%;
+    }
+
+    td + td {
+        text-align: right;
+        width: 20%;
+    }
+
+    tbody {
+        tr {
+            &:first-child {
+                td {
+                    padding-top: em(20);
+                }
+            }
+
+            &:last-child {
+                td {
+                    padding-bottom: em(20);
+                }
+            }
+        }
+    }
+
+    tfoot {
+        background: $ebb;
+        font: {
+            family: $proxima-bold;
+        }
+
+        td {
+            padding: em(25) em(15);
+        }
+    }
+}

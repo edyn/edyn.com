@@ -27,7 +27,7 @@ header {
 	}
 }
 
-.page {
+.page, .purchase {
 	header {
 		background: $white;
 		@include position(absolute, 0 0 null 0);

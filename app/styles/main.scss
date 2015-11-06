@@ -14,6 +14,7 @@
 @import "_layouts/header";
 @import "_layouts/section";
 @import "_layouts/page";
+@import "_layouts/purchase";
 @import "_layouts/footer";
 
 // Modules
@@ -26,6 +27,8 @@
 @import "_modules/accordion";
 @import "_modules/modal";
 @import "_modules/lightbox";
+@import "_modules/forms";
+@import "_modules/tables";
 
 // Plugins
 @import "_plugins/owl";

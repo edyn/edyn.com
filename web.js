@@ -22,6 +22,10 @@ app.get('/getstarted', function(req, res) {
     res.sendfile('./dist/getstarted.html');
 });
 
+app.get('/purchase', function(req, res) {
+    res.sendfile('./dist/purchase.html');
+});
+
 ///
 // Backwards compatibility with the old website
 ///

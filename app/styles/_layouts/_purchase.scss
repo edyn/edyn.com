@@ -1,0 +1,263 @@
+.purchase {
+    $page-font-color: $judge-gray;
+	$page-action-color: darken($amber, 8%);
+	$page-background-color: $desert-storm;
+    $page-border-color: $swirl;
+
+    .content {
+        background: $page-background-color;
+        color: $page-font-color;
+        padding: em(120) 0 em(20);
+
+        @include media($bp-medium) {
+            padding: em(140) 0 em(80);
+        }
+
+        &-main {
+            @include media($bp-medium) {
+                @include direction-context(right-to-left) {
+                    @include span-columns(5);
+                    @include shift(1);
+                }
+
+                .order {
+                    display: none;
+                }
+            }
+        }
+
+        &-sidebar {
+            @include media($bp-medium) {
+                @include direction-context(right-to-left) {
+                    @include span-columns(4);
+                    @include shift(1);
+                }
+            }
+        }
+
+        &-wrapper {
+            @include span-columns(10);
+            @include shift(1);
+
+            @include media($bp-medium) {
+                @include span-columns(12);
+                @include shift(0);
+            }
+        }
+
+        &-anchors {
+            p {
+                @include media($bp-medium) {
+                    margin: 0 0 0.5em;
+                }
+            }
+        }
+
+        h1 {
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: em(30);
+        }
+
+		h2 {
+            margin: 0;
+            padding: 0;
+            font: {
+				family: $proxima-bold;
+				weight: normal;
+                size: em(26);
+			}
+            letter-spacing: 0;
+		}
+
+        h3 {
+            font: {
+                family: $proxima-light;
+                weight: normal;
+            }
+        }
+
+        fieldset + h2, .input-checkbox + h2, .input-wrapper + h2, .input-radio + h2 {
+            margin-top: em(30);
+        }
+
+        input[type="submit"] {
+            margin-bottom: em(30);
+        }
+
+		p {
+			font-size: em(18);
+			line-height: 1.3em;
+			padding: 0;
+
+			@include media($bp-medium) {
+				font-size: 20px;
+				line-height: 1.4em;
+				text-align: left;
+				padding: 0;
+			}
+		}
+
+        ul {
+            list-style: disc;
+            list-style-position: inside;
+            padding-left: em(20);
+
+            li {
+                line-height: 1.3em;
+                margin-bottom: 1em;
+                text-indent: -0.9em;
+                margin-left: 0.45em;
+            }
+
+            @include media($bp-medium) {
+				padding-left: em(20);
+                margin: em(10) 0 0;
+			}
+        }
+
+        .input-checkbox {
+            background: $ebb;
+            padding: em(20);
+            margin: em(20) 0;
+            border-radius: 2px;
+        }
+
+        .input-radio {
+            margin: em(20) 0;
+            label {
+                position: relative;
+                margin-bottom: em(15);
+            }
+
+            .align-right {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            .input-notice {
+                line-height: 1.2em;
+            }
+        }
+
+        .order {
+            background: $white;
+            border-radius: 4px;
+            margin-bottom: em(50);
+
+            &-product {
+                text-align: center;
+                padding: em(60) 0 em(30) 0;
+                border-bottom: 1px solid $ebb;
+                @include clearfix;
+
+                img {
+                    border-radius: 50%;
+                    margin-bottom: em(30);
+
+                    @include media($bp-medium) {
+        				width: 30%;
+                        height: 30%;
+                        float: left;
+                        margin-right: 1em;
+        			}
+                }
+
+                @include media($bp-medium) {
+    				text-align: left;
+                    padding: em(40) em(20) em(10);
+    			}
+            }
+
+            h2 {
+                margin-bottom: .35em;
+                font: {
+                    size: em(22);
+                }
+                text-transform: capitalize;
+
+                @include media($bp-medium) {
+                    margin-bottom: 0;
+                    font-size: em(18);
+                }
+            }
+
+            &-price {
+                font: {
+                    size: em(20);
+                }
+
+                @include media($bp-medium) {
+                    font-size: em(16);
+                }
+            }
+        }
+
+        .preorder {
+            text-align: center;
+            margin-bottom: em(50);
+            line-height: 2.25em;
+
+            span {
+                font: {
+                    size: em(20);
+                }
+
+                @include media($bp-medium) {
+                    font-size: em(16);
+                    display: block;
+                }
+            }
+
+            h3 {
+                text-transform: capitalize;
+                margin-bottom: 0;
+
+                font: {
+                    size: em(22);
+                    family: $proxima-semibold;
+                }
+
+                @include media($bp-medium) {
+                    font-size: em(18);
+                }
+            }
+
+            img {
+                @include media($bp-medium) {
+                    width: 35%;
+                    height: auto;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+            }
+
+            .button {
+                margin-top: .25em;
+            }
+
+            @include media($bp-medium) {
+                text-align: left;
+                line-height: 1.5em;
+                position: relative;
+                padding: 0 em(20);
+            }
+        }
+
+        form {
+            input[type=submit] {
+                @include media($bp-medium) {
+                    margin:0;
+                    float: right;
+                }
+            }
+        }
+
+        fieldset.alternate {
+            margin-bottom: em(50);
+        }
+    }
+}
