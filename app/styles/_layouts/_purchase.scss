@@ -14,20 +14,61 @@
         }
 
         &-main {
+            .app {
+                display: none;
+            }
+
+            .order {
+                margin-top: em(50);
+            }
+
             @include media($bp-medium) {
                 @include direction-context(right-to-left) {
                     @include span-columns(5);
                     @include shift(1);
                 }
 
-                .order {
+                .order, .button-app {
                     display: none;
                 }
+
+                .app {
+                    display: block;
+                }
+
+                .order {
+                    margin-top: 0;
+                }
+
+                .address {
+                    float: left;
+                    width: 50%;
+
+                    & + .address {
+                        padding-left: em(25);
+                    }
+                }
+
+                .button-inverted {
+                    margin: 0;
+                }
+            }
+
+            .address {
+                margin-top: em(50);
             }
         }
 
         &-sidebar {
+            .order {
+                display: none;
+            }
+
             @include media($bp-medium) {
+                .order {
+                    display: block;
+                }
+
                 @include direction-context(right-to-left) {
                     @include span-columns(4);
                     @include shift(1);
@@ -42,6 +83,19 @@
             @include media($bp-medium) {
                 @include span-columns(12);
                 @include shift(0);
+
+                &.fixed {
+                    .content-sidebar {
+                        position: fixed;
+                        right: 2%;
+                        top: em(100);
+                    }
+
+                    .content-main {
+                        float: left;
+                        margin-left: 8.5298042998%;
+                    }
+                }
             }
         }
 
@@ -69,6 +123,14 @@
                 size: em(26);
 			}
             letter-spacing: 0;
+
+            i {
+                vertical-align:middle;
+
+                &.icon-ui-lock {
+                    color: $limeade;
+                }
+            }
 		}
 
         h3 {
@@ -139,6 +201,25 @@
 
             .input-notice {
                 line-height: 1.2em;
+            }
+        }
+
+        .input-count {
+            &-controls {
+
+            }
+
+            &-trash {
+                color: $swirl;
+                font-size: em(20);
+            }
+
+            &-up {
+                color: $swirl;
+            }
+
+            &-down {
+                color: $swirl;
             }
         }
 

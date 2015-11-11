@@ -120,6 +120,15 @@
 		@include hide-text;
 		@include retina-image('../../images/appstore-button', 130px 55px);
 		@include size(130px 55px);
+
+		&-outline {
+			display: inline-block;
+			margin: 0 em(2);
+
+			@include hide-text;
+			@include retina-image('../../images/appstore-button-outline', 130px 55px);
+			@include size(130px 55px);
+		}
 	}
 
 	&-googleplay {
@@ -129,6 +138,15 @@
 		@include hide-text;
 		@include retina-image('../../images/googleplay-button', 130px 55px);
 		@include size(130px 55px);
+
+		&-outline {
+			display: inline-block;
+			margin: 0 em(2);
+
+			@include hide-text;
+			@include retina-image('../../images/googleplay-button-outline', 130px 55px);
+			@include size(130px 55px);
+		}
 	}
 
 	&-social {

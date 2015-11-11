@@ -39,7 +39,7 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-[class^="icon-ui-"], [class*=" icon-ui-"] {
+[class^="icon-ui-"]:before, [class*=" icon-ui-"]:before {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -61,10 +61,12 @@
 .icon-facebook:before { content: '\e808'; }
 .icon-instagram:before { content: '\e809'; }
 
-.icon-ui-check:before {content: "\e900";}
-.icon-ui-question:before {content: "\e901";}
-.icon-ui-lock:before {content: "\e902";}
-.icon-ui-minus:before {content: "\e903";}
-.icon-ui-plus:before {content: "\e904";}
-.icon-ui-trash:before {content: "\e905";}
-.icon-ui-arrows:before {content: "\e906";}
+.icon-ui-check:before { content: "\e900"; }
+.icon-ui-question:before { content: "\e901"; }
+.icon-ui-lock:before { content: "\e902"; }
+.icon-ui-minus:before { content: "\e903"; }
+.icon-ui-plus:before { content: "\e904"; }
+.icon-ui-trash:before { content: "\e905"; }
+.icon-ui-arrows:before { content: "\e906"; }
+.icon-ui-arrow-down:before { content: "\e907"; }
+.icon-ui-arrow-up:before { content: "\e908"; }

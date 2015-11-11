@@ -18,6 +18,20 @@ block content
                                 img(src="images/edyn_sensor_thumbnail_2x.png", alt="", width="200", height="200")
                                 h2 Edyn garden sensor
                                 span.order-price $99.99
+                                .input-wrapper
+                                    .input-count
+                                        input#input-count(type="text", value="1", name="input-count")
+                                        .input-count-controls
+                                            a.input-count-up(href="#")
+                                                i(class="icon icon-ui-arrow-up")
+                                            a.input-count-down(href="#")
+                                                i(class="icon icon-ui-arrow-down")
+                                            a.input-count-plus(href="#")
+                                                i(class="icon icon-ui-plus")
+                                            a.input-count-minus(href="#")
+                                                i(class="icon icon-ui-minus")
+                                        a.input-count-trash(href="#")
+                                            i(class="icon icon-ui-trash")
                             table.order-summary
                                 tbody
                                     tr
@@ -63,15 +77,17 @@ block content
                                 input#input-city(type="text", placeholder="City", name="input-city")
                             .input-wrapper
                                 label(for="input-state") State
-                                select#input-state(name="input-state")
-                                    option(value="CA") CA
+                                .input-select
+                                    select#input-state(name="input-state")
+                                        option(value="CA") CA
                             .input-wrapper
                                 label(for="input-zip") Zip
                                 input#input-zip(type="text", placeholder="Zip", name="input-zip")
                             .input-wrapper
                                 label(for="input-country") Country
-                                select#input-country(name="input-country")
-                                    option(value="USA") USA
+                                .input-select
+                                    select#input-country(name="input-country")
+                                        option(value="USA") USA
                             .input-wrapper
                                 label(for="input-telephone") Telephone
                                 input#input-telephone(type="text", placeholder="Telephone", name="input-telephone")
@@ -100,10 +116,12 @@ block content
                                 input#input-card-number(type="text", placeholder="Card number", name="input-card-number")
                             .input-wrapper
                                 label(for="input-card-month") Exp. month
-                                select#input-card-month(name="input-card-month", placeholder="Month")
+                                .input-select
+                                    select#input-card-month(name="input-card-month", placeholder="Month")
                             .input-wrapper
                                 label(for="input-card-year") Exp. year
-                                select#input-card-year(name="input-card-year", placeholder="Year")
+                                .input-select
+                                    select#input-card-year(name="input-card-year", placeholder="Year")
                             .input-wrapper
                                 label(for="input-card-code") Security code
                                 input#input-card-code(type="text", placeholder="Code", name="input-card-code")

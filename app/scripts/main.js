@@ -444,6 +444,46 @@
 	}
 	//--- END press accordion
 
+
+	// Input count component
+	if(jQuery('.input-count').length) {
+		jQuery('.input-count-up, .input-count-plus').click(function(e) {
+			var oldValue = parseFloat(jQuery('.input-count input').val());
+			var newValue = oldValue + 1;
+			jQuery('.input-count input').val(newValue);
+			e.preventDefault();
+			e.stopPropagation();
+		});
+
+		jQuery('.input-count-down, .input-count-minus').click(function(e) {
+			var oldValue = parseFloat(jQuery('.input-count input').val());
+			if(oldValue > 0) {
+				var newValue = oldValue - 1;
+				jQuery('.input-count input').val(newValue);
+				e.preventDefault();
+				e.stopPropagation();
+			}
+		});
+
+		jQuery('.input-count-trash').click(function(e) {
+			jQuery('.input-count input').val(0);
+		});
+	}
+	//--- END count component
+
+	// Order box fix behaviour
+	if(jQuery('.content-sidebar').length) {
+		jQuery(document).on('scroll', function(e) {
+			// console.log(jQuery('.content-sidebar').scrollTop());
+			if (jQuery(document).scrollTop() > 65) {
+				jQuery('.content-wrapper').addClass("fixed");
+			} else {
+				jQuery('.content-wrapper').removeClass("fixed");
+			}
+		});
+	}
+	//--END fix behaviour
+
 	// Modal events
 	if(jQuery('.modal').length) {
 		var iframe = document.getElementById('vimeo-player');
