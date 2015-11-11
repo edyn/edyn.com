@@ -467,18 +467,19 @@
 
 		jQuery('.input-count-trash').click(function(e) {
 			jQuery('.input-count input').val(0);
+			e.preventDefault();
+			e.stopPropagation();
 		});
 	}
 	//--- END count component
 
 	// Order box fix behaviour
 	if(jQuery('.content-sidebar').length) {
-		jQuery(document).on('scroll', function(e) {
-			// console.log(jQuery('.content-sidebar').scrollTop());
+		jQuery(document).on('scroll', function() {
 			if (jQuery(document).scrollTop() > 65) {
-				jQuery('.content-wrapper').addClass("fixed");
+				jQuery('.content-wrapper').addClass('fixed');
 			} else {
-				jQuery('.content-wrapper').removeClass("fixed");
+				jQuery('.content-wrapper').removeClass('fixed');
 			}
 		});
 	}
