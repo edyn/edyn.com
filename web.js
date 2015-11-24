@@ -22,8 +22,12 @@ app.get('/getstarted', function(req, res) {
     res.sendfile('./dist/getstarted.html');
 });
 
-app.get('/purchase', function(req, res) {
+app.get('/order', function(req, res) {
     res.sendfile('./dist/purchase.html');
+});
+
+app.get('/confirmation', function(req, res) {
+    res.sendfile('./dist/confirmation.html');
 });
 
 ///

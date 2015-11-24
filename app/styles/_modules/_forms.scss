@@ -51,6 +51,15 @@ form {}
         }
         margin: 0;
         text-transform: capitalize;
+
+        .required {
+            color: red;
+            margin-left: em(5);
+        }
+
+        &.invisible {
+            visibility: hidden;
+        }
     }
     input {
         &[type="color"], &[type="date"], &[type="datetime"],
@@ -69,6 +78,11 @@ form {}
                 size: em(16);
             }
             text-transform: capitalize;
+
+            &:focus {
+                border: 0;
+                box-shadow: none;
+            }
         }
 
         .input-count & {

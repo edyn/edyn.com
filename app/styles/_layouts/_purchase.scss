@@ -28,6 +28,11 @@
                     @include shift(1);
                 }
 
+                h2 + h3 {
+                    font-size: em(20);
+                    margin-top: em(30);
+                }
+
                 .order, .button-app {
                     display: none;
                 }
@@ -83,19 +88,6 @@
             @include media($bp-medium) {
                 @include span-columns(12);
                 @include shift(0);
-
-                &.fixed {
-                    .content-sidebar {
-                        position: fixed;
-                        right: 2%;
-                        top: em(100);
-                    }
-
-                    .content-main {
-                        float: left;
-                        margin-left: 8.5298042998%;
-                    }
-                }
             }
         }
 

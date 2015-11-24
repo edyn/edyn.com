@@ -4,7 +4,7 @@ block vars
     - var bodyClass = 'purchase';
 
 block title
-    title Purchase
+    title Order
 
 block content
     .content
@@ -58,22 +58,29 @@ block content
                         fieldset
                             .input-wrapper
                                 label(for="input-first-name") First name
+                                    span.required *
                                 input#input-first-name(type="text", placeholder="First name", name="input-first-name")
                             .input-wrapper
                                 label(for="input-last-name") Last name
+                                    span.required *
                                 input#input-last-name(type="text", placeholder="Last name", name="input-last-name")
                             .input-wrapper
                                 label(for="input-email") Email
+                                    span.required *
                                 input#input-email(type="text", placeholder="Email", name="input-email")
                             .input-wrapper
                                 label(for="input-company") Company
                                 input#input-company(type="text", placeholder="Company", name="input-company")
                             .input-wrapper
                                 label(for="input-address-line-1") Address
+                                    span.required *
                                 input#input-address-line-1(type="text", placeholder="Address line 1", name="input-address-line-1")
-                                //- input#input-address-line-2(type="text", placeholder="Address line 2", name="input-address-line-2")
+                            .input-wrapper
+                                label.invisible(for="input-address-line-2") Address
+                                input#input-address-line-2(type="text", placeholder="Address line 2", name="input-address-line-2")
                             .input-wrapper
                                 label(for="input-city") City
+                                    span.required *
                                 input#input-city(type="text", placeholder="City", name="input-city")
                             .input-wrapper
                                 label(for="input-state") State
@@ -85,6 +92,7 @@ block content
                                 input#input-zip(type="text", placeholder="Zip", name="input-zip")
                             .input-wrapper
                                 label(for="input-country") Country
+                                    span.required *
                                 .input-select
                                     select#input-country(name="input-country")
                                         option(value="USA") USA
