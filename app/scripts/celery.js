@@ -41,10 +41,6 @@
         console.warn('Implement fetchShippingRates');
     };
 
-    Celery.prototype.serializeOrder = function(order, callback) {
-        return this._post('orders', 'serialize', order, callback);
-    };
-
     Celery.prototype.createOrder = function(order, callback) {
         return this._post('orders', 'checkout', order, callback);
     };
