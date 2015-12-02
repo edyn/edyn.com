@@ -223,6 +223,26 @@
             }
         }
 
+        .input-number-count {
+            .input-count {
+                display: block;
+            }
+
+            .input-select-count {
+                display: none;
+            }
+
+            @include media($bp-medium) {
+                .input-count {
+                    display: none;
+                }
+
+                .input-select-count {
+                    display: inline-block;
+                }
+            }
+        }
+
         .order {
             background: $white;
             border-radius: 4px;

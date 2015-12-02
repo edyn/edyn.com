@@ -1,4 +1,51 @@
-form {}
+form {
+    select {
+        @include appearance(none);
+        border: none;
+        background: transparent;
+        padding: 0;
+        margin: 0;
+        font: {
+            family: $proxima-regular;
+            weight: normal;
+            size: em(16);
+        }
+        position: relative;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+
+    .input-select-count {
+        position: relative;
+
+        select {
+            position: relative;
+            width: em(45);
+            height: em(30);
+            margin: 0;
+            background: $desert-storm;
+            border-radius: 2px;
+            text-align: center;
+            font-size: em(18);
+            font-weight: 900;
+            padding: 0 0 0 em(15);
+        }
+
+        &:after {
+            pointer-events: none;
+            @include position(absolute, em(7) em(5) null null);
+            font-family: 'icomoon';
+            content: "\e906";
+            display: block;
+            color: $swirl;
+            font-size: em(14);
+        }
+    }
+
     fieldset {
         margin: em(20) 0;
         padding: 0;
@@ -162,24 +209,18 @@ form {}
         }
     }
     textarea {}
-    select {
-        @include appearance(none);
-        border: none;
-        background: transparent;
-        padding: 0;
-        margin: 0;
-        font: {
-            family: $proxima-regular;
-            weight: normal;
-            size: em(16);
-        }
-        position: relative;
+
+    span.notice {
+        font-size: em(12);
+        color: $silver;
+        font-style: italic;
     }
 
     .input-select {
         select {
             width: 100%;
         }
+
 
         &:after {
             pointer-events: none;

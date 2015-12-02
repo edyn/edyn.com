@@ -17,8 +17,8 @@ block content
                             .order-product
                                 img(src="images/edyn_sensor_thumbnail_2x.png", alt="", width="200", height="200")
                                 h2 Edyn garden sensor
-                                span.order-price $99.
-                                .input-wrapper
+                                span.order-price $99.99
+                                .input-wrapper.input-number-count
                                     .input-count
                                         input#input-count(type="text", value="1", name="input-count")
                                         .input-count-controls
@@ -32,6 +32,18 @@ block content
                                                 i(class="icon icon-ui-minus")
                                         a.input-count-trash(href="#")
                                             i(class="icon icon-ui-trash")
+                                    .input-select-count
+                                        select#input-select-count(name="input-select-count")
+                                            option(value="1") 1
+                                            option(value="2") 2
+                                            option(value="3") 3
+                                            option(value="4") 4
+                                            option(value="5") 5
+                                            option(value="6") 6
+                                            option(value="7") 7
+                                            option(value="8") 8
+                                            option(value="9") 9
+                                            option(value="10") 10
                             table.order-summary
                                 tbody
                                     tr
@@ -86,6 +98,7 @@ block content
                                 label(for="input-state") State
                                 .input-select
                                     select#input-state(name="input-state")
+                                        option(value="NULL") 
                                         option(value="AL") AL
                                         option(value="AK") AK
                                         option(value="AZ") AZ
@@ -143,9 +156,11 @@ block content
                             .input-wrapper
                                 label(for="input-country") Country
                                     span.required *
-                                .input-select
-                                    select#input-country(name="input-country")
-                                        option(value="USA") USA
+                                input(type="text", value="USA", disabled)
+                                span.notice More countries coming soon
+                                //- .input-select
+                                //-     select#input-country(name="input-country", disabled)
+                                //-         option(value="USA") USA
                             .input-wrapper
                                 label(for="input-telephone") Telephone
                                 input#input-telephone(type="tel", placeholder="Telephone", name="input-telephone")
@@ -155,6 +170,18 @@ block content
                                 input#input-billing(type='checkbox', checked)
                                 | Use billing address
                         fieldset.shipping-info
+                            .input-wrapper
+                                label(for="input-shipping-first-name") First name
+                                    span.required *
+                                input#input-shipping-first-name(type="text", placeholder="First name", name="input-shipping-first-name")
+                            .input-wrapper
+                                label(for="input-shipping-last-name") Last name
+                                    span.required *
+                                input#input-shipping-last-name(type="text", placeholder="Last name", name="input-shipping-last-name")
+                            .input-wrapper
+                                label(for="input-shipping-email") Email
+                                    span.required *
+                                input#input-shipping-email(type="text", placeholder="Email", name="input-shipping-email")
                             .input-wrapper
                                 label(for="input-shipping-company") Company
                                 input#input-shipping-company(type="text", placeholder="Company", name="input-shipping-company")
@@ -228,24 +255,29 @@ block content
                                 label(for="input-shipping-zip") Zip
                                 input#input-shipping-zip(type="text", placeholder="Zip", name="input-shipping-zip")
                             .input-wrapper
-                                label(for="input-shipping-country") Country
+                                label(for="input-country") Country
                                     span.required *
-                                .input-select
-                                    select#input-shipping-country(name="input-shipping-country")
-                                        option(value="USA") USA
-                        h2 3. Shipping Method
-                        .input-radio
-                            label(for="input-standard-shipping")
-                                input#input-standard-shipping(name="input-shipping", type="radio", checked)
-                                | International shipping
-                                //- .input-notice 3–5 business days
-                                .align-right $35.00
-                            label(for="input-expedited-shipping")
-                                input#input-expedited-shipping(name="input-shipping", type="radio")
-                                | Standard shipping
-                                //- .input-notice 1-2 business days
-                                .align-right $10.00
-                        h2 4. Payment Method
+                                input(type="text", value="USA", disabled)
+                                span.notice More countries coming soon
+                                //- .input-select
+                                //-     select#input-country(name="input-country", disabled)
+                                //-         option(value="USA") USA
+                            .input-wrapper
+                                label(for="input-shipping-telephone") Telephone
+                                input#input-shipping-telephone(type="tel", placeholder="Telephone", name="input-shipping-telephone")
+                        //- h2 3. Shipping Method
+                        //- .input-radio
+                        //-     label(for="input-standard-shipping")
+                        //-         input#input-standard-shipping(name="input-shipping", type="radio", checked)
+                        //-         | International shipping
+                        //-         .input-notice 3–5 business days
+                        //-         .align-right $35.00
+                        //-     label(for="input-expedited-shipping")
+                        //-         input#input-expedited-shipping(name="input-shipping", type="radio")
+                        //-         | Standard shipping
+                        //-         .input-notice 1-2 business days
+                        //-         .align-right $10.00
+                        h2 3. Payment Method
                             i(class="icon icon-ui-lock")
                         fieldset.alternate
                             .input-wrapper
