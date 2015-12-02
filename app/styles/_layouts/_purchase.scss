@@ -22,6 +22,10 @@
                 margin-top: em(50);
             }
 
+            .button-app {
+                margin-top: em(30);
+            }
+
             @include media($bp-medium) {
                 @include direction-context(right-to-left) {
                     @include span-columns(5);
@@ -65,14 +69,14 @@
         }
 
         &-sidebar {
-            .order {
-                display: none;
-            }
+            // .order {
+            //     display: none;
+            // }
 
             @include media($bp-medium) {
-                .order {
-                    display: block;
-                }
+                // .order {
+                //     display: block;
+                // }
 
                 @include direction-context(right-to-left) {
                     @include span-columns(4);
@@ -107,7 +111,7 @@
         }
 
 		h2 {
-            margin: 0;
+            margin: 0 0 em(20) 0;
             padding: 0;
             font: {
 				family: $proxima-bold;
@@ -123,6 +127,10 @@
                     color: $limeade;
                 }
             }
+
+            @include media($bp-medium) {
+				margin: 0;
+			}
 		}
 
         h3 {
@@ -331,6 +339,37 @@
 
         fieldset.alternate {
             margin-bottom: em(50);
+        }
+    }
+
+    .shipping-info {
+        display: none;
+    }
+
+    &.confirmation {
+        .content-sidebar {
+            .order, h1 {
+                display: none;
+
+                @include media($bp-medium) {
+                    display: block;
+                }
+            }
+        }
+
+        .content-main {
+            h1 {
+                margin-top: em(50);
+                margin-bottom: 0;
+
+                @include media($bp-medium) {
+                    display: none;
+                }
+            }
+
+            .order {
+                margin-top: em(30);
+            }
         }
     }
 }

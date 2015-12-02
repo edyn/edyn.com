@@ -1,0 +1,297 @@
+extends layouts/default
+
+block vars
+    - var bodyClass = 'purchase';
+
+block title
+    title Order
+
+block content
+    .content
+        .container
+            .content-wrapper
+                form(method="POST")
+                    .content-sidebar
+                        h1 Order Details
+                        .order
+                            .order-product
+                                img(src="images/edyn_sensor_thumbnail_2x.png", alt="", width="200", height="200")
+                                h2 Edyn garden sensor
+                                span.order-price $99.
+                                .input-wrapper
+                                    .input-count
+                                        input#input-count(type="text", value="1", name="input-count")
+                                        .input-count-controls
+                                            a.input-count-up(href="#")
+                                                i(class="icon icon-ui-arrow-up")
+                                            a.input-count-down(href="#")
+                                                i(class="icon icon-ui-arrow-down")
+                                            a.input-count-plus(href="#")
+                                                i(class="icon icon-ui-plus")
+                                            a.input-count-minus(href="#")
+                                                i(class="icon icon-ui-minus")
+                                        a.input-count-trash(href="#")
+                                            i(class="icon icon-ui-trash")
+                            table.order-summary
+                                tbody
+                                    tr
+                                        td Subtotal
+                                        td 
+                                    tr
+                                        td Standard shipping
+                                        td 
+                                    tr
+                                        td Tax
+                                        td 
+                                tfoot
+                                    tr
+                                        td Total
+                                        td 
+                        //- .preorder
+                        //-     span Pre-order
+                        //-     h3 Edyn water valve
+                        //-     span $59.99  Coming August 2015
+                        //-     a.button.button-link(href="#") Add to order
+                        //-     img(src="images/edyn_valve_thumbnail_2x.png", alt="", width="200", height="155")
+                    .content-main
+                        h2 1. Billing Information
+                        fieldset
+                            .input-wrapper
+                                label(for="input-first-name") First name
+                                    span.required *
+                                input#input-first-name(type="text", placeholder="First name", name="input-first-name")
+                            .input-wrapper
+                                label(for="input-last-name") Last name
+                                    span.required *
+                                input#input-last-name(type="text", placeholder="Last name", name="input-last-name")
+                            .input-wrapper
+                                label(for="input-email") Email
+                                    span.required *
+                                input#input-email(type="text", placeholder="Email", name="input-email")
+                            .input-wrapper
+                                label(for="input-company") Company
+                                input#input-company(type="text", placeholder="Company", name="input-company")
+                            .input-wrapper
+                                label(for="input-address-line-1") Address
+                                    span.required *
+                                input#input-address-line-1(type="text", placeholder="Address line 1", name="input-address-line-1")
+                            .input-wrapper
+                                label.invisible(for="input-address-line-2") Address
+                                input#input-address-line-2(type="text", placeholder="Address line 2", name="input-address-line-2")
+                            .input-wrapper
+                                label(for="input-city") City
+                                    span.required *
+                                input#input-city(type="text", placeholder="City", name="input-city")
+                            .input-wrapper
+                                label(for="input-state") State
+                                .input-select
+                                    select#input-state(name="input-state")
+                                        option(value="AL") AL
+                                        option(value="AK") AK
+                                        option(value="AZ") AZ
+                                        option(value="AR") AR
+                                        option(value="CA") CA
+                                        option(value="CO") CO
+                                        option(value="CT") CT
+                                        option(value="DE") DE
+                                        option(value="DC") DC
+                                        option(value="FL") FL
+                                        option(value="GA") GA
+                                        option(value="HI") HI
+                                        option(value="ID") ID
+                                        option(value="IL") IL
+                                        option(value="IN") IN
+                                        option(value="IA") IA
+                                        option(value="KS") KS
+                                        option(value="KY") KY
+                                        option(value="LA") LA
+                                        option(value="ME") ME
+                                        option(value="MD") MD
+                                        option(value="MA") MA
+                                        option(value="MI") MI
+                                        option(value="MN") MN
+                                        option(value="MS") MS
+                                        option(value="MO") MO
+                                        option(value="MT") MT
+                                        option(value="NE") NE
+                                        option(value="NV") NV
+                                        option(value="NH") NH
+                                        option(value="NJ") NJ
+                                        option(value="NM") NM
+                                        option(value="NY") NY
+                                        option(value="NC") NC
+                                        option(value="ND") ND
+                                        option(value="OH") OH
+                                        option(value="OK") OK
+                                        option(value="OR") OR
+                                        option(value="PA") PA
+                                        option(value="RI") RI
+                                        option(value="SC") SC
+                                        option(value="SD") SD
+                                        option(value="TN") TN
+                                        option(value="TX") TX
+                                        option(value="UT") UT
+                                        option(value="VT") VT
+                                        option(value="VA") VA
+                                        option(value="WA") WA
+                                        option(value="WV") WV
+                                        option(value="WI") WI
+                                        option(value="WY") WY
+                            .input-wrapper
+                                label(for="input-zip") Zip
+                                input#input-zip(type="text", placeholder="Zip", name="input-zip")
+                            .input-wrapper
+                                label(for="input-country") Country
+                                    span.required *
+                                .input-select
+                                    select#input-country(name="input-country")
+                                        option(value="USA") USA
+                            .input-wrapper
+                                label(for="input-telephone") Telephone
+                                input#input-telephone(type="tel", placeholder="Telephone", name="input-telephone")
+                        h2 2. Shipping Information
+                        .input-checkbox
+                            label(for="input-billing")
+                                input#input-billing(type='checkbox', checked)
+                                | Use billing address
+                        fieldset.shipping-info
+                            .input-wrapper
+                                label(for="input-shipping-company") Company
+                                input#input-shipping-company(type="text", placeholder="Company", name="input-shipping-company")
+                            .input-wrapper
+                                label(for="input-shipping-address-line-1") Address
+                                    span.required *
+                                input#input-shipping-address-line-1(type="text", placeholder="Address line 1", name="input-shipping-address-line-1")
+                            .input-wrapper
+                                label.invisible(for="input-shipping-address-line-2") Address
+                                input#input-shipping-address-line-2(type="text", placeholder="Address line 2", name="input-shipping-address-line-2")
+                            .input-wrapper
+                                label(for="input-shipping-city") City
+                                    span.required *
+                                input#input-shipping-city(type="text", placeholder="City", name="input-shipping-city")
+                            .input-wrapper
+                                label(for="input-shipping-state") State
+                                .input-select
+                                    select#input-shipping-state(name="input-shipping-state")
+                                        option(value="AL") Alabama
+                                        option(value="AK") Alaska
+                                        option(value="AZ") Arizona
+                                        option(value="AR") Arkansas
+                                        option(value="CA") California
+                                        option(value="CO") Colorado
+                                        option(value="CT") Connecticut
+                                        option(value="DE") Delaware
+                                        option(value="DC") District Of Columbia
+                                        option(value="FL") Florida
+                                        option(value="GA") Georgia
+                                        option(value="HI") Hawaii
+                                        option(value="ID") Idaho
+                                        option(value="IL") Illinois
+                                        option(value="IN") Indiana
+                                        option(value="IA") Iowa
+                                        option(value="KS") Kansas
+                                        option(value="KY") Kentucky
+                                        option(value="LA") Louisiana
+                                        option(value="ME") Maine
+                                        option(value="MD") Maryland
+                                        option(value="MA") Massachusetts
+                                        option(value="MI") Michigan
+                                        option(value="MN") Minnesota
+                                        option(value="MS") Mississippi
+                                        option(value="MO") Missouri
+                                        option(value="MT") Montana
+                                        option(value="NE") Nebraska
+                                        option(value="NV") Nevada
+                                        option(value="NH") New Hampshire
+                                        option(value="NJ") New Jersey
+                                        option(value="NM") New Mexico
+                                        option(value="NY") New York
+                                        option(value="NC") North Carolina
+                                        option(value="ND") North Dakota
+                                        option(value="OH") Ohio
+                                        option(value="OK") Oklahoma
+                                        option(value="OR") Oregon
+                                        option(value="PA") Pennsylvania
+                                        option(value="RI") Rhode Island
+                                        option(value="SC") South Carolina
+                                        option(value="SD") South Dakota
+                                        option(value="TN") Tennessee
+                                        option(value="TX") Texas
+                                        option(value="UT") Utah
+                                        option(value="VT") Vermont
+                                        option(value="VA") Virginia
+                                        option(value="WA") Washington
+                                        option(value="WV") West Virginia
+                                        option(value="WI") Wisconsin
+                                        option(value="WY") Wyoming
+                            .input-wrapper
+                                label(for="input-shipping-zip") Zip
+                                input#input-shipping-zip(type="text", placeholder="Zip", name="input-shipping-zip")
+                            .input-wrapper
+                                label(for="input-shipping-country") Country
+                                    span.required *
+                                .input-select
+                                    select#input-shipping-country(name="input-shipping-country")
+                                        option(value="USA") USA
+                        h2 3. Shipping Method
+                        .input-radio
+                            label(for="input-standard-shipping")
+                                input#input-standard-shipping(name="input-shipping", type="radio", checked)
+                                | International shipping
+                                //- .input-notice 3–5 business days
+                                .align-right $35.00
+                            label(for="input-expedited-shipping")
+                                input#input-expedited-shipping(name="input-shipping", type="radio")
+                                | Standard shipping
+                                //- .input-notice 1-2 business days
+                                .align-right $10.00
+                        h2 4. Payment Method
+                            i(class="icon icon-ui-lock")
+                        fieldset.alternate
+                            .input-wrapper
+                                label(for="input-card-number") Card number
+                                input#input-card-number(type="text", placeholder="Card number", name="input-card-number")
+                            .input-wrapper
+                                label(for="input-card-month") Exp. month
+                                .input-select
+                                    select#input-card-month(name="input-card-month", placeholder="Expiration Month")
+                                        option(value="null", disabled selected) Expiration Month
+                                        option(value="01") 01
+                                        option(value="02") 02
+                                        option(value="03") 03
+                                        option(value="04") 04
+                                        option(value="05") 05
+                                        option(value="06") 06
+                                        option(value="07") 07
+                                        option(value="08") 08
+                                        option(value="09") 09
+                                        option(value="10") 10
+                                        option(value="11") 11
+                                        option(value="12") 12
+                            .input-wrapper
+                                label(for="input-card-year") Exp. year
+                                .input-select
+                                    select#input-card-year(name="input-card-year", placeholder="Expiration Year")
+                                        option(value="null", disabled selected) Expiration Year
+                            .input-wrapper
+                                label(for="input-card-code") Security code
+                                input#input-card-code(type="text", placeholder="Code", name="input-card-code")
+                                i(class="icon icon-help")
+                        .order
+                            table.order-summary
+                                tbody
+                                    tr
+                                        td Subtotal
+                                        td 
+                                    tr
+                                        td Standard shipping
+                                        td 
+                                    tr
+                                        td Tax
+                                        td 
+                                tfoot
+                                    tr
+                                        td Total
+                                        td 
+                                
+                        input(type="submit", value="Place Order", name="placeOrder", id="placeOrder", class="button button-inverted")

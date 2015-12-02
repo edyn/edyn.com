@@ -1,7 +1,7 @@
 extends layouts/default
 
 block vars
-    - var bodyClass = 'purchase';
+    - var bodyClass = 'purchase confirmation';
 
 block title
     title Confirmation
@@ -54,6 +54,7 @@ block content
                     .app
                         a.button-appstore-outline(href='https://itunes.apple.com/us/app/edyn/id939748941?mt=8', target='_blank') Download from the App Store
                         a.button-googleplay-outline(href='https://play.google.com/store/apps/details?id=com.edyn.apps.edyn', target='_blank') Get it on Google play
+                    h1 Order details
                     .order
                         .order-product
                             img(src="images/edyn_sensor_thumbnail_2x.png", alt="", width="200", height="200")
@@ -95,6 +96,7 @@ block content
                             br
                             |415 658 7213
                     hr.hidden.clearfix
-                    a(class="button button-inverted", href="#") Back to home                
+                    a(class="button button-inverted", href="#") Back home   
+                    hr.hidden.clearfix             
 append footer
     include ./includes/lightbox.jade

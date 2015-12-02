@@ -23,7 +23,7 @@ app.get('/getstarted', function(req, res) {
 });
 
 app.get('/order', function(req, res) {
-    res.sendfile('./dist/purchase.html');
+    res.sendfile('./dist/order.html');
 });
 
 app.get('/confirmation', function(req, res) {
