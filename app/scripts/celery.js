@@ -20,25 +20,8 @@
         config.userId = options.userId || '';
     }
 
-    Celery.prototype.fetchTaxes = function(options, callback) {
-        var userId = this._ensureUserId(options);
-
-        if (!options || !options.shipping_country) {
-            return console.warn('Must pass at least shipping_country');
-        }
-
-        return this.request({
-            type: 'GET',
-            url: [this.config.apiUrl, 'users', userId, 'tax_rates'].join('/'),
-            data: options,
-            context: this
-        })
-        .done(this._generateSuccessCb(callback))
-        .fail(this._generateErrorCb(callback));
-    };
-
-    Celery.prototype.fetchShippingRates = function(options, callback) {
-        console.warn('Implement fetchShippingRates');
+    Celery.prototype.serializeOrder = function(order, callback) {
+        return this._post('orders', 'serialize', order, callback);
     };
 
     Celery.prototype.createOrder = function(order, callback) {

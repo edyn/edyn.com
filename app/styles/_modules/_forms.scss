@@ -210,10 +210,18 @@ form {
     }
     textarea {}
 
-    span.notice {
+    span.notice, span.validetta-bubble {
         font-size: em(12);
         color: $silver;
         font-style: italic;
+    }
+
+    span.notice {
+        color: $silver;
+    }
+
+    span.validetta-bubble {
+        color: red;
     }
 
     .input-select {

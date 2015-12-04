@@ -10,7 +10,7 @@ block content
     .content
         .container
             .content-wrapper
-                form(method="POST")
+                form#form(method="POST")
                     .content-sidebar
                         h1 Order Details
                         .order
@@ -48,17 +48,17 @@ block content
                                 tbody
                                     tr
                                         td Subtotal
-                                        td 
+                                        td#price-subtotal 
                                     tr
                                         td Standard shipping
-                                        td 
+                                        td#price-shipping
                                     tr
                                         td Tax
-                                        td 
+                                        td#price-tax
                                 tfoot
                                     tr
                                         td Total
-                                        td 
+                                        td#price-total 
                         //- .preorder
                         //-     span Pre-order
                         //-     h3 Edyn water valve
@@ -71,29 +71,29 @@ block content
                             .input-wrapper
                                 label(for="input-first-name") First name
                                     span.required *
-                                input#input-first-name(type="text", placeholder="First name", name="input-first-name")
+                                input#input-first-name(type="text", placeholder="First name", name="input-first-name", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
                                 label(for="input-last-name") Last name
                                     span.required *
-                                input#input-last-name(type="text", placeholder="Last name", name="input-last-name")
+                                input#input-last-name(type="text", placeholder="Last name", name="input-last-name", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
                                 label(for="input-email") Email
                                     span.required *
-                                input#input-email(type="text", placeholder="Email", name="input-email")
+                                input#input-email(type="text", placeholder="Email", name="input-email", data-validetta="required,email", data-vd-message-required="This field is required.", , data-vd-message-email="Your E-mail address appears to be invalid.")
                             .input-wrapper
                                 label(for="input-company") Company
                                 input#input-company(type="text", placeholder="Company", name="input-company")
                             .input-wrapper
                                 label(for="input-address-line-1") Address
                                     span.required *
-                                input#input-address-line-1(type="text", placeholder="Address line 1", name="input-address-line-1")
+                                input#input-address-line-1(type="text", placeholder="Address line 1", name="input-address-line-1", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
                                 label.invisible(for="input-address-line-2") Address
                                 input#input-address-line-2(type="text", placeholder="Address line 2", name="input-address-line-2")
                             .input-wrapper
                                 label(for="input-city") City
                                     span.required *
-                                input#input-city(type="text", placeholder="City", name="input-city")
+                                input#input-city(type="text", placeholder="City", name="input-city", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
                                 label(for="input-state") State
                                 .input-select
@@ -155,7 +155,6 @@ block content
                                 input#input-zip(type="text", placeholder="Zip", name="input-zip")
                             .input-wrapper
                                 label(for="input-country") Country
-                                    span.required *
                                 input(type="text", value="USA", disabled)
                                 span.notice More countries coming soon
                                 //- .input-select
@@ -172,29 +171,24 @@ block content
                         fieldset.shipping-info
                             .input-wrapper
                                 label(for="input-shipping-first-name") First name
-                                    span.required *
                                 input#input-shipping-first-name(type="text", placeholder="First name", name="input-shipping-first-name")
                             .input-wrapper
                                 label(for="input-shipping-last-name") Last name
-                                    span.required *
                                 input#input-shipping-last-name(type="text", placeholder="Last name", name="input-shipping-last-name")
                             .input-wrapper
                                 label(for="input-shipping-email") Email
-                                    span.required *
                                 input#input-shipping-email(type="text", placeholder="Email", name="input-shipping-email")
                             .input-wrapper
                                 label(for="input-shipping-company") Company
                                 input#input-shipping-company(type="text", placeholder="Company", name="input-shipping-company")
                             .input-wrapper
                                 label(for="input-shipping-address-line-1") Address
-                                    span.required *
                                 input#input-shipping-address-line-1(type="text", placeholder="Address line 1", name="input-shipping-address-line-1")
                             .input-wrapper
                                 label.invisible(for="input-shipping-address-line-2") Address
                                 input#input-shipping-address-line-2(type="text", placeholder="Address line 2", name="input-shipping-address-line-2")
                             .input-wrapper
                                 label(for="input-shipping-city") City
-                                    span.required *
                                 input#input-shipping-city(type="text", placeholder="City", name="input-shipping-city")
                             .input-wrapper
                                 label(for="input-shipping-state") State
@@ -256,7 +250,6 @@ block content
                                 input#input-shipping-zip(type="text", placeholder="Zip", name="input-shipping-zip")
                             .input-wrapper
                                 label(for="input-country") Country
-                                    span.required *
                                 input(type="text", value="USA", disabled)
                                 span.notice More countries coming soon
                                 //- .input-select
@@ -282,11 +275,11 @@ block content
                         fieldset.alternate
                             .input-wrapper
                                 label(for="input-card-number") Card number
-                                input#input-card-number(type="text", placeholder="Card number", name="input-card-number")
+                                input#input-card-number(type="text", placeholder="Card number", name="input-card-number", data-validetta="required,creditCard", data-vd-message-required="This field is required.", data-vd-message-creditcard="Invalid credit card number.")
                             .input-wrapper
                                 label(for="input-card-month") Exp. month
                                 .input-select
-                                    select#input-card-month(name="input-card-month", placeholder="Expiration Month")
+                                    select#input-card-month(name="input-card-month", placeholder="Expiration Month", data-validetta="required", data-vd-message-required="This field is required.")
                                         option(value="null", disabled selected) Expiration Month
                                         option(value="01") 01
                                         option(value="02") 02
@@ -303,11 +296,11 @@ block content
                             .input-wrapper
                                 label(for="input-card-year") Exp. year
                                 .input-select
-                                    select#input-card-year(name="input-card-year", placeholder="Expiration Year")
+                                    select#input-card-year(name="input-card-year", placeholder="Expiration Year", data-validetta="required", data-vd-message-required="This field is required.")
                                         option(value="null", disabled selected) Expiration Year
                             .input-wrapper
                                 label(for="input-card-code") Security code
-                                input#input-card-code(type="text", placeholder="Code", name="input-card-code")
+                                input#input-card-code(type="text", placeholder="Code", name="input-card-code", data-validetta="required,number,minLength[3],maxLength[3]", data-vd-message-required="This field is required.")
                                 i(class="icon icon-help")
                         .order
                             table.order-summary

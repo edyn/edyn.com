@@ -43,6 +43,7 @@
     }
   },
   "dependencies": {
+    "body-parser": "^1.14.1",
     "browserify": "^10.2.4",
     "browserify-shim": "^3.8.9",
     "express": "^4.13.0",
