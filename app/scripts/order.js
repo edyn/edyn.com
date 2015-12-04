@@ -95,16 +95,34 @@
 		}
 
 		var c = new Celery({userId: '5654f01bd5ec870300f24037'});
+		// console.log('before celery');
 		c.createOrder(data)
 			.done(function(results) {
-				jQuery.post({
-					url: '/order',
-					data: results.data
-				});
-				// alert('yo');
+				// console.log('before post celery response to express');
+				// console.log(results.data);
+
+				$.ajax({
+					type: 'POST',
+					data: JSON.stringify(results.data),
+			        contentType: 'application/json',
+                    url: '/order',
+                    success: function(data) {
+                        console.log('success');
+                        console.log(JSON.stringify(data));
+
+						jQuery("html").html(data);
+                    }
+                });
+				// jQuery.post({
+				// 	url: '/order',
+				// 	data: results.data
+				// }, function(res) {
+				// 	console.log('post success');
+				// });
+				// console.log('post end');
 			})
 			.fail(function(results) {
-				alert('fail');
+				alert('Transaction failure.');
 			});
 
 		return false;

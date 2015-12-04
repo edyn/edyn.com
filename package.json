@@ -48,6 +48,7 @@
     "browserify-shim": "^3.8.9",
     "express": "^4.13.0",
     "gzippo": "^0.2.0",
+    "jade": "^1.11.0",
     "morgan": "^1.6.0"
   }
 }

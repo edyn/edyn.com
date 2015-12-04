@@ -10,6 +10,9 @@ app.use(gzippo.staticGzip("" + __dirname + "/dist"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.set('views', './app/views')
+app.set('view engine', 'jade');
+
 app.get('/', function(req, res) {
     res.sendfile('./dist/index.html');
 });
@@ -31,22 +34,51 @@ app.get('/order', function(req, res) {
 });
 
 app.post('/order', function(req, res) {
-    res.render('/confirmation', {
+    res.render('confirmation', {
         order: {
+            buyer : {
+                first_name: req.body.buyer.first_name,
+                last_name: req.body.buyer.last_name,
+            },
             name : req.body.number,
             total : req.body.total,
             subtotal : req.body.subtotal,
             taxes : req.body.taxes,
             shipping : req.body.shipping,
-            shipping_address : req.body.shipping_address,
-            billing_address : req.body.billing_address
+            shipping_address : {
+                line1: req.body.shipping_address.line1,
+                city: req.body.shipping_address.city,
+                country: req.body.shipping_address.country,
+                zip: req.body.shipping_address.zip,
+                state: req.body.shipping_address.state,
+            },
+            billing_address : {
+                line1: req.body.billing_address.line1,
+                city: req.body.billing_address.city,
+                country: req.body.billing_address.country,
+                zip: req.body.billing_address.zip,
+            },
         }
     });
 });
 
-app.get('/confirmation', function(req, res) {
-    res.sendfile('./dist/confirmation.html');
-});
+// app.get('/confirmation', function(req, res) {
+//     res.render('confirmation', {
+//         order: {
+//             name : 23,
+//             total : 23,
+//             subtotal : 23,
+//             taxes : 23,
+//             shipping : 23,
+//             shipping_address : 23,
+//             billing_address : 23
+//         }
+//     });
+// });
+
+// app.get('/confirmation', function(req, res) {
+//     res.sendfile('./dist/confirmation.html');
+// });
 
 ///
 // Backwards compatibility with the old website
