@@ -38,15 +38,16 @@ app.post('/confirmation', function(req, res) {
 
     res.render('confirmation', {
         order: {
+            number : req.body.number,
             buyer : {
                 first_name: req.body.buyer.first_name,
                 last_name: req.body.buyer.last_name,
             },
             name : req.body.number,
-            total : req.body.total,
-            subtotal : req.body.subtotal,
-            taxes : req.body.taxes,
-            shipping : req.body.shipping,
+            total : '$' + (req.body.total / 100),
+            subtotal : '$' + (req.body.subtotal / 100),
+            taxes : '$' + (req.body.taxes / 100),
+            shipping : '$' + (req.body.shipping / 100),
             shipping_address : {
                 line1: req.body.shipping_address.line1,
                 city: req.body.shipping_address.city,
@@ -64,16 +65,16 @@ app.post('/confirmation', function(req, res) {
     });
 });
 
-app.get('/confirmation', function(req, res) {
-    res.render('confirmation');
-});
+// app.get('/confirmation', function(req, res) {
+//     res.render('confirmation');
+// });
 
 ///
 // Backwards compatibility with the old website
 ///
-app.get('/order', function(req, res) {
-    res.redirect('/');
-});
+// app.get('/order', function(req, res) {
+//     res.redirect('/');
+// });
 
 app.get('/faq', function(req, res) {
     res.redirect('https://edyn.zendesk.com/hc/en-us');

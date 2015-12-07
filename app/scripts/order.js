@@ -15,7 +15,7 @@
 
 	// Shipping info checkbox event
 	jQuery("#input-billing").click( function(){
-	    if(jQuery(this).is(':checked')) {
+	    if(jQuery("#input-billing:checked").length) {
 		   jQuery(".shipping-info").hide();
 	    } else {
 		   jQuery(".shipping-info").show();
@@ -71,7 +71,7 @@
 				'phone': jQuery('#input-telephone').val(),
 
 			},
-			'shipping_address': {
+			'billing_address': {
 				'line1': jQuery('#input-address-line-1').val(),
 				'line2': jQuery('#input-address-line-2').val(),
 				'city': jQuery('#input-city').val(),
@@ -92,6 +92,28 @@
 				'product_id': '5654f1c5d5ec870300f24039',
 				'quantity': jQuery('#input-select-count').val()
 			}]
+		}
+
+		if(jQuery('#input-billing:checked').length) {
+			data['shipping_address'] = {
+				'line1': jQuery('#input-address-line-1').val(),
+				'line2': jQuery('#input-address-line-2').val(),
+				'city': jQuery('#input-city').val(),
+				'state': jQuery('#input-state').val(),
+				'zip': jQuery('#input-zip').val(),
+				'country': jQuery('#input-country').val(),
+				'phone': jQuery('#input-telephone').val(),
+			}
+		} else {
+			data['shipping_address'] = {
+				'line1': jQuery('#input-shipping-address-line-1').val(),
+				'line2': jQuery('#input-shipping-address-line-2').val(),
+				'city': jQuery('#input-shipping-city').val(),
+				'state': jQuery('#input-shipping-state').val(),
+				'zip': jQuery('#input-shipping-zip').val(),
+				'country': jQuery('#input-shipping-country').val(),
+				'phone': jQuery('#input-shipping-telephone').val(),
+			}
 		}
 
 		var c = new Celery({userId: '5654f01bd5ec870300f24037'});
