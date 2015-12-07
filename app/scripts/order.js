@@ -32,10 +32,10 @@
 	    var c = new Celery({userId: '5654f01bd5ec870300f24037'});
 		c.serializeOrder(data)
 			.done(function(results) {
-				jQuery('#price-subtotal').text(results.data.subtotal);
-				jQuery('#price-shipping').text(results.data.shipping);
-				jQuery('#price-tax').text(results.data.taxes);
-				jQuery('#price-total').text(results.data.total);
+				jQuery('#price-subtotal').text('$' + (results.data.subtotal / 100));
+				jQuery('#price-shipping').text('$' + (results.data.shipping / 100));
+				jQuery('#price-tax').text('$' + (results.data.taxes / 100));
+				jQuery('#price-total').text('$' + (results.data.total / 100));
 			});
 	});
 
