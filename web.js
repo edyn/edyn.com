@@ -33,7 +33,9 @@ app.get('/order', function(req, res) {
     res.sendfile('./dist/order.html');
 });
 
-app.post('/order', function(req, res) {
+app.post('/confirmation', function(req, res) {
+    res.location('/confirmation');
+
     res.render('confirmation', {
         order: {
             buyer : {
@@ -62,23 +64,9 @@ app.post('/order', function(req, res) {
     });
 });
 
-// app.get('/confirmation', function(req, res) {
-//     res.render('confirmation', {
-//         order: {
-//             name : 23,
-//             total : 23,
-//             subtotal : 23,
-//             taxes : 23,
-//             shipping : 23,
-//             shipping_address : 23,
-//             billing_address : 23
-//         }
-//     });
-// });
-
-// app.get('/confirmation', function(req, res) {
-//     res.sendfile('./dist/confirmation.html');
-// });
+app.get('/confirmation', function(req, res) {
+    res.render('confirmation');
+});
 
 ///
 // Backwards compatibility with the old website

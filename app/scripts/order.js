@@ -95,34 +95,28 @@
 		}
 
 		var c = new Celery({userId: '5654f01bd5ec870300f24037'});
-		// console.log('before celery');
 		c.createOrder(data)
 			.done(function(results) {
-				// console.log('before post celery response to express');
-				// console.log(results.data);
-
 				$.ajax({
 					type: 'POST',
 					data: JSON.stringify(results.data),
 			        contentType: 'application/json',
-                    url: '/order',
+                    url: '/confirmation',
                     success: function(data) {
-                        console.log('success');
-                        console.log(JSON.stringify(data));
-
-						jQuery("html").html(data);
+                        // console.log('success');
+                        // console.log(JSON.stringify(data));
+						$('.content-wrapper').html(data);
                     }
                 });
-				// jQuery.post({
-				// 	url: '/order',
-				// 	data: results.data
-				// }, function(res) {
-				// 	console.log('post success');
-				// });
-				// console.log('post end');
 			})
 			.fail(function(results) {
-				alert('Transaction failure.');
+				swal({
+					title: "An error has occured.",
+					text: results.responseJSON.meta.error.message,
+					type: "error",
+					confirmButtonText: "Close",
+					confirmButtonColor: "#f9c000",
+				});
 			});
 
 		return false;
