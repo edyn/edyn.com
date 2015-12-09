@@ -16,17 +16,41 @@
 	// Shipping info checkbox event
 	jQuery("#input-billing").click( function(){
 	    if(jQuery("#input-billing:checked").length) {
-		   jQuery(".shipping-info").hide();
+		   jQuery(".billing-info").hide();
 	    } else {
-		   jQuery(".shipping-info").show();
+		   jQuery(".billing-info").show();
 	    }
 	});
 
-	// Get taxes & other product info
-	jQuery('#input-select-count').on('change', function(e) {
+	function updatePrices() {
 		var data = {
 			'user_id': '5654f01bd5ec870300f24037',
-			'line_items': [{'product_id':'5654f1c5d5ec870300f24039', 'quantity':jQuery('#input-select-count').val()}]
+			'line_items': [{
+				'product_id':'5654f1c5d5ec870300f24039',
+				'quantity':jQuery('#input-select-count').val()
+			}]
+		}
+
+		if(jQuery('#input-billing:checked').length) {
+			data['billing_address'] = {
+				'line1': jQuery('#input-shipping-address-line-1').val(),
+				'line2': jQuery('#input-shipping-address-line-2').val(),
+				'city': jQuery('#input-shipping-city').val(),
+				'state': jQuery('#input-shipping-state').val(),
+				'zip': jQuery('#input-shipping-zip').val(),
+				'country': jQuery('#input-shipping-country').val(),
+				'phone': jQuery('#input-shipping-telephone').val(),
+			}
+		} else {
+			data['billing_address'] = {
+				'line1': jQuery('#input-address-line-1').val(),
+				'line2': jQuery('#input-address-line-2').val(),
+				'city': jQuery('#input-city').val(),
+				'state': jQuery('#input-state').val(),
+				'zip': jQuery('#input-zip').val(),
+				'country': jQuery('#input-country').val(),
+				'phone': jQuery('#input-telephone').val(),
+			}
 		}
 
 	    var c = new Celery({userId: '5654f01bd5ec870300f24037'});
@@ -35,31 +59,54 @@
 				jQuery('#price-subtotal').text('$' + (results.data.subtotal / 100));
 				jQuery('#price-shipping').text('$' + (results.data.shipping / 100));
 				jQuery('#price-tax').text('$' + (results.data.taxes / 100));
-				jQuery('#price-total').text('$' + (results.data.total / 100));
+
+				if(jQuery('#input-shipping-address-line-1').val().length
+					&& jQuery('#input-shipping-city').val().length
+					&& jQuery('#input-shipping-zip').val().length)
+						jQuery('#price-total').text('$' + (results.data.total / 100));
 			});
+	}
+
+	// Get taxes & other product info
+	jQuery('#input-select-count').on('change', function(e) {
+		updatePrices();
 	});
 
-	// Create order
-	function validateData() {
-		if(!jQuery('#input-first-name').val().length
-			|| !jQuery('#input-last-name').val().length
-			|| !jQuery('#input-address-line-1').val().length
-			|| !jQuery('#input-city').val().length)
-			return false;
+	jQuery('#input-address-line-1').on('blur', function(e) {
+		if(jQuery('#input-address-line-1').val().length)
+			updatePrices();
+	});
 
-		if(!jQuery('#input-email').is('email'))
-			return false;
+	jQuery('#input-city').on('blur', function(e) {
+		if(jQuery('#input-city').val().length)
+			updatePrices();
+	});
 
-		// if(!jQuery('#input-card-number').is('cc:'))
-		// 	return false;
+	jQuery('#input-zip').on('blur', function(e) {
+		if(jQuery('#input-zip').val().length)
+			updatePrices();
+	});
 
-		return true;
-	}
+	jQuery('#input-shipping-address-line-1').on('blur', function(e) {
+		if(jQuery('#input-shipping-address-line-1').val().length)
+			updatePrices();
+	});
+
+	jQuery('#input-shipping-city').on('blur', function(e) {
+		if(jQuery('#input-shipping-city').val().length)
+			updatePrices();
+	});
+
+	jQuery('#input-shipping-zip').on('blur', function(e) {
+		if(jQuery('#input-shipping-zip').val().length)
+			updatePrices();
+	});
+
 
 	jQuery('#placeOrder').on('click', function(e) {
 
-		// if(!validateData())
-		// 	return false;
+		$(this).val('Hold On...');
+		$(this).attr('disabled', 'disabled');
 
 		var data = {
 			'user_id': '5654f01bd5ec870300f24037',
@@ -71,14 +118,14 @@
 				'phone': jQuery('#input-telephone').val(),
 
 			},
-			'billing_address': {
-				'line1': jQuery('#input-address-line-1').val(),
-				'line2': jQuery('#input-address-line-2').val(),
-				'city': jQuery('#input-city').val(),
-				'state': jQuery('#input-state').val(),
-				'zip': jQuery('#input-zip').val(),
-				'country': jQuery('#input-country').val(),
-				'phone': jQuery('#input-telephone').val(),
+			'shipping_address': {
+				'line1': jQuery('#input-shipping-address-line-1').val(),
+				'line2': jQuery('#input-shipping-address-line-2').val(),
+				'city': jQuery('#input-shipping-city').val(),
+				'state': jQuery('#input-shipping-state').val(),
+				'zip': jQuery('#input-shipping-zip').val(),
+				'country': jQuery('#input-shipping-country').val(),
+				'phone': jQuery('#input-shipping-telephone').val(),
 			},
 			'payment_source': {
 				'card': {
@@ -95,17 +142,7 @@
 		}
 
 		if(jQuery('#input-billing:checked').length) {
-			data['shipping_address'] = {
-				'line1': jQuery('#input-address-line-1').val(),
-				'line2': jQuery('#input-address-line-2').val(),
-				'city': jQuery('#input-city').val(),
-				'state': jQuery('#input-state').val(),
-				'zip': jQuery('#input-zip').val(),
-				'country': jQuery('#input-country').val(),
-				'phone': jQuery('#input-telephone').val(),
-			}
-		} else {
-			data['shipping_address'] = {
+			data['billing_address'] = {
 				'line1': jQuery('#input-shipping-address-line-1').val(),
 				'line2': jQuery('#input-shipping-address-line-2').val(),
 				'city': jQuery('#input-shipping-city').val(),
@@ -113,6 +150,16 @@
 				'zip': jQuery('#input-shipping-zip').val(),
 				'country': jQuery('#input-shipping-country').val(),
 				'phone': jQuery('#input-shipping-telephone').val(),
+			}
+		} else {
+			data['billing_address'] = {
+				'line1': jQuery('#input-address-line-1').val(),
+				'line2': jQuery('#input-address-line-2').val(),
+				'city': jQuery('#input-city').val(),
+				'state': jQuery('#input-state').val(),
+				'zip': jQuery('#input-zip').val(),
+				'country': jQuery('#input-country').val(),
+				'phone': jQuery('#input-telephone').val(),
 			}
 		}
 
@@ -125,13 +172,14 @@
 			        contentType: 'application/json',
                     url: '/confirmation',
                     success: function(data) {
-                        // console.log('success');
-                        // console.log(JSON.stringify(data));
 						$('.content-wrapper').html(data);
                     }
                 });
 			})
 			.fail(function(results) {
+				$('#placeOrder').val('Place Order');
+				$('#placeOrder').removeAttr('disabled');
+
 				swal({
 					title: "An error has occured.",
 					text: results.responseJSON.meta.error.message,

@@ -438,6 +438,11 @@ form {
     }
 
 
-#input-email {
+#input-email, #input-shipping-email {
     text-transform: none;
+}
+
+
+select option:disabled {
+    color: #f0F0F0;
 }

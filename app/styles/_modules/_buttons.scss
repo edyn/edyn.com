@@ -32,6 +32,7 @@
 	text-align: center;
 	width: 90%;
 	max-width: em(250);
+	outline: none;
 
 	@include media($bp-medium) {
 		border-width: 1px;
@@ -111,6 +112,11 @@
 			size: em(14);
 		}
 		width: 100%;
+	}
+
+	&-loading {
+		background: $silver !important;
+		border-color: $silver !important;
 	}
 
 	&-appstore {

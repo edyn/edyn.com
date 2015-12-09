@@ -66,8 +66,118 @@ block content
                         //-     a.button.button-link(href="#") Add to order
                         //-     img(src="images/edyn_valve_thumbnail_2x.png", alt="", width="200", height="155")
                     .content-main
-                        h2 1. Billing Information
-                        fieldset
+                        h2 1. Shipping Information
+                        fieldset.shipping-info
+                            .input-wrapper
+                                label(for="input-shipping-first-name") First name
+                                    span.required *
+                                input#input-shipping-first-name(type="text", placeholder="First name", name="input-shipping-first-name", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label(for="input-shipping-last-name") Last name
+                                    span.required *
+                                input#input-shipping-last-name(type="text", placeholder="Last name", name="input-shipping-last-name", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label(for="input-shipping-email") Email
+                                    span.required *
+                                input#input-shipping-email(type="text", placeholder="Email", name="input-shipping-email", data-validetta="required,email", data-vd-message-required="This field is required.", , data-vd-message-email="Your E-mail address appears to be invalid.")
+                            .input-wrapper
+                                label(for="input-shipping-company") Company
+                                input#input-shipping-company(type="text", placeholder="Company", name="input-shipping-company")
+                            .input-wrapper
+                                label(for="input-shipping-address-line-1") Address
+                                    span.required *
+                                input#input-shipping-address-line-1(type="text", placeholder="Address line 1", name="input-shipping-address-line-1", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label.invisible(for="input-shipping-address-line-2") Address
+                                input#input-shipping-address-line-2(type="text", placeholder="Address line 2", name="input-shipping-address-line-2")
+                            .input-wrapper
+                                label(for="input-shipping-city") City
+                                input#input-shipping-city(type="text", placeholder="City", name="input-shipping-city", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label(for="input-shipping-state") State
+                                .input-select
+                                    select#input-shipping-state(name="input-shipping-state")
+                                        option(value="", disabled, selected, hidden) State
+                                        option(value="AL") AL
+                                        option(value="AK") AK
+                                        option(value="AZ") AZ
+                                        option(value="AR") AR
+                                        option(value="CA") CA
+                                        option(value="CO") CO
+                                        option(value="CT") CT
+                                        option(value="DE") DE
+                                        option(value="DC") DC
+                                        option(value="FL") FL
+                                        option(value="GA") GA
+                                        option(value="HI") HI
+                                        option(value="ID") ID
+                                        option(value="IL") IL
+                                        option(value="IN") IN
+                                        option(value="IA") IA
+                                        option(value="KS") KS
+                                        option(value="KY") KY
+                                        option(value="LA") LA
+                                        option(value="ME") ME
+                                        option(value="MD") MD
+                                        option(value="MA") MA
+                                        option(value="MI") MI
+                                        option(value="MN") MN
+                                        option(value="MS") MS
+                                        option(value="MO") MO
+                                        option(value="MT") MT
+                                        option(value="NE") NE
+                                        option(value="NV") NV
+                                        option(value="NH") NH
+                                        option(value="NJ") NJ
+                                        option(value="NM") NM
+                                        option(value="NY") NY
+                                        option(value="NC") NC
+                                        option(value="ND") ND
+                                        option(value="OH") OH
+                                        option(value="OK") OK
+                                        option(value="OR") OR
+                                        option(value="PA") PA
+                                        option(value="RI") RI
+                                        option(value="SC") SC
+                                        option(value="SD") SD
+                                        option(value="TN") TN
+                                        option(value="TX") TX
+                                        option(value="UT") UT
+                                        option(value="VT") VT
+                                        option(value="VA") VA
+                                        option(value="WA") WA
+                                        option(value="WV") WV
+                                        option(value="WI") WI
+                                        option(value="WY") WY
+                            .input-wrapper
+                                label(for="input-shipping-zip") Zip
+                                    span.required *
+                                input#input-shipping-zip(type="text", placeholder="Zip", name="input-shipping-zip", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label(for="input-shipping-country") Country
+                                input(type="text", value="US", disabled)
+                                span.notice More countries coming soon
+                            .input-wrapper
+                                label(for="input-shipping-telephone") Telephone
+                                input#input-shipping-telephone(type="tel", placeholder="Telephone", name="input-shipping-telephone")
+                        //- h2 3. Shipping Method
+                        //- .input-radio
+                        //-     label(for="input-standard-shipping")
+                        //-         input#input-standard-shipping(name="input-shipping", type="radio", checked)
+                        //-         | International shipping
+                        //-         .input-notice 3–5 business days
+                        //-         .align-right $35.00
+                        //-     label(for="input-expedited-shipping")
+                        //-         input#input-expedited-shipping(name="input-shipping", type="radio")
+                        //-         | Standard shipping
+                        //-         .input-notice 1-2 business days
+                        //-         .align-right $10.00
+                        h2 2. Billing Information
+                        .input-checkbox
+                            label(for="input-billing")
+                                input#input-billing(type='checkbox', checked, value="1")
+                                | Use billing address
+                        fieldset.billing-info
                             .input-wrapper
                                 label(for="input-first-name") First name
                                     span.required *
@@ -152,7 +262,8 @@ block content
                                         option(value="WY") WY
                             .input-wrapper
                                 label(for="input-zip") Zip
-                                input#input-zip(type="text", placeholder="Zip", name="input-zip")
+                                    span.required *
+                                input#input-zip(type="text", placeholder="Zip", name="input-zip", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
                                 label(for="input-country") Country
                                 input(type="text", value="USA", disabled)
@@ -163,114 +274,6 @@ block content
                             .input-wrapper
                                 label(for="input-telephone") Telephone
                                 input#input-telephone(type="tel", placeholder="Telephone", name="input-telephone")
-                        h2 2. Shipping Information
-                        .input-checkbox
-                            label(for="input-billing")
-                                input#input-billing(type='checkbox', checked, value="1")
-                                | Use billing address
-                        fieldset.shipping-info
-                            .input-wrapper
-                                label(for="input-shipping-first-name") First name
-                                input#input-shipping-first-name(type="text", placeholder="First name", name="input-shipping-first-name")
-                            .input-wrapper
-                                label(for="input-shipping-last-name") Last name
-                                input#input-shipping-last-name(type="text", placeholder="Last name", name="input-shipping-last-name")
-                            .input-wrapper
-                                label(for="input-shipping-email") Email
-                                input#input-shipping-email(type="text", placeholder="Email", name="input-shipping-email")
-                            .input-wrapper
-                                label(for="input-shipping-company") Company
-                                input#input-shipping-company(type="text", placeholder="Company", name="input-shipping-company")
-                            .input-wrapper
-                                label(for="input-shipping-address-line-1") Address
-                                input#input-shipping-address-line-1(type="text", placeholder="Address line 1", name="input-shipping-address-line-1")
-                            .input-wrapper
-                                label.invisible(for="input-shipping-address-line-2") Address
-                                input#input-shipping-address-line-2(type="text", placeholder="Address line 2", name="input-shipping-address-line-2")
-                            .input-wrapper
-                                label(for="input-shipping-city") City
-                                input#input-shipping-city(type="text", placeholder="City", name="input-shipping-city")
-                            .input-wrapper
-                                label(for="input-shipping-state") State
-                                .input-select
-                                    select#input-shipping-state(name="input-shipping-state")
-                                        option(value="") 
-                                        option(value="AL") AL
-                                        option(value="AK") AK
-                                        option(value="AZ") AZ
-                                        option(value="AR") AR
-                                        option(value="CA") CA
-                                        option(value="CO") CO
-                                        option(value="CT") CT
-                                        option(value="DE") DE
-                                        option(value="DC") DC
-                                        option(value="FL") FL
-                                        option(value="GA") GA
-                                        option(value="HI") HI
-                                        option(value="ID") ID
-                                        option(value="IL") IL
-                                        option(value="IN") IN
-                                        option(value="IA") IA
-                                        option(value="KS") KS
-                                        option(value="KY") KY
-                                        option(value="LA") LA
-                                        option(value="ME") ME
-                                        option(value="MD") MD
-                                        option(value="MA") MA
-                                        option(value="MI") MI
-                                        option(value="MN") MN
-                                        option(value="MS") MS
-                                        option(value="MO") MO
-                                        option(value="MT") MT
-                                        option(value="NE") NE
-                                        option(value="NV") NV
-                                        option(value="NH") NH
-                                        option(value="NJ") NJ
-                                        option(value="NM") NM
-                                        option(value="NY") NY
-                                        option(value="NC") NC
-                                        option(value="ND") ND
-                                        option(value="OH") OH
-                                        option(value="OK") OK
-                                        option(value="OR") OR
-                                        option(value="PA") PA
-                                        option(value="RI") RI
-                                        option(value="SC") SC
-                                        option(value="SD") SD
-                                        option(value="TN") TN
-                                        option(value="TX") TX
-                                        option(value="UT") UT
-                                        option(value="VT") VT
-                                        option(value="VA") VA
-                                        option(value="WA") WA
-                                        option(value="WV") WV
-                                        option(value="WI") WI
-                                        option(value="WY") WY
-                            .input-wrapper
-                                label(for="input-shipping-zip") Zip
-                                input#input-shipping-zip(type="text", placeholder="Zip", name="input-shipping-zip")
-                            .input-wrapper
-                                label(for="input-country") Country
-                                input(type="text", value="USA", disabled)
-                                span.notice More countries coming soon
-                                //- .input-select
-                                //-     select#input-country(name="input-country", disabled)
-                                //-         option(value="USA") USA
-                            .input-wrapper
-                                label(for="input-shipping-telephone") Telephone
-                                input#input-shipping-telephone(type="tel", placeholder="Telephone", name="input-shipping-telephone")
-                        //- h2 3. Shipping Method
-                        //- .input-radio
-                        //-     label(for="input-standard-shipping")
-                        //-         input#input-standard-shipping(name="input-shipping", type="radio", checked)
-                        //-         | International shipping
-                        //-         .input-notice 3–5 business days
-                        //-         .align-right $35.00
-                        //-     label(for="input-expedited-shipping")
-                        //-         input#input-expedited-shipping(name="input-shipping", type="radio")
-                        //-         | Standard shipping
-                        //-         .input-notice 1-2 business days
-                        //-         .align-right $10.00
                         h2 3. Payment Method
                             i(class="icon icon-ui-lock")
                         fieldset.alternate
