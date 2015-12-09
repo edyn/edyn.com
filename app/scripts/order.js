@@ -23,11 +23,44 @@
 	});
 
 	function updatePrices() {
+		// var data = {
+		// 	'user_id': '5654f01bd5ec870300f24037',
+		// 	'line_items': [{
+		// 		'product_id':'5654f1c5d5ec870300f24039',
+		// 		'quantity':jQuery('#input-select-count').val()
+		// 	}]
+		// }
+
 		var data = {
 			'user_id': '5654f01bd5ec870300f24037',
+			'buyer': {
+				'first_name': jQuery('#input-first-name').val(),
+				'last_name': jQuery('#input-last-name').val(),
+				'email': jQuery('#input-email').val(),
+				'company': jQuery('#input-company').val(),
+				'phone': jQuery('#input-telephone').val(),
+
+			},
+			'shipping_address': {
+				'line1': jQuery('#input-shipping-address-line-1').val(),
+				'line2': jQuery('#input-shipping-address-line-2').val(),
+				'city': jQuery('#input-shipping-city').val(),
+				'state': jQuery('#input-shipping-state').val(),
+				'zip': jQuery('#input-shipping-zip').val(),
+				'country': jQuery('#input-shipping-country').val(),
+				'phone': jQuery('#input-shipping-telephone').val(),
+			},
+			'payment_source': {
+				'card': {
+					'number': jQuery('#input-card-number').val(),
+					'exp_month': jQuery('#input-card-month').val(),
+					'exp_year': jQuery('#input-card-year').val(),
+					'cvc': jQuery('#input-card-code').val(),
+				}
+			},
 			'line_items': [{
-				'product_id':'5654f1c5d5ec870300f24039',
-				'quantity':jQuery('#input-select-count').val()
+				'product_id': '5654f1c5d5ec870300f24039',
+				'quantity': jQuery('#input-select-count').val()
 			}]
 		}
 
@@ -72,20 +105,20 @@
 		updatePrices();
 	});
 
-	jQuery('#input-address-line-1').on('blur', function(e) {
-		if(jQuery('#input-address-line-1').val().length)
-			updatePrices();
-	});
-
-	jQuery('#input-city').on('blur', function(e) {
-		if(jQuery('#input-city').val().length)
-			updatePrices();
-	});
-
-	jQuery('#input-zip').on('blur', function(e) {
-		if(jQuery('#input-zip').val().length)
-			updatePrices();
-	});
+	// jQuery('#input-address-line-1').on('blur', function(e) {
+	// 	if(jQuery('#input-address-line-1').val().length)
+	// 		updatePrices();
+	// });
+	//
+	// jQuery('#input-city').on('blur', function(e) {
+	// 	if(jQuery('#input-city').val().length)
+	// 		updatePrices();
+	// });
+	//
+	// jQuery('#input-zip').on('blur', function(e) {
+	// 	if(jQuery('#input-zip').val().length)
+	// 		updatePrices();
+	// });
 
 	jQuery('#input-shipping-address-line-1').on('blur', function(e) {
 		if(jQuery('#input-shipping-address-line-1').val().length)
