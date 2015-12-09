@@ -49,17 +49,28 @@ app.post('/confirmation', function(req, res) {
             taxes : '$' + (req.body.taxes / 100),
             shipping : '$' + (req.body.shipping / 100),
             shipping_address : {
+                first_name: req.body.shipping_address.first_name,
+                last_name: req.body.shipping_address.last_name,
+                company: req.body.shipping_address.company,
                 line1: req.body.shipping_address.line1,
+                line2: req.body.shipping_address.line2,
                 city: req.body.shipping_address.city,
                 country: req.body.shipping_address.country,
                 zip: req.body.shipping_address.zip,
                 state: req.body.shipping_address.state,
+                phone: req.body.shipping_address.phone,
             },
             billing_address : {
+                first_name: req.body.billing_address.first_name,
+                last_name: req.body.billing_address.last_name,
+                company: req.body.billing_address.company,
                 line1: req.body.billing_address.line1,
+                line2: req.body.billing_address.line2,
                 city: req.body.billing_address.city,
                 country: req.body.billing_address.country,
                 zip: req.body.billing_address.zip,
+                state: req.body.billing_address.state,
+                phone: req.body.billing_address.phone,
             },
         }
     });
