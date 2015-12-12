@@ -201,7 +201,7 @@
 				$('#placeOrder').removeAttr('disabled');
 
 				swal({
-					title: "An error has occured.",
+					title: "An error has occurred.",
 					text: results.responseJSON.meta.error.message,
 					type: "error",
 					confirmButtonText: "Close",
