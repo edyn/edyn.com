@@ -243,8 +243,37 @@ form {
 
     .input-wrapper {
         padding: em(10) em(15);
-        border-bottom: 1px solid $swirl;
+        border-bottom: 2px solid $swirl;
         @include clearfix;
+        position: relative;
+
+        i.icon-ui-question {
+            color: $silver;
+            @include position(absolute, 50% 0.75em null null);
+            @include transform(translateY(-50%));
+            cursor: pointer;
+
+            &:hover {
+                color: $judge-gray;
+
+                &:after {
+                    color: $judge-gray;
+                }
+            }
+
+            &:after {
+                border: 1px solid $silver;
+                border-radius: 50%;
+                padding: 0;
+                line-height: 0;
+                content: '';
+                display: block;
+                width: 1.2em;
+                height: 1.2em;
+                @include position(absolute, 40% null null 50%);
+                @include transform(translate(-50%, -50%));
+            }
+        }
 
         &:last-child {
             border-bottom: 0;

@@ -13,24 +13,31 @@
 	    select.appendChild(opt);
 	}
 
-	// Shipping info checkbox event
+	function bindInputs() {
+		$('.shipping-info .form-control').each(function(){
+			var input = $(this);
+    		var target = $('input[name='+input.data('bind-input')+']');
+
+    		target.val(input.val());
+	    });
+	}
+
+	$(".shipping-info .form-control").bind( "paste keyup", bindInputs);
+
+	//Shipping info checkbox event
 	jQuery("#input-billing").click( function(){
 	    if(jQuery("#input-billing:checked").length) {
-		   jQuery(".billing-info").hide();
+			$(".shipping-info .form-control").bind( "paste keyup", bindInputs);
+			bindInputs();
+			jQuery(".billing-info").hide();
 	    } else {
-		   jQuery(".billing-info").show();
+			$(".shipping-info .form-control").unbind( "paste keyup", bindInputs);
+			$('.billing-info .form-control').val('');
+			jQuery(".billing-info").show();
 	    }
 	});
 
 	function updatePrices() {
-		// var data = {
-		// 	'user_id': '5654f01bd5ec870300f24037',
-		// 	'line_items': [{
-		// 		'product_id':'5654f1c5d5ec870300f24039',
-		// 		'quantity':jQuery('#input-select-count').val()
-		// 	}]
-		// }
-
 		var data = {
 			'user_id': '5654f01bd5ec870300f24037',
 			'buyer': {
@@ -105,21 +112,6 @@
 		updatePrices();
 	});
 
-	// jQuery('#input-address-line-1').on('blur', function(e) {
-	// 	if(jQuery('#input-address-line-1').val().length)
-	// 		updatePrices();
-	// });
-	//
-	// jQuery('#input-city').on('blur', function(e) {
-	// 	if(jQuery('#input-city').val().length)
-	// 		updatePrices();
-	// });
-	//
-	// jQuery('#input-zip').on('blur', function(e) {
-	// 	if(jQuery('#input-zip').val().length)
-	// 		updatePrices();
-	// });
-
 	jQuery('#input-shipping-address-line-1').on('blur', function(e) {
 		if(jQuery('#input-shipping-address-line-1').val().length)
 			updatePrices();
@@ -135,12 +127,7 @@
 			updatePrices();
 	});
 
-
-	jQuery('#placeOrder').on('click', function(e) {
-
-		$(this).val('Hold On...');
-		$(this).attr('disabled', 'disabled');
-
+	function placeOrder() {
 		var data = {
 			'user_id': '5654f01bd5ec870300f24037',
 			'buyer': {
@@ -221,13 +208,19 @@
 					confirmButtonColor: "#f9c000",
 				});
 			});
-
-		return false;
-	});
+	}
 
 	// Form validation
 	jQuery("#form").validetta({
 		realTime : true,
+		onValid: function(event) {
+			$(this).val('Hold On...');
+			$(this).attr('disabled', 'disabled');
+			placeOrder();
+		},
+		onError: function() {
+			console.log('not valid');
+		}
 	});
 
 })();
