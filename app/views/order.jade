@@ -5,6 +5,14 @@ block vars
 
 block title
     title Order
+    
+block nav
+    nav.menu.menu-header
+        .menu-icon
+            span
+        ul.menu-list
+            li.menu-item
+                a.toggle-lightbox.app-link.button(href='#') Get the App
 
 block content
     .content
@@ -48,17 +56,17 @@ block content
                                 tbody
                                     tr
                                         td Subtotal
-                                        td#price-subtotal 
+                                        td.price-subtotal 
                                     tr
                                         td Shipping
-                                        td#price-shipping
+                                        td.price-shipping
                                     tr
                                         td Tax
-                                        td#price-tax
+                                        td.price-tax
                                 tfoot
                                     tr
                                         td Total
-                                        td#price-total 
+                                        td.price-total 
                     .content-main
                         h2 1. Shipping Information
                         fieldset.shipping-info
@@ -290,16 +298,16 @@ block content
                                 tbody
                                     tr
                                         td Subtotal
-                                        td 
+                                        td.price-subtotal
                                     tr
                                         td Shipping
-                                        td 
+                                        td.price-shipping
                                     tr
                                         td Tax
-                                        td 
+                                        td.price-tax
                                 tfoot
                                     tr
                                         td Total
-                                        td 
+                                        td.price-total
                                 
                         input(type="submit", value="Place Order", name="placeOrder", id="placeOrder", class="button button-inverted")

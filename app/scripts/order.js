@@ -96,19 +96,27 @@
 	    var c = new Celery({userId: '5654f01bd5ec870300f24037'});
 		c.serializeOrder(data)
 			.done(function(results) {
-				jQuery('#price-subtotal').text('$' + (results.data.subtotal / 100));
-				jQuery('#price-shipping').text('$' + (results.data.shipping / 100));
-				jQuery('#price-tax').text('$' + (results.data.taxes / 100));
+				jQuery('.price-subtotal').text('$' + (results.data.subtotal / 100));
+				jQuery('.price-shipping').text('$' + (results.data.shipping / 100));
+				jQuery('.price-tax').text('$' + (results.data.taxes / 100));
 
-				if(jQuery('#input-shipping-state').val().length
-					&& jQuery('#input-shipping-country').val().length
-					&& jQuery('#input-shipping-zip').val().length)
-						jQuery('#price-total').text('$' + (results.data.total / 100));
+				if(jQuery('#input-shipping-state').val()
+					&& jQuery('#input-shipping-country').val()
+					&& jQuery('#input-shipping-zip').val())
+						jQuery('.price-total').text('$' + (results.data.total / 100));
 			});
+	}
+
+	function clearPrices() {
+		jQuery('.price-subtotal').text('');
+		jQuery('.price-shipping').text('');
+		jQuery('.price-tax').text('');
+		jQuery('.price-total').text('');
 	}
 
 	// Get taxes & other product info
 	jQuery('#input-select-count').on('change', function(e) {
+		jQuery('#input-count').val(jQuery('#input-select-count').val());
 		updatePrices();
 	});
 
@@ -131,6 +139,40 @@
 		if(jQuery('#input-shipping-zip').val().length)
 			updatePrices();
 	});
+
+	// Input count component
+	if(jQuery('#input-count').length) {
+		jQuery('.input-count-up, .input-count-plus').click(function(e) {
+			var oldValue = parseFloat(jQuery('#input-count').val());
+			var newValue = oldValue + 1;
+			jQuery('#input-count').val(newValue);
+			jQuery('#input-select-count').val(newValue);
+			updatePrices();
+			e.preventDefault();
+			e.stopPropagation();
+		});
+
+		jQuery('.input-count-down, .input-count-minus').click(function(e) {
+			var oldValue = parseFloat(jQuery('#input-count').val());
+			if(oldValue > 0) {
+				var newValue = oldValue - 1;
+				jQuery('#input-count').val(newValue);
+				jQuery('#input-select-count').val(newValue);
+				updatePrices();
+				e.preventDefault();
+				e.stopPropagation();
+			}
+		});
+
+		jQuery('.input-count-trash').click(function(e) {
+			jQuery('.input-count input').val(0);
+			jQuery('#input-select-count').val(0);
+			clearPrices();
+			e.preventDefault();
+			e.stopPropagation();
+		});
+	}
+	//--- END count component
 
 	function placeOrder() {
 		var data = {

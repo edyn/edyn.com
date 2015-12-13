@@ -444,35 +444,6 @@
 	}
 	//--- END press accordion
 
-
-	// Input count component
-	if(jQuery('.input-count').length) {
-		jQuery('.input-count-up, .input-count-plus').click(function(e) {
-			var oldValue = parseFloat(jQuery('.input-count input').val());
-			var newValue = oldValue + 1;
-			jQuery('.input-count input').val(newValue);
-			e.preventDefault();
-			e.stopPropagation();
-		});
-
-		jQuery('.input-count-down, .input-count-minus').click(function(e) {
-			var oldValue = parseFloat(jQuery('.input-count input').val());
-			if(oldValue > 0) {
-				var newValue = oldValue - 1;
-				jQuery('.input-count input').val(newValue);
-				e.preventDefault();
-				e.stopPropagation();
-			}
-		});
-
-		jQuery('.input-count-trash').click(function(e) {
-			jQuery('.input-count input').val(0);
-			e.preventDefault();
-			e.stopPropagation();
-		});
-	}
-	//--- END count component
-
 	// Order box fix behaviour
 	if(jQuery('.content-sidebar').length) {
 		jQuery(document).on('scroll', function() {
