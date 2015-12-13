@@ -210,16 +210,22 @@
 			});
 	}
 
+	// Disable default form behaviour
+	jQuery('#form').on('submit', function(e) {
+		return false;
+	});
+
+
 	// Form validation
 	jQuery("#form").validetta({
 		realTime : true,
 		onValid: function(event) {
-			$(this).val('Hold On...');
-			$(this).attr('disabled', 'disabled');
+			$('#placeOrder').val('Hold On...');
+			$('#placeOrder').attr('disabled', 'disabled');
 			placeOrder();
 		},
 		onError: function() {
-			console.log('not valid');
+
 		}
 	});
 

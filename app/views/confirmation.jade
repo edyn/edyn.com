@@ -57,27 +57,27 @@
         .address
             h4 Shipping Address
             p
-                | #{order.buyer.first_name} #{order.buyer.last_name}
+                |#{order.buyer.first_name} #{order.buyer.last_name}
                 br
-                | #{order.shipping_address.line1}
+                |#{order.shipping_address.line1}
                 br
-                | #{order.shipping_address.line2}
+                |#{order.shipping_address.line2}
                 br
-                | #{order.shipping_address.city} #{order.shipping_address.state} #{order.shipping_address.zip} 
+                |#{order.shipping_address.city} #{order.shipping_address.state} #{order.shipping_address.zip}
                 br
-                | #{order.shipping_address.phone} 
+                |#{order.shipping_address.phone}
         .address
             h4 Billing Address
             p
-                | #{order.buyer.first_name} #{order.buyer.last_name}
+                |#{order.buyer.first_name} #{order.buyer.last_name}
                 br
-                | #{order.billing_address.line1}
+                |#{order.billing_address.line1}
                 br
-                | #{order.billing_address.line2}
+                |#{order.billing_address.line2}
                 br
-                | #{order.billing_address.city} #{order.billing_address.state} #{order.billing_address.zip} 
+                |#{order.billing_address.city} #{order.billing_address.state} #{order.billing_address.zip}
                 br
-                | #{order.billing_address.phone} 
+                |#{order.billing_address.phone}
         hr.hidden.clearfix
         a(class="button button-inverted", href="#") Back home   
         hr.hidden.clearfix 
