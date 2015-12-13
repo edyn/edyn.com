@@ -61,9 +61,10 @@
                 br
                 |#{order.shipping_address.line1}
                 br
-                |#{order.shipping_address.line2}
-                br
-                |#{order.shipping_address.city} #{order.shipping_address.state} #{order.shipping_address.zip}
+                if order.shipping_address.line2
+                    |#{order.shipping_address.line2}
+                    br
+                |#{order.shipping_address.city}, #{order.shipping_address.state} #{order.shipping_address.zip}
                 br
                 |#{order.shipping_address.phone}
         .address
@@ -73,9 +74,10 @@
                 br
                 |#{order.billing_address.line1}
                 br
-                |#{order.billing_address.line2}
-                br
-                |#{order.billing_address.city} #{order.billing_address.state} #{order.billing_address.zip}
+                if order.billing_address.line2
+                    |#{order.billing_address.line2}
+                    br
+                |#{order.billing_address.city}, #{order.billing_address.state} #{order.billing_address.zip}
                 br
                 |#{order.billing_address.phone}
         hr.hidden.clearfix

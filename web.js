@@ -57,7 +57,7 @@ app.post('/confirmation', function(req, res) {
                 city: req.body.shipping_address.city,
                 country: req.body.shipping_address.country,
                 zip: req.body.shipping_address.zip,
-                state: req.body.shipping_address.state,
+                state: req.body.shipping_address.state.toUpperCase(),
                 phone: req.body.shipping_address.phone,
             },
             billing_address : {
@@ -69,7 +69,7 @@ app.post('/confirmation', function(req, res) {
                 city: req.body.billing_address.city,
                 country: req.body.billing_address.country,
                 zip: req.body.billing_address.zip,
-                state: req.body.billing_address.state,
+                state: req.body.billing_address.state.toUpperCase(),
                 phone: req.body.billing_address.phone,
             },
         }
