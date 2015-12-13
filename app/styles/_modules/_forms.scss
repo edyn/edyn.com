@@ -124,7 +124,7 @@ form {
                 weight: normal;
                 size: em(16);
             }
-            text-transform: capitalize;
+            // text-transform: capitalize;
 
             &:focus {
                 border: 0;
@@ -194,18 +194,22 @@ form {
 
         &::-webkit-input-placeholder {
            color: $silver;
+           text-transform: capitalize;
         }
 
         &:-moz-placeholder {
            color: $silver;
+           text-transform: capitalize;
         }
 
         &::-moz-placeholder {
            color: $silver;
+           text-transform: capitalize;
         }
 
         &:-ms-input-placeholder {
            color: $silver;
+           text-transform: capitalize;
         }
     }
     textarea {}
@@ -467,9 +471,9 @@ form {
     }
 
 
-#input-email, #input-shipping-email {
-    text-transform: none;
-}
+// #input-email, #input-shipping-email {
+//     text-transform: none;
+// }
 
 
 select option:disabled {
