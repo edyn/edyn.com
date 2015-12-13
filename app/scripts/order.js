@@ -100,8 +100,8 @@
 				jQuery('#price-shipping').text('$' + (results.data.shipping / 100));
 				jQuery('#price-tax').text('$' + (results.data.taxes / 100));
 
-				if(jQuery('#input-shipping-address-line-1').val().length
-					&& jQuery('#input-shipping-city').val().length
+				if(jQuery('#input-shipping-state').val().length
+					&& jQuery('#input-shipping-country').val().length
 					&& jQuery('#input-shipping-zip').val().length)
 						jQuery('#price-total').text('$' + (results.data.total / 100));
 			});
@@ -112,13 +112,18 @@
 		updatePrices();
 	});
 
-	jQuery('#input-shipping-address-line-1').on('blur', function(e) {
-		if(jQuery('#input-shipping-address-line-1').val().length)
+	// jQuery('#input-shipping-address-line-1').on('blur', function(e) {
+	// 	if(jQuery('#input-shipping-address-line-1').val().length)
+	// 		updatePrices();
+	// });
+
+	jQuery('#input-shipping-state').on('change', function(e) {
+		if(jQuery('#input-shipping-city').val().length)
 			updatePrices();
 	});
 
-	jQuery('#input-shipping-city').on('blur', function(e) {
-		if(jQuery('#input-shipping-city').val().length)
+	jQuery('#input-shipping-country').on('change', function(e) {
+		if(jQuery('#input-shipping-zip').val().length)
 			updatePrices();
 	});
 

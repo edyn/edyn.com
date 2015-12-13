@@ -149,7 +149,7 @@ block content
                                 input.form-control#input-shipping-zip(type="text", placeholder="Zip", name="input-shipping-zip", data-bind-input="input-zip", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
                                 label(for="input-shipping-country") Country
-                                input.form-control#input-shipping-country(type="text", value="United States", name="input-shipping-country", data-bind-input="input-country")
+                                input.form-control#input-shipping-country(type="text", value="United States", disabled)
                                 span.notice More countries coming soon
                             .input-wrapper
                                 label(for="input-shipping-telephone") Telephone
@@ -248,11 +248,8 @@ block content
                                 input.form-control#input-zip(type="text", placeholder="Zip", name="input-zip", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
                                 label(for="input-country") Country
-                                input(type="text", value="United States", disabled)
+                                input.form-control#input-country(type="text", value="United States", disabled)
                                 span.notice More countries coming soon
-                                //- .input-select
-                                //-     select.form-control#input-country(name="input-country", disabled)
-                                //-         option(value="USA") USA
                             .input-wrapper
                                 label(for="input-telephone") Telephone
                                 input.form-control#input-telephone(type="tel", placeholder="Telephone", name="input-telephone")
