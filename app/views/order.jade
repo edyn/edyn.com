@@ -162,7 +162,8 @@ block content
                                 span.notice More countries coming soon
                             .input-wrapper
                                 label(for="input-shipping-telephone") Telephone
-                                input.form-control#input-shipping-telephone(type="tel", placeholder="Telephone", name="input-shipping-telephone", data-bind-input="input-telephone")
+                                    span.required *
+                                input.form-control#input-shipping-telephone(type="tel", placeholder="Telephone", name="input-shipping-telephone", data-bind-input="input-telephone", data-validetta="required")
                         h2 2. Billing Information
                         .input-checkbox
                             label(for="input-billing")
@@ -261,7 +262,8 @@ block content
                                 span.notice More countries coming soon
                             .input-wrapper
                                 label(for="input-telephone") Telephone
-                                input.form-control#input-telephone(type="tel", placeholder="Telephone", name="input-telephone")
+                                    span.required *
+                                input.form-control#input-telephone(type="tel", placeholder="Telephone", name="input-telephone", data-validetta="required")
                         h2 3. Payment Method
                             i(class="icon icon-ui-lock")
                         fieldset
