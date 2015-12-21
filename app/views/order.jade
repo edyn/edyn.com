@@ -1,0 +1,313 @@
+extends layouts/default
+
+block vars
+    - var bodyClass = 'purchase';
+
+block title
+    title Order
+    
+block nav
+    nav.menu.menu-header
+        .menu-icon
+            span
+        ul.menu-list
+            li.menu-item
+                a.toggle-lightbox.app-link.button(href='#') Get the App
+
+block content
+    .content
+        .container
+            .content-wrapper
+                form#form(method="POST")
+                    .content-sidebar
+                        h1 Order Details
+                        .order
+                            .order-product
+                                img(src="images/edyn_sensor_thumbnail_2x.png", alt="", width="200", height="200")
+                                h2 Edyn garden sensor
+                                span.order-price $99.99
+                                .input-wrapper.input-number-count
+                                    .input-count
+                                        input.form-control#input-count(type="text", value="1", name="input-count")
+                                        .input-count-controls
+                                            a.input-count-up(href="#")
+                                                i(class="icon icon-ui-arrow-up")
+                                            a.input-count-down(href="#")
+                                                i(class="icon icon-ui-arrow-down")
+                                            a.input-count-plus(href="#")
+                                                i(class="icon icon-ui-plus")
+                                            a.input-count-minus(href="#")
+                                                i(class="icon icon-ui-minus")
+                                        a.input-count-trash(href="#")
+                                            i(class="icon icon-ui-trash")
+                                    .input-select-count
+                                        select.form-control#input-select-count(name="input-select-count")
+                                            option(value="1") 1
+                                            option(value="2") 2
+                                            option(value="3") 3
+                                            option(value="4") 4
+                                            option(value="5") 5
+                                            option(value="6") 6
+                                            option(value="7") 7
+                                            option(value="8") 8
+                                            option(value="9") 9
+                                            option(value="10") 10
+                            table.order-summary
+                                tbody
+                                    tr
+                                        td Subtotal
+                                        td.price-subtotal 
+                                    tr
+                                        td Shipping
+                                        td.price-shipping
+                                    tr
+                                        td Tax
+                                        td.price-tax
+                                tfoot
+                                    tr
+                                        td Total
+                                        td.price-total 
+                    .content-main
+                        h2 1. Shipping Information
+                        fieldset.shipping-info
+                            .input-wrapper
+                                label(for="input-shipping-first-name") First name
+                                    span.required *
+                                input.form-control#input-shipping-first-name(type="text", placeholder="First name", name="input-shipping-first-name", data-bind-input="input-first-name", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label(for="input-shipping-last-name") Last name
+                                    span.required *
+                                input.form-control#input-shipping-last-name(type="text", placeholder="Last name", name="input-shipping-last-name", data-bind-input="input-last-name", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label(for="input-shipping-email") Email
+                                    span.required *
+                                input.form-control#input-shipping-email(type="text", placeholder="Email", name="input-shipping-email", data-bind-input="input-email", data-validetta="required,email", data-vd-message-required="This field is required.", data-vd-message-email="Your email address appears to be invalid.")
+                            .input-wrapper
+                                label(for="input-shipping-company") Company
+                                input.form-control#input-shipping-company(type="text", placeholder="Company", name="input-shipping-company", data-bind-input="input-company")
+                            .input-wrapper
+                                label(for="input-shipping-address-line-1") Address
+                                    span.required *
+                                input.form-control#input-shipping-address-line-1(type="text", placeholder="Address line 1", name="input-shipping-address-line-1", data-bind-input="input-address-line-1", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label.invisible(for="input-shipping-address-line-2") Address
+                                input.form-control#input-shipping-address-line-2(type="text", placeholder="Address line 2", name="input-shipping-address-line-2", data-bind-input="input-address-line-2")
+                            .input-wrapper
+                                label(for="input-shipping-city") City
+                                input.form-control#input-shipping-city(type="text", placeholder="City", name="input-shipping-city", data-bind-input="input-city", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label(for="input-shipping-state") State
+                                .input-select
+                                    select.form-control#input-shipping-state(name="input-shipping-state", data-bind-input="input-state")
+                                        option(value="", disabled, selected, hidden) State
+                                        option(value="AL") AL
+                                        option(value="AK") AK
+                                        option(value="AZ") AZ
+                                        option(value="AR") AR
+                                        option(value="CA") CA
+                                        option(value="CO") CO
+                                        option(value="CT") CT
+                                        option(value="DE") DE
+                                        option(value="DC") DC
+                                        option(value="FL") FL
+                                        option(value="GA") GA
+                                        option(value="HI") HI
+                                        option(value="ID") ID
+                                        option(value="IL") IL
+                                        option(value="IN") IN
+                                        option(value="IA") IA
+                                        option(value="KS") KS
+                                        option(value="KY") KY
+                                        option(value="LA") LA
+                                        option(value="ME") ME
+                                        option(value="MD") MD
+                                        option(value="MA") MA
+                                        option(value="MI") MI
+                                        option(value="MN") MN
+                                        option(value="MS") MS
+                                        option(value="MO") MO
+                                        option(value="MT") MT
+                                        option(value="NE") NE
+                                        option(value="NV") NV
+                                        option(value="NH") NH
+                                        option(value="NJ") NJ
+                                        option(value="NM") NM
+                                        option(value="NY") NY
+                                        option(value="NC") NC
+                                        option(value="ND") ND
+                                        option(value="OH") OH
+                                        option(value="OK") OK
+                                        option(value="OR") OR
+                                        option(value="PA") PA
+                                        option(value="RI") RI
+                                        option(value="SC") SC
+                                        option(value="SD") SD
+                                        option(value="TN") TN
+                                        option(value="TX") TX
+                                        option(value="UT") UT
+                                        option(value="VT") VT
+                                        option(value="VA") VA
+                                        option(value="WA") WA
+                                        option(value="WV") WV
+                                        option(value="WI") WI
+                                        option(value="WY") WY
+                            .input-wrapper
+                                label(for="input-shipping-zip") Zip
+                                    span.required *
+                                input.form-control#input-shipping-zip(type="text", placeholder="Zip", name="input-shipping-zip", data-bind-input="input-zip", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label(for="input-shipping-country") Country
+                                input.form-control#input-shipping-country(type="text", value="United States", disabled)
+                                span.notice More countries coming soon
+                            .input-wrapper
+                                label(for="input-shipping-telephone") Telephone
+                                input.form-control#input-shipping-telephone(type="tel", placeholder="Telephone", name="input-shipping-telephone", data-bind-input="input-telephone")
+                        h2 2. Billing Information
+                        .input-checkbox
+                            label(for="input-billing")
+                                input.form-control#input-billing(type='checkbox', checked, value="1")
+                                | Use shipping address
+                        fieldset.billing-info
+                            .input-wrapper
+                                label(for="input-first-name") First name
+                                    span.required *
+                                input.form-control#input-first-name(type="text", placeholder="First name", name="input-first-name", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label(for="input-last-name") Last name
+                                    span.required *
+                                input.form-control#input-last-name(type="text", placeholder="Last name", name="input-last-name", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label(for="input-email") Email
+                                    span.required *
+                                input.form-control#input-email(type="text", placeholder="Email", name="input-email", data-validetta="required,email", data-vd-message-required="This field is required.", data-vd-message-email="Your email address appears to be invalid.")
+                            .input-wrapper
+                                label(for="input-company") Company
+                                input.form-control#input-company(type="text", placeholder="Company", name="input-company")
+                            .input-wrapper
+                                label(for="input-address-line-1") Address
+                                    span.required *
+                                input.form-control#input-address-line-1(type="text", placeholder="Address line 1", name="input-address-line-1", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label.invisible(for="input-address-line-2") Address
+                                input.form-control#input-address-line-2(type="text", placeholder="Address line 2", name="input-address-line-2")
+                            .input-wrapper
+                                label(for="input-city") City
+                                    span.required *
+                                input.form-control#input-city(type="text", placeholder="City", name="input-city", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label(for="input-state") State
+                                .input-select
+                                    select.form-control#input-state(name="input-state")
+                                        option(value="", disabled, selected, hidden) State
+                                        option(value="AL") AL
+                                        option(value="AK") AK
+                                        option(value="AZ") AZ
+                                        option(value="AR") AR
+                                        option(value="CA") CA
+                                        option(value="CO") CO
+                                        option(value="CT") CT
+                                        option(value="DE") DE
+                                        option(value="DC") DC
+                                        option(value="FL") FL
+                                        option(value="GA") GA
+                                        option(value="HI") HI
+                                        option(value="ID") ID
+                                        option(value="IL") IL
+                                        option(value="IN") IN
+                                        option(value="IA") IA
+                                        option(value="KS") KS
+                                        option(value="KY") KY
+                                        option(value="LA") LA
+                                        option(value="ME") ME
+                                        option(value="MD") MD
+                                        option(value="MA") MA
+                                        option(value="MI") MI
+                                        option(value="MN") MN
+                                        option(value="MS") MS
+                                        option(value="MO") MO
+                                        option(value="MT") MT
+                                        option(value="NE") NE
+                                        option(value="NV") NV
+                                        option(value="NH") NH
+                                        option(value="NJ") NJ
+                                        option(value="NM") NM
+                                        option(value="NY") NY
+                                        option(value="NC") NC
+                                        option(value="ND") ND
+                                        option(value="OH") OH
+                                        option(value="OK") OK
+                                        option(value="OR") OR
+                                        option(value="PA") PA
+                                        option(value="RI") RI
+                                        option(value="SC") SC
+                                        option(value="SD") SD
+                                        option(value="TN") TN
+                                        option(value="TX") TX
+                                        option(value="UT") UT
+                                        option(value="VT") VT
+                                        option(value="VA") VA
+                                        option(value="WA") WA
+                                        option(value="WV") WV
+                                        option(value="WI") WI
+                                        option(value="WY") WY
+                            .input-wrapper
+                                label(for="input-zip") Zip
+                                    span.required *
+                                input.form-control#input-zip(type="text", placeholder="Zip", name="input-zip", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label(for="input-country") Country
+                                input#input-country(type="text", value="United States", disabled)
+                                span.notice More countries coming soon
+                            .input-wrapper
+                                label(for="input-telephone") Telephone
+                                input.form-control#input-telephone(type="tel", placeholder="Telephone", name="input-telephone")
+                        h2 3. Payment Method
+                            i(class="icon icon-ui-lock")
+                        fieldset
+                            .input-wrapper
+                                label(for="input-card-number") Card number
+                                input.form-control#input-card-number(type="text", placeholder="Card number", name="input-card-number", data-validetta="required,creditCard", data-vd-message-required="This field is required.", data-vd-message-creditcard="Invalid credit card number.")
+                            .input-wrapper
+                                label(for="input-card-month") Exp. month
+                                .input-select
+                                    select.form-control#input-card-month(name="input-card-month", placeholder="Expiration Month", data-validetta="required", data-vd-message-required="This field is required.")
+                                        option(value="null", disabled selected) Expiration Month
+                                        option(value="01") 01
+                                        option(value="02") 02
+                                        option(value="03") 03
+                                        option(value="04") 04
+                                        option(value="05") 05
+                                        option(value="06") 06
+                                        option(value="07") 07
+                                        option(value="08") 08
+                                        option(value="09") 09
+                                        option(value="10") 10
+                                        option(value="11") 11
+                                        option(value="12") 12
+                            .input-wrapper
+                                label(for="input-card-year") Exp. year
+                                .input-select
+                                    select.form-control#input-card-year(name="input-card-year", placeholder="Expiration Year", data-validetta="required", data-vd-message-required="This field is required.")
+                                        option(value="null", disabled selected) Expiration Year
+                            .input-wrapper
+                                label(for="input-card-code") Security code
+                                input.form-control#input-card-code(type="text", placeholder="Code", name="input-card-code", data-validetta="required,number,minLength[3],maxLength[3]", data-vd-message-required="This field is required.")
+                                i(class="icon icon-ui-question")
+                        .order
+                            table.order-summary
+                                tbody
+                                    tr
+                                        td Subtotal
+                                        td.price-subtotal
+                                    tr
+                                        td Shipping
+                                        td.price-shipping
+                                    tr
+                                        td Tax
+                                        td.price-tax
+                                tfoot
+                                    tr
+                                        td Total
+                                        td.price-total
+                                
+                        input(type="submit", value="Place Order", name="placeOrder", id="placeOrder", class="button button-inverted")

@@ -1,4 +1,6 @@
 footer {
+
+
 	$footer-font-color: rgba($white, 0.3);
 	$footer-background-color: $fuscous-gray;
 
@@ -9,6 +11,13 @@ footer {
 	text-align: center;
 	position: relative;
 	z-index: 1;
+
+
+	@media (min-width: em(1080)) and (orientation: portrait) {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+	}
 
 	.container {
 		@include media($bp-medium) {
