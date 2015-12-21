@@ -1,16 +1,18 @@
 (function(){
 	'use strict';
 
-	// Populate years starting from current one
-	var min = new Date().getFullYear(),
-    max = min + 20,
-    select = document.getElementById('input-card-year');
+	if(jQuery("#input-card-year").length) {
+		// Populate years starting from current one
+		var min = new Date().getFullYear(),
+	    max = min + 20,
+	    select = document.getElementById('input-card-year');
 
-	for (var i = min; i<=max; i++){
-	    var opt = document.createElement('option');
-	    opt.value = i;
-	    opt.innerHTML = i;
-	    select.appendChild(opt);
+		for (var i = min; i<=max; i++){
+		    var opt = document.createElement('option');
+		    opt.value = i;
+		    opt.innerHTML = i;
+		    select.appendChild(opt);
+		}
 	}
 
 	function bindInputs() {
@@ -97,8 +99,16 @@
 		c.serializeOrder(data)
 			.done(function(results) {
 				jQuery('.price-subtotal').text('$' + (results.data.subtotal / 100));
-				jQuery('.price-shipping').text('$' + (results.data.shipping / 100));
-				jQuery('.price-tax').text('$' + (results.data.taxes / 100));
+
+				if(results.data.shipping)
+					jQuery('.price-shipping').text('$' + (results.data.shipping / 100));
+				else
+					jQuery('.price-shipping').text('');
+
+				if(results.data.taxes)
+					jQuery('.price-tax').text('$' + (results.data.taxes / 100));
+				else
+					jQuery('.price-tax').text('');
 
 				if(jQuery('#input-shipping-state').val()
 					&& jQuery('#input-shipping-country').val()

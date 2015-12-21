@@ -94,6 +94,7 @@ block content
                                 input.form-control#input-shipping-address-line-2(type="text", placeholder="Address line 2", name="input-shipping-address-line-2", data-bind-input="input-address-line-2")
                             .input-wrapper
                                 label(for="input-shipping-city") City
+                                    span.required *
                                 input.form-control#input-shipping-city(type="text", placeholder="City", name="input-shipping-city", data-bind-input="input-city", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
                                 label(for="input-shipping-state") State
@@ -311,10 +312,3 @@ block content
                                         td.price-total
                                 
                         input(type="submit", value="Place Order", name="placeOrder", id="placeOrder", class="button button-inverted")
-
-block scripts
-    script(src='/bower_components/jquery/dist/jquery.js')
-    script(src='/bower_components/validetta/dist/validetta.js')
-    script(src='/bower_components/sweetalert/dist/sweetalert-dev.js')
-    script(src='/scripts/Celery.js')
-    script(src='/scripts/order.js')
