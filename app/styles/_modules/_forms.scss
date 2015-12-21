@@ -18,7 +18,6 @@ form {
     }
 }
 
-
     .input-select-count {
         position: relative;
 
@@ -478,4 +477,16 @@ form {
 
 select option:disabled {
     color: #f0F0F0;
+}
+
+
+input[type=number] {
+    -moz-appearance:textfield;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

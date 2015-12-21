@@ -267,7 +267,7 @@ block content
                         fieldset
                             .input-wrapper
                                 label(for="input-card-number") Card number
-                                input.form-control#input-card-number(type="text", placeholder="Card number", name="input-card-number", data-validetta="required,creditCard", data-vd-message-required="This field is required.", data-vd-message-creditcard="Invalid credit card number.")
+                                input.form-control#input-card-number(type="number", placeholder="Card number", name="input-card-number", data-validetta="required,creditCard", data-vd-message-required="This field is required.", data-vd-message-creditcard="Invalid credit card number.")
                             .input-wrapper
                                 label(for="input-card-month") Exp. month
                                 .input-select
@@ -292,7 +292,7 @@ block content
                                         option(value="null", disabled selected) Expiration Year
                             .input-wrapper
                                 label(for="input-card-code") Security code
-                                input.form-control#input-card-code(type="text", placeholder="Code", name="input-card-code", data-validetta="required,number,minLength[3],maxLength[3]", data-vd-message-required="This field is required.")
+                                input.form-control#input-card-code(type="number", placeholder="Code", name="input-card-code", data-validetta="required,number,minLength[3],maxLength[3]", data-vd-message-required="This field is required.")
                                 i(class="icon icon-ui-question")
                         .order
                             table.order-summary
