@@ -250,6 +250,7 @@
                     url: '/confirmation',
                     success: function(data) {
 						$('.content-wrapper').html(data);
+						$(window).scrollTop(0);
                     }
                 });
 			})
