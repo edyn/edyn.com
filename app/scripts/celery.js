@@ -13,7 +13,7 @@
 
         var config = this.config = {};
 
-        config.apiHost = options.apiHost || 'https://api-sandbox.trycelery.com';
+        config.apiHost = options.apiHost || 'https://api.trycelery.com';
         config.apiVersion = options.apiVersion || 'v2';
         config.apiUrl = config.apiHost + '/' + config.apiVersion;
         config.slug = options.slug || '';

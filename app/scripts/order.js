@@ -39,7 +39,7 @@
 
 	function updatePrices() {
 		var data = {
-			'user_id': '5654f01bd5ec870300f24037',
+			'user_id': '56465a72878e0c03006b7ecd',
 			'buyer': {
 				'first_name': jQuery('#input-first-name').val(),
 				'last_name': jQuery('#input-last-name').val(),
@@ -66,7 +66,7 @@
 				}
 			},
 			'line_items': [{
-				'product_id': '5654f1c5d5ec870300f24039',
+				'product_id': '566b336eed04961100a1958a',
 				'quantity': jQuery('#input-select-count').val()
 			}]
 		}
@@ -93,7 +93,7 @@
 			}
 		}
 
-	    var c = new Celery({userId: '5654f01bd5ec870300f24037'});
+	    var c = new Celery({userId: '56465a72878e0c03006b7ecd'});
 		c.serializeOrder(data)
 			.done(function(results) {
 				jQuery('.price-subtotal').text('$' + (results.data.subtotal / 100));
@@ -176,7 +176,7 @@
 
 	function placeOrder() {
 		var data = {
-			'user_id': '5654f01bd5ec870300f24037',
+			'user_id': '56465a72878e0c03006b7ecd',
 			'buyer': {
 				'first_name': jQuery('#input-first-name').val(),
 				'last_name': jQuery('#input-last-name').val(),
@@ -203,7 +203,7 @@
 				}
 			},
 			'line_items': [{
-				'product_id': '5654f1c5d5ec870300f24039',
+				'product_id': '566b336eed04961100a1958a',
 				'quantity': jQuery('#input-select-count').val()
 			}]
 		}
@@ -230,7 +230,7 @@
 			}
 		}
 
-		var c = new Celery({userId: '5654f01bd5ec870300f24037'});
+		var c = new Celery({userId: '56465a72878e0c03006b7ecd'});
 		c.createOrder(data)
 			.done(function(results) {
 				$.ajax({
