@@ -52,11 +52,19 @@ block content
                                             option(value="8") 8
                                             option(value="9") 9
                                             option(value="10") 10
+                                .input-wrapper.input-coupon
+                                    input.form-control#input-coupon(type="text", placeholder="Coupon Code?", name="input-coupont")
+                                .button-group.button-group-coupon
+                                    button.button.button-outline.button-apply Apply
+                                    button.button.button-outline.button-cancel Cancel    
                             table.order-summary
                                 tbody
                                     tr
                                         td Subtotal
-                                        td.price-subtotal 
+                                        td.price-subtotal
+                                    tr
+                                        td Coupon Discount
+                                        td.price-discount 
                                     tr
                                         td Shipping
                                         td.price-shipping
@@ -265,7 +273,7 @@ block content
                                     span.required *
                                 input.form-control#input-telephone(type="tel", placeholder="Telephone", name="input-telephone", data-validetta="required")
                         h2 3. Payment Method
-                            i(class="icon icon-ui-lock")
+                            i(class="icon icon-ui-lock", title="All transactions are secure and encrypted. Credit card information is stored.", rel="tooltip")
                         fieldset
                             .input-wrapper
                                 label(for="input-card-number") Card number
@@ -302,6 +310,9 @@ block content
                                     tr
                                         td Subtotal
                                         td.price-subtotal
+                                    tr
+                                        td Coupon Discount
+                                        td.price-discount
                                     tr
                                         td Shipping
                                         td.price-shipping

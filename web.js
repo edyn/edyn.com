@@ -45,7 +45,8 @@ app.post('/confirmation', function(req, res) {
             },
             name : req.body.number,
             total : '$' + (req.body.total / 100),
-            subtotal : '$' + (req.body.subtotal / 100),
+            subtotal : '$' + (req.body.linetotal / 100),
+            discount : '- $' + (req.body.discount / 100),
             taxes : '$' + (req.body.taxes / 100),
             shipping : '$' + (req.body.shipping / 100),
             shipping_address : {

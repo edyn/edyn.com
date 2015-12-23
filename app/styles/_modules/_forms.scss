@@ -18,6 +18,8 @@ form {
     }
 }
 
+
+
     .input-select-count {
         position: relative;
 
@@ -221,6 +223,14 @@ form {
 
     span.notice {
         color: $silver;
+
+        &.secure {
+            color: $limeade;
+            font-size: em(8);
+            font-weight: 300;
+            font-style: normal;
+            display: block;
+        }
     }
 
     span.validetta-bubble {
@@ -469,6 +479,63 @@ form {
         }
     }
 
+    .input-number-count {
+        border:none;
+    }
+
+    .input-coupon {
+        position: relative;
+        padding: 0;
+        border: none;
+        background: $desert-storm;
+        text-align: center;
+
+        input[type="text"] {
+            position: relative;
+            width: 100%;
+            height: em(30);
+            margin: 0;
+            border-radius: 2px;
+            text-align: center;
+            font-size: em(18);
+            font-weight: 900;
+            padding: 0 0 0 em(10);
+            color: $judge-gray;
+            font-weight: 300;
+
+            &::-webkit-input-placeholder {
+                color: $judge-gray;
+                text-transform: capitalize;
+                font-size: em(14);
+                font-weight: 300;
+            }
+
+            &:-moz-placeholder {
+                color: $judge-gray;
+                text-transform: capitalize;
+                font-size: em(14);
+                font-weight: 300;
+            }
+
+            &::-moz-placeholder {
+                color: $judge-gray;
+                text-transform: capitalize;
+                font-size: em(14);
+                font-weight: 300;
+            }
+
+            &:-ms-input-placeholder {
+                color: $judge-gray;
+                text-transform: capitalize;
+                font-size: em(14);
+                font-weight: 300;
+            }
+        }
+    }
+
+.button-group-coupon {
+    display: none;
+}
 
 // #input-email, #input-shipping-email {
 //     text-transform: none;

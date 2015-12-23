@@ -114,6 +114,20 @@
 		width: 100%;
 	}
 
+	&-outline {
+		border-color: $silver;
+		color: $judge-gray;
+		font-weight: 300;
+		font-size: em(14);
+		font-family: $proxima-regular;
+		padding: em(5) em(10);
+
+		&:hover, &:focus, &:active {
+			background: $judge-gray;
+			color: $white;
+		}
+	}
+
 	&-loading {
 		background: $silver !important;
 		border-color: $silver !important;
@@ -201,6 +215,16 @@
 			background: none;
 			color: $amber;
 		}
+	}
+}
+
+.button-group {
+	text-align: center;
+	padding: em(10) 0 em(5);
+	clear: both;
+
+	.button {
+		display: inline-block;
 	}
 }
 

@@ -12,7 +12,6 @@
     "froogaloop": "~1.0.0",
     "cssuseragent": "~2.1.30",
     "validetta": "~1.0.1",
-    "isjs": "https://github.com/rthor/isjs.git#~0.2.1",
     "SelectOrDie": "~0.1.8"
   },
   "devDependencies": {

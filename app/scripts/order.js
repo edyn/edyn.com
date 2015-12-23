@@ -15,6 +15,46 @@
 		}
 	}
 
+	function checkCoupon() {
+		var data = {
+			'user_id': '5654f01bd5ec870300f24037',
+			'code': jQuery('#input-coupon').val(),
+			'line_items': [{
+				'product_id': '5654f1c5d5ec870300f24039',
+				'quantity': jQuery('#input-select-count').val()
+			}]
+		}
+
+		var c = new Celery({userId: '5654f01bd5ec870300f24037'});
+		c.validateCoupon(data).done(function(results) {
+			$(".button-group-coupon").hide();
+			updatePrices();
+		}).fail(function(results) {
+			$(".input-coupon").append('<span class="validetta-bubble">Invalid Code.</span>');
+		});
+
+		return true;
+	}
+
+	$("#input-coupon").bind( "focus", function() {
+		$(".button-group-coupon").show();
+	});
+
+	$("#input-coupon").bind( "blur", function() {
+		if($("#input-coupon").val() === "") {
+			$(".button-group-coupon").hide();
+		}
+	});
+
+	$(".button-group-coupon .button-apply").bind( "click", function() {
+		checkCoupon();
+	});
+
+	$(".button-group-coupon .button-cancel").bind( "click", function() {
+		$("#input-coupon").val('');
+		$(".button-group-coupon").hide();
+	});
+
 	function bindInputs() {
 		$('.shipping-info .form-control').each(function(){
 			var input = $(this);
@@ -70,7 +110,8 @@
 			'line_items': [{
 				'product_id': '5654f1c5d5ec870300f24039',
 				'quantity': jQuery('#input-select-count').val()
-			}]
+			}],
+			'discount_codes': [jQuery('#input-coupon').val()]
 		}
 
 		if(jQuery('#input-billing:checked').length) {
@@ -98,7 +139,8 @@
 	    var c = new Celery({userId: '5654f01bd5ec870300f24037'});
 		c.serializeOrder(data)
 			.done(function(results) {
-				jQuery('.price-subtotal').text('$' + (results.data.subtotal / 100));
+				jQuery('.price-subtotal').text('$' + (results.data.linetotal / 100));
+				jQuery('.price-discount').text('- $' + (results.data.discount / 100));
 
 				if(results.data.shipping)
 					jQuery('.price-shipping').text('$' + (results.data.shipping / 100));
@@ -215,7 +257,8 @@
 			'line_items': [{
 				'product_id': '5654f1c5d5ec870300f24039',
 				'quantity': jQuery('#input-select-count').val()
-			}]
+			}],
+			'discount_codes': [jQuery('#input-coupon').val()]
 		}
 
 		if(jQuery('#input-billing:checked').length) {
@@ -295,5 +338,81 @@
 
 		}
 	});
+
+	// Tooltips
+	var targets = $( '[rel~=tooltip]' ),
+        target  = false,
+        tooltip = false,
+        title   = false,
+		tip 	= false;
+
+    targets.bind( 'mouseenter', function()
+    {
+        target  = $( this );
+        tip     = target.attr( 'title' );
+        tooltip = $( '<div id="tooltip"></div>' );
+
+        if( !tip || tip == '' )
+            return false;
+
+        target.removeAttr( 'title' );
+        tooltip.css( 'opacity', 0 )
+               .html( tip )
+               .appendTo( 'body' );
+
+        var init_tooltip = function()
+        {
+            if( $( window ).width() < tooltip.outerWidth() * 1.5 )
+                tooltip.css( 'max-width', $( window ).width() / 2 );
+            else
+                tooltip.css( 'max-width', 340 );
+
+            var pos_left = target.offset().left + ( target.outerWidth() / 2 ) - ( tooltip.outerWidth() / 2 ),
+                pos_top  = target.offset().top - tooltip.outerHeight() - 20;
+
+            if( pos_left < 0 )
+            {
+                pos_left = target.offset().left + target.outerWidth() / 2 - 20;
+                tooltip.addClass( 'left' );
+            }
+            else
+                tooltip.removeClass( 'left' );
+
+            if( pos_left + tooltip.outerWidth() > $( window ).width() )
+            {
+                pos_left = target.offset().left - tooltip.outerWidth() + target.outerWidth() / 2 + 20;
+                tooltip.addClass( 'right' );
+            }
+            else
+                tooltip.removeClass( 'right' );
+
+            if( pos_top < 0 )
+            {
+                var pos_top  = target.offset().top + target.outerHeight();
+                tooltip.addClass( 'top' );
+            }
+            else
+                tooltip.removeClass( 'top' );
+
+            tooltip.css( { left: pos_left, top: pos_top } )
+                   .animate( { top: '+=10', opacity: 1 }, 50 );
+        };
+
+        init_tooltip();
+        $( window ).resize( init_tooltip );
+
+        var remove_tooltip = function()
+        {
+            tooltip.animate( { top: '-=10', opacity: 0 }, 50, function()
+            {
+                $( this ).remove();
+            });
+
+            target.attr( 'title', tip );
+        };
+
+        target.bind( 'mouseleave', remove_tooltip );
+        tooltip.bind( 'click', remove_tooltip );
+    });
 
 })();
