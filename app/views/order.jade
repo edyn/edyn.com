@@ -304,7 +304,10 @@ block content
                             .input-wrapper
                                 label(for="input-card-code") Security code
                                 input.form-control#input-card-code(type="number", placeholder="Code", name="input-card-code", data-validetta="required,number,minLength[3],maxLength[3]", data-vd-message-required="This field is required.")
-                                i(class="icon icon-ui-question")
+                                i(class="icon icon-ui-question trigger-cvv")
+                                .card-cvv 
+                                    img(src="images/card-cvv_2x.png", alt="Card CVV", width="171", height="124")
+                                    p Card security code (CVV) is found on the back of most credit cards.
                         .order
                             table.order-summary
                                 tbody
@@ -326,3 +329,4 @@ block content
                                         td.price-total
                                 
                         input(type="submit", value="Place Order", name="placeOrder", id="placeOrder", class="button button-inverted")
+    .overlay

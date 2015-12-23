@@ -5,6 +5,24 @@
 		if(jQuery("#input-coupon").length) {
 			jQuery($("#input-coupon").attr('placeholder', 'Enter Code'));
 		}
+
+		jQuery(document).on( "click", ".trigger-cvv", function() {
+			jQuery(".card-cvv").show();
+			jQuery(".overlay").show();
+		});
+
+		jQuery(document).on( "click", ".overlay", function() {
+			jQuery(".card-cvv").hide();
+			jQuery(".overlay").hide();
+		});
+	} else {
+		jQuery(".trigger-cvv").hover(
+			function() {
+				jQuery(".card-cvv").show();
+			}, function() {
+				jQuery(".card-cvv").hide();
+			}
+		);
 	}
 
 	if(jQuery("#input-card-year").length) {
