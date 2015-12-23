@@ -262,6 +262,8 @@
 
 			},
 			'shipping_address': {
+				'first_name': jQuery('#input-shipping-first-name').val(),
+				'last_name': jQuery('#input-shipping-last-name').val(),
 				'line1': jQuery('#input-shipping-address-line-1').val(),
 				'line2': jQuery('#input-shipping-address-line-2').val(),
 				'city': jQuery('#input-shipping-city').val(),
