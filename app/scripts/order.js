@@ -250,6 +250,15 @@
                     url: '/confirmation',
                     success: function(data) {
 						$('.content-wrapper').html(data);
+
+						if(cssua.ua.android) {
+							jQuery('.button-app').attr('href', jQuery('.button-googleplay-outline').attr('href'));
+						}
+
+						if(cssua.ua.ios) {
+							jQuery('.button-app').attr('href', jQuery('.button-appstore-outline').attr('href'));
+						}
+
 						$(window).scrollTop(0);
                     }
                 });
