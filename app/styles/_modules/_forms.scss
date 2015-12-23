@@ -486,46 +486,81 @@ form {
     .input-coupon {
         position: relative;
         padding: 0;
-        border: none;
+        border: 1px solid $silver;
+        border-radius: 2px;
         background: $desert-storm;
-        text-align: center;
+        text-align: left;
+        width: 92.5%;
+        margin: em(15) auto 0;
+
+        @include media($bp-medium) {
+            width: 100%;
+            margin: 0;
+            border: none;
+            text-align: center;
+        }
+
+        span.validetta-bubble {
+            margin-left: em(10);
+
+            @include media($bp-medium) {
+                margin-left: 0;
+            }
+        }
+
+        label {
+            width: 46%;
+            float: left;
+            padding: em(5) 0 em(5) em(10);
+
+            @include media($bp-medium) {
+                display: none;
+            }
+        }
 
         input[type="text"] {
             position: relative;
-            width: 100%;
+            width: 54%;
+            float: left;
             height: em(30);
             margin: 0;
             border-radius: 2px;
-            text-align: center;
+            text-align: left;
             font-size: em(18);
             font-weight: 900;
             padding: 0 0 0 em(10);
             color: $judge-gray;
             font-weight: 300;
 
+            @include media($bp-medium) {
+                text-align: center;
+                width: 100%;
+                float: none;
+            }
+
             &::-webkit-input-placeholder {
-                color: $judge-gray;
+                color: $silver;
                 text-transform: capitalize;
                 font-size: em(14);
                 font-weight: 300;
             }
 
             &:-moz-placeholder {
-                color: $judge-gray;
+                color: $silver;
                 text-transform: capitalize;
                 font-size: em(14);
                 font-weight: 300;
             }
 
             &::-moz-placeholder {
-                color: $judge-gray;
+                color: $silver;
                 text-transform: capitalize;
                 font-size: em(14);
                 font-weight: 300;
             }
 
             &:-ms-input-placeholder {
-                color: $judge-gray;
+                color: $silver;
                 text-transform: capitalize;
                 font-size: em(14);
                 font-weight: 300;

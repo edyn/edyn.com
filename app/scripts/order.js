@@ -1,6 +1,12 @@
 (function(){
 	'use strict';
 
+	if(jQuery('html').hasClass('ua-mobile')) {
+		if(jQuery("#input-coupon").length) {
+			jQuery($("#input-coupon").attr('placeholder', 'Enter Code'));
+		}
+	}
+
 	if(jQuery("#input-card-year").length) {
 		// Populate years starting from current one
 		var min = new Date().getFullYear(),

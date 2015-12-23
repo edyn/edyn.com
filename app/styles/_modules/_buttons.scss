@@ -223,8 +223,14 @@
 	padding: em(10) 0 em(5);
 	clear: both;
 
+
 	.button {
 		display: inline-block;
+		width: 40%;
+
+		@include media($bp-medium) {
+			width: inherit;
+		}
 	}
 }
 
