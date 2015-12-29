@@ -354,7 +354,7 @@ form {
             &-plus {
                 display: block;
                 position: absolute;
-                z-index: 999;
+                z-index: 1;
                 right: em(5);
                 top: em(5);
                 font-size: em(28);
@@ -380,7 +380,7 @@ form {
             &-minus {
                 display: block;
                 position: absolute;
-                z-index: 999;
+                z-index: 1;
                 left: em(5);
                 top: em(5);
                 font-size: em(28);

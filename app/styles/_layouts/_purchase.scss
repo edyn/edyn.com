@@ -3,6 +3,7 @@
 	$page-action-color: darken($amber, 8%);
 	$page-background-color: $desert-storm;
     $page-border-color: $swirl;
+    position: relative;
 
     .content {
         background: $page-background-color;
