@@ -11,8 +11,7 @@
     "skrollr": "~0.6.30",
     "froogaloop": "~1.0.0",
     "cssuseragent": "~2.1.30",
-    "validetta": "~1.0.1",
-    "SelectOrDie": "~0.1.8"
+    "validetta": "~1.0.1"
   },
   "devDependencies": {
     "chai": "~3.0.0",

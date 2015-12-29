@@ -238,6 +238,23 @@ form {
     }
 
     .input-select {
+        position: relative;
+
+        > span {
+            position: absolute;
+            top: -2px; // Dirty hack
+            z-index: 1;
+            pointer-events: none;
+            color: $silver;
+            background: $white;
+            text-transform: capitalize;
+            font: {
+                family: $proxima-regular;
+                weight: normal;
+                size: em(16);
+            }
+        }
+
         select {
             width: 100%;
         }

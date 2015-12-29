@@ -108,7 +108,8 @@ block content
                             .input-wrapper
                                 label(for="input-shipping-state") State
                                 .input-select
-                                    select.form-control#input-shipping-state(name="input-shipping-state", data-bind-input="input-state")
+                                    span State
+                                    select.custom-select.form-control#input-shipping-state(name="input-shipping-state", data-bind-input="input-state")
                                         option(value="", disabled, selected, hidden) State
                                         option(value="AL") AL
                                         option(value="AK") AK
@@ -208,7 +209,8 @@ block content
                             .input-wrapper
                                 label(for="input-state") State
                                 .input-select
-                                    select.form-control#input-state(name="input-state")
+                                    span State
+                                    select.custom-select.form-control#input-state(name="input-state")
                                         option(value="", disabled, selected, hidden) State
                                         option(value="AL") AL
                                         option(value="AK") AK
@@ -282,7 +284,8 @@ block content
                             .input-wrapper
                                 label(for="input-card-month") Exp. month
                                 .input-select
-                                    select.form-control#input-card-month(name="input-card-month", placeholder="Expiration Month", data-validetta="required", data-vd-message-required="This field is required.")
+                                    span(data-mobile-label="Exp. Month") Expiration Month
+                                    select.custom-select.form-control#input-card-month(name="input-card-month", placeholder="Expiration Month", data-validetta="required", data-vd-message-required="This field is required.")
                                         option(value="null", disabled selected) Expiration Month
                                         option(value="01") 01
                                         option(value="02") 02
@@ -299,7 +302,8 @@ block content
                             .input-wrapper
                                 label(for="input-card-year") Exp. year
                                 .input-select
-                                    select.form-control#input-card-year(name="input-card-year", placeholder="Expiration Year", data-validetta="required", data-vd-message-required="This field is required.")
+                                    span(data-mobile-label="Exp. Year") Expiration Year
+                                    select.custom-select.form-control#input-card-year(name="input-card-year", placeholder="Expiration Year", data-validetta="required", data-vd-message-required="This field is required.")
                                         option(value="null", disabled selected) Expiration Year
                             .input-wrapper
                                 label(for="input-card-code") Security code

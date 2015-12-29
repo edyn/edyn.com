@@ -1,6 +1,11 @@
 (function(){
 	'use strict';
 
+	// Custom select dropdowns
+	jQuery(document).on( "change", ".custom-select", function() {
+		$(this).prev('span').hide();
+	});
+
 	if(jQuery('html').hasClass('ua-mobile')) {
 		if(jQuery("#input-coupon").length) {
 			jQuery($("#input-coupon").attr('placeholder', 'Enter Code'));
@@ -15,6 +20,14 @@
 			jQuery(".card-cvv").hide();
 			jQuery(".overlay").hide();
 		});
+
+		$(".input-select span").each(function() {
+			if($(this).data('mobile-label')) {
+				$(this).text($(this).data('mobile-label'));
+				$(this).next('.form-control').attr('placeholder', $(this).data('mobile-label')).val("").focus().blur();
+			}
+		});
+
 	} else {
 		jQuery(".trigger-cvv").hover(
 			function() {
@@ -99,6 +112,7 @@
 	    } else {
 			$(".shipping-info .form-control").unbind( "paste keyup", bindInputs);
 			$('.billing-info .form-control').val('');
+			$('.billing-info .custom-select').prev('span').show();
 			jQuery(".billing-info").show();
 	    }
 	});
