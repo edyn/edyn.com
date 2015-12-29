@@ -219,6 +219,14 @@ form {
         font-size: em(12);
         color: $silver;
         font-style: italic;
+        margin-left: 50%;
+        line-height: 1em;
+        float: left;
+
+        @include media($bp-medium) {
+            margin-left: 0;
+            float: none;
+        }
     }
 
     span.notice {
