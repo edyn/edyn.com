@@ -164,7 +164,9 @@
 		c.serializeOrder(data)
 			.done(function(results) {
 				jQuery('.price-subtotal').text('$' + (results.data.linetotal / 100));
-				jQuery('.price-discount').text('- $' + (results.data.discount / 100));
+
+				if(results.data.discount)
+					jQuery('.price-discount').text('- $' + (results.data.discount / 100));
 
 				if(results.data.shipping)
 					jQuery('.price-shipping').text('$' + (results.data.shipping / 100));
