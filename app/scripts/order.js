@@ -83,13 +83,17 @@
 		}
 	});
 
-	$(".button-group-coupon .button-apply").bind( "click", function() {
+	$(".button-group-coupon .button-apply").bind( "click", function(e) {
 		checkCoupon();
+		e.preventDefault();
+		e.stopPropagation();
 	});
 
-	$(".button-group-coupon .button-cancel").bind( "click", function() {
+	$(".button-group-coupon .button-cancel").bind( "click", function(e) {
 		$("#input-coupon").val('');
 		$(".button-group-coupon").hide();
+		e.preventDefault();
+		e.stopPropagation();
 	});
 
 	function bindInputs() {
