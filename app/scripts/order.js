@@ -1,6 +1,27 @@
 (function(){
 	'use strict';
 
+	// Update inventory on page load
+	jQuery(document).ready(function() {
+		$.ajax({
+			type: 'GET',
+			contentType: 'application/json',
+			url: '/inventory',
+			success: function(data) {
+
+				if(data.product.inventory) {
+					jQuery('#input-count').attr({'min': 1, 'max': data.product.inventory});
+					for (var i = 1; i <= data.product.inventory; i++) {
+						jQuery('#input-select-count').append('<option value="'+ i +'">'+ i +'</option>');
+					}
+				} else {
+					$('#placeOrder').attr('disabled', 'disabled');
+					$('.input-number-count').html('<span class="error">Sold out</span>');
+				}
+			}
+		});
+	});
+
 	// Custom select dropdowns
 	jQuery(document).on( "change", ".custom-select", function() {
 		$(this).prev('span').hide();
@@ -244,23 +265,29 @@
 		jQuery('.input-count-up, .input-count-plus').click(function(e) {
 			var oldValue = parseFloat(jQuery('#input-count').val());
 			var newValue = oldValue + 1;
-			jQuery('#input-count').val(newValue);
-			jQuery('#input-select-count').val(newValue);
-			updatePrices();
+
+			if(newValue <= jQuery('#input-count').attr('max')) {
+				jQuery('#input-count').val(newValue);
+				jQuery('#input-select-count').val(newValue);
+				updatePrices();
+			}
+
 			e.preventDefault();
 			e.stopPropagation();
 		});
 
 		jQuery('.input-count-down, .input-count-minus').click(function(e) {
 			var oldValue = parseFloat(jQuery('#input-count').val());
+			
 			if(oldValue > 0) {
 				var newValue = oldValue - 1;
 				jQuery('#input-count').val(newValue);
 				jQuery('#input-select-count').val(newValue);
 				updatePrices();
-				e.preventDefault();
-				e.stopPropagation();
 			}
+
+			e.preventDefault();
+			e.stopPropagation();
 		});
 
 		jQuery('.input-count-trash').click(function(e) {
