@@ -33,6 +33,10 @@ app.get('/getstarted', function(req, res) {
     res.sendfile('./dist/getstarted.html');
 });
 
+app.get('/resetpassword', function(req, res) {
+    res.sendfile('./dist/resetpassword.html');
+});
+
 app.get('/order', function(req, res) {
     res.sendfile('./dist/order.html');
 });

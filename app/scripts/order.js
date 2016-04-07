@@ -10,7 +10,11 @@
 	    var opt = document.createElement('option');
 	    opt.value = i;
 	    opt.innerHTML = i;
-	    select.appendChild(opt);
+
+			// added this to avoid console error
+			if (select) {
+	    	select.appendChild(opt);
+			}
 	}
 
 	function bindInputs() {
