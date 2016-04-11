@@ -15,7 +15,7 @@
 		$.ajax({
 			url: url,
 			data: data,
-			method: 'POST',
+			type: 'POST',
 			dataType: 'json'
 		})
 		.done(function (response) {
