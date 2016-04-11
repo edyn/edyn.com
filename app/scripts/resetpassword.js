@@ -23,7 +23,7 @@
 		})
 		.fail(function (jqXHR, textStatus) {
 			var error = null;
-			if (jqXHR.statusCode != 200) {
+			if (parseInt(jqXHR.statusCode) !== 200) {
 				error = new Error(textStatus);
 			}
 			callback(error, null);
@@ -136,8 +136,10 @@
 
 				var email = $(sels.forgot.email).val();
 				resetRequest(email, function (error) {
+					console.log('ok got an error');
 					console.log(error);
 					var section = error ? sels.forgot.error : sels.forgot.success;
+					console.log('showing ' + section);
 					showSection(section);
 				});
 			}
