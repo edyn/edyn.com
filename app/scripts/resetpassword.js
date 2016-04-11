@@ -16,18 +16,13 @@
 			url: url,
 			data: data,
 			type: 'POST',
-			dataType: 'json'
-		})
-		.done(function (response) {
-			callback(null, response);
-		})
-		.fail(function (jqXHR, textStatus) {
-			console.log(jqXHR);
-			var error = null;
-			if (parseInt(jqXHR.statusCode) !== 200) {
-				error = new Error(textStatus);
+			complete: function (jqXhr) {
+				var error = null;
+				if (jqXhr.status !== 200) {
+					error = new Error(jqXhr.statusText);
+				}
+				callback(error);
 			}
-			callback(error, null);
 		});
 	}
 
@@ -137,10 +132,7 @@
 
 				var email = $(sels.forgot.email).val();
 				resetRequest(email, function (error) {
-					console.log('ok got an error');
-					console.log(error);
 					var section = error ? sels.forgot.error : sels.forgot.success;
-					console.log('showing ' + section);
 					showSection(section);
 				});
 			}
