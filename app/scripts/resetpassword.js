@@ -22,6 +22,7 @@
 			callback(null, response);
 		})
 		.fail(function (jqXHR, textStatus) {
+			console.log(jqXHR);
 			var error = null;
 			if (parseInt(jqXHR.statusCode) !== 200) {
 				error = new Error(textStatus);
