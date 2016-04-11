@@ -33,9 +33,9 @@
 		sendRequest('/reset', data, callback);
 	}
 
-	function updateRequest (token, password, callback) {
+	function updateRequest (resetToken, password, callback) {
 		var data = {
-			token: token,
+			resetToken: resetToken,
 			password: password
 		};
 		sendRequest('/update', data, callback);
