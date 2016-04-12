@@ -2,35 +2,55 @@
 	'use strict';
 
 	// Functions
-	function transitions(){
-		var scrollPosition = jQuery(document).scrollTop();
-		var systemSection = jQuery('.section-system'),
-			sensorSection = jQuery('.section-sensor'),
-			appSection = jQuery('.section-app'),
-			valveSection = jQuery('.section-valve'),
-			peopleSection = jQuery('.section-people'),
-			menu = jQuery('.menu-header'),
-			logo = jQuery('.logo');
+	function updateHeaderColors () {
+		var menu = jQuery('.menu-header');
+		var logo = jQuery('.logo');
 
-		if(systemSection.length && sensorSection.length && appSection.length && valveSection.length) {
-			if(sensorSection.position().top - 70 <= scrollPosition && sensorSection.position().top + sensorSection.outerHeight() > scrollPosition + 70) {
-				logo.addClass('white');
-				menu.addClass('dark');
-				menu.find('.button').addClass('button-alternate');
-				logo.removeClass('dark');
-			} else if (appSection.position().top - 70 <= scrollPosition && valveSection.position().top + valveSection.outerHeight() > scrollPosition + 70) {
-				logo.addClass('dark');
-				logo.removeClass('white');
+		var sections = {};
+		['system', 'sensor', 'app', 'valve', 'people'].forEach(function (name) {
+			var section = jQuery('.section-' + name);
+			sections[name] = section.length ? section : null;
+		});
+
+		var scrollPosition = jQuery(document).scrollTop();
+
+		function scrollIsWithin (topSection, bottomSection, bottomSkipOffset) {
+			var offset = 70;
+			var midpoint = scrollPosition + offset
+			var top = topSection.position().top;
+			var bottom = bottomSection.position().top + bottomSection.outerHeight();
+			var bottomThreshold = bottomSkipOffset ? scrollPosition : midpoint;
+			return (top <= midpoint) && (bottomThreshold < bottom);
+		}
+
+		if (sections.system && sections.sensor && sections.app && sections.valve) {
+			if (scrollIsWithin(sections.sensor, sections.sensor)) {
+				logo
+					.addClass('white')
+					.removeClass('dark');
+
+				menu
+					.addClass('dark')
+					.find('.button')
+						.addClass('button-alternate');
+
+			} else if (scrollIsWithin(sections.app, sections.valve)) {
+				logo
+					.addClass('dark')
+					.removeClass('white');
+
 			} else {
-				logo.removeClass('dark');
-				logo.removeClass('white');
-				menu.removeClass('dark');
-				menu.find('.button').removeClass('button-alternate');
+				logo.removeClass('white dark');
+
+				menu
+					.removeClass('dark')
+					.find('.button')
+						.removeClass('button-alternate');
 			}
 		}
 
-		if(peopleSection.length) {
-			if (peopleSection.position().top - 70 <= scrollPosition && peopleSection.position().top + peopleSection.outerHeight() > scrollPosition) {
+		if (sections.people) {
+			if (scrollIsWithin(sections.people, sections.people, true)) {
 				logo.addClass('dark');
 				menu.addClass('dark');
 			} else {
@@ -104,7 +124,7 @@
 		// jQuery('.section-system').find('h3').css('opacity', 0);
 		// jQuery('.section-system').find('p').css('opacity', 0);
 		// jQuery('.section-system').find('.carousel-image').css('opacity', 0);
-		jQuery(document).on('scroll', transitions);
+		jQuery(document).on('scroll', updateHeaderColors);
 
 		// Carousel activation
 		if(jQuery('.section-gallery .carousel').length) {
@@ -461,14 +481,17 @@
 		var iframe = document.getElementById('vimeo-player');
 		var player = $f(iframe);
 
-		jQuery('.modal-state').on('change', function() {
-			if (jQuery(this).is(':checked')) {
-				jQuery('body').addClass('modal-open');
-				player.api('play');
-			} else {
-				jQuery('body').removeClass('modal-open');
-				player.api('pause');
-			}
+		// make sure you add a ready event or this thing will error
+		player.addEvent('ready', function () {
+			jQuery('.modal-state').on('change', function() {
+				if (jQuery(this).is(':checked')) {
+					jQuery('body').addClass('modal-open');
+					player.api('play');
+				} else {
+					jQuery('body').removeClass('modal-open');
+					player.api('pause');
+				}
+			});
 		});
 
 		jQuery('.modal-fade-screen, .modal-close').on('click', function() {

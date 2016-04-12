@@ -2,10 +2,10 @@ extends layouts/default
 
 block vars
     - var bodyClass = 'index parallax';
-  
+
 block title
     title Edyn
-  
+
 block content
     .hero
         .container
@@ -127,7 +127,7 @@ block content
                         h3 Know how to care for your plants at each stage of their life
                         p
                             | Never wonder what you should do next to help your garden thrive. Learn from the past by easily scrolling through a timeline of activities and milestones, and plan for the future with Edyn&rsquo;s personalized gardening &ldquo;to-dos.&rdquo;
-    
+
     section.section-valve.section-dark
         .container
             h3 Just what your plants need
@@ -136,7 +136,7 @@ block content
             p
                 strong Pre-order coming soon.
                 // <a href="#" class="button button-alternate">Pre-Order Now</a>
-    
+
     section.section-gallery
         .container
             .carousel.carousel-full
@@ -163,10 +163,10 @@ block content
 
 append footer
     include ./includes/lightbox.jade
-     
+
     .modal
         input#modal-video.modal-state(type='checkbox')
         .modal-fade-screen
             .modal-inner
                 .modal-close(for='modal-video')
-                iframe#vimeo-player.vimeo-player(src='https://player.vimeo.com/video/97291773?autoplay=0&api=1&player_id=vimeoplayer', name='vimeoplayer', width='800', height='450', frameborder='0', webkitallowfullscreen='', mozallowfullscreen='', allowfullscreen='')
+                iframe#vimeo-player.vimeo-player(src='https://player.vimeo.com/video/97291773?autoplay=0&api=1&player_id=vimeo-player', name='vimeo-player', width='800', height='450', frameborder='0', webkitallowfullscreen='', mozallowfullscreen='', allowfullscreen='')
