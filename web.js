@@ -10,6 +10,11 @@ app.get('/', function(req, res) {
     res.sendfile('./dist/index.html');
 });
 
+app.get('/beta', function(req, res) {
+    res.redirect('https://dl.dropboxusercontent.com/u/345407397/builds/index.html');
+});
+
+
 app.get('/about', function(req, res) {
     res.sendfile('./dist/about.html');
 });
