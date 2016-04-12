@@ -14,7 +14,9 @@
 @import "_layouts/header";
 @import "_layouts/section";
 @import "_layouts/page";
+@import "_layouts/purchase";
 @import "_layouts/footer";
+@import "_layouts/resetpassword";
 
 // Modules
 @import "_modules/animations";
@@ -26,7 +28,10 @@
 @import "_modules/accordion";
 @import "_modules/modal";
 @import "_modules/lightbox";
+@import "_modules/forms";
+@import "_modules/tables";
 
 // Plugins
 @import "_plugins/owl";
 @import "_plugins/ua";
+@import "_plugins/sweetalerts";

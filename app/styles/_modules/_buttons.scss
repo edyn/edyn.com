@@ -1,4 +1,4 @@
-.button {
+.button, input.button {
 	$button-font-color: $amber;
 	$button-font-color-hover: $white;
 	$button-font-family: $proxima-semibold;
@@ -32,6 +32,7 @@
 	text-align: center;
 	width: 90%;
 	max-width: em(250);
+	outline: none;
 
 	@include media($bp-medium) {
 		border-width: 1px;
@@ -104,6 +105,20 @@
 		}
 	}
 
+	&-inverted {
+		background: $button-background-color-hover;
+		color: $button-font-color-hover;
+		font: {
+			size: em(14);
+		}
+		width: 100%;
+	}
+
+	&-loading {
+		background: $silver !important;
+		border-color: $silver !important;
+	}
+
 	&-appstore {
 		display: inline-block;
 		margin: 0 em(2);
@@ -111,6 +126,15 @@
 		@include hide-text;
 		@include retina-image('../../images/appstore-button', 130px 55px);
 		@include size(130px 55px);
+
+		&-outline {
+			display: inline-block;
+			margin: 0 em(2);
+
+			@include hide-text;
+			@include retina-image('../../images/appstore-button-outline', 130px 55px);
+			@include size(130px 55px);
+		}
 	}
 
 	&-googleplay {
@@ -120,6 +144,15 @@
 		@include hide-text;
 		@include retina-image('../../images/googleplay-button', 130px 55px);
 		@include size(130px 55px);
+
+		&-outline {
+			display: inline-block;
+			margin: 0 em(2);
+
+			@include hide-text;
+			@include retina-image('../../images/googleplay-button-outline', 130px 55px);
+			@include size(130px 55px);
+		}
 	}
 
 	&-social {
@@ -152,4 +185,29 @@
 			width: em(300);
 		}
 	}
+
+	&-link {
+		background: none;
+		border: none;
+		display: inline-block;
+		padding: 0;
+		color: $amber;
+		font: {
+			family: $proxima-bold;
+		}
+		text-transform: capitalize;
+
+		&:hover {
+			background: none;
+			color: $amber;
+		}
+	}
+}
+
+
+.sweet-alert button {
+	border-width: 1px;
+	font-size: em(14);
+	padding: em(12) em(50);
+	width: inherit;
 }

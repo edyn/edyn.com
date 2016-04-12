@@ -15,14 +15,15 @@ html.no-js(lang='en')
         header
             h1
                 a.logo(href='/') Edyn
-            nav.menu.menu-header
-                .menu-icon
-                    span
-                ul.menu-list
-                    li.menu-item
-                        a#buyButtonMenu.button(href='http://www.homedepot.com/p/Edyn-Garden-Sensor-EDYN-001/205833447', target='_blank') Buy Now
-                    li.menu-item
-                        a.toggle-lightbox.app-link(href='#') Get the App
+            block nav
+                nav.menu.menu-header
+                    .menu-icon
+                        span
+                    ul.menu-list
+                        li.menu-item
+                            a#buyButtonMenu.button(href='/order') Buy Now
+                        li.menu-item
+                            a.toggle-lightbox.app-link(href='#') Get the App
          
         block content
         

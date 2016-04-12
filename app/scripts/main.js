@@ -444,6 +444,18 @@
 	}
 	//--- END press accordion
 
+	// Order box fix behaviour
+	if(jQuery('.content-sidebar').length) {
+		jQuery(document).on('scroll', function() {
+			if (jQuery(document).scrollTop() > 65) {
+				jQuery('.content-wrapper').addClass('fixed');
+			} else {
+				jQuery('.content-wrapper').removeClass('fixed');
+			}
+		});
+	}
+	//--END fix behaviour
+
 	// Modal events
 	if(jQuery('.modal').length) {
 		var iframe = document.getElementById('vimeo-player');
