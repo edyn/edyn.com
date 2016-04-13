@@ -16,7 +16,7 @@
 
 		function scrollIsWithin (topSection, bottomSection, bottomSkipOffset) {
 			var offset = 70;
-			var midpoint = scrollPosition + offset
+			var midpoint = scrollPosition + offset;
 			var top = topSection.position().top;
 			var bottom = bottomSection.position().top + bottomSection.outerHeight();
 			var bottomThreshold = bottomSkipOffset ? scrollPosition : midpoint;
