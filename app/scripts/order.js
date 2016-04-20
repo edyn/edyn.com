@@ -60,6 +60,7 @@
 	}
 
 	if(jQuery("#input-card-year").length) {
+
 		// Populate years starting from current one
 		var min = new Date().getFullYear(),
 	    max = min + 20,
@@ -69,7 +70,10 @@
 		    var opt = document.createElement('option');
 		    opt.value = i;
 		    opt.innerHTML = i;
-		    select.appendChild(opt);
+				// added this to avoid console error
+				if (select) {
+		    	select.appendChild(opt);
+				}
 		}
 	}
 
@@ -278,7 +282,7 @@
 
 		jQuery('.input-count-down, .input-count-minus').click(function(e) {
 			var oldValue = parseFloat(jQuery('#input-count').val());
-			
+
 			if(oldValue > 0) {
 				var newValue = oldValue - 1;
 				jQuery('#input-count').val(newValue);
