@@ -12,6 +12,9 @@
                         td Subtotal
                         td #{order.subtotal}
                     tr
+                        td Coupon Discount
+                        td #{order.discount}
+                    tr
                         td Shipping
                         td #{order.shipping}
                     tr
@@ -45,6 +48,9 @@
                         td Subtotal
                         td #{order.subtotal}
                     tr
+                        td Coupon Discount
+                        td #{order.discount}
+                    tr
                         td Shipping
                         td #{order.shipping}
                     tr
@@ -57,7 +63,7 @@
         .address
             h4 Shipping Address
             p
-                |#{order.buyer.first_name} #{order.buyer.last_name}
+                |#{order.shipping_address.first_name} #{order.shipping_address.last_name}
                 br
                 |#{order.shipping_address.line1}
                 br

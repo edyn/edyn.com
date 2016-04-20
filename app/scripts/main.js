@@ -435,7 +435,7 @@
 			jQuery('.lightbox').show();
 			jQuery('body').toggleClass('no-scroll');
 
-			e.prevenDefault();
+			e.preventDefault();
 			e.stopPropagation();
 		});
 
@@ -443,7 +443,7 @@
 			jQuery('.lightbox').hide();
 			jQuery('body').toggleClass('no-scroll');
 
-			e.prevenDefault();
+			e.preventDefault();
 			e.stopPropagation();
 		});
 	}

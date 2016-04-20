@@ -19,6 +19,7 @@ form {
 }
 
 
+
     .input-select-count {
         position: relative;
 
@@ -32,7 +33,7 @@ form {
             text-align: center;
             font-size: em(18);
             font-weight: 900;
-            padding: 0 0 0 em(15);
+            padding: 0 0 0 em(10);
         }
 
         &:after {
@@ -218,10 +219,26 @@ form {
         font-size: em(12);
         color: $silver;
         font-style: italic;
+        margin-left: 50%;
+        line-height: 1em;
+        float: left;
+
+        @include media($bp-medium) {
+            margin-left: 0;
+            float: none;
+        }
     }
 
     span.notice {
         color: $silver;
+
+        &.secure {
+            color: $limeade;
+            font-size: em(8);
+            font-weight: 300;
+            font-style: normal;
+            display: block;
+        }
     }
 
     span.validetta-bubble {
@@ -229,6 +246,23 @@ form {
     }
 
     .input-select {
+        position: relative;
+
+        > span {
+            position: absolute;
+            top: -2px; // Dirty hack
+            z-index: 1;
+            pointer-events: none;
+            color: $silver;
+            background: $white;
+            text-transform: capitalize;
+            font: {
+                family: $proxima-regular;
+                weight: normal;
+                size: em(16);
+            }
+        }
+
         select {
             width: 100%;
         }
@@ -328,7 +362,7 @@ form {
             &-plus {
                 display: block;
                 position: absolute;
-                z-index: 999;
+                z-index: 1;
                 right: em(5);
                 top: em(5);
                 font-size: em(28);
@@ -354,7 +388,7 @@ form {
             &-minus {
                 display: block;
                 position: absolute;
-                z-index: 999;
+                z-index: 1;
                 left: em(5);
                 top: em(5);
                 font-size: em(28);
@@ -470,6 +504,98 @@ form {
         }
     }
 
+    .input-number-count {
+        border:none;
+    }
+
+    .input-coupon {
+        position: relative;
+        padding: 0;
+        border: 1px solid $silver;
+        border-radius: 2px;
+        background: $desert-storm;
+        text-align: left;
+        width: 92.5%;
+        margin: em(15) auto 0;
+
+        @include media($bp-medium) {
+            width: 100%;
+            margin: 0;
+            border: none;
+            text-align: center;
+        }
+
+        span.validetta-bubble {
+            margin-left: em(10);
+
+            @include media($bp-medium) {
+                margin-left: 0;
+            }
+        }
+
+        label {
+            width: 46%;
+            float: left;
+            padding: em(5) 0 em(5) em(10);
+
+            @include media($bp-medium) {
+                display: none;
+            }
+        }
+
+        input[type="text"] {
+            position: relative;
+            width: 54%;
+            float: left;
+            height: em(30);
+            margin: 0;
+            border-radius: 2px;
+            text-align: left;
+            font-size: em(18);
+            font-weight: 900;
+            padding: 0 0 0 em(10);
+            color: $judge-gray;
+            font-weight: 300;
+
+            @include media($bp-medium) {
+                text-align: center;
+                width: 100%;
+                float: none;
+            }
+
+            &::-webkit-input-placeholder {
+                color: $silver;
+                text-transform: capitalize;
+                font-size: em(14);
+                font-weight: 300;
+            }
+
+            &:-moz-placeholder {
+                color: $silver;
+                text-transform: capitalize;
+                font-size: em(14);
+                font-weight: 300;
+            }
+
+            &::-moz-placeholder {
+                color: $silver;
+                text-transform: capitalize;
+                font-size: em(14);
+                font-weight: 300;
+            }
+
+            &:-ms-input-placeholder {
+                color: $silver;
+                text-transform: capitalize;
+                font-size: em(14);
+                font-weight: 300;
+            }
+        }
+    }
+
+.button-group-coupon {
+    display: none;
+}
 
 // #input-email, #input-shipping-email {
 //     text-transform: none;
@@ -478,4 +604,16 @@ form {
 
 select option:disabled {
     color: #f0F0F0;
+}
+
+
+input[type=number] {
+    -moz-appearance:textfield;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
