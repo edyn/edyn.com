@@ -19,7 +19,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/beta', function(req, res) {
-    res.redirect('https://dl.dropboxusercontent.com/u/345407397/builds/index.html');
+    res.redirect('https://itunes.apple.com/us/app/edyn/id939748941');
 });
 
 app.get('/about', function(req, res) {
