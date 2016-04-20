@@ -20,6 +20,16 @@ body {
 	width: 100%;
 }
 
+.overlay {
+	display: none;
+	height: 100%;
+	width: 100%;
+	background: rgba($fuscous-gray, 0.5);
+	content: "";
+	@include position(absolute, 0 0 0 0);
+	z-index: 9998;
+}
+
 a {
 	color: $action-color;
 	text-decoration: none;

@@ -20,6 +20,10 @@
         config.userId = options.userId || '';
     }
 
+    Celery.prototype.validateCoupon = function(order, callback) {
+        return this._post('coupons', 'validate', order, callback);
+    };
+
     Celery.prototype.serializeOrder = function(order, callback) {
         return this._post('orders', 'serialize', order, callback);
     };
