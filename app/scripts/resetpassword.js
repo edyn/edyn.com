@@ -18,9 +18,12 @@
 			type: 'POST',
 			complete: function (jqXhr) {
 				var error = null;
-				if (jqXhr.status !== 200) {
-					error = new Error(jqXhr.statusText);
+
+				var response = jqXhr.responseJSON;
+				if ((jqXhr.status !== 200) && response.error) {
+					error = new Error(response.message);
 				}
+
 				callback(error);
 			}
 		});
@@ -63,7 +66,8 @@
 			error: '#forgot-password-error',
 			retry: '.forgot-password-retry',
 			email: '#forgot-password-email',
-			submit: '#forgot-password-submit'
+			submit: '#forgot-password-submit',
+			notFound: '#forgot-password-not-found'
 		},
 		update: {
 			start: '#update-password',
@@ -72,7 +76,8 @@
 			retry: '#update-password-retry',
 			password: '#update-password-new-password',
 			confirm: '#update-password-confirm-password',
-			submit: '#update-password-submit'
+			submit: '#update-password-submit',
+			tokenExpired: '#update-password-token-expired'
 		}
 	};
 
@@ -132,7 +137,11 @@
 
 				var email = $(sels.forgot.email).val();
 				resetRequest(email, function (error) {
-					var section = error ? sels.forgot.error : sels.forgot.success;
+					var section = sels.forgot.success;
+					if (error) {
+						var notFound = (error.message === 'No user for that email address');
+						section = notFound ? sels.forgot.notFound : sels.forgot.error;
+					}
 					showSection(section);
 				});
 			}
@@ -161,7 +170,11 @@
 				var token = params.token;
 				var password = $(sels.update.password).val();
 				updateRequest(token, password, function (error) {
-					var section = error ? sels.update.error : sels.update.success;
+					var section = sels.update.success;
+					if (error) {
+						var tokenExpired = (error.message === 'Token expired');
+						section = tokenExpired ? sels.update.tokenExpired : sels.update.error;
+					}
 					showSection(section);
 				});
 			}

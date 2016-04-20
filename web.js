@@ -2,6 +2,7 @@ var gzippo = require('gzippo');
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var request = require('request');
 var app = express();
 
 app.use(morgan('dev'));
@@ -38,7 +39,33 @@ app.get('/resetpassword', function(req, res) {
 });
 
 app.get('/order', function(req, res) {
-    res.sendfile('./dist/order.html');
+    res.redirect('http://www.homedepot.com/p/Edyn-Garden-Sensor-EDYN-001/205833447');
+    // res.sendfile('./dist/order.html');
+});
+
+app.get('/inventory', function(req, res) {
+    var options = {
+        method: 'GET',
+        url: 'https://api-sandbox.trycelery.com/v2/products/5654f1c5d5ec870300f24039',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': '44aea5eaf148dbabee4236553f2d805af942b5edddb4ab23298f5ea89d8afb3d0498ff2b5e647d8cd934ef367119f2c6'
+        }
+    };
+
+    var itemTotal = 0;
+
+    request(options, function(error, response, body) {
+        if(!error)
+            itemTotal = JSON.parse(body).data.inventory;
+
+        res.send({
+            product: {
+                inventory: itemTotal
+            }
+        });
+    });
 });
 
 app.post('/confirmation', function(req, res) {
@@ -53,7 +80,8 @@ app.post('/confirmation', function(req, res) {
             },
             name : req.body.number,
             total : '$' + (req.body.total / 100),
-            subtotal : '$' + (req.body.subtotal / 100),
+            subtotal : '$' + (req.body.linetotal / 100),
+            discount : '- $' + (req.body.discount / 100),
             taxes : '$' + (req.body.taxes / 100),
             shipping : '$' + (req.body.shipping / 100),
             shipping_address : {
