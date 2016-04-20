@@ -39,7 +39,8 @@ app.get('/resetpassword', function(req, res) {
 });
 
 app.get('/order', function(req, res) {
-    res.sendfile('./dist/order.html');
+    res.redirect('http://www.homedepot.com/p/Edyn-Garden-Sensor-EDYN-001/205833447');
+    // res.sendfile('./dist/order.html');
 });
 
 app.get('/inventory', function(req, res) {
