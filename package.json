@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "bower": "./node_modules/.bin/bower install",
+    "server": "./node_modules/.bin/gulp serve",
+    "build": "./node_modules/.bin/gulp build"
+  },
   "engines": {
     "node": ">=0.12.0"
   },

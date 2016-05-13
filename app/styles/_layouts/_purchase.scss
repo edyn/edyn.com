@@ -1,7 +1,7 @@
 .purchase {
     $page-font-color: $judge-gray;
-	$page-action-color: darken($amber, 8%);
-	$page-background-color: $desert-storm;
+	  $page-action-color: darken($amber, 8%);
+	  $page-background-color: $desert-storm;
     $page-border-color: $swirl;
     position: relative;
 
@@ -205,7 +205,7 @@
             }
         }
 
-        .input-count {
+        .input-count-wrapper {
             &-controls {
 
             }
@@ -225,7 +225,7 @@
         }
 
         .input-number-count {
-            .input-count {
+            .input-count-wrapper {
                 display: block;
             }
 
@@ -233,16 +233,16 @@
                 color: red;
             }
 
-            .input-select-count {
+            .input-select-count-wrapper {
                 display: none;
             }
 
             @include media($bp-medium) {
-                .input-count {
+                .input-count-wrapper {
                     display: none;
                 }
 
-                .input-select-count {
+                .input-select-count-wrapper {
                     display: inline-block;
                 }
             }
@@ -257,6 +257,10 @@
             border-radius: 4px;
             margin-bottom: em(50);
 
+            &-product-template {
+              display: none;
+            }
+
             &-product {
                 text-align: center;
                 padding: em(60) 0 em(30) 0;
@@ -264,21 +268,20 @@
                 @include clearfix;
 
                 img {
-                    border-radius: 50%;
                     margin-bottom: em(30);
 
                     @include media($bp-medium) {
-        				width: 30%;
+        				        width: 30%;
                         height: 30%;
                         float: left;
                         margin-right: 1em;
-        			}
+        			      }
                 }
 
                 @include media($bp-medium) {
-    				text-align: left;
+    				        text-align: left;
                     padding: em(40) em(20) em(10);
-    			}
+    			      }
             }
 
             h2 {
@@ -305,25 +308,35 @@
             }
         }
 
-        .preorder {
+        .coupon {
+          text-align: center;
+          padding: em(60) 0 em(30) 0;
+          @include clearfix;
+
+          @include media($bp-medium) {
+              text-align: left;
+              padding: em(40) em(20) em(10);
+          }
+        }
+
+        .product-sensor, .order-product-sensor {
+          img {
+            border-radius: 50%;
+          }
+        }
+
+        .product-template {
+          display: none;
+        }
+
+        .product {
             text-align: center;
             margin-bottom: em(50);
             line-height: 2.25em;
 
-            span {
-                font: {
-                    size: em(20);
-                }
-
-                @include media($bp-medium) {
-                    font-size: em(16);
-                    display: block;
-                }
-            }
-
-            h3 {
+            .product-name {
                 text-transform: capitalize;
-                margin-bottom: 0;
+                padding-top: 6px;
 
                 font: {
                     size: em(22);
@@ -335,18 +348,29 @@
                 }
             }
 
+            .product-price {
+                font: {
+                    size: em(16);
+                }
+            }
+
+            .product-add {
+              cursor: pointer;
+              color: $amber;
+              font: {
+                  size: em(15);
+                  family: $proxima-semibold;
+              }
+            }
+
             img {
                 @include media($bp-medium) {
-                    width: 35%;
+                    width: 27%;
                     height: auto;
                     position: absolute;
                     right: 0;
                     top: 0;
                 }
-            }
-
-            .button {
-                margin-top: .25em;
             }
 
             @include media($bp-medium) {

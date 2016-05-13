@@ -39,32 +39,38 @@ app.get('/resetpassword', function(req, res) {
 });
 
 app.get('/order', function(req, res) {
-    res.redirect('http://www.homedepot.com/p/Edyn-Garden-Sensor-EDYN-001/205833447');
-    // res.sendfile('./dist/order.html');
+    //res.redirect('http://www.homedepot.com/p/Edyn-Garden-Sensor-EDYN-001/205833447');
+    res.sendfile('./dist/order.html');
 });
 
 app.get('/inventory', function(req, res) {
     var options = {
         method: 'GET',
-        url: 'https://api-sandbox.trycelery.com/v2/products/5654f1c5d5ec870300f24039',
+        url: 'https://api-sandbox.trycelery.com/v2/products',
+        json: true,
         headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
             'Authorization': '44aea5eaf148dbabee4236553f2d805af942b5edddb4ab23298f5ea89d8afb3d0498ff2b5e647d8cd934ef367119f2c6'
         }
     };
 
-    var itemTotal = 0;
-
     request(options, function(error, response, body) {
-        if(!error)
-            itemTotal = JSON.parse(body).data.inventory;
+        if (error) {
+            console.log(error);
+            res.status(500).send('Error fetching inventory');
+            return;
+        }
 
-        res.send({
-            product: {
-                inventory: itemTotal
-            }
+        var products = body.data.map(function (product) {
+          return {
+            id: product._id,
+            userId: product.user_id,
+            name: product.name,
+            price: (product.price / 100.0),
+            inventory: product.inventory
+          };
         });
+
+        res.send(products);
     });
 });
 

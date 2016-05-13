@@ -5,7 +5,7 @@ block vars
 
 block title
     title Order
-    
+
 block nav
     nav.menu.menu-header
         .menu-icon
@@ -22,40 +22,43 @@ block content
                     .content-sidebar
                         h1 Order Details
                         .order
-                            .order-product
-                                img(src="images/edyn_sensor_thumbnail_2x.png", alt="", width="200", height="200")
-                                h2 Edyn garden sensor
-                                span.order-price $99.99
-                                .input-wrapper.input-number-count
-                                    .input-count
-                                        input.form-control#input-count(type="text", value="1", name="input-count")
-                                        .input-count-controls
-                                            a.input-count-up(href="#")
-                                                i(class="icon icon-ui-arrow-up")
-                                            a.input-count-down(href="#")
-                                                i(class="icon icon-ui-arrow-down")
-                                            a.input-count-plus(href="#")
-                                                i(class="icon icon-ui-plus")
-                                            a.input-count-minus(href="#")
-                                                i(class="icon icon-ui-minus")
-                                        a.input-count-trash(href="#")
-                                            i(class="icon icon-ui-trash")
-                                    .input-select-count
-                                        select.form-control#input-select-count(name="input-select-count")
-                                .input-wrapper.input-coupon
-                                    label(for="input-coupon") Coupon Code?
-                                    input.form-control#input-coupon(type="text", placeholder="Coupon Code?", name="input-coupon")
-                                .button-group.button-group-coupon
-                                    button.button.button-outline.button-apply Apply
-                                    button.button.button-outline.button-cancel Cancel    
+                            .order-products
+                              .order-product.order-product-template(data-sku="")
+                                  img.product-image(src="", alt="")
+                                  h2.product-name
+                                  span.order-price
+                                  .input-wrapper.input-number-count
+                                      .input-count-wrapper
+                                          input.form-control.input-count(type="text", value="0", name="input-count")
+                                          .input-count-controls
+                                              a.input-count-up(href="#")
+                                                  i(class="icon icon-ui-arrow-up")
+                                              a.input-count-down(href="#")
+                                                  i(class="icon icon-ui-arrow-down")
+                                              a.input-count-plus(href="#")
+                                                  i(class="icon icon-ui-plus")
+                                              a.input-count-minus(href="#")
+                                                  i(class="icon icon-ui-minus")
+                                          a.input-count-trash(href="#")
+                                              i(class="icon icon-ui-trash")
+                                      .input-select-count-wrapper
+                                          select.form-control.input-select-count(name="input-select-count")
+                            .coupon
+                              .input-wrapper.input-coupon-wrapper
+                                  label(for="input-coupon") Coupon Code?
+                                  input.form-control#input-coupon(type="text", placeholder="Coupon Code?", name="input-coupon")
+                                  span.validetta-bubble
+                              .button-group.button-group-coupon
+                                  button.button.button-outline.button-apply Apply
+                                  button.button.button-outline.button-cancel Cancel
                             table.order-summary
                                 tbody
                                     tr
                                         td Subtotal
-                                        td.price-subtotal $99.99
+                                        td.price-subtotal
                                     tr.line-discount
                                         td Coupon Discount
-                                        td.price-discount 
+                                        td.price-discount
                                     tr
                                         td Shipping
                                         td.price-shipping
@@ -65,41 +68,48 @@ block content
                                 tfoot
                                     tr
                                         td Total
-                                        td.price-total 
+                                        td.price-total
+                        .products
+                          .product.product-template
+                            .product-name Name
+                            .product-price $0.00
+                            .product-add(data-sku="") Add to Order
+                            img.product-image(alt="")
+
                     .content-main
                         h2 1. Shipping Information
                         fieldset.shipping-info
                             .input-wrapper
                                 label(for="input-shipping-first-name") First name
                                     span.required *
-                                input.form-control#input-shipping-first-name(type="text", placeholder="First name", name="input-shipping-first-name", data-bind-input="input-first-name", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control#input-shipping-first-name(type="text", placeholder="First name", name="input-shipping-first-name", data-bind-input="input-billing-first-name", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
                                 label(for="input-shipping-last-name") Last name
                                     span.required *
-                                input.form-control#input-shipping-last-name(type="text", placeholder="Last name", name="input-shipping-last-name", data-bind-input="input-last-name", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control#input-shipping-last-name(type="text", placeholder="Last name", name="input-shipping-last-name", data-bind-input="input-billing-last-name", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
                                 label(for="input-shipping-email") Email
                                     span.required *
-                                input.form-control#input-shipping-email(type="text", placeholder="Email", name="input-shipping-email", data-bind-input="input-email", data-validetta="required,email", data-vd-message-required="This field is required.", data-vd-message-email="Your email address appears to be invalid.")
+                                input.form-control#input-shipping-email(type="text", placeholder="Email", name="input-shipping-email", data-bind-input="input-billing-email", data-validetta="required,email", data-vd-message-required="This field is required.", data-vd-message-email="Your email address appears to be invalid.")
                             .input-wrapper
                                 label(for="input-shipping-company") Company
-                                input.form-control#input-shipping-company(type="text", placeholder="Company", name="input-shipping-company", data-bind-input="input-company")
+                                input.form-control#input-shipping-company(type="text", placeholder="Company", name="input-shipping-company", data-bind-input="input-billing-company")
                             .input-wrapper
                                 label(for="input-shipping-address-line-1") Address
                                     span.required *
-                                input.form-control#input-shipping-address-line-1(type="text", placeholder="Address line 1", name="input-shipping-address-line-1", data-bind-input="input-address-line-1", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control#input-shipping-address-line-1(type="text", placeholder="Address line 1", name="input-shipping-address-line-1", data-bind-input="input-billing-address-line-1", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
                                 label.invisible(for="input-shipping-address-line-2") Address
-                                input.form-control#input-shipping-address-line-2(type="text", placeholder="Address line 2", name="input-shipping-address-line-2", data-bind-input="input-address-line-2")
+                                input.form-control#input-shipping-address-line-2(type="text", placeholder="Address line 2", name="input-shipping-address-line-2", data-bind-input="input-billing-address-line-2")
                             .input-wrapper
                                 label(for="input-shipping-city") City
                                     span.required *
-                                input.form-control#input-shipping-city(type="text", placeholder="City", name="input-shipping-city", data-bind-input="input-city", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control#input-shipping-city(type="text", placeholder="City", name="input-shipping-city", data-bind-input="input-billing-city", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
                                 label(for="input-shipping-state") State
                                 .input-select
                                     span State
-                                    select.custom-select.form-control#input-shipping-state(name="input-shipping-state", data-bind-input="input-state")
+                                    select.custom-select.form-control#input-shipping-state(name="input-shipping-state", data-bind-input="input-billing-state")
                                         option(value="", disabled, selected, hidden) State
                                         option(value="AL") AL
                                         option(value="AK") AK
@@ -155,7 +165,7 @@ block content
                             .input-wrapper
                                 label(for="input-shipping-zip") Zip
                                     span.required *
-                                input.form-control#input-shipping-zip(type="text", placeholder="Zip", name="input-shipping-zip", data-bind-input="input-zip", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control#input-shipping-zip(type="text", placeholder="Zip", name="input-shipping-zip", data-bind-input="input-billing-zip", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
                                 label(for="input-shipping-country") Country
                                 input.form-control#input-shipping-country(type="text", value="United States", disabled)
@@ -163,7 +173,7 @@ block content
                             .input-wrapper
                                 label(for="input-shipping-telephone") Telephone
                                     span.required *
-                                input.form-control#input-shipping-telephone(type="tel", placeholder="Telephone", name="input-shipping-telephone", data-bind-input="input-telephone", data-validetta="required")
+                                input.form-control#input-shipping-telephone(type="tel", placeholder="Telephone", name="input-shipping-telephone", data-bind-input="input-billing-telephone", data-validetta="required")
                         h2 2. Billing Information
                         .input-checkbox
                             label(for="input-billing")
@@ -171,36 +181,36 @@ block content
                                 | Use shipping address
                         fieldset.billing-info
                             .input-wrapper
-                                label(for="input-first-name") First name
+                                label(for="input-billing-first-name") First name
                                     span.required *
-                                input.form-control#input-first-name(type="text", placeholder="First name", name="input-first-name", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control#input-billing-first-name(type="text", placeholder="First name", name="input-billing-first-name", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
-                                label(for="input-last-name") Last name
+                                label(for="input-billing-last-name") Last name
                                     span.required *
-                                input.form-control#input-last-name(type="text", placeholder="Last name", name="input-last-name", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control#input-billing-last-name(type="text", placeholder="Last name", name="input-billing-last-name", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
-                                label(for="input-email") Email
+                                label(for="input-billing-email") Email
                                     span.required *
-                                input.form-control#input-email(type="text", placeholder="Email", name="input-email", data-validetta="required,email", data-vd-message-required="This field is required.", data-vd-message-email="Your email address appears to be invalid.")
+                                input.form-control#input-billing-email(type="text", placeholder="Email", name="input-billing-email", data-validetta="required,email", data-vd-message-required="This field is required.", data-vd-message-email="Your email address appears to be invalid.")
                             .input-wrapper
-                                label(for="input-company") Company
-                                input.form-control#input-company(type="text", placeholder="Company", name="input-company")
+                                label(for="input-billing-company") Company
+                                input.form-control#input-billing-company(type="text", placeholder="Company", name="input-billing-company")
                             .input-wrapper
-                                label(for="input-address-line-1") Address
+                                label(for="input-billing-address-line-1") Address
                                     span.required *
-                                input.form-control#input-address-line-1(type="text", placeholder="Address line 1", name="input-address-line-1", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control#input-billing-address-line-1(type="text", placeholder="Address line 1", name="input-billing-address-line-1", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
-                                label.invisible(for="input-address-line-2") Address
-                                input.form-control#input-address-line-2(type="text", placeholder="Address line 2", name="input-address-line-2")
+                                label.invisible(for="input-billing-address-line-2") Address
+                                input.form-control#input-billing-address-line-2(type="text", placeholder="Address line 2", name="input-billing-address-line-2")
                             .input-wrapper
-                                label(for="input-city") City
+                                label(for="input-billing-city") City
                                     span.required *
-                                input.form-control#input-city(type="text", placeholder="City", name="input-city", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control#input-billing-city(type="text", placeholder="City", name="input-billing-city", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
-                                label(for="input-state") State
+                                label(for="input-billing-state") State
                                 .input-select
                                     span State
-                                    select.custom-select.form-control#input-state(name="input-state")
+                                    select.custom-select.form-control#input-billing-state(name="input-billing-state")
                                         option(value="", disabled, selected, hidden) State
                                         option(value="AL") AL
                                         option(value="AK") AK
@@ -254,17 +264,17 @@ block content
                                         option(value="WI") WI
                                         option(value="WY") WY
                             .input-wrapper
-                                label(for="input-zip") Zip
+                                label(for="input-billing-zip") Zip
                                     span.required *
-                                input.form-control#input-zip(type="text", placeholder="Zip", name="input-zip", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control#input-billing-zip(type="text", placeholder="Zip", name="input-billing-zip", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
-                                label(for="input-country") Country
-                                input#input-country(type="text", value="United States", disabled)
+                                label(for="input-billing-country") Country
+                                input#input-billing-country(type="text", value="United States", disabled)
                                 span.notice More countries coming soon
                             .input-wrapper
-                                label(for="input-telephone") Telephone
+                                label(for="input-billing-telephone") Telephone
                                     span.required *
-                                input.form-control#input-telephone(type="tel", placeholder="Telephone", name="input-telephone", data-validetta="required")
+                                input.form-control#input-billing-telephone(type="tel", placeholder="Telephone", name="input-billing-telephone", data-validetta="required")
                         h2 3. Payment Method
                             i(class="icon icon-ui-lock", title="All transactions are secure and encrypted. Credit card information is never stored.", rel="tooltip")
                         fieldset
@@ -299,7 +309,7 @@ block content
                                 label(for="input-card-code") Security code
                                 input.form-control#input-card-code(type="number", placeholder="Code", name="input-card-code", data-validetta="required,number,minLength[3],maxLength[3]", data-vd-message-required="This field is required.")
                                 i(class="icon icon-ui-question trigger-cvv")
-                                .card-cvv 
+                                .card-cvv
                                     img(src="images/card-cvv_2x.png", alt="Card CVV", width="171", height="124")
                                     p Card security code (CVV) is found on the back of most credit cards.
                         .order
@@ -321,7 +331,7 @@ block content
                                     tr
                                         td Total
                                         td.price-total
-                                
+
                         input(type="submit", value="Place Order", name="placeOrder", id="placeOrder", class="button button-inverted")
     .overlay
 
