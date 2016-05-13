@@ -101,7 +101,9 @@
 		var lineItemNode = lineItemTemplate.clone();
 
 		var lineItemClass = 'order-product-' + sku;
-		lineItemNode.addClass(lineItemClass);
+		lineItemNode
+			.addClass(lineItemClass)
+			.attr('data-sku', sku);
 
 		var src = imageForSku(sku);
 		lineItemNode.find('.product-image').attr('src', src);
@@ -114,10 +116,10 @@
 				.val(quantity);
 
 			var selectCount = lineItemNode.find('.input-select-count');
-			selectCount.val(quantity);
 			for (var i = 1; i <= inventory; i++) {
 				selectCount.append('<option value="'+ i +'">'+ i +'</option>');
 			}
+			selectCount.val(quantity);
 		} else {
 			lineItemNode.find('.input-number-count').html('<span class="error">Sold out</span>');
 		}
@@ -480,25 +482,28 @@
 		// });
 
 		$('#input-shipping-state').on('change', function(e) {
-			if($('#input-shipping-city').val().length)
+			if($('#input-shipping-city').val().length) {
 				updatePrices();
+			}
 		});
 
 		$('#input-shipping-country').on('change', function(e) {
-			if($('#input-shipping-zip').val().length)
+			if($('#input-shipping-zip').val().length) {
 				updatePrices();
+			}
 		});
 
 		$('#input-shipping-zip').on('blur', function(e) {
-			if($('#input-shipping-zip').val().length)
+			if($('#input-shipping-zip').val().length) {
 				updatePrices();
+			}
 		});
 
 		// There is one of these for each product the user has added
 		// var inputCount = $('.input-count');
 
 		function getSku ($node) {
-			return $node.closest('.order-product').attr('sku');
+			return $node.closest('.order-product').attr('data-sku');
 		}
 
 		// when dropdown changes, update cart quantity
@@ -507,27 +512,34 @@
 			var sku = getSku($this);
 			var quantity = $this.val();
 			edynStore.setQuantity(sku, quantity);
+			syncViewToStore();
 			updatePrices();
 			e.preventDefault();
 		});
 
 		$(document).on('click', '.input-count-up, .input-count-plus', function (e) {
+			var $this = $(this);
 			var sku = getSku($this);
 			edynStore.incrementQuantity(sku);
+			syncViewToStore();
 			updatePrices();
 			e.preventDefault();
 		});
 
 		$(document).on('click', '.input-count-down, .input-count-minus', function(e) {
+			var $this = $(this);
 			var sku = getSku($this);
 			edynStore.decrementQuantity(sku);
+			syncViewToStore();
 			updatePrices();
 			e.preventDefault();
 		});
 
 		$(document).on('click', '.input-count-trash', function(e) {
+			var $this = $(this);
 			var sku = getSku($this);
 			edynStore.remove(sku);
+			syncViewToStore();
 			updatePrices();
 			e.preventDefault();
 		});
@@ -537,6 +549,7 @@
 			// increment count for this product;
 			var sku = $(this).attr('data-sku');
 			edynStore.incrementQuantity(sku);
+			syncViewToStore();
 			updatePrices();
 			e.preventDefault();
 		});
