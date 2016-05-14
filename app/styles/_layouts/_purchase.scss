@@ -206,20 +206,20 @@
         }
 
         .input-count-wrapper {
-            &-controls {
+            .input-count-controls {
 
             }
 
-            &-trash {
+            .input-count-trash {
                 color: $swirl;
                 font-size: em(20);
             }
 
-            &-up {
+            .input-count-up {
                 color: $swirl;
             }
 
-            &-down {
+            .input-count-down {
                 color: $swirl;
             }
         }
@@ -354,12 +354,28 @@
                 }
             }
 
-            .product-add {
-              cursor: pointer;
-              color: $amber;
+            .product-add, .product-soldout {
               font: {
                   size: em(15);
                   family: $proxima-semibold;
+              }
+            }
+
+            .product-add {
+              color: $amber;
+              cursor: pointer;
+            }
+
+            .product-soldout {
+              display: none;
+            }
+
+            &.product-soldout {
+              .product-add {
+                display: none;
+              }
+              .product-soldout {
+                display: block;
               }
             }
 

@@ -248,7 +248,7 @@ form {
     .input-select {
         position: relative;
 
-        > span {
+        > span.label {
             position: absolute;
             top: -2px; // Dirty hack
             z-index: 1;

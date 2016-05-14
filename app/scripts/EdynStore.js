@@ -3,9 +3,7 @@
 
   function EdynStore (args) {
     this.request = args.request;
-    this.celeryApiUrl = args.celeryApiUrl;
-
-    this.inventory = null;
+    this.products = null;
 
     // object with project ids keyed to quantity
     this.cart = {};
@@ -17,41 +15,13 @@
     this.coupon = null;
   }
 
-  EdynStore.HOME_DEPOT_URL = 'http://www.homedepot.com/b/Edyn/N-5yc1vZerz';
-
   EdynStore.prototype.setup = function (inventory) {
-    if (!inventory) {
-      // TODO: what to do here?
-    }
-
-    this.celeryUserId = inventory[0].userId;
-    this.inventory = inventory;
+    this.celeryUserId = inventory.userId;
+    this.products = inventory.products;
+    this.celeryApiUrl = inventory.apiUrl;
   };
 
   EdynStore.prototype.loadInventory = function (callback) {
-    var FAKE_INVENTORY = [
-      {
-        id: '5654f1f9d5ec870300f2403c',
-        userId: '5654f01bd5ec870300f24037',
-        name: 'Edyn Water Valve',
-        price: 5999,
-        inventory: 50,
-        sku: 'valve'
-      },
-      {
-        id: '5654f1c5d5ec870300f24039',
-        userId: '5654f01bd5ec870300f24037',
-        name: 'Edyn Garden Sensor',
-        price: 9999,
-        inventory: 7,
-        sku: 'sensor'
-      }
-    ];
-
-    this.setup(FAKE_INVENTORY);
-    callback(null);
-    return;
-
     this.request({
       type: 'GET',
       url: '/inventory',
@@ -68,8 +38,22 @@
     });
   };
 
+  EdynStore.prototype.homeDepotUrl = function (sku) {
+    var urls = {
+      sensor: 'http://www.homedepot.com/p/Edyn-Garden-Sensor-EDYN-001/205833447',
+      valve: 'http://www.homedepot.com/p/Edyn-Water-Valve-EDYN-002/205833449',
+      ALL: 'http://www.homedepot.com/b/Edyn/N-5yc1vZerz'
+    };
+
+    if (!(sku in urls)) {
+      sku = 'ALL';
+    }
+
+    return urls[sku];
+  };
+
   EdynStore.prototype.productForField = function (field, val) {
-    return this.inventory.filter(function (product) {
+    return this.products.filter(function (product) {
       return (product[field] === val);
     })[0];
   };
@@ -95,12 +79,6 @@
     this.deltaCart(sku, -1);
   };
 
-  EdynStore.prototype.setQuantity = function (sku, quantity) {
-    var product = this.productForSku(sku);
-    var id = product.id;
-    this.cart[id] = quantity;
-  };
-
   EdynStore.prototype.deltaCart = function (sku, dir) {
     var product = this.productForSku(sku);
     var id = product.id;
@@ -109,22 +87,29 @@
       this.cart[id] = 0;
     }
 
-    this.cart[id] += dir;
+    var quantity = this.cart[id] += dir;
+    this.setQuantity(sku, quantity);
+  };
+
+  EdynStore.prototype.setQuantity = function (sku, quantity) {
+    var product = this.productForSku(sku);
+    var id = product.id;
+    this.cart[id] = quantity;
+
+    // make sure they don't add more than we have
+    var available = product.inventory;
+    if (this.cart[id] > available) {
+      this.cart[id] = available;
+    }
 
     if (this.cart[id] <= 0) {
       // no more in cart, delete entry
       delete this.cart[id];
-    } else {
-      // make sure they don't add more than we have
-      var available = product.inventory;
-      if (this.cart[id] > available) {
-        this.cart[id] = available;
-      }
     }
   };
 
   EdynStore.prototype.outOfStock = function () {
-    return this.inventory.every(function (product) {
+    return this.products.every(function (product) {
       return (product.inventory === 0);
     });
   };
@@ -163,17 +148,13 @@
 			user_id: this.celeryUserId,
 			buyer: this.buyer,
 			shipping_address: this.shippingAddress,
+      billing_address: this.billingAddress || this.shippingAddress,
 			payment_source: {
 				card: this.card
 			},
 			line_items: this.lineItems(),
 			discount_codes: [this.coupon]
 		};
-
-    if (this.billingAddress) {
-      // if user specified billing address, then add that.
-      order.billing_address = this.billingAddress;
-    }
 
     return order;
   };
@@ -227,17 +208,19 @@
         return callback(error, null);
       }
 
-      // TODO: handle error case for /confirmation
       this.request({
         type: 'POST',
         data: JSON.stringify(results.data),
         contentType: 'application/json',
-        url: '/confirmation',
-        success: function(data) {
-          callback(null, data);
-        }
+        url: '/confirmation'
+      })
+      .done(function (completedOrder) {
+        callback(null, completedOrder);
+      })
+      .fail(function (jqXHR) {
+        var error = new Error('Error showing confirmation.');
+        return callback(error, null);
       });
-
     }.bind(this));
   };
 

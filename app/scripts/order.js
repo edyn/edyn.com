@@ -2,9 +2,7 @@
 	'use strict';
 
 	var edynStore = new EdynStore({
-		request: $.ajax,
-		celeryApiUrl: 'https://api-sandbox.trycelery.com/v2'
-		// celeryApiUrl: 'https://api.trycelery.com/v2'
+		request: $.ajax
 	});
 
 	function getInputVals (map) {
@@ -18,11 +16,11 @@
 
 	function getBuyer () {
 		return getInputVals({
-			first_name: '#input-first-name',
-			last_name: '#input-last-name',
-			email: '#input-email',
-			company: '#input-company',
-			phone: '#input-telephone'
+			first_name: '#input-shipping-first-name',
+			last_name: '#input-shipping-last-name',
+			email: '#input-shipping-email',
+			company: '#input-shipping-company',
+			phone: '#input-shipping-telephone'
 		});
 	}
 
@@ -42,7 +40,7 @@
 	}
 
 	function getBillingAddress () {
-		if (!hasBillingAddress()) {
+		if (!wantsBillingAddress()) {
 			return null;
 		}
 
@@ -74,7 +72,7 @@
 		return val.match(/\s+/) ? null : val;
 	}
 
-	function hasBillingAddress () {
+	function wantsBillingAddress () {
 		return ($('#input-billing:checked').length === 0);
 	}
 
@@ -86,6 +84,13 @@
 
 	function imageForSku (sku) {
 		return 'images/edyn_' + sku + '_thumbnail_2x.png';
+	}
+
+	function hasNeccessaryDataToCalculateShipping () {
+		var hasState = $('#input-shipping-state').val();
+		var hasCountry = $('#input-shipping-country').val();
+		var hasZip = $('#input-shipping-zip').val();
+		return hasState && hasCountry && hasZip;
 	}
 
 	// this gets set in setupUi
@@ -116,7 +121,7 @@
 				.val(quantity);
 
 			var selectCount = lineItemNode.find('.input-select-count');
-			for (var i = 1; i <= inventory; i++) {
+			for (var i = 0; i <= inventory; i++) {
 				selectCount.append('<option value="'+ i +'">'+ i +'</option>');
 			}
 			selectCount.val(quantity);
@@ -158,13 +163,20 @@
 	function checkCoupon() {
 		syncStoreToView();
 
-		if (!edynStore.coupon) {
+		var errorNode = $('.input-coupon-wrapper .validetta-bubble');
+
+		function clearErrorAndUpdatePrices () {
+			$('.button-group-coupon').hide();
+			errorNode.hide();
 			updatePrices();
+		}
+
+		if (!edynStore.coupon) {
+			clearErrorAndUpdatePrices();
 			return;
 		}
 
 		edynStore.validateCoupon(function(error, coupon) {
-			var errorNode = $('.input-coupon-wrapper .validetta-bubble');
 			if (error) {
 				var msg = 'Invalid coupon.';
 				if (error.message.match('is expired')) {
@@ -172,9 +184,7 @@
 				}
 				errorNode.html(msg).show();
 			} else {
-				$('.button-group-coupon').hide();
-				errorNode.hide();
-				updatePrices();
+				clearErrorAndUpdatePrices();
 			}
 		});
 	}
@@ -184,12 +194,29 @@
 
 		edynStore.checkout(function (error, data) {
 			if (error) {
-				$('#placeOrder').val('Place Order');
-				$('#placeOrder').removeAttr('disabled');
+				var msg;
+				if (error.message === 'Error showing confirmation.') {
+					msg = 'Your order was placed successfully but there was an error displaying confirmation. Please contact support@edyn.com.';
+				} else {
+					var stripeErrors = [
+						'Your card was declined.',
+						'Your card\'s expiration month is invalid.',
+						'Your card\'s security code is incorrect.',
+						'Your card has expired.',
+						'An error occurred while processing your card. Try again in a little bit.'
+					];
+					if (stripeErrors.indexOf(error.message) !== -1) {
+						msg = error.message
+					} else {
+						msg = 'Error placing order. Please contact support@edyn.com.';
+					}
+					$('#placeOrder').val('Place Order');
+					$('#placeOrder').removeAttr('disabled');
+				}
 
 				swal({
 					title: 'An error has occurred.',
-					text: error.responseJSON.meta.error.message,
+					text: msg,
 					type: 'error',
 					confirmButtonText: 'Close',
 					confirmButtonColor: '#f9c000',
@@ -215,8 +242,18 @@
 		return '$' + (price / 100).toFixed(2);
 	}
 
+	function updateSubmitState () {
+		if (edynStore.cartIsEmpty()) {
+			$('#placeOrder').attr('disabled', 'disabled');
+		} else {
+			$('#placeOrder').removeAttr('disabled');
+		}
+	}
+
 	function updatePrices() {
 		syncStoreToView();
+
+		updateSubmitState();
 
 		if (edynStore.cartIsEmpty()) {
 			// clear prices
@@ -228,8 +265,14 @@
 
 		edynStore.serializeOrder(function (error, order) {
 			if (error) {
-				// TODO: properly handle this
-				console.log(error);
+				// TODO: how can we handle this situation better?
+				swal({
+					title: 'An error has occurred.',
+					text: 'Error updating prices',
+					type: 'error',
+					confirmButtonText: 'Close',
+					confirmButtonColor: '#f9c000',
+				});
 				return;
 			}
 
@@ -251,22 +294,10 @@
 			var taxText = order.taxes ? priceText(order.taxes) : '';
 			$('.price-tax').text(taxText);
 
-			var hasState = $('#input-shipping-state').val();
-			var hasCountry = $('#input-shipping-country').val();
-			var hasZip = $('#input-shipping-zip').val();
-
-			if (hasState && hasCountry && hasZip) {
+			if (hasNeccessaryDataToCalculateShipping()) {
 				var totalText = priceText(order.total);
 				$('.price-total').text(totalText);
 			}
-		});
-	}
-
-	function bindInputs() {
-		$('.shipping-info .form-control').each(function(){
-			var input = $(this);
-			var target = $('input[name='+input.data('bind-input')+']');
-			target.val(input.val());
 		});
 	}
 
@@ -344,34 +375,42 @@
 		function renderProduct (product) {
 			var sku = product.sku;
 			var name = product.name;
+			var inventory = product.inventory;
 			var price = priceText(product.price);
 			var imgSrc = imageForSku(sku);
 
 			var productNode = productTemplate.clone();
 
 			var productClass = 'product-' + sku;
+			if (inventory === 0) {
+				productClass += ' product-soldout';
+			}
 			productNode.addClass(productClass);
 
 			productNode.find('.product-name').html(name);
 			productNode.find('.product-price').html(price);
-			productNode.find('.product-add').attr('data-sku', sku);
 			productNode.find('.product-image').attr('src', imgSrc);
+			productNode.find('.product-add').attr('data-sku', sku);
 
 			return productNode;
 		}
 
-		var productNodes = edynStore.inventory.map(renderProduct);
+		var productNodes = edynStore.products.map(renderProduct);
 		$('.products')
 			.empty()
 			.append(productNodes);
+	}
+
+	function goToHomeDepot(sku) {
+		var url = edynStore.homeDepotUrl(sku);
+		window.location.replace(url);
 	}
 
 	function setupUi() {
 		setupTooltips();
 
 		if (edynStore.outOfStock()) {
-			// TODO: better messaging
-			$('#placeOrder').attr('disabled', 'disabled');
+			goToHomeDepot();
 		} else {
 			renderProducts();
 		}
@@ -460,18 +499,12 @@
 			e.stopPropagation();
 		});
 
-		$('.shipping-info .form-control').bind('paste keyup', bindInputs);
-
 		//Shipping info checkbox event
 		$('#input-billing').click(function(){
-			if (hasBillingAddress()) {
-				$('.shipping-info .form-control').unbind('paste keyup', bindInputs);
-				$('.billing-info .form-control').val('');
+			if (wantsBillingAddress()) {
 				$('.billing-info .custom-select').prev('span').show();
 				$('.billing-info').show();
 			} else {
-				$('.shipping-info .form-control').bind('paste keyup', bindInputs);
-				bindInputs();
 				$('.billing-info').hide();
 			}
 		});
@@ -559,28 +592,56 @@
 			return false;
 		});
 
+		function doCheckout () {
+			if (!edynStore.cartIsEmpty()) {
+				$('#placeOrder').val('Hold On...');
+				$('#placeOrder').attr('disabled', 'disabled');
+				checkout();
+			}
+		}
 
 		// Form validation
 		$('#form').validetta({
 			realTime : true,
 			onValid: function(event) {
-				$('#placeOrder').val('Hold On...');
-				$('#placeOrder').attr('disabled', 'disabled');
-				placeOrder();
+				doCheckout();
 			},
-			onError: function() {
+			onError: function (event) {
+				if (!wantsBillingAddress()) {
+					// ignore billing address validation errors if its not specified
+					var invalidFields = this.getInvalidFields();
+
+					var allInvalidFieldsAreBilling = invalidFields.every(function (fieldError) {
+						return $(fieldError.field).is('.billing-field');
+					});
+
+					if (allInvalidFieldsAreBilling) {
+						doCheckout();
+					}
+				}
 			}
 		});
 	}
 
 	// Update inventory on page load
 	$(document).ready(function() {
+		// yuuuuuck
+		var isOrderPage = $('.order .order-products').length;
+		if (!isOrderPage) {
+			return;
+		}
+
 		edynStore.loadInventory(function (error) {
+			var params = Edyn.Utils.queryParams();
+			var sku = params.sku;
+
 			if (error) {
-				// Error loading inventory. Redirect to Home Depot
-				window.location.replace(EdynStore.HOME_DEPOT_URL);
+				goToHomeDepot(sku);
 			} else {
-				// Got inventory, get view wired up
+				if (sku) {
+					edynStore.incrementQuantity(sku);
+				}
+				updateSubmitState();
 				setupUi();
 			}
 		});

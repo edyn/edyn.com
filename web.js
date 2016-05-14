@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var app = express();
 
+var Config = require('config');
+
 app.use(morgan('dev'));
 app.use(gzippo.staticGzip("" + __dirname + "/dist"));
 
@@ -39,17 +41,21 @@ app.get('/resetpassword', function(req, res) {
 });
 
 app.get('/order', function(req, res) {
-    //res.redirect('http://www.homedepot.com/p/Edyn-Garden-Sensor-EDYN-001/205833447');
     res.sendfile('./dist/order.html');
 });
 
 app.get('/inventory', function(req, res) {
+    var config = Config.get('celery');
+
+    var apiUrl = config.url;
+    var token = config.token;
+
     var options = {
         method: 'GET',
-        url: 'https://api-sandbox.trycelery.com/v2/products',
+        url: apiUrl + '/products',
         json: true,
         headers: {
-            'Authorization': '44aea5eaf148dbabee4236553f2d805af942b5edddb4ab23298f5ea89d8afb3d0498ff2b5e647d8cd934ef367119f2c6'
+            Authorization: config.token
         }
     };
 
@@ -60,74 +66,61 @@ app.get('/inventory', function(req, res) {
             return;
         }
 
-        var products = body.data.map(function (product) {
+        var rawProducts = body.data;
+
+        if (rawProducts.length === 0) {
+          res.status(500).send('No inventory');
+          return;
+        }
+
+        var userId = rawProducts[0].user_id;
+
+        var products = rawProducts.map(function (product) {
           return {
             id: product._id,
-            userId: product.user_id,
             name: product.name,
-            price: (product.price / 100.0),
-            inventory: product.inventory
+            price: product.price,
+            inventory: product.inventory,
+            sku: product.sku
           };
         });
 
-        res.send(products);
+        res.send({
+          products: products,
+          apiUrl: apiUrl,
+          userId: userId
+        });
     });
 });
 
 app.post('/confirmation', function(req, res) {
     res.location('/confirmation');
 
+    var order = req.body;
+
+    function formatMoney (val) {
+      return '$' + (val / 100).toFixed(2);
+    }
+
+    var moneys = ['total', 'linetotal', 'discount', 'taxes', 'shipping'];
+    moneys.forEach(function (attr) {
+      order[attr] = formatMoney(order[attr]);
+    });
+
+    order.line_items.forEach(function (lineItem) {
+      lineItem.total = formatMoney(lineItem.price * lineItem.quantity);
+      lineItem.price = formatMoney(lineItem.price);
+    });
+
     res.render('confirmation', {
-        order: {
-            number : req.body.number,
-            buyer : {
-                first_name: req.body.buyer.first_name,
-                last_name: req.body.buyer.last_name,
-            },
-            name : req.body.number,
-            total : '$' + (req.body.total / 100),
-            subtotal : '$' + (req.body.linetotal / 100),
-            discount : '- $' + (req.body.discount / 100),
-            taxes : '$' + (req.body.taxes / 100),
-            shipping : '$' + (req.body.shipping / 100),
-            shipping_address : {
-                first_name: req.body.shipping_address.first_name,
-                last_name: req.body.shipping_address.last_name,
-                company: req.body.shipping_address.company,
-                line1: req.body.shipping_address.line1,
-                line2: req.body.shipping_address.line2,
-                city: req.body.shipping_address.city,
-                country: req.body.shipping_address.country,
-                zip: req.body.shipping_address.zip,
-                state: req.body.shipping_address.state.toUpperCase(),
-                phone: req.body.shipping_address.phone,
-            },
-            billing_address : {
-                first_name: req.body.billing_address.first_name,
-                last_name: req.body.billing_address.last_name,
-                company: req.body.billing_address.company,
-                line1: req.body.billing_address.line1,
-                line2: req.body.billing_address.line2,
-                city: req.body.billing_address.city,
-                country: req.body.billing_address.country,
-                zip: req.body.billing_address.zip,
-                state: req.body.billing_address.state.toUpperCase(),
-                phone: req.body.billing_address.phone,
-            },
-        }
+        order: order
     });
 });
 
-// app.get('/confirmation', function(req, res) {
-//     res.render('confirmation');
-// });
 
 ///
-// Backwards compatibility with the old website
+// Backwards compatibility
 ///
-// app.get('/order', function(req, res) {
-//     res.redirect('/');
-// });
 
 app.get('/faq', function(req, res) {
     res.redirect('https://edyn.zendesk.com/hc/en-us');

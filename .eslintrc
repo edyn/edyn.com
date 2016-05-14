@@ -3,6 +3,7 @@
     "jQuery": false,
     "skrollr": false,
     "$f": false,
-    "cssua": false
+    "cssua": false,
+    "Edyn": false
   }
 }
