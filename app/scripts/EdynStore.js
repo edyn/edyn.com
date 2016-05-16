@@ -22,6 +22,31 @@
   };
 
   EdynStore.prototype.loadInventory = function (callback) {
+    // var FAKE_INVENTORY = {
+    //   products: [
+    //     {
+    //       id: '5654f1f9d5ec870300f2403c',
+    //       name: 'Edyn Water Valve',
+    //       price: 5999,
+    //       inventory: 50,
+    //       sku: 'valve'
+    //     },
+    //     {
+    //       id: '5654f1c5d5ec870300f24039',
+    //       name: 'Edyn Garden Sensor',
+    //       price: 9999,
+    //       inventory: 10,
+    //       sku: 'sensor'
+    //     }
+    //   ],
+    //   userId: '5654f01bd5ec870300f24037',
+    //   apiUrl: 'https://api-sandbox.trycelery.com/v2'
+    // };
+    //
+    // this.setup(FAKE_INVENTORY);
+    // callback(null, null);
+    // return;
+
     this.request({
       type: 'GET',
       url: '/inventory',

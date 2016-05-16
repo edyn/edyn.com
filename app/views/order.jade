@@ -51,24 +51,30 @@ block content
                               .button-group.button-group-coupon
                                   button.button.button-outline.button-apply Apply
                                   button.button.button-outline.button-cancel Cancel
-                            table.order-summary
-                                tbody
-                                    tr
-                                        td Subtotal
-                                        td.price-subtotal
-                                    tr.line-discount
-                                        td Coupon Discount
-                                        td.price-discount
-                                    tr
-                                        td Shipping
-                                        td.price-shipping
-                                    tr
-                                        td Tax
-                                        td.price-tax
-                                tfoot
-                                    tr
-                                        td Total
-                                        td.price-total
+
+                            .order-summary-wrapper
+                              .order-loader
+                                .order-loader-text Updating...
+                                .order-loader-spinner
+
+                              table.order-summary
+                                  tbody
+                                      tr
+                                          td Subtotal
+                                          td.price-subtotal
+                                      tr.line-discount
+                                          td Coupon Discount
+                                          td.price-discount
+                                      tr
+                                          td Shipping
+                                          td.price-shipping
+                                      tr
+                                          td Tax
+                                          td.price-tax
+                                  tfoot
+                                      tr
+                                          td Total
+                                          td.price-total
 
                         .products
                           .product.product-template
@@ -176,7 +182,7 @@ block content
                             .input-wrapper
                                 label(for="input-shipping-telephone") Telephone
                                     span.required *
-                                input.form-control#input-shipping-telephone(type="tel", placeholder="Telephone", name="input-shipping-telephone", data-bind-input="input-billing-telephone", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control#input-shipping-telephone(type="tel", placeholder="Telephone", name="input-shipping-telephone", data-bind-input="input-billing-telephone", data-validetta="required,callback[phone]", data-vd-message-required="This field is required.")
                         h2 2. Billing Information
                         .input-checkbox
                             label(for="input-billing")
@@ -278,7 +284,7 @@ block content
                             .input-wrapper
                                 label(for="input-billing-telephone") Telephone
                                     span.required *
-                                input.form-control.billing-field#input-billing-telephone(type="tel", placeholder="Telephone", name="input-billing-telephone", data-validetta="required")
+                                input.form-control.billing-field#input-billing-telephone(type="tel", placeholder="Telephone", name="input-billing-telephone", data-validetta="required,callback[phone]")
                         h2 3. Payment Method
                             i(class="icon icon-ui-lock", title="All transactions are secure and encrypted. Credit card information is never stored.", rel="tooltip")
                         fieldset

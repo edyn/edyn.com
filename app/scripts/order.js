@@ -82,8 +82,12 @@
 			.remove();
 	}
 
-	function imageForSku (sku) {
-		return 'images/edyn_' + sku + '_thumbnail_2x.png';
+	function orderImageForSku (sku) {
+		return 'images/edyn_web_order_' + sku + '.png';
+	}
+
+	function upsellImageForSku (sku) {
+		return 'images/edyn_web_upsell_' + sku + '.png';
 	}
 
 	function hasNeccessaryDataToCalculateShipping () {
@@ -110,7 +114,7 @@
 			.addClass(lineItemClass)
 			.attr('data-sku', sku);
 
-		var src = imageForSku(sku);
+		var src = orderImageForSku(sku);
 		lineItemNode.find('.product-image').attr('src', src);
 
 		lineItemNode.find('.product-name').html(name);
@@ -160,7 +164,7 @@
 		}
 	}
 
-	function checkCoupon() {
+	function checkCoupon () {
 		syncStoreToView();
 
 		var errorNode = $('.input-coupon-wrapper .validetta-bubble');
@@ -176,13 +180,19 @@
 			return;
 		}
 
+		var buttons = $('.button-group-coupon button');
+		buttons.attr('disabled', 'disabled');
+		showLoader();
+
 		edynStore.validateCoupon(function(error, coupon) {
+			buttons.removeAttr('disabled');
 			if (error) {
 				var msg = 'Invalid coupon.';
 				if (error.message.match('is expired')) {
 					msg = 'Coupon expired.';
 				}
 				errorNode.html(msg).show();
+				hideLoader();
 			} else {
 				clearErrorAndUpdatePrices();
 			}
@@ -250,7 +260,18 @@
 		}
 	}
 
+	var $loader = $('.order-loader');
+
+	function showLoader () {
+		$loader.show();
+	}
+
+	function hideLoader () {
+		$loader.hide();
+	}
+
 	function updatePrices() {
+		showLoader();
 		syncStoreToView();
 
 		updateSubmitState();
@@ -298,6 +319,8 @@
 				var totalText = priceText(order.total);
 				$('.price-total').text(totalText);
 			}
+
+			hideLoader();
 		});
 	}
 
@@ -377,7 +400,7 @@
 			var name = product.name;
 			var inventory = product.inventory;
 			var price = priceText(product.price);
-			var imgSrc = imageForSku(sku);
+			var imgSrc = upsellImageForSku(sku);
 
 			var productNode = productTemplate.clone();
 
@@ -602,8 +625,20 @@
 
 		// Form validation
 		$('#form').validetta({
-			realTime : true,
-			onValid: function(event) {
+			realTime: false,
+			validators: {
+				callback: {
+					phone: {
+						callback: function (el, phone) {
+							var PhoneNumber = window.libphonenumber.PhoneNumberUtil.getInstance();
+							var number = PhoneNumber.parse(phone, 'US');
+							return PhoneNumber.isValidNumber(number);
+						},
+						errorMessage: 'Invalid phone number'
+					}
+				}
+			},
+			onValid: function (event) {
 				doCheckout();
 			},
 			onError: function (event) {
@@ -638,11 +673,13 @@
 			if (error) {
 				goToHomeDepot(sku);
 			} else {
-				if (sku) {
+				var skus = sku ? [sku] : ['valve', 'sensor'];
+				skus.forEach(function (sku) {
 					edynStore.incrementQuantity(sku);
-				}
+				});
 				updateSubmitState();
 				setupUi();
+				updatePrices();
 			}
 		});
 	});

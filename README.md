@@ -9,7 +9,7 @@ The template structure is generated using [Gulp Web App](https://github.com/yeom
 
 When you launch via “gulp serve”, the routing doesn’t work (Express maps /about to the correct html file in production), but I usually just test the pages manually ‘/about.html’ for example while developing.
 
-- `NODE_ENV node web.js` so routes actually work (but no hot reloading)
+- `NODE_ENV=dev node web.js` so routes actually work (but no hot reloading)
 
 - Launch `npm run build` to build the app static & minified files
 

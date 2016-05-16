@@ -94,8 +94,6 @@ app.get('/inventory', function(req, res) {
 });
 
 app.post('/confirmation', function(req, res) {
-    res.location('/confirmation');
-
     var order = req.body;
 
     function formatMoney (val) {
