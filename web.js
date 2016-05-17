@@ -80,21 +80,31 @@ app.get('/inventory', function(req, res) {
 
         var userId = rawProducts[0].user_id;
 
-        var products = rawProducts.map(function (product) {
+        var products = [];
+
+        rawProducts.forEach(function (product) {
           var name = product.name;
           var device = devicesByName[name];
+
+          // this should only happen if someone changes the name of
+          // a device on Celery.
+          if (!device) {
+            return;
+          }
+
           var ships = {
             sensor: 'Ships immediately',
-            valve: 'Ships in 2 weeks'
+            valve: 'Ships in 2-3 weeks'
           }[device];
-          return {
+
+          products.push({
             id: product._id,
             name: name,
             price: product.price,
             inventory: product.inventory,
             device: device,
             ships: ships
-          };
+          });
         });
 
         res.send({
