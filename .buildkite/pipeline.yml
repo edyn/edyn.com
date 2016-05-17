@@ -1,0 +1,9 @@
+
+env:
+  DEBUG: e2e*
+
+steps:
+  - command: ./build.sh
+    name: Build
+    artifact_paths: "logs/**/*"
+    timeout_in_minutes: 3
