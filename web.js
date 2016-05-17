@@ -158,5 +158,5 @@ app.get('/support', function(req, res) {
 // End of backwards compatibility section
 ///
 
-
-app.listen(process.env.PORT || 5000);
+var port = Config.get('port');
+app.listen(port);
