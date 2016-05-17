@@ -11,7 +11,8 @@
     "skrollr": "~0.6.30",
     "froogaloop": "~1.0.0",
     "cssuseragent": "~2.1.30",
-    "validetta": "~1.0.1"
+    "validetta": "~1.0.1",
+    "google-libphonenumber": "^1.0.20"
   },
   "devDependencies": {
     "chai": "~3.0.0",

@@ -5,13 +5,13 @@ doctype html
 html.no-js(lang='en')
 
     include ../includes/head.jade
-    
+
     body(class='#{bodyClass}')
         include ../includes/google-tag.jade
         | <!--[if lt IE 10]>
         |   <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         | <![endif]-->
-    
+
         header
             h1
                 a.logo(href='/') Edyn
@@ -21,11 +21,11 @@ html.no-js(lang='en')
                         span
                     ul.menu-list
                         li.menu-item
-                            a#buyButtonMenu.button(href='/order', target='_blank') Buy Now
+                            a#buyButtonMenu.button(href='/order') Buy Now
                         li.menu-item
                             a.toggle-lightbox.app-link(href='#') Get the App
-         
+
         block content
-        
+
         include ../includes/footer.jade
         include ../includes/scripts.jade

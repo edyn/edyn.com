@@ -20,7 +20,7 @@ form {
 
 
 
-    .input-select-count {
+    .input-select-count-wrapper {
         position: relative;
 
         select {
@@ -248,7 +248,7 @@ form {
     .input-select {
         position: relative;
 
-        > span {
+        > span.label {
             position: absolute;
             top: -2px; // Dirty hack
             z-index: 1;
@@ -329,7 +329,7 @@ form {
             }
         }
 
-        .input-count {
+        .input-count-wrapper {
             position: relative;
             width: 60%;
             height: em(50);
@@ -351,15 +351,15 @@ form {
                 padding: em(10) em(0);
             }
 
-            &-up {
+            .input-count-up {
                 display: none;
             }
 
-            &-down {
+            .input-count-down {
                 display: none;
             }
 
-            &-plus {
+            .input-count-plus {
                 display: block;
                 position: absolute;
                 z-index: 1;
@@ -385,7 +385,7 @@ form {
                 }
             }
 
-            &-minus {
+            .input-count-minus {
                 display: block;
                 position: absolute;
                 z-index: 1;
@@ -412,7 +412,7 @@ form {
             }
 
 
-            &-trash {
+            .input-count-trash {
                 position: absolute;
                 right: em(-35);
                 top: em(4);
@@ -432,7 +432,7 @@ form {
                 width: 65%;
             }
 
-            .input-count {
+            .input-count-wrapper {
                 position: relative;
                 width: em(50);
                 height: initial;
@@ -447,15 +447,15 @@ form {
                     text-align: left;
                 }
 
-                &-plus {
+                .input-count-plus {
                     display: none;
                 }
 
-                &-minus {
+                .input-count-minus {
                     display: none;
                 }
 
-                &-up {
+                .input-count-up {
                     display: block;
                     position: absolute;
                     z-index: 999;
@@ -469,7 +469,7 @@ form {
                     }
                 }
 
-                &-down {
+                .input-count-down {
                     display: block;
                     position: absolute;
                     right: 0;
@@ -482,7 +482,7 @@ form {
                     }
                 }
 
-                &-trash {
+                .input-count-trash {
                     position: absolute;
                     right: em(-25);
                     top: em(4);
@@ -508,7 +508,7 @@ form {
         border:none;
     }
 
-    .input-coupon {
+    .input-coupon-wrapper {
         position: relative;
         padding: 0;
         border: 1px solid $silver;

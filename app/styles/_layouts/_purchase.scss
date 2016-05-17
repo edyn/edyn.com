@@ -1,7 +1,24 @@
+@mixin animation($animation...) {
+  -o-animation: $animation;
+  -moz-animation: $animation;
+  -webkit-animation: $animation;
+  animation: $animation;
+}
+
+@-webkit-keyframes spin {
+  	0%{ -webkit-transform: rotate(0deg); tranform: rotate(0deg);}
+	100%{ -webkit-transform: rotate(360deg); tranform: rotate(360deg);}
+}
+
+@keyframes spin {
+  	0%{ -webkit-transform: rotate(0deg); tranform: rotate(0deg);}
+	100%{ -webkit-transform: rotate(360deg); tranform: rotate(360deg);}
+}
+
 .purchase {
     $page-font-color: $judge-gray;
-	$page-action-color: darken($amber, 8%);
-	$page-background-color: $desert-storm;
+	  $page-action-color: darken($amber, 8%);
+	  $page-background-color: $desert-storm;
     $page-border-color: $swirl;
     position: relative;
 
@@ -205,27 +222,27 @@
             }
         }
 
-        .input-count {
-            &-controls {
+        .input-count-wrapper {
+            .input-count-controls {
 
             }
 
-            &-trash {
+            .input-count-trash {
                 color: $swirl;
                 font-size: em(20);
             }
 
-            &-up {
+            .input-count-up {
                 color: $swirl;
             }
 
-            &-down {
+            .input-count-down {
                 color: $swirl;
             }
         }
 
         .input-number-count {
-            .input-count {
+            .input-count-wrapper {
                 display: block;
             }
 
@@ -233,16 +250,16 @@
                 color: red;
             }
 
-            .input-select-count {
+            .input-select-count-wrapper {
                 display: none;
             }
 
             @include media($bp-medium) {
-                .input-count {
+                .input-count-wrapper {
                     display: none;
                 }
 
-                .input-select-count {
+                .input-select-count-wrapper {
                     display: inline-block;
                 }
             }
@@ -255,7 +272,11 @@
         .order {
             background: $white;
             border-radius: 4px;
-            margin-bottom: em(50);
+            margin-bottom: em(10);
+
+            &-product-template {
+              display: none;
+            }
 
             &-product {
                 text-align: center;
@@ -263,23 +284,69 @@
                 border-bottom: 1px solid $ebb;
                 @include clearfix;
 
+                &-ships {
+                  font-size: em(16);
+
+                  @include media($bp-medium) {
+                    font-size: em(14);
+                  }
+                }
+
                 img {
-                    border-radius: 50%;
                     margin-bottom: em(30);
 
                     @include media($bp-medium) {
-        				width: 30%;
+        				        width: 30%;
                         height: 30%;
                         float: left;
                         margin-right: 1em;
-        			}
+        			      }
                 }
 
                 @include media($bp-medium) {
-    				text-align: left;
+    				        text-align: left;
                     padding: em(40) em(20) em(10);
-    			}
+    			      }
             }
+
+            .order-summary-wrapper {
+              position: relative;
+
+              .order-loader {
+                display: none;
+                padding-top: 50px;
+                text-align: center;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.9);
+                z-index: 100;
+
+                &-spinner {
+                  margin-top: 6px;
+                  display: inline-block;
+                  position: relative;
+                  width: 50px;
+                  height: 50px;
+                  vertical-align: middle;
+                  border-radius: 50px;
+                  border: 6px solid rgba(249,192,0,0.4);
+                  &:after {
+                    content: '';
+                    position: absolute;
+                    top: -6px;
+                    right: -6px;
+                    bottom: -6px;
+                    left: -6px;
+                    border-radius: 50px;
+                    border: 6px solid transparent;
+                    border-top-color: $amber;
+                    @include animation(spin 1s linear infinite);
+                  }
+                }
+              }
+            }
+
 
             h2 {
                 margin-bottom: .35em;
@@ -305,25 +372,29 @@
             }
         }
 
-        .preorder {
+        .coupon {
+          text-align: center;
+          padding: em(60) 0 em(30) 0;
+          @include clearfix;
+
+          @include media($bp-medium) {
+              text-align: left;
+              padding: em(40) em(20) em(10);
+          }
+        }
+
+        .product-template {
+          display: none;
+        }
+
+        .product {
             text-align: center;
-            margin-bottom: em(50);
+            margin-bottom: em(10);
             line-height: 2.25em;
 
-            span {
-                font: {
-                    size: em(20);
-                }
-
-                @include media($bp-medium) {
-                    font-size: em(16);
-                    display: block;
-                }
-            }
-
-            h3 {
+            .product-name {
                 text-transform: capitalize;
-                margin-bottom: 0;
+                padding-top: 6px;
 
                 font: {
                     size: em(22);
@@ -335,18 +406,45 @@
                 }
             }
 
+            .product-price {
+                font: {
+                    size: em(16);
+                }
+            }
+
+            .product-add, .product-soldout {
+              font: {
+                  size: em(15);
+                  family: $proxima-semibold;
+              }
+            }
+
+            .product-add {
+              color: $amber;
+              cursor: pointer;
+            }
+
+            .product-soldout {
+              display: none;
+            }
+
+            &.product-soldout {
+              .product-add {
+                display: none;
+              }
+              .product-soldout {
+                display: block;
+              }
+            }
+
             img {
                 @include media($bp-medium) {
-                    width: 35%;
+                    width: 27%;
                     height: auto;
                     position: absolute;
                     right: 0;
                     top: 0;
                 }
-            }
-
-            .button {
-                margin-top: .25em;
             }
 
             @include media($bp-medium) {
@@ -359,10 +457,19 @@
 
         form {
             input[type=submit] {
+                margin-top: 1em;
+
                 @include media($bp-medium) {
-                    margin:0;
                     float: right;
                 }
+            }
+            .order-support {
+              font-size: em(14);
+
+              @include media($bp-medium) {
+                clear: both;
+                @include clearfix;
+              }
             }
         }
 

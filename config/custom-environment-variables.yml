@@ -1,0 +1,3 @@
+celery:
+  url: 'CELERY_URL'
+  token: 'CELERY_TOKEN'
