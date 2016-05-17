@@ -1,5 +1,5 @@
 # Pull base image.
-FROM edyn/node:4-dev
+FROM node:4
 
 MAINTAINER Mamadou Bobo Diallo <bobo@edyn.com>
 

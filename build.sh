@@ -2,10 +2,13 @@
 
 set -ex
 
-docker run --rm  -w /www/app -v $PWD:/www/app edyn/node:4-dev npm install
-docker run --rm -w /www/app -v $PWD:/www/app edyn/node:4-dev npm run bower
-docker run --rm -w /www/app -v $PWD:/www/app edyn/node:4-dev npm run build
-docker run --rm -w /www/app -v $PWD:/www/app edyn/node:4-dev npm run cev
+echo "+++ Building assets"
+docker run --rm  -w /www/app -v $PWD:/www/app node:4 npm install
+docker run --rm -w /www/app -v $PWD:/www/app node:4 npm run bower
+docker run --rm -w /www/app -v $PWD:/www/app node:4 npm run build
+docker run --rm -w /www/app -v $PWD:/www/app node:4 npm run cev
+
+echo "--- Building docker image"
 
 docker build -t edyn/website .
 
