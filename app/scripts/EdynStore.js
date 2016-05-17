@@ -22,31 +22,6 @@
   };
 
   EdynStore.prototype.loadInventory = function (callback) {
-    // var FAKE_INVENTORY = {
-    //   products: [
-    //     {
-    //       id: '5654f1f9d5ec870300f2403c',
-    //       name: 'Edyn Water Valve',
-    //       price: 5999,
-    //       inventory: 50,
-    //       sku: 'valve'
-    //     },
-    //     {
-    //       id: '5654f1c5d5ec870300f24039',
-    //       name: 'Edyn Garden Sensor',
-    //       price: 9999,
-    //       inventory: 10,
-    //       sku: 'sensor'
-    //     }
-    //   ],
-    //   userId: '5654f01bd5ec870300f24037',
-    //   apiUrl: 'https://api-sandbox.trycelery.com/v2'
-    // };
-    //
-    // this.setup(FAKE_INVENTORY);
-    // callback(null, null);
-    // return;
-
     this.request({
       type: 'GET',
       url: '/inventory',
@@ -63,18 +38,18 @@
     });
   };
 
-  EdynStore.prototype.homeDepotUrl = function (sku) {
+  EdynStore.prototype.homeDepotUrl = function (device) {
     var urls = {
       sensor: 'http://www.homedepot.com/p/Edyn-Garden-Sensor-EDYN-001/205833447',
       valve: 'http://www.homedepot.com/p/Edyn-Water-Valve-EDYN-002/205833449',
       ALL: 'http://www.homedepot.com/b/Edyn/N-5yc1vZerz'
     };
 
-    if (!(sku in urls)) {
-      sku = 'ALL';
+    if (!(device in urls)) {
+      device = 'ALL';
     }
 
-    return urls[sku];
+    return urls[device];
   };
 
   EdynStore.prototype.productForField = function (field, val) {
@@ -87,25 +62,25 @@
     return this.productForField('id', id);
   };
 
-  EdynStore.prototype.productForSku = function (sku) {
-    return this.productForField('sku', sku);
+  EdynStore.prototype.productForDevice = function (device) {
+    return this.productForField('device', device);
   };
 
-  EdynStore.prototype.remove = function (sku) {
-    var id = this.productForSku(sku).id;
+  EdynStore.prototype.remove = function (device) {
+    var id = this.productForDevice(device).id;
     delete this.cart[id];
   };
 
-  EdynStore.prototype.incrementQuantity = function (sku) {
-    this.deltaCart(sku, 1);
+  EdynStore.prototype.incrementQuantity = function (device) {
+    this.deltaCart(device, 1);
   };
 
-  EdynStore.prototype.decrementQuantity = function (sku) {
-    this.deltaCart(sku, -1);
+  EdynStore.prototype.decrementQuantity = function (device) {
+    this.deltaCart(device, -1);
   };
 
-  EdynStore.prototype.deltaCart = function (sku, dir) {
-    var product = this.productForSku(sku);
+  EdynStore.prototype.deltaCart = function (device, dir) {
+    var product = this.productForDevice(device);
     var id = product.id;
 
     if (!(id in this.cart)) {
@@ -113,11 +88,11 @@
     }
 
     var quantity = this.cart[id] += dir;
-    this.setQuantity(sku, quantity);
+    this.setQuantity(device, quantity);
   };
 
-  EdynStore.prototype.setQuantity = function (sku, quantity) {
-    var product = this.productForSku(sku);
+  EdynStore.prototype.setQuantity = function (device, quantity) {
+    var product = this.productForDevice(device);
     var id = product.id;
     this.cart[id] = quantity;
 

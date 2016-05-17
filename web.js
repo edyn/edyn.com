@@ -44,6 +44,11 @@ app.get('/order', function(req, res) {
     res.sendfile('./dist/order.html');
 });
 
+var devicesByName = {
+  'Edyn Garden Sensor': 'sensor',
+  'Edyn Water Valve': 'valve'
+};
+
 app.get('/inventory', function(req, res) {
     var config = Config.get('celery');
 
@@ -76,12 +81,19 @@ app.get('/inventory', function(req, res) {
         var userId = rawProducts[0].user_id;
 
         var products = rawProducts.map(function (product) {
+          var name = product.name;
+          var device = devicesByName[name];
+          var ships = {
+            sensor: 'Ships immediately',
+            valve: 'Ships in 2 weeks'
+          }[device];
           return {
             id: product._id,
-            name: product.name,
+            name: name,
             price: product.price,
             inventory: product.inventory,
-            sku: product.sku
+            device: device,
+            ships: ships
           };
         });
 
@@ -108,6 +120,7 @@ app.post('/confirmation', function(req, res) {
     order.line_items.forEach(function (lineItem) {
       lineItem.total = formatMoney(lineItem.price * lineItem.quantity);
       lineItem.price = formatMoney(lineItem.price);
+      lineItem.device = devicesByName[lineItem.product_name];
     });
 
     res.render('confirmation', {

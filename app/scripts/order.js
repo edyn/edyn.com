@@ -82,12 +82,12 @@
 			.remove();
 	}
 
-	function orderImageForSku (sku) {
-		return 'images/edyn_web_order_' + sku + '.png';
+	function orderImageForDevice (device) {
+		return 'images/edyn_web_order_' + device + '.png';
 	}
 
-	function upsellImageForSku (sku) {
-		return 'images/edyn_web_upsell_' + sku + '.png';
+	function upsellImageForDevice (device) {
+		return 'images/edyn_web_upsell_' + device + '.png';
 	}
 
 	function hasNeccessaryDataToCalculateShipping () {
@@ -102,22 +102,25 @@
 
 	function renderLineItem (lineItem) {
 		var product = lineItem.product;
-		var sku = product.sku;
+		var device = product.device;
 		var name = product.name;
 		var inventory = product.inventory;
 		var quantity = lineItem.quantity;
+		var ships = product.ships;
 
 		var lineItemNode = lineItemTemplate.clone();
 
-		var lineItemClass = 'order-product-' + sku;
+		var lineItemClass = 'order-product-' + device;
 		lineItemNode
 			.addClass(lineItemClass)
-			.attr('data-sku', sku);
+			.attr('data-device', device);
 
-		var src = orderImageForSku(sku);
+		var src = orderImageForDevice(device);
 		lineItemNode.find('.product-image').attr('src', src);
 
 		lineItemNode.find('.product-name').html(name);
+
+		lineItemNode.find('.order-product-ships').html(ships);
 
 		if (inventory > 0) {
 			lineItemNode.find('.input-count')
@@ -396,15 +399,15 @@
 		var productTemplate = getTemplate('product-template');
 
 		function renderProduct (product) {
-			var sku = product.sku;
+			var device = product.device;
 			var name = product.name;
 			var inventory = product.inventory;
 			var price = priceText(product.price);
-			var imgSrc = upsellImageForSku(sku);
+			var imgSrc = upsellImageForDevice(device);
 
 			var productNode = productTemplate.clone();
 
-			var productClass = 'product-' + sku;
+			var productClass = 'product-' + device;
 			if (inventory === 0) {
 				productClass += ' product-soldout';
 			}
@@ -413,7 +416,7 @@
 			productNode.find('.product-name').html(name);
 			productNode.find('.product-price').html(price);
 			productNode.find('.product-image').attr('src', imgSrc);
-			productNode.find('.product-add').attr('data-sku', sku);
+			productNode.find('.product-add').attr('data-device', device);
 
 			return productNode;
 		}
@@ -424,8 +427,8 @@
 			.append(productNodes);
 	}
 
-	function goToHomeDepot(sku) {
-		var url = edynStore.homeDepotUrl(sku);
+	function goToHomeDepot(device) {
+		var url = edynStore.homeDepotUrl(device);
 		window.location.replace(url);
 	}
 
@@ -558,16 +561,16 @@
 		// There is one of these for each product the user has added
 		// var inputCount = $('.input-count');
 
-		function getSku ($node) {
-			return $node.closest('.order-product').attr('data-sku');
+		function getDevice ($node) {
+			return $node.closest('.order-product').attr('data-device');
 		}
 
 		// when dropdown changes, update cart quantity
 		$(document).on('change', '.input-select-count', function (e) {
 			var $this = $(this);
-			var sku = getSku($this);
+			var device = getDevice($this);
 			var quantity = $this.val();
-			edynStore.setQuantity(sku, quantity);
+			edynStore.setQuantity(device, quantity);
 			syncViewToStore();
 			updatePrices();
 			e.preventDefault();
@@ -575,8 +578,8 @@
 
 		$(document).on('click', '.input-count-up, .input-count-plus', function (e) {
 			var $this = $(this);
-			var sku = getSku($this);
-			edynStore.incrementQuantity(sku);
+			var device = getDevice($this);
+			edynStore.incrementQuantity(device);
 			syncViewToStore();
 			updatePrices();
 			e.preventDefault();
@@ -584,8 +587,8 @@
 
 		$(document).on('click', '.input-count-down, .input-count-minus', function(e) {
 			var $this = $(this);
-			var sku = getSku($this);
-			edynStore.decrementQuantity(sku);
+			var device = getDevice($this);
+			edynStore.decrementQuantity(device);
 			syncViewToStore();
 			updatePrices();
 			e.preventDefault();
@@ -593,8 +596,8 @@
 
 		$(document).on('click', '.input-count-trash', function(e) {
 			var $this = $(this);
-			var sku = getSku($this);
-			edynStore.remove(sku);
+			var device = getDevice($this);
+			edynStore.remove(device);
 			syncViewToStore();
 			updatePrices();
 			e.preventDefault();
@@ -603,8 +606,8 @@
 
 		$('.product-add').click(function (e) {
 			// increment count for this product;
-			var sku = $(this).attr('data-sku');
-			edynStore.incrementQuantity(sku);
+			var device = $(this).attr('data-device');
+			edynStore.incrementQuantity(device);
 			syncViewToStore();
 			updatePrices();
 			e.preventDefault();
@@ -668,14 +671,14 @@
 
 		edynStore.loadInventory(function (error) {
 			var params = Edyn.Utils.queryParams();
-			var sku = params.sku;
+			var device = params.device;
 
 			if (error) {
-				goToHomeDepot(sku);
+				goToHomeDepot(device);
 			} else {
-				var skus = sku ? [sku] : ['valve', 'sensor'];
-				skus.forEach(function (sku) {
-					edynStore.incrementQuantity(sku);
+				var devices = device ? [device] : ['valve', 'sensor'];
+				devices.forEach(function (device) {
+					edynStore.incrementQuantity(device);
 				});
 				updateSubmitState();
 				setupUi();

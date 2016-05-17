@@ -46,14 +46,16 @@ var FAKE_INVENTORY = {
       name: 'Edyn Water Valve',
       price: 5999,
       inventory: 50,
-      sku: 'valve'
+      device: 'valve',
+      ships: 'Ships in 2 weeks'
     },
     {
       id: '5654f1c5d5ec870300f24039',
       name: 'Edyn Garden Sensor',
       price: 9999,
-      inventory: 0,
-      sku: 'sensor'
+      inventory: 10,
+      device: 'sensor',
+      ships: 'Ships immediately'
     }
   ],
   userId: '5654f01bd5ec870300f24037',

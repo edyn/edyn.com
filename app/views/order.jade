@@ -23,10 +23,11 @@ block content
                         h1 Order Details
                         .order
                             .order-products
-                              .order-product.order-product-template(data-sku="")
+                              .order-product.order-product-template(data-device="")
                                   img.product-image(src="", alt="")
                                   h2.product-name
                                   span.order-price
+                                  .order-product-ships
                                   .input-wrapper.input-number-count
                                       .input-count-wrapper
                                           input.form-control.input-count(type="text", value="0", name="input-count")
@@ -80,7 +81,7 @@ block content
                           .product.product-template
                             .product-name Name
                             .product-price $0.00
-                            .product-add(data-sku="") Add to Order
+                            .product-add(data-device="") Add to Order
                             .product-soldout Sold Out
                             img.product-image(alt="")
 
@@ -119,7 +120,6 @@ block content
                                 .input-select
                                     span.label State
                                     select.custom-select.form-control#input-shipping-state(name="input-shipping-state", data-validetta="required", data-vd-message-required="This field is required.")
-                                        option(value="") State
                                         option(value="AL") AL
                                         option(value="AK") AK
                                         option(value="AZ") AZ
@@ -221,7 +221,6 @@ block content
                                 .input-select
                                     span.label State
                                     select.custom-select.form-control.billing-field#input-billing-state(name="input-billing-state", data-validetta="required", data-vd-message-required="This field is required.")
-                                        option(value="") State
                                         option(value="AL") AL
                                         option(value="AK") AK
                                         option(value="AZ") AZ
@@ -298,7 +297,6 @@ block content
                                 .input-select
                                     span.label(data-mobile-label="Exp. Month") Expiration Month
                                     select.custom-select.form-control#input-card-month(name="input-card-month", placeholder="Expiration Month", data-validetta="required", data-vd-message-required="This field is required.")
-                                        option(value="") Expiration Month
                                         option(value="01") 01
                                         option(value="02") 02
                                         option(value="03") 03
@@ -317,7 +315,6 @@ block content
                                 .input-select
                                     span.label(data-mobile-label="Exp. Year") Expiration Year
                                     select.custom-select.form-control#input-card-year(name="input-card-year", placeholder="Expiration Year", data-validetta="required", data-vd-message-required="This field is required.")
-                                        option(value="") Expiration Year
                             .input-wrapper
                                 label(for="input-card-code") Security code
                                     span.required *
@@ -346,8 +343,8 @@ block content
                                         td Total
                                         td.price-total
 
+                        .order-support Having problems placing an order? Please contact #[a(href="mailto:support@edyn.com") support@edyn.com]
                         input(type="submit", value="Place Order", name="placeOrder", id="placeOrder", class="button button-inverted")
-    .overlay
 
 append footer
     include ./includes/lightbox.jade

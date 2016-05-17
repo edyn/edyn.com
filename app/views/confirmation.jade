@@ -1,7 +1,7 @@
 mixin lineItems(order)
   each lineItem in order.line_items
-    .order-product(class="order-product-#{lineItem.sku}")
-      img(src="images/edyn_#{lineItem.sku}_thumbnail_2x.png", alt="", width="200", height="200")
+    .order-product(class="order-product-#{lineItem.device}")
+      img(src="images/edyn_#{lineItem.device}_thumbnail_2x.png", alt="", width="200", height="200")
       h2 #{lineItem.product_name}
       span.order-price #{lineItem.total} (#{lineItem.quantity} @ #{lineItem.price})
 

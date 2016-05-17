@@ -272,7 +272,7 @@
         .order {
             background: $white;
             border-radius: 4px;
-            margin-bottom: em(50);
+            margin-bottom: em(10);
 
             &-product-template {
               display: none;
@@ -283,6 +283,14 @@
                 padding: em(60) 0 em(30) 0;
                 border-bottom: 1px solid $ebb;
                 @include clearfix;
+
+                &-ships {
+                  font-size: em(16);
+
+                  @include media($bp-medium) {
+                    font-size: em(14);
+                  }
+                }
 
                 img {
                     margin-bottom: em(30);
@@ -449,10 +457,19 @@
 
         form {
             input[type=submit] {
+                margin-top: 1em;
+
                 @include media($bp-medium) {
-                    margin:0;
                     float: right;
                 }
+            }
+            .order-support {
+              font-size: em(14);
+
+              @include media($bp-medium) {
+                clear: both;
+                @include clearfix;
+              }
             }
         }
 
