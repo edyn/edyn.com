@@ -216,7 +216,8 @@
 						'Your card\'s expiration month is invalid.',
 						'Your card\'s security code is incorrect.',
 						'Your card has expired.',
-						'An error occurred while processing your card. Try again in a little bit.'
+						'An error occurred while processing your card. Try again in a little bit.',
+						'Your card number is incorrect.'
 					];
 					if (stripeErrors.indexOf(error.message) !== -1) {
 						msg = error.message
