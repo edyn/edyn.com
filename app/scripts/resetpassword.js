@@ -44,21 +44,6 @@
 		sendRequest('/update', data, callback);
 	}
 
-	function queryParams () {
-		var query = window.location.search.substring(1);
-		var params = {};
-
-		var parts = query.split('&');
-		parts.forEach(function (part) {
-			var pair = part.split('=').map(decodeURIComponent);
-			var key = pair[0];
-			var value = pair[1];
-			params[key] = value;
-		});
-
-		return params;
-	}
-
 	var sels = {
 		forgot: {
 			start: '#forgot-password',
@@ -109,7 +94,7 @@
 	}
 
 	$(document).ready(function () {
-		var params = queryParams();
+		var params = Edyn.Utils.queryParams();
 		var initialSection = params.token ? sels.update.start : sels.forgot.start;
 		showSection(initialSection);
 

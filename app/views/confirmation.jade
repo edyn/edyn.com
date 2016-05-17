@@ -1,19 +1,24 @@
+mixin lineItems(order)
+  each lineItem in order.line_items
+    .order-product(class="order-product-#{lineItem.device}")
+      img(src="images/edyn_#{lineItem.device}_thumbnail_2x.png", alt="", width="200", height="200")
+      h2 #{lineItem.product_name}
+      span.order-price #{lineItem.total} (#{lineItem.quantity} @ #{lineItem.price})
+
 .confirmation
     .content-sidebar
         h1 Order details
         .order
-            .order-product
-                img(src="images/edyn_sensor_thumbnail_2x.png", alt="", width="200", height="200")
-                h2 Edyn garden sensor
-                span.order-price #{order.total}
+            .order-products
+                +lineItems(order)
             table.order-summary
                 tbody
                     tr
                         td Subtotal
-                        td #{order.subtotal}
+                        td #{order.linetotal}
                     tr
                         td Coupon Discount
-                        td #{order.discount}
+                        td #{'- ' + order.discount}
                     tr
                         td Shipping
                         td #{order.shipping}
@@ -24,11 +29,11 @@
                     tr
                         td Total
                         td #{order.total}
-        
+
     .content-main
         h2 Your order has been placed!
         h3 Order number #{order.number}
-        p 
+        p
             | We'd like to welcome you to the Edyn community - let's grow something wonderful together!
         p
             | Download for iOS or Android:
@@ -38,18 +43,16 @@
             a.button-googleplay-outline(href='https://play.google.com/store/apps/details?id=com.edyn.apps.edyn', target='_blank') Get it on Google play
         h1 Order details
         .order
-            .order-product
-                img(src="images/edyn_sensor_thumbnail_2x.png", alt="", width="200", height="200")
-                h2 Edyn garden sensor
-                span.order-price #{order.total}
+            .order-products
+                +lineItems(order)
             table.order-summary
                 tbody
                     tr
                         td Subtotal
-                        td #{order.subtotal}
+                        td #{order.linetotal}
                     tr
                         td Coupon Discount
-                        td #{order.discount}
+                        td #{'- ' + order.discount}
                     tr
                         td Shipping
                         td #{order.shipping}
@@ -70,22 +73,22 @@
                 if order.shipping_address.line2
                     |#{order.shipping_address.line2}
                     br
-                |#{order.shipping_address.city}, #{order.shipping_address.state} #{order.shipping_address.zip}
+                |#{order.shipping_address.city}, #{order.shipping_address.state.toUpperCase()} #{order.shipping_address.zip}
                 br
                 |#{order.shipping_address.phone}
         .address
             h4 Billing Address
             p
-                |#{order.buyer.first_name} #{order.buyer.last_name}
+                |#{order.billing_address.first_name} #{order.billing_address.last_name}
                 br
                 |#{order.billing_address.line1}
                 br
                 if order.billing_address.line2
                     |#{order.billing_address.line2}
                     br
-                |#{order.billing_address.city}, #{order.billing_address.state} #{order.billing_address.zip}
+                |#{order.billing_address.city}, #{order.billing_address.state.toUpperCase()} #{order.billing_address.zip}
                 br
                 |#{order.billing_address.phone}
         hr.hidden.clearfix
-        a(class="button button-inverted", href="#") Back home   
-        hr.hidden.clearfix 
+        a(class="button button-inverted", href="#") Back home
+        hr.hidden.clearfix
