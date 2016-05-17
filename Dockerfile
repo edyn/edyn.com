@@ -16,7 +16,7 @@ RUN mkdir -p /www/app/ && cp -a /tmp/node_modules /www/app/
 ADD . /www/app/
 
 # Define default command.
-CMD ["npm", "start"]
+CMD ["node", "web.js"]
 
 VOLUME /var/log/
 

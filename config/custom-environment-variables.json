@@ -1,0 +1,6 @@
+{
+  "celery": {
+    "url": "NODE_APP_CELERY_URL",
+    "token": "NODE_APP_CELERY_TOKEN"
+  }
+}
