@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "bower": "./node_modules/.bin/bower install",
+    "bower": "./node_modules/.bin/bower --allow-root install",
     "server": "./node_modules/.bin/gulp serve",
     "build": "./node_modules/.bin/gulp build",
     "cev": "./node_modules/.bin/cev > config/custom-environment-variables.json"
