@@ -3,7 +3,7 @@
     "bower": "./node_modules/.bin/bower install",
     "server": "./node_modules/.bin/gulp serve",
     "build": "./node_modules/.bin/gulp build",
-    "cev": "./node_modules/.bin/cev > config/custom-environment-variables.json",
+    "cev": "./node_modules/.bin/cev > config/custom-environment-variables.json"
   },
   "engines": {
     "node": ">=0.12.0"
