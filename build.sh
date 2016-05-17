@@ -2,10 +2,10 @@
 
 set -ex
 
-docker run --rm -v $PWD:/www/app edyn/node:4-dev npm install
-docker run --rm -v $PWD:/www/app edyn/node:4-dev npm run bower
-docker run --rm -v $PWD:/www/app edyn/node:4-dev npm run build
-docker run --rm -v $PWD:/www/app edyn/node:4-dev npm run cev
+docker run --rm  -w /www/app -v $PWD:/www/app edyn/node:4-dev npm install
+docker run --rm -w /www/app -v $PWD:/www/app edyn/node:4-dev npm run bower
+docker run --rm -w /www/app -v $PWD:/www/app edyn/node:4-dev npm run build
+docker run --rm -w /www/app -v $PWD:/www/app edyn/node:4-dev npm run cev
 
 docker build -t edyn/website .
 
