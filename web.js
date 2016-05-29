@@ -93,8 +93,8 @@ app.get('/inventory', function(req, res) {
           }
 
           var ships = {
-            sensor: 'Ships immediately',
-            valve: 'Ships in 2-3 weeks'
+            sensor: 'Ships in 1 business day',
+            valve: 'Ships in 1 business day'
           }[device];
 
           products.push({
@@ -117,7 +117,7 @@ app.get('/inventory', function(req, res) {
 
 app.post('/confirmation', function(req, res) {
     res.location('/confirmation');
-    
+
     var order = req.body;
 
     function formatMoney (val) {
