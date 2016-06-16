@@ -2,11 +2,6 @@
 
 set -ex
 
-echo "+++ Building assets"
-docker run --rm  -w /www/app -v $PWD:/www/app node:4 npm install -g npm && npm install
-docker run --rm -w /www/app -v $PWD:/www/app node:4 npm run bower
-docker run --rm -w /www/app -v $PWD:/www/app node:4 npm run build
-
 echo "--- Building docker image"
 
 docker build -t edyn/website .
