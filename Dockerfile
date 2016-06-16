@@ -7,6 +7,8 @@ MAINTAINER Mamadou Bobo Diallo <bobo@edyn.com>
 # Define working directory.
 WORKDIR /www/app
 
+RUN npm install -g npm
+
 # use changes to package.json to force Docker not to use the cache
 # when we change our application's nodejs dependencies:
 ADD package.json /tmp/package.json
