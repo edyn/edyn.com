@@ -16,6 +16,8 @@ RUN cd /tmp && npm install
 RUN mkdir -p /www/app/ && cp -a /tmp/node_modules /www/app/
 
 ADD . /www/app/
+RUN npm run bower
+RUN npm run build
 
 # Define default command.
 CMD ["node", "web.js"]
