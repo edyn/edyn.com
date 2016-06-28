@@ -13,6 +13,11 @@ function ensureSecure(req, res, next){
     return next();
   };
   
+  if(req.secure){
+    // OK, continue
+    return next();
+  };
+  
   res.redirect('https://'+req.hostname+req.url); // handle port numbers if you need non defaults
 };
 
