@@ -8,10 +8,11 @@ var app = express();
 var Config = require('config');
 
 function ensureSecure(req, res, next){
-  if(req.secure){
+  if(req.headers["x-forwarded-proto"] === "https"){
     // OK, continue
     return next();
   };
+  
   res.redirect('https://'+req.hostname+req.url); // handle port numbers if you need non defaults
 };
 
