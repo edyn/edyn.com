@@ -13,19 +13,20 @@ block content
             h2 Edyn Support
             .content-anchors
                 p
-                    a(href='#about-edyn-devices') About Edyn Devices
+                    a(href='#about-edyn-devices') About Edyn devices
                     ul
                         li
-                            a(href='#about-sensors') Sensors
+                            a(href='#about-sensors') Edyn Garden Sensor
                         li
-                            a(href='#about-valves') Valves
+                            a(href='#about-valves') Edyn Water Valve
                         li
                             a(href='#device-compatibility') Device compatibility
                         li
                             a(href='#where-to-buy') Where to buy
-
+                        li
+                            a(href='#device-warranty') Edyn device warranty
                 p
-                    a(href='#how-to') How To
+                    a(href='#how-to') How to...
                     ul
                         li
                             a(href='#get-the-app') Get the app
@@ -35,25 +36,31 @@ block content
                         li
                             a(href='#care-for-device') Care for your Edyn device
                         li
-                            a(href='#device-warranty') Edyn device warranty
+                            a(href='#remove-or-make-changes') Remove or make changes to your Edyn device
+                p
+                    a(href='#getting-started') Getting started
+                    ul
                         li
-                            a(href='#how-to-sensor') Edyn Garden Sensor
+                            a(href='#getting-started-sensor') Edyn Garden Sensor
                         li
-                            a(href='#how-to-valve') Edyn Water Valve
-                        li
-                            a(href='#removing-or-changing') Removing or making changes to your Edyn device
+                            a(href='#getting-started-valve') Edyn Water Valve
 
                 p
                     a(href='#faq') Commonly asked support questions
+                    ul
+                        li
+                            a(href='#faq-sensor') Edyn Garden Sensor
+                        li
+                            a(href='#faq-valve') Edyn Water Valve
                 br 
 
             // ============================
             a.anchor#about-edyn-devices(href="#")
-            h3 About Edyn Devices
+            h3 About Edyn devices
 
             // ==
             a.anchor#about-sensors(href="#")
-            h4 Sensors
+            h4 Edyn Garden Sensor
             br
             h5 What is the Edyn Garden Sensor?
 
@@ -123,7 +130,7 @@ block content
 
             // ==
             a.anchor#about-valves(href="#")
-            h4 Valves
+            h4 Edyn Water Valve
             br
 
             h5 What is the Edyn Water Valve?
@@ -196,46 +203,314 @@ block content
 
             p
                 | Edyn devices use Electric Imp’s BlinkUp technology in order to connect your devices to Wi-Fi. You can check device compatibility for BlinkUp 
-                a(href='https://electricimp.com/docs/troubleshooting/devices/') here
+                a(href='https://electricimp.com/docs/troubleshooting/devices/', target="blank") here
                 | .
+            br
 
             // ==
             a.anchor#where-to-buy(href="#")
             h4 Where to buy
-            
-            a(href='/order') https://edyn.com/order
+            br
+            p
+                | You can purchase Edyn Garden Sensors and Edyn Water Valves 
+                a(href='/order') on our website
+                | .
 
             p
                 | Our products are also available at many Home Depot stores across the United States.
+            br
+
+            // ==
+            a.anchor#device-warranty(href="#")
+            h4 Edyn device warranty
+            br
+            p
+                | Edyn offers a 1-year, manufacturer's limited warranty against defects on all of its products. If you suspect an item is defective, please contact 
+                a(href='mailto:support@edyn.com') support@edyn.com 
+                |  to arrange for a return. Edyn reserves the right to repair the device or provide a working, new or refurbished replacement at its own discretion. Our warranty does not cover damaged caused by the user. Some examples of damage that would not be covered under warranty include:
+            ol
+                li 1. Cracks in the enclosure due to dropping the device from a high height.
+                li 2. Damage to the internal battery due to leaving the device out in temperatures below 32F (0C)
+                li 3. Damage to the valve's internal plumbing due to leaving the device out in temperatures below 32F (0C)
+                li 4. Damage to the valve's internal plumbing due to use of the device in high water pressure zones (>80 PSI).
+
 
             // ============================
             a.anchor#how-to(href="#")
-            h3 How To
+            h3 How to...
 
+            // ==
             a.anchor#get-the-app(href="#")
             h4 Get the app
+            p
+                | Download the Edyn app 
+                a(href='https://itunes.apple.com/us/app/edyn/id939748941?mt=8', target="blank") on the App Store
+                |  or the 
+                a(href='https://play.google.com/store/apps/details?id=com.edyn.apps.edyn', target="blank") Google Play Store
+                | .
+            br
 
+            // ==
             a.anchor#pair-your-device(href="#")
             h4 Pair your Edyn device to a network
+            p
+                | You can pair your device to your Wi-Fi network using a process called BlinkUp. The BlinkUp reader needs high contrast, so we recommend that you are in a darkened room (or that you perform blink-up under a table), and that your phone is completely flush with the reader. Light leaking can cause Wi-Fi sync (Step 1) failure. It’s also helpful to have audio enabled on your mobile device during blink-up as beeping indicates when BlinkUp is initiated and completed.
+            ul
+                li
+                    | When you turn on your Garden Sensor, it will immediately enter into pairing mode.
+                li
+                    | To preserve battery, your device will only remain in pairing mode for 90 seconds. To re-enter pairing mode, give the power button a short press.
+                li
+                    | The app will walk you through the pairing process with illustrations. Make sure you have your Wi-Fi password ready.
+                li
+                    | To re-connect your sensor to a new Wi-Fi network, click "add device" and then go through regular BlinkUp as if it were the first time pairing this sensor.
+            p
+                | The Wi-Fi connection requires a 2.4 GHz network. If you have a 5Ghz network, we recommend creating a separate 2.4 GHz network with a unique SSID, and then pairing your Edyn device to that network.
+            p
+                strong Power button
+            ul
+                li Turn your Edyn device on with a short press (~ 1 second) of the power button.
+                li Turn your Edyn device off with a long press (~ 4 seconds) of the power button.
+                li Enter into pairing mode with a short press of the power button.
+                li Check battery status using the Edyn app.
+            p
+                strong Light signal
+            ul
+                li To preserve battery, your Edyn device will only show a light signal when it needs to communicate information. A short press of the power button will turn on the light signal for a few minutes.
+                li
+                    strong Solid white
+                    |  = device is in pairing mode
+                li
+                    strong Flashing amber
+                    |  = device is in pairing mode
+                li
+                    strong Solid green
+                    |  = successful blinkup or installing software updates
+                li
+                    strong Flashing green
+                    |  = connected to Wi-Fi
+                li
+                    strong Flashing red (after normal operation)
+                    |  = device lost connection
+                li
+                    strong Flashing red (after pairing)
+                    |  = pairing unsuccessful (due to incorrect network name (case sensitive), incorrect network password, etc.) (Note that there will be a series with other red flashes during the connection process - a persistently flashing red light signals that it failed to connect.)
+                li If you never saw flashing green during Step 1 of the pairing process (light continued to be a solid white light) then there was a light leak during the BlinkUp process. Repeat the process, ensuring that the phone is flush with the light reader, minimizing the possibility of external light leaking in.
+            p
+                strong If you have difficulties with this step
+                p
+                    | Although rare, occasionally a battery is depleted before it arrives to your home. If lights fail to blink when you turn the device on, leave it in the sun for 1-2 days to ensure the battery is fully charged.
+            br
 
+            // ==
             a.anchor#care-for-device(href="#")
             h4 Care for your Edyn device
+            ul
+                li Use water and a soft, non-abrasive cloth to clean your Edyn device. If you have hard water, we recommend isopropyl alcohol or bottled water for cleaning the solar panel and sensor shaft.
+                li Be careful not to drop your sensor or scratch the top solar panel surface with a sharp or heavy object. Scratches to the solar panel could impact its ability to charge.
+                li Although your Edyn device is water resistant, please don’t submerge it completely under water.
+                li Do not expose your Edyn device to temperatures below 32ºF (0ºC) or above 120ºF (48ºC). When temperatures drop to freezing, bring your Edyn devices indoors.
+                li Be careful not to scratch the solar panel surface. Scratches will impact its ability to charge.
+                li
+                    | Do not attempt to repair, modify, or disassemble your Edyn device. Doing so will violate your warranty. If you believe something is wrong with your Edyn device please contact us at 
+                    a(href='mailto:support@edyn.com') support@edyn.com 
+                    | for help troubleshooting. 
+                li Product Disposal: Please dispose of your product and packaging in accordance with local regulations. Do not dispose of your Edyn device with regular household waste.
+            // ==
+            a.anchor#remove-or-make-changes(href="#")
+            h4 Remove or make changes to your Edyn device
+            br
+            p
+                strong How to change things
+                br
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/204926619', target="_blank") Change Wi-Fi routers
+            p
+                strong How to delete things
+                br
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/205192415', target="_blank") Turn off / remove from your wireless network
+                br
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/210761726', target="_blank") Delete a device from your gardens in the app
 
-            a.anchor#device-warranty(href="#")
-            h4 Edyn device warranty
+            // ============================
+            a.anchor#getting-started(href="#")
+            h3 Getting started
 
-            a.anchor#how-to-sensor(href="#")
+            // ==
+            a.anchor#getting-started-sensor(href="#")
             h4 Edyn Garden Sensor
+            br
+            p
+                strong Installing your sensor
+                ul
+                    li Our Wi-Fi chip and antenna are rated for up to 300 feet from your router. We have successfully received and transmitted data at a distance of 2,500 feet with unobstructed line of sight. If your router is farther from your garden, we recommend using a Wi-Fi repeater or extender.
+                    li If this is your first time using the Sensor, make sure it is inserted into a well-packed area of soil. Wet the soil with ~1 gallon (3.7L) of water and wait 5 minutes before inserting the sensor with a single downward motion so that less than 1" of metal shaft remains above ground.  Due to heterogeneity in the soil, you may have to try a second location to make sure your Garden Sensor was not installed next to a rock or root ball.
+                    li Location 
+                    ul
+                        li There is a bit of an art to perfectly placing the sensor in relation to your plants, irrigation sources, and ensuring it gets enough light. You may have to experiment a bit to get the right placement for your garden.
+                        li Find a spot with average conditions for the area you plan to monitor.
+                        li Your sensor’s Wi-Fi chip works best up to 300 ft from your router. Good line of sight from the router will increase the Wi-Fi range.
+                        li Make sure your sensor receives enough sunlight for solar charging. Your sensor does best with 10+ hours of full sun.
+                        li Placement under taller plants is not recommended for two reasons: The shade will prevent the solar panel from recharging the battery and roots, or roots may interfere with the soil sensor, leading to improbably low soil moisture measurements. Shade may also prevent the sensor from getting accurate light readings for your garden.
+                        li If you are placing a sensor in a garden without an irrigation source, then we recommend placing the sensor in the location that best represents specific interests you have; near delicate plants that require more attention or in a sprouting vegetable patch are two such examples.
+                        li If you are using your sensor along with an irrigation source (or linked to the Edyn Water Valve), then your selected irrigation type and device placement matters a great deal. 
+                        ul
+                            li Soaker hoses and drip lines usually have a manufacturing-recommended watering range of 1 foot (30 cm) around the hose (soil specifics would mean you should increase or decrease that range). We recommend placing the sensor within that range. Our own tests have shown very similar soil readings within this range.
+                            li Sprinkler systems vary a great deal, so we recommend placing the sensor within the footprint of your sprinkler system.
+                            li Avoid installing the Edyn Garden Sensor in locations (such as depressions) that puddle during irrigation events.
+                            Note that it may take up to 2 hours for your garden to collect enough data to show up on your device graphs in the app. 
 
-            a.anchor#how-to-valve(href="#")
+            p
+                strong Ongoing
+                br
+                | Water flow down the main Edyn Garden Sensor stem, general soil settling, and getting blocked by growing roots or root induced soil desiccation and cracking can all cause readings to reduce in quality over time. We recommend re-inserting your Garden Sensor every couple of months, or as needed. When you remove the sensor from the soil, wipe off the sensor with a damp paper towel. If you see any corrosion on the tip of the sensor, clean it off with isopropyl alcohol. When re-planting the sensor, choose a nearby location and wet the soil with 1 gallon of water. Wait 5 minutes before inserting the sensor with a single downward motion so that less than 1" of metal remains above ground.
+                br
+                br
+                | Your Garden Sensor is powered by a rechargeable LiFePO4 (lithium iron phosphate) battery that lasts up to 7 years and is charged by solar energy. We recommend making sure your battery stays charged above 50%. You can check your device’s battery level in the Edyn app under “My gardens” -> [name of your garden]
+
+
+            // ==
+            a.anchor#getting-started-valve(href="#")
             h4 Edyn Water Valve
-
-            a.anchor#removing-or-changing(href="#")
-            h4 Removing or making changes to your Edyn device
+            br
+            p
+                strong Installing your valve
+                p
+                    | Our Wi-Fi chip is rated for 300 feet from your router. We have successfully received and transmitted data at a distance of 2,500 feet with an unobstructed line of sight. If your router is farther from your garden, we recommend using a Wi-Fi repeater or extender.
+                ul
+                    li
+                        | Your Water Valve works with most irrigation systems by attaching to the main garden hose. We recommend attaching the valve between the hose leading to your garden and the irrigation line. For many gardens this may mean using a short extension hose between the valve and the spigot. 
+                        strong Note: 
+                        | The valve can not be directly applied to the spigot. The angle of most hose faucets will cause too much water pressure and the valve may leak or crack under pressure. Further, the solar panel needs direct light, and must be upright with the solar panel always facing up. We provide a stake to place on the female end of the valve in order to maintain proper orientation to the sun. 
+                    li If you have a UK- or British-style hose/tap, click here for additional instructions.
+                    li Make sure the hose faucet (spigot) is turned on, and remains so. If you use your faucet for multiple applications, we recommend using a splitter at the faucet.  
+                    li We provide an immediate watering test to ensure the valve is working. Pressing the pairing button three times in rapid succession will open up the valve. A single press will close the valve again.
+                    li If you are pairing your valve with a sensor:
+                    ul
+                        li I have an Edyn Garden Sensor. How do I pair and sync my Edyn Water Valve?
+                        ul
+                            li Open the Edyn app.
+                            li Navigate to Settings (three horizontal lines in the nav bar)
+                            li Tap 'Add Device'
+                            li Select 'Water Valve'
+                            li Select the name of your Edyn Garden Sensor
+                            li Tap 'Continue'
+                            li Follow the prompts on screen.
+                        li In general, if your Edyn Water Valve in Smart mode is providing your garden with more water than is ideal, moving the sensor closer to the irrigation source is recommended. Similarly, if your Edyn Water Valve in smart mode is watering less than is ideal, your Edyn Garden Sensor may be too close to the irrigation source and so reading only the wettest part of your garden soils. Please read more about ideal sensor placement under the Edyn Garden Sensor section of the FAQ.
+                p How to set an irrigation schedule
+                ul
+                    li Your valve information and schedules can be accessed by tapping on the droplet on the front of your garden screen in the app.
+                    li At the upper right of your screen there are three parallel lines. Tapping there brings you to a Valve Settings screen where you can enable valve features.
+                    li You’ll know the valve is enabled if the toggle switch is yellow. This tells the app that you are ready to set and execute a schedule.
+                    li Setting up “Smart Watering”
+                    ul
+                        li If your valve is linked to a sensor, you will be able to toggle they greyed Smart Watering to yellow. You will then see “Upcoming Waterings” below. 
+                        li Each time you toggle Smart Watering on, the valve will execute a short test watering 30 minutes later.
+                        li If your next watering is within the next 24 hours then it will give you an estimate of the next watering event. Otherwise you will see a clock symbol, indicating the next watering event is too far away for us to be able to accurately give a watering duration approximation.
+                    li Setting up a manual watering schedule.
+                    ul
+                        li Leave the Smart Watering toggle off. Return to the main valve screen by tapping your garden’s name on the Valve Settings screen.
+                        li In the middle of the valve screen there is an Edit Recurring Schedule button. This will allow you to set up a recurring schedule with the frequency, timing, and duration you would like. This is recommended for regions with water regulations in effect.
+                        li Be sure to tap “Save” in the upper right corner
+                    li Rain Skipping
+                    ul 
+                        li If you would like your valve to skip a watering event because of upcoming rain forecasts, toggle Rain Skipping to yellow. 
+                    li One-time waterings (non-recurring)
+                    ul 
+                        li Because of feedback from our users, we have rolled out a one-time watering option! You can now add a single watering event under the schedule editor. Tap the screen where it says “Add one-time watering”.
+                        li This will bring you to a screen that will allow you to scroll through upcoming dates, the time you want the event to occur, and the length of the watering. You will not be able to schedule a watering sooner than a half hour from that moment; your valve needs to have time to check in and receive instructions. Scheduling a watering too soon will result in a pop-up warning.
+                        li Be sure to tap “Save” in the upper right corner.
+                    li View your past watering events
+                        ul 
+                            li Click on “Past waterings” on the bottom of the main valve screen to view your recent valve history. The date and duration will be displayed here, as well as icons. 
+                            ul
+                                li Successfully executed events will be marked with a check.
+                                li Events skipped because of rain events will have a rain cloud icon next to them (if rain skipping is enabled).
+                                li Events skipped because the soil moisture is at the target level will be marked with an arrow (if smart mode is enabled).
+                                li Events that failed because of low battery, or Wi-Fi connectivity will be marked with an exclamation mark. Please contact Edyn support for help diagnosing this alert.
+                p
+                    strong 20 min delay
+                    br
+                    | The Edyn Water Valve connects to Wi-Fi approximately every 20 minutes to conserve battery life. As a result, a watering event scheduled fewer than 21 minutes in the future may not be executed. We recommend giving the valve a 30 minute window to ensure instructions are received for both recurring schedules and one-time waterings. Attempting to schedule a watering too soon will result in a pop-up warning.
+                p
+                    strong Wi-Fi
+                    br
+                    | If your Wi-Fi has connectivity problems, there is a chance your valve may not receive scheduled events. It is important to make sure your Wi-Fi maintains good strength and connectivity. If you have any concerns about your connectivity, please contact Edyn support and we can assist in diagnosing your Wi-Fi strength.
+                    br
+                    br
+                    | Wi-Fi signal strength in the garden can be improved several ways:
+                    ul
+                        li Move the router and the Edyn device closer together. Wi-Fi signal decreases exponentially with distance, so moving your device even a few feet closer to the router can have a significant effect.
+                        li Remove obstructions between the router and Edyn device. Large, dense objects decrease Wi-Fi signal strength. By removing them from the path between your router and Edyn device, you can improve the signal significantly.
+                        li Deploy a Wi-Fi repeater/extender. Wi-Fi repeaters boost the signal from your main router. By deploying one in the garden, you can improve your Wi-Fi signal strength and enjoy Wi-Fi throughout your garden. We recommend this particular model for its performance, small size, and affordable price.
+            p
+                strong Batteries
+                br
+                | Your Edyn Water Valve is powered by a rechargeable LiFePO4 (lithium iron phosphate) battery that lasts up to 7 years and is charged by solar energy. We recommend making sure your battery stays charged above 50%. You can check your device’s battery level in the Edyn app under “My gardens” -> [name of your garden]
+            br
 
             // ============================
             a.anchor#faq(href="#")
             h3 Commonly asked support questions
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/210819603-My-Edyn-Device-won-t-connect-to-my-Wi-Fi-Help-', target="_blank") I can’t get my device to sync to the Wi-Fi. Help!
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/210866303-Why-does-my-Edyn-Device-report-Low-Wifi-Signal-Strength-when-my-Smartphone-does-not-', target="_blank") Why does my device report low Wi-Fi strength when my smart phone does not?
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/209215966-How-can-I-improve-my-Wi-Fi-signal-strength-', target="_blank") How can I improve my Wi-Fi strength?
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/210760966', target="_blank") How many devices can I have in a garden in the app?
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/206347615-Why-don-t-the-timestamp-and-graph-data-match-the-current-time-', target="_blank") Why do times in the app not exactly match the current time?
+
+            //==
+            br
+            a.anchor#faq-sensor(href="#")
+            h4 Edyn Garden Sensor
+            br
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/205192065', target="_blank") Why is there no data in my app?
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/205436895', target="_blank") Why does the sensor say my garden is dry when it has rained a lot?
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/204850929-Why-is-my-sensor-reporting-0-or-1-moisture-all-the-time-', target="_blank") Why does my sensor read 0% or 1% all the time?
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/210730083-Why-does-my-Edyn-Garden-Sensor-read-20-30-in-wet-soil-', target="_blank") Why does my sensor never get above 30-40%?
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/210712803-Why-does-my-Edyn-Garden-Sensor-report-temperature-that-is-higher-than-the-weather-forecast-', target="_blank") Why are my temperature readings different from the local forecast?
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/212275143', target="_blank") How do I request plants to be added to the database?
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/212274383', target="_blank") Can I leave my device out in the winter?
+
+            //==
+            br
+            a.anchor#faq-valve(href="#")
+            h4 Edyn Water Valve
+            br
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/205192065', target="_blank") Why is there no data in my app?
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/210709023-Can-I-leave-my-Edyn-Water-Valve-out-for-the-Winter-', target="_blank") Can I leave my device out in the winter? 
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/209112886-Can-I-mount-the-Edyn-Water-Valve-directly-onto-my-spigot-', target="_blank") Can I mount directly to the spigot?
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/210709063-Does-the-water-source-or-spigot-need-to-be-on-all-the-time-for-the-Edyn-Water-Valve-to-work-', target="_blank") Does my spigot always have to be on?
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/210709343-Why-does-my-Edyn-Water-Valve-show-device-inactive-', target="_blank") Why does my valve say “device inactive”?
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/210709383-What-happens-to-my-Edyn-Water-Valve-if-my-wifi-goes-offline-', target="_blank") What happens if my Wi-Fi goes offline?
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/209113506-A-little-bit-of-water-came-out-of-my-Edyn-Water-Valve-after-I-first-set-it-up-Is-this-normal-', target="_blank") Why did a little water leaked from my valve when I first set it up?
+            p
+                a(href='https://edyn.zendesk.com/hc/en-us/articles/211009263', target="_blank") Why won’t my valve open after I’ve scheduled a watering?
+            br
+            br
+            p
+                | Is your question not answered here? Please peruse our 
+                a(href='https://edyn.zendesk.com/hc/en-us', target="_blank") complete list of help topics
+                |  or email us with your question at 
+                a(href='mailto:support@edyn.com') support@edyn.com
+                | .
         
 append footer
       .lightbox
