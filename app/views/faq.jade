@@ -1,0 +1,257 @@
+extends layouts/default
+
+block vars
+    - var bodyClass = 'page';
+
+block title
+    title Get Started
+
+block content
+    .content
+      .container
+        .content-wrapper
+            h2 Edyn Support
+            .content-anchors
+                p
+                    a(href='#about-edyn-devices') About Edyn Devices
+                    ul
+                        li
+                            a(href='#about-sensors') Sensors
+                        li
+                            a(href='#about-valves') Valves
+                        li
+                            a(href='#device-compatibility') Device compatibility
+                        li
+                            a(href='#where-to-buy') Where to buy
+
+                p
+                    a(href='#how-to') How To
+                    ul
+                        li
+                            a(href='#get-the-app') Get the app
+
+                        li
+                            a(href='#pair-your-device') Pair your Edyn device to a network
+                        li
+                            a(href='#care-for-device') Care for your Edyn device
+                        li
+                            a(href='#device-warranty') Edyn device warranty
+                        li
+                            a(href='#how-to-sensor') Edyn Garden Sensor
+                        li
+                            a(href='#how-to-valve') Edyn Water Valve
+                        li
+                            a(href='#removing-or-changing') Removing or making changes to your Edyn device
+
+                p
+                    a(href='#faq') Commonly asked support questions
+                br 
+
+            // ============================
+            a.anchor#about-edyn-devices(href="#")
+            h3 About Edyn Devices
+
+            // ==
+            a.anchor#about-sensors(href="#")
+            h4 Sensors
+            br
+            h5 What is the Edyn Garden Sensor?
+
+            p
+                | The Edyn Garden Sensor keeps you connected to your garden, so you always know precisely what's needed to keep your soil and plants healthy. Just plant the solar-powered sensor  in your garden to continuously monitor environmental conditions. The device connects to your Wi-Fi network and sends you valuable insights to your phone in near real time.
+            ul
+                li
+                    strong Continuous monitoring: 
+                    | Edyn tracks moisture, light, temperature, humidity, and soil nutrition.
+                li
+                    strong Real-time guidance: 
+                    | Get tailored tips and notifications based on your garden’s conditions and the weather forecast.
+                li
+                    strong Garden diagnostics: 
+                    | Edyn analyzes your garden to discover which plants will grow best given your specific conditions and climate.
+                li
+                    strong Plant database: 
+                    | Discover new plants with Edyn's database of plants.
+                li
+                    strong Wi-Fi connected: 
+                    | Monitor your garden from anywhere.
+
+            
+            h5 What does the Edyn Garden Sensor measure?
+            ul
+                li
+                    strong Soil Moisture
+                    p
+                        br
+                        | Your Edyn Garden Sensor reports soil moisture in units of percent volume of water (volumetric water content, or % vwc). The full volume of your soil (100%) is broken down into the solid soil particles and roots (usually 50-75%), air (pore space), and the liquid water that coats the soil particles and fills the air space. That means that fully saturated soil will never reach 100% -- that would mean all of the soil and roots and air have also been displaced! At maximum field water capacity (the condition when all void spaces are filled with water), a 40-50% vwc measurement is typical.
+                        br
+                        br
+                        | The Edyn Garden Sensor has been calibrated to take into account the ways soils interact with the charged surface of the sensor tip, so placing your sensor in a glass of water will not yield values of 100%. The sensor stem sends out a series of very mild electrical pulses to the soil every 10 minutes, and measures changes to those pulse over time. Different patterns in pulse response are then separated into a soil nutrient reading (described below), and a volumetric soil moisture reading using Edyn’s proprietary algorithms.
+                        br
+                        br
+                        | Additional information on Soil Water Content can be 
+                        a(href='https://en.wikipedia.org/wiki/Water_content') found here
+                        | .
+                li
+                    strong Light
+                    p
+                        br
+                        | The Edyn Garden Sensor measures light as a voltage through the solar panel that powers your sensor. We convert this voltage to the unit lux (luminosity), which is a more common way of looking at light levels for plants. In some places, light levels get so high that they can scorch plants (observable when parts of the leaves turn a crispy yellow color, then quickly die back). Being able to track light levels can be very helpful in deciding whether it is time to put up shade cloth.  Historical light level readings are also used by Edyn to power the garden composition suggestion engine.
+                li
+                    strong Temperature
+                    p
+                        br
+                        | The temperature readings from the Edyn sensor are much more localized than local forecasts, which typically measure air temperature several meters above the ground. Bare soil and direct sun can lead to a garden experiencing temperatures much higher than the local forecast would suggest. Placement relative to walls, trees, etc. that shade your garden can also lead to temperatures which are significantly different from the local weather forecast. High temperatures can result in increased water loss to the atmosphere, and knowing how temperature, light levels, and humidity combine in your garden can help inform localized drought predictions for your garden.  Mulching and planting shade trees are two natural ways to lower garden temperatures to protect gardens if you live in a hot environment.
+                li
+                    strong Humidity
+                    p
+                        br
+                        | Humidity is sometimes an under-appreciated variable for gardeners. Every time a leaf opens its pores to pull in carbon dioxide, it also releases moisture back into the atmosphere. When the humidity is very low (when it’s hot and dry), a lot of moisture can be lost through evapotranspiration (ET). This increases the likelihood of daytime wilting, even when the plants are regularly getting water. Humidity is lowest in full-sun, therefore, high light levels and temperatures have an influence on the humidity that your plants experience.
+                        br
+                        br
+                        | There are two types of wilting to consider. The first is from general drought stress, where the plant is under such dry soil conditions that it can no longer maintain rigid cell structure and internal support. The second is daytime drooping of leaves from very dry air; this is an adaptive mechanism that many plants have to reduce their exposure to the drying sun and dry air (the pores of droopy leaves don’t let out as much moisture through ET). If your plants don’t naturally regain rigidity in the evenings, they risk chronic dry-soil induced wilting. If your plants are able to recover in the evening without additional water, then they may simply need shading for more optimal performance, reducing the drying and heating influence of mid-day sunlight.  
+                li
+                    strong Soil Nutrition
+                    p
+                        br
+                        | The Edyn Garden Sensor nutrition reading comes from the electrical conductivity of your soil. Electrical conductivity is a wholistic way of looking at the nutrient status of your soil and is a result of the cation exchange capacity (CEC), carbon content, and physical properties (drainage, pore space, and soil type among others) of your soil. The majority of the nutrients that your plants require for optimum growth are in the form of cations and anions, and your plants’ ability to access these nutrients are related to the above soil properties. For this reason, your Edyn sensor does not give you measurements of  specific nutrients in your soil, but instead, a measure of relative soil condition required for ideal nutrient delivery. Some soils naturally have a higher electrical conductivity, such as clays, and others particularly low, such as quartz sands.  We are continually working to develop models to account for soil heterogeneity, but many edge cases remain. Amending your garden soil with compost, naturally rich in carbon and nutrients, is one way to bring soil nutrient status up if you are in one of those sandy soils, or heterogeneous edge cases.
+                        br
+                        br
+                        | Additional information on Soil Chemistry can be 
+                        a(href='https://en.wikipedia.org/wiki/Soil#Soil_chemistry') found here
+                        | .
+
+            // ==
+            a.anchor#about-valves(href="#")
+            h4 Valves
+            br
+
+            h5 What is the Edyn Water Valve?
+            p
+                | The Edyn Water Valve tailors irrigation events to match your gardens’ needs. The valve automatically controls your existing irrigation system based on the local weather forecast and the plants you have in your garden, if used as a stand alone system. If you choose to link an Edyn Water Valve to the Edyn Garden Sensor, the data feed from your sensor can be used to inform Smart Watering (below). The valve connects to your Wi-Fi network so you can control it from anywhere using your smartphone and the Edyn app. Save water, lower your utility bills, and never worry about thirsty plants again.
+            ul
+                li
+                    strong Smart watering: 
+                    | Edyn waters your plants based on the weather and the readings from your Edyn Garden Sensor. No more running your sprinklers in the rain. 
+                li
+                    strong Manual watering: 
+                    | Design your own watering schedule to meet your specialized needs. This function does not require an Edyn Garden Sensor. Efficiently manage your water usage. Set the time of day and maximum duration using your smartphone.
+                li
+                    strong Wi-Fi connected: 
+                    | Easily control your Water Valve through your phone. Stay connected to your garden from anywhere.
+                li
+                    strong Made to live outdoors, just like plants: 
+                    | The Edyn Water Valve is resistant to sun, rain, moisture, common fertilizers, and pesticides. The rechargeable battery is solar-powered.
+                li
+                    strong Monitor real-time conditions: 
+                    | Add the Edyn Garden Sensor to continuously monitor environmental conditions in your garden, including soil moisture.
+            p
+                | The Edyn Water Valve will work with any drip irrigation, soaker hose or sprinkler system with a standard United States garden hose thread (GHT). Edyn also works with most washing machine spigots (an adapter may be necessary). The internal solenoid of the Water Valve requires at least 5 PSI (35 kPa) of pressure to activate, therefore, it may not be suitable for ground-level water-barrel watering systems.
+
+            h5 Features
+            ul
+                li
+                    strong Smart Watering
+                    p
+                        br
+                        | Edyn Smart Watering can be enabled when you have an Edyn Garden Sensor paired to the Edyn Water Valve. Using temperature and humidity measurements from the Edyn Garden Sensor, the Smart Watering algorithm first calculates how much water demand there is due to climate (evaporation) and plant water demand (Potential Evapotranspiration, or PET). This can be thought of as an approximation for how much water would need to be applied to your garden in order to keep it exactly as it is. Baseline Smart Watering duration and frequency are a function of garden specific PET replacement calculations and the amount of water required to result in net zero water loss, the ‘ideal moisture level’. The smart algorithm then calculates how far your soil moisture is from the ‘ideal’ and uses that, in combination with your irrigation system type, to determine how your garden needs to be watered to achieve ideal conditions. If your soil moisture is over target (i.e., plenty wet!) the next watering that would normally happen according to the smart schedule for your garden will be skipped.
+                        br
+                        br
+                        | Under most climatic conditions, watering occurs three times per week. Watering events will be skipped because of a 70% chance of rain that day (see Rain Skipping) or because the soil moisture is already at or above ideal conditions (in smart watering mode). In the event of very hot and dry conditions, sensor data will inform the Smart Watering system that a daily - or even twice daily - watering is required to maintain PET replacement and ideal moisture levels.
+                li
+                    strong Rain Skipping
+                    p
+                        br
+                        | The Edyn Rain Skipping system uses a weather forecast API to determine if scheduled waterings are unnecessary given rain events. If you have enabled Rain Skipping, and have set a Manual Watering schedule, any scheduled watering events for the day will be automatically cancelled if there is a 50%, or greater, chance of rain at 12 pm (midnight) the day of scheduled waterings. 
+                li
+                    strong Upcoming features
+                    p
+                        br
+                        | The current configuration makes assumptions about the flow rate from your irrigation system. Upcoming changes to the app will allow you to customize your flow rate to match your irrigation system more exactly!
+
+            // ==
+            a.anchor#device-compatibility(href="#")
+            h4 Device compatibility
+
+            ul
+                li
+                    strong iOS
+                    p
+                        br
+                        | We support the following Apple devices running iOS 9 or higher:
+                        ul
+                            li iPhone 5, 5s, 6, 6 Plus, and iPod Touch
+                    p
+                        br
+                        | The app is designed for iPhone and iPod Touch - technically, it will work on iPads as well, but we can't officially support all features working correctly on them at this time.
+
+                li
+                    strong Android
+                    p
+                        br
+                        | If your device uses JellyBean (4.1) or above, there is a very good chance that Edyn will work on your mobile device. We have tested it on popular Android phone models and are constantly testing on more devices.
+                        br
+                        br
+                        | The app is designed for Android mobile devices - technically, it will work on tablets as well, but we can't officially support all features working correctly on them at this time.
+
+            p
+                | Edyn devices use Electric Imp’s BlinkUp technology in order to connect your devices to Wi-Fi. You can check device compatibility for BlinkUp 
+                a(href='https://electricimp.com/docs/troubleshooting/devices/') here
+                | .
+
+            // ==
+            a.anchor#where-to-buy(href="#")
+            h4 Where to buy
+            
+            a(href='/order') https://edyn.com/order
+
+            p
+                | Our products are also available at many Home Depot stores across the United States.
+
+            // ============================
+            a.anchor#how-to(href="#")
+            h3 How To
+
+            a.anchor#get-the-app(href="#")
+            h4 Get the app
+
+            a.anchor#pair-your-device(href="#")
+            h4 Pair your Edyn device to a network
+
+            a.anchor#care-for-device(href="#")
+            h4 Care for your Edyn device
+
+            a.anchor#device-warranty(href="#")
+            h4 Edyn device warranty
+
+            a.anchor#how-to-sensor(href="#")
+            h4 Edyn Garden Sensor
+
+            a.anchor#how-to-valve(href="#")
+            h4 Edyn Water Valve
+
+            a.anchor#removing-or-changing(href="#")
+            h4 Removing or making changes to your Edyn device
+
+            // ============================
+            a.anchor#faq(href="#")
+            h3 Commonly asked support questions
+        
+append footer
+      .lightbox
+         a.logo(href='/') Edyn
+         .lightbox-close.close-icon
+           span
+         .lightbox-content
+           svg.svg-app(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 150 216')
+             path(d='M73 100.6l-7.9-7.9-4.2 4.2L73 109m0 2.1L59.9 97.9l-4.2 4.2L73 119.5m0-33.1c-1.2.2-2.3.7-3.3 1.6l-3.6 3.6 6.9 6.9V86.4zm9.4 6.3l-7.9 7.9v8.4l12.1-12.1M77.7 88c-.9-.9-2.1-1.4-3.3-1.6v12.1l6.9-6.9-3.6-3.6zm-23.1 15.2l-.6.6c-2.2 2.2-2.2 5.8 0 8l15.7 15.7c.9.9 2.1 1.4 3.3 1.6v-7.6l-18.4-18.3zm33-5.3l-13.1 13.2v8.4l17.3-17.4m1.7 1.7l-.6-.6-18.4 18.4v7.6c1.2-.2 2.3-.7 3.3-1.6l15.7-15.7c2.2-2.3 2.2-5.9 0-8.1z', fill='#FDC115')
+             g(fill='none', stroke='#FFF', stroke-width='2', stroke-miterlimit='10')
+               path(d='M32.3 171.1h82.9m0-126.6H32.3m82.9 137.1c0 6-4.8 10.8-10.8 10.8H43.1c-6 0-10.8-4.8-10.8-10.8V31.7c0-6 4.8-10.8 10.8-10.8h61.3c6 0 10.8 4.8 10.8 10.8v149.9z')
+               circle(cx='73.8', cy='181.6', r='6')
+           h2 Get the Edyn app
+           p
+             | Track your garden&rsquo;s growth, get recommendations, and access Edyn&rsquo;s database of over 5,000 plants.
+         .lightbox-footer
+           p Choose a store below
+           a.button-appstore(href='https://itunes.apple.com/us/app/edyn/id939748941?mt=8', target='_blank') Download from the App Store
+           a.button-googleplay(href='https://play.google.com/store/apps/details?id=com.edyn.apps.edyn', target='_blank') Get it on Google play

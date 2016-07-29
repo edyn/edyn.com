@@ -11,15 +11,15 @@ function ensureSecure(req, res, next){
   if(req.headers["x-forwarded-proto"] === "https"){
     // OK, continue
     return next();
-  };
-  
+  }
+
   if(req.secure){
     // OK, continue
     return next();
-  };
-  
-  res.redirect('https://'+req.hostname+req.url); // handle port numbers if you need non defaults
-};
+  }
+
+  res.redirect('https://' + req.hostname + req.url); // handle port numbers if you need non defaults
+}
 
 // Handle environments
 if (process.env.NODE_ENV == 'production') {
@@ -32,7 +32,7 @@ app.use(gzippo.staticGzip("" + __dirname + "/dist"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.set('views', './app/views')
+app.set('views', './app/views');
 app.set('view engine', 'jade');
 
 app.get('/', function(req, res) {
@@ -52,7 +52,7 @@ app.get('/about', function(req, res) {
 // });
 
 app.get('/getstarted', function(req, res) {
-    res.sendfile('./dist/getstarted.html');
+    res.redirect('/faq');
 });
 
 app.get('/resetpassword', function(req, res) {
@@ -165,7 +165,7 @@ app.post('/confirmation', function(req, res) {
 ///
 
 app.get('/faq', function(req, res) {
-    res.redirect('https://edyn.zendesk.com/hc/en-us');
+    res.sendfile('./dist/faq.html');
 });
 
 app.get('/company', function(req, res) {
@@ -173,8 +173,9 @@ app.get('/company', function(req, res) {
 });
 
 app.get('/support', function(req, res) {
-    res.redirect('/getstarted');
+    res.redirect('/faq');
 });
+
 ///
 // End of backwards compatibility section
 ///
