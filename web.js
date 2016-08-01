@@ -52,7 +52,7 @@ app.get('/about', function(req, res) {
 // });
 
 app.get('/getstarted', function(req, res) {
-    res.redirect('/faq');
+    res.redirect('/support');
 });
 
 app.get('/resetpassword', function(req, res) {
@@ -165,7 +165,7 @@ app.post('/confirmation', function(req, res) {
 ///
 
 app.get('/faq', function(req, res) {
-    res.sendfile('./dist/faq.html');
+    res.redirect('/support');
 });
 
 app.get('/company', function(req, res) {
@@ -173,7 +173,7 @@ app.get('/company', function(req, res) {
 });
 
 app.get('/support', function(req, res) {
-    res.redirect('/faq');
+    res.sendfile('./dist/support.html');
 });
 
 ///
