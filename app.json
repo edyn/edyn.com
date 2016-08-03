@@ -1,6 +1,13 @@
 {
   "name": "edyn.com",
   "scripts": {},
-  "env": {},
+  "env": {
+    "CELERY_TOKEN": {
+      "required": true
+    },
+    "CELERY_URL": {
+      "required": true
+    }
+  },
   "addons": []
 }
