@@ -16,10 +16,11 @@ function ensureSecure(req, res, next){
   if(req.secure){
     // OK, continue
     return next();
-  }
 
+  }
   res.redirect('https://' + req.hostname + req.url); // handle port numbers if you need non defaults
 }
+
 
 // Handle environments
 if (process.env.NODE_ENV == 'production') {
@@ -181,4 +182,5 @@ app.get('/support', function(req, res) {
 ///
 
 var port = Config.get('port');
+console.log('running app on ' + port);
 app.listen(port);
