@@ -12,12 +12,12 @@ function ensureSecure(req, res, next){
     // OK, continue
     return next();
   };
-  
+
   if(req.secure){
     // OK, continue
     return next();
   };
-  
+
   res.redirect('https://'+req.hostname+req.url); // handle port numbers if you need non defaults
 };
 
@@ -180,4 +180,5 @@ app.get('/support', function(req, res) {
 ///
 
 var port = Config.get('port');
+console.log('running app on ' + port);
 app.listen(port);
