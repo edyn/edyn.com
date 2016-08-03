@@ -16,7 +16,7 @@ When you launch via “gulp serve”, the routing doesn’t work (Express maps /
 Before committing changes to git, please make sure you have run `npm run build`.
 
 The staging environement is setup on Heroku. A procfile has bee created to run the app using Express.js
-Before deploying on Heroku, please make sure you have run `npm run build`.
+Before deploying on Heroku, please make sure you have run `npm run build`!
 
 
 # Testing orders
