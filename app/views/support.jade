@@ -11,6 +11,12 @@ block content
       .container
         .content-wrapper
             h2 Edyn Support
+            p
+                | Please see below for lots of useful information about the Edyn Garden Sensor and the Edyn Water Valve. If you have an urgent question or request that isn't addressed below, please email us at 
+                a(href='mailto:support@edyn.com') support@edyn.com
+                | .
+                br
+            h3 Table of Contents
             .content-anchors
                 p
                     a(href='#about-edyn-devices') About Edyn devices
@@ -65,7 +71,7 @@ block content
             h5 What is the Edyn Garden Sensor?
 
             p
-                | The Edyn Garden Sensor keeps you connected to your garden, so you always know precisely what's needed to keep your soil and plants healthy. Just plant the solar-powered sensor  in your garden to continuously monitor environmental conditions. The device connects to your Wi-Fi network and sends you valuable insights to your phone in near real time.
+                | The Edyn Garden Sensor keeps you connected to your garden, so you always know precisely what's needed to keep your soil and plants healthy. Just plant the solar-powered sensor in your garden to continuously monitor environmental conditions. The device connects to your Wi-Fi network and sends you valuable insights to your phone in near real time.
             ul
                 li
                     strong Continuous monitoring: 
@@ -164,12 +170,12 @@ block content
                         | Edyn Smart Watering can be enabled when you have an Edyn Garden Sensor paired to the Edyn Water Valve. Using temperature and humidity measurements from the Edyn Garden Sensor, the Smart Watering algorithm first calculates how much water demand there is due to climate (evaporation) and plant water demand (Potential Evapotranspiration, or PET). This can be thought of as an approximation for how much water would need to be applied to your garden in order to keep it exactly as it is. Baseline Smart Watering duration and frequency are a function of garden specific PET replacement calculations and the amount of water required to result in net zero water loss, the ‘ideal moisture level’. The smart algorithm then calculates how far your soil moisture is from the ‘ideal’ and uses that, in combination with your irrigation system type, to determine how your garden needs to be watered to achieve ideal conditions. If your soil moisture is over target (i.e., plenty wet!) the next watering that would normally happen according to the smart schedule for your garden will be skipped.
                         br
                         br
-                        | Under most climatic conditions, watering occurs three times per week. Watering events will be skipped because of a 70% chance of rain that day (see Rain Skipping) or because the soil moisture is already at or above ideal conditions (in smart watering mode). In the event of very hot and dry conditions, sensor data will inform the Smart Watering system that a daily - or even twice daily - watering is required to maintain PET replacement and ideal moisture levels.
+                        | Under most climatic conditions, watering occurs three times per week. Watering events may be skipped if Rain Skipping is enabled (see Rain Skipping below) or because moisture is already at or above ideal conditions (in Smart Watering mode). In the event of very hot and dry conditions, sensor data will inform the Smart Watering system that a daily - or even twice daily - watering is required to maintain PET replacement and ideal moisture levels.
                 li
                     strong Rain Skipping
                     p
                         br
-                        | The Edyn Rain Skipping system uses a weather forecast API to determine if scheduled waterings are unnecessary given rain events. If you have enabled Rain Skipping, and have set a Manual Watering schedule, any scheduled watering events for the day will be automatically cancelled if there is a 50%, or greater, chance of rain at 12 pm (midnight) the day of scheduled waterings. 
+                        | The Edyn Rain Skipping system uses a weather forecast API to determine if scheduled waterings are unnecessary given rain events. If Rain Skipping is enabled then any scheduled watering events for the day will be cancelled if there is a greater than 50% chance of rain or if the expected rainfall (taking into account probability and predicted intensity) is above 0.05 inches that day. 
                 li
                     strong Upcoming features
                     p
@@ -227,7 +233,7 @@ block content
             p
                 | Edyn offers a 1-year, manufacturer's limited warranty against defects on all of its products. If you suspect an item is defective, please contact 
                 a(href='mailto:support@edyn.com') support@edyn.com 
-                |  to arrange for a return. Edyn reserves the right to repair the device or provide a working, new or refurbished replacement at its own discretion. Our warranty does not cover damaged caused by the user. Some examples of damage that would not be covered under warranty include:
+                |  to arrange for a return. Edyn reserves the right to repair the device or provide a working, new or refurbished replacement at its own discretion. Our warranty does not cover damages caused by the user. Some examples of damage that would not be covered under warranty include:
             ol
                 li 1. Cracks in the enclosure due to dropping the device from a high height.
                 li 2. Damage to the internal battery due to leaving the device out in temperatures below 32°F (0°C)
@@ -254,7 +260,7 @@ block content
             a.anchor#pair-your-device(href="#")
             h4 Pair your Edyn device to a network
             p
-                | You can pair your device to your Wi-Fi network using a process called BlinkUp. The BlinkUp reader needs high contrast, so we recommend that you are in a darkened room (or that you perform blink-up under a table), and that your phone is completely flush with the reader. Light leaking can cause Wi-Fi sync (Step 1) failure. It’s also helpful to have audio enabled on your mobile device during blink-up as beeping indicates when BlinkUp is initiated and completed.
+                | You can pair your device to your Wi-Fi network using a process called BlinkUp. The BlinkUp reader works best in low light levels, so we recommend that you are in a darkened room, and that your phone is completely flush with the reader. Light leaking can cause Wi-Fi sync (Step 1) failure. It’s also helpful to have audio enabled on your mobile device during blink-up as beeping indicates when BlinkUp is initiated and completed.
             ul
                 li
                     | When you turn on your Garden Sensor, it will immediately enter into pairing mode.
@@ -265,7 +271,7 @@ block content
                 li
                     | To re-connect your sensor to a new Wi-Fi network, click "add device" and then go through regular BlinkUp as if it were the first time pairing this sensor.
             p
-                | The Wi-Fi connection requires a 2.4 GHz network. If you have a 5Ghz network, we recommend creating a separate 2.4 GHz network with a unique SSID, and then pairing your Edyn device to that network.
+                | The Wi-Fi connection requires a 2.4 GHz network. If you have a 5Ghz network, we recommend creating a separate 2.4 GHz network with a unique Wi-Fi network name (SSID), and then pairing your Edyn device to that network.
             p
                 strong Power button
             ul
@@ -405,36 +411,42 @@ block content
                     li Your valve information and schedules can be accessed by tapping on the droplet on the front of your garden screen in the app.
                     li At the upper right of your screen there are three parallel lines. Tapping there brings you to a Valve Settings screen where you can enable valve features.
                     li You’ll know the valve is enabled if the toggle switch is yellow. This tells the app that you are ready to set and execute a schedule.
-                    li Setting up “Smart Watering”
+                    p Setting up “Smart Watering”
                     ul
                         li If your valve is linked to a sensor, you will be able to toggle they greyed Smart Watering to yellow. You will then see “Upcoming Waterings” below. 
                         li Each time you toggle Smart Watering on, the valve will execute a short test watering 30 minutes later.
                         li If your next watering is within the next 24 hours then it will give you an estimate of the next watering event. Otherwise you will see a clock symbol, indicating the next watering event is too far away for us to be able to accurately give a watering duration approximation.
-                    li Setting up a manual watering schedule.
+                        li We currently make assumptions about your irrigation flow rates based on the most common options on the market. Soaker hoses and drip lines are set at approximately 2 gph/ft^2, whereas sprinkler systems are approximately 6 gph/ft^2. The "other" category is directly between these two values. A future update to our app will allow you to input your system flow rate with a tutorial. In the meantime, if you you know your flow rate and it is different from these industry standards then you may be happier choosing a system type that is closest to your flow rate.
+                    p Setting up a manual watering schedule.
                     ul
                         li Leave the Smart Watering toggle off. Return to the main valve screen by tapping your garden’s name on the Valve Settings screen.
                         li In the middle of the valve screen there is an Edit Recurring Schedule button. This will allow you to set up a recurring schedule with the frequency, timing, and duration you would like. This is recommended for regions with water regulations in effect.
                         li Be sure to tap “Save” in the upper right corner
-                    li Rain Skipping
+                    p Rain Skipping
                     ul 
-                        li If you would like your valve to skip a watering event because of upcoming rain forecasts, toggle Rain Skipping to yellow. 
-                    li One-time waterings (non-recurring)
+                        li If you would like your valve to skip a watering event because of upcoming rain forecasts, toggle Rain Skipping to yellow.
+                        li The only scheduled events Rain Skipping will not change are the one-time watering events. 
+                    p One-time waterings (non-recurring)
                     ul 
                         li Because of feedback from our users, we have rolled out a one-time watering option! You can now add a single watering event under the schedule editor. Tap the screen where it says “Add one-time watering”.
                         li This will bring you to a screen that will allow you to scroll through upcoming dates, the time you want the event to occur, and the length of the watering. You will not be able to schedule a watering sooner than a half hour from that moment; your valve needs to have time to check in and receive instructions. Scheduling a watering too soon will result in a pop-up warning.
                         li Be sure to tap “Save” in the upper right corner.
-                    li View your past watering events
+                    p View your past watering events
                         ul 
                             li Click on “Past waterings” on the bottom of the main valve screen to view your recent valve history. The date and duration will be displayed here, as well as icons. 
-                            ul
-                                li Successfully executed events will be marked with a check.
-                                li Events skipped because of rain events will have a rain cloud icon next to them (if rain skipping is enabled).
-                                li Events skipped because the soil moisture is at the target level will be marked with an arrow (if smart mode is enabled).
-                                li Events that failed because of low battery, or Wi-Fi connectivity will be marked with an exclamation mark. Please contact Edyn support for help diagnosing this alert.
+                            li Successfully executed events will be marked with a check.
+                            li Events skipped because of rain events will have a rain cloud icon next to them (if rain skipping is enabled).
+                            li Events skipped because the soil moisture is at the target level will be marked with an arrow (if smart mode is enabled).
+                            li Events that failed because of low battery or Wi-Fi connectivity will be marked with an exclamation mark. Please contact Edyn support for help diagnosing this alert.
+                    p How to delete an event
+                        ul
+                            li Click on Upcoming waterings to get to the future schedule.
+                            li Press on "Edit" in the upper right corner.
+                            li You can delete one-time waterings or edit the upcoming schedule for manual modes. Events scheduled through the Smart Watering mode can not be edited.
                 p
                     strong 20 min delay
                     br
-                    | The Edyn Water Valve connects to Wi-Fi approximately every 20 minutes to conserve battery life. As a result, a watering event scheduled fewer than 21 minutes in the future may not be executed. We recommend giving the valve a 30 minute window to ensure instructions are received for both recurring schedules and one-time waterings. Attempting to schedule a watering too soon will result in a pop-up warning.
+                    | The Edyn Water Valve connects to Wi-Fi approximately every 20 minutes to conserve battery life. As a result, a watering event scheduled fewer than 30 minutes in the future may not be executed. We recommend giving the valve a 30 minute window to ensure instructions are received for both recurring schedules and one-time waterings. Attempting to schedule a watering too soon will result in a pop-up warning.
                 p
                     strong Wi-Fi
                     br
