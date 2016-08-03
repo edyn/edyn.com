@@ -166,7 +166,7 @@ app.post('/confirmation', function(req, res) {
 ///
 
 app.get('/faq', function(req, res) {
-    res.redirect('/support');
+    res.redirect('https://edyn.zendesk.com/hc/en-us');
 });
 
 app.get('/company', function(req, res) {
