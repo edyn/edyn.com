@@ -97,7 +97,7 @@ block content
                         | Your Edyn Garden Sensor reports soil moisture in units of percent volume of water (volumetric water content, or % vwc). The full volume of your soil (100%) is broken down into the solid soil particles and roots (usually 50-75%), air (pore space), and the liquid water that coats the soil particles and fills the air space. That means that fully saturated soil will never reach 100% -- that would mean all of the soil and roots and air have also been displaced! At maximum field water capacity (the condition when all void spaces are filled with water), a 40-50% vwc measurement is typical.
                         br
                         br
-                        | The Edyn Garden Sensor has been calibrated to take into account the ways soils interact with the charged surface of the sensor tip, so placing your sensor in a glass of water will not yield values of 100%. The sensor stem sends out a series of very mild electrical pulses to the soil every 10 minutes, and measures changes to those pulse over time. Different patterns in pulse response are then separated into a soil nutrient reading (described below), and a volumetric soil moisture reading using Edyn’s proprietary algorithms.
+                        | The Edyn Garden Sensor has been calibrated to take into account the ways soils interact with the charged surface of the sensor tip, so placing your sensor in a glass of water will not yield values of 100%. The sensor stem sends out a series of very mild electrical pulses to the soil every 10 minutes, and measures changes to those pulses over time. Different patterns in pulse response are then separated into a soil nutrient reading (described below), and a volumetric soil moisture reading using Edyn’s proprietary algorithms.
                         br
                         br
                         | Additional information on Soil Water Content can be 
@@ -125,7 +125,7 @@ block content
                     strong Soil Nutrition
                     p
                         br
-                        | The Edyn Garden Sensor nutrition reading comes from the electrical conductivity of your soil. Electrical conductivity is a wholistic way of looking at the nutrient status of your soil and is a result of the cation exchange capacity (CEC), carbon content, and physical properties (drainage, pore space, and soil type among others) of your soil. The majority of the nutrients that your plants require for optimum growth are in the form of cations and anions, and your plants’ ability to access these nutrients are related to the above soil properties. For this reason, your Edyn sensor does not give you measurements of  specific nutrients in your soil, but instead, a measure of relative soil condition required for ideal nutrient delivery. Some soils naturally have a higher electrical conductivity, such as clays, and others particularly low, such as quartz sands.  We are continually working to develop models to account for soil heterogeneity, but many edge cases remain. Amending your garden soil with compost, naturally rich in carbon and nutrients, is one way to bring soil nutrient status up if you are in one of those sandy soils, or heterogeneous edge cases.
+                        | The Edyn Garden Sensor nutrition reading comes from the electrical conductivity of your soil. Electrical conductivity is a holistic way of looking at the nutrient status of your soil and is a result of the cation exchange capacity (CEC), carbon content, and physical properties (drainage, pore space, and soil type among others) of your soil. The majority of the nutrients that your plants require for optimum growth are in the form of cations and anions, and your plants’ ability to access these nutrients are related to the above soil properties. For this reason, your Edyn sensor does not give you measurements of specific nutrients in your soil, but instead, a measure of relative soil condition required for ideal nutrient delivery. Some soils naturally have a higher electrical conductivity, such as clays, and others particularly low, such as quartz sands.  We are continually working to develop models to account for all soil types, but if you have a particularly unique type of soil, your readings may be surprising until we're able to gather enough data from soils of that type around the world. Amending your garden soil with compost, naturally rich in carbon and nutrients, is one way to bring soil nutrient status up if you are in one of those sandy soils or another rarer soil type.
                         br
                         br
                         | Additional information on Soil Chemistry can be 
@@ -391,7 +391,7 @@ block content
                         a(href='https://edyn.zendesk.com/hc/en-us/articles/209981406-How-do-I-connect-the-Edyn-Water-Valve-to-a-UK-or-British-Style-Garden-Hose-or-Hose-Tap-', target="_blank") click here
                         |  for additional instructions.
                     li Make sure the hose faucet (spigot) is turned on, and remains so. If you use your faucet for multiple applications, we recommend using a splitter at the faucet.  
-                    li We provide an immediate watering test to ensure the valve is working. Pressing the pairing button three times in rapid succession will open up the valve. A single press will close the valve again.
+                    li We provide an immediate watering test to ensure the valve is working. Pressing the sync button three times in rapid succession will open up the valve. A single press will close the valve again. If you don’t close the valve, the valve will close itself after 60 minutes.
                     li If you are pairing your valve with a sensor:
                     ul
                         li Open the Edyn app.
@@ -412,7 +412,7 @@ block content
                         li If your valve is linked to a sensor, you will be able to toggle they greyed Smart Watering to yellow. You will then see “Upcoming Waterings” below. 
                         li Each time you toggle Smart Watering on, the valve will execute a short test watering 30 minutes later.
                         li If your next watering is within the next 24 hours then it will give you an estimate of the next watering event. Otherwise you will see a clock symbol, indicating the next watering event is too far away for us to be able to accurately give a watering duration approximation.
-                        li We currently make assumptions about your irrigation flow rates based on the most common options on the market. Soaker hoses and drip lines are set at approximately 2 gph/ft^2, whereas sprinkler systems are approximately 6 gph/ft^2. The "other" category is directly between these two values. A future update to our app will allow you to input your system flow rate with a tutorial. In the meantime, if you you know your flow rate and it is different from these industry standards then you may be happier choosing a system type that is closest to your flow rate.
+                        li We currently make assumptions about your irrigation flow rates based on the most common options on the market. Soaker hoses and drip lines are set at approximately 2 gph/ft^2, whereas sprinkler systems are approximately 6 gph/ft^2. The "other" category is between these two values. A future update to our app will allow you to input your system flow rate with a tutorial. In the meantime, if you you know your flow rate and it is different from these industry standards then you may be happier choosing a system type that is closest to your flow rate.
                     p Setting up a manual watering schedule.
                     ul
                         li Leave the Smart Watering toggle off. Return to the main valve screen by tapping your garden’s name on the Valve Settings screen.
@@ -453,7 +453,10 @@ block content
                     ul
                         li Move the router and the Edyn device closer together. Wi-Fi signal decreases exponentially with distance, so moving your device even a few feet closer to the router can have a significant effect.
                         li Remove obstructions between the router and Edyn device. Large, dense objects decrease Wi-Fi signal strength. By removing them from the path between your router and Edyn device, you can improve the signal significantly.
-                        li Deploy a Wi-Fi repeater/extender. Wi-Fi repeaters boost the signal from your main router. By deploying one in the garden, you can improve your Wi-Fi signal strength and enjoy Wi-Fi throughout your garden. We recommend this particular model for its performance, small size, and affordable price.
+                        li
+                            | Deploy a Wi-Fi repeater/extender. Wi-Fi repeaters boost the signal from your main router. By deploying one in the garden, you can improve your Wi-Fi signal strength and enjoy Wi-Fi throughout your garden. We recommend 
+                            a(href='https://smile.amazon.com/NETGEAR-Wi-Fi-Extender-Essentials-EX2700/dp/B00L0YLRUW', target="_blank") this particular model
+                            |  for its performance, small size, and affordable price.
             p
                 strong Batteries
                 br
