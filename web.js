@@ -11,15 +11,16 @@ function ensureSecure(req, res, next){
   if(req.headers["x-forwarded-proto"] === "https"){
     // OK, continue
     return next();
-  };
-  
+  }
+
   if(req.secure){
     // OK, continue
     return next();
-  };
-  
-  res.redirect('https://'+req.hostname+req.url); // handle port numbers if you need non defaults
-};
+
+  }
+  res.redirect('https://' + req.hostname + req.url); // handle port numbers if you need non defaults
+}
+
 
 // Handle environments
 if (process.env.NODE_ENV == 'production') {
@@ -32,7 +33,7 @@ app.use(gzippo.staticGzip("" + __dirname + "/dist"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.set('views', './app/views')
+app.set('views', './app/views');
 app.set('view engine', 'jade');
 
 app.get('/', function(req, res) {
@@ -52,7 +53,7 @@ app.get('/about', function(req, res) {
 // });
 
 app.get('/getstarted', function(req, res) {
-    res.sendfile('./dist/getstarted.html');
+    res.redirect('/support');
 });
 
 app.get('/resetpassword', function(req, res) {
@@ -173,11 +174,13 @@ app.get('/company', function(req, res) {
 });
 
 app.get('/support', function(req, res) {
-    res.redirect('/getstarted');
+    res.sendfile('./dist/support.html');
 });
+
 ///
 // End of backwards compatibility section
 ///
 
 var port = Config.get('port');
+console.log('running app on ' + port);
 app.listen(port);

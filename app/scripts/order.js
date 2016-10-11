@@ -209,7 +209,7 @@
 			if (error) {
 				var msg;
 				if (error.message === 'Error showing confirmation.') {
-					msg = 'Your order was placed successfully but there was an error displaying confirmation. Please contact support@edyn.com.';
+					msg = 'Your order was placed successfully but there was an error displaying confirmation. Please use the chat button on this page to get in touch with us.';
 				} else {
 					var stripeErrors = [
 						'Your card was declined.',
@@ -222,7 +222,7 @@
 					if (stripeErrors.indexOf(error.message) !== -1) {
 						msg = error.message
 					} else {
-						msg = 'Error placing order. Please contact support@edyn.com.';
+						msg = 'Error placing order. Please use the chat button on this page to get in touch with us.';
 					}
 					$('#placeOrder').val('Place Order');
 					$('#placeOrder').removeAttr('disabled');
