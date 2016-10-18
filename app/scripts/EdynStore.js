@@ -258,6 +258,5 @@
     });
   };
 
-
   window.EdynStore = EdynStore;
 })();

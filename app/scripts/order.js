@@ -434,6 +434,7 @@
 	}
 
 	function setupUi() {
+		var isMobile = $('html').hasClass('ua-mobile');
 		setupTooltips();
 
 		if (edynStore.outOfStock()) {
@@ -453,7 +454,7 @@
 			$(this).prev('span').hide();
 		});
 
-		if($('html').hasClass('ua-mobile')) {
+		if (isMobile) {
 			if($('#input-coupon').length) {
 				$($('#input-coupon').attr('placeholder', 'Enter Code'));
 			}

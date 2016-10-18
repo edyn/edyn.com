@@ -42,7 +42,7 @@
 		.accordion-target {
 			display: none;
 			@include media($bp-medium) {
-				@extend blockquote;
+				//@extend blockquote;
 				font-size: 30px;
 				display: block;
 				margin: em(20) 0 em(30) 0;

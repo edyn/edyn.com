@@ -1,3 +1,5 @@
+'use strict';
+
 // generated on 2015-06-20 using generator-gulp-webapp 1.0.0
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
