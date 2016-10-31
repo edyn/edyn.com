@@ -635,9 +635,12 @@
 				callback: {
 					phone: {
 						callback: function (el, phone) {
-							var PhoneNumber = window.libphonenumber.PhoneNumberUtil.getInstance();
-							var number = PhoneNumber.parse(phone, 'US');
-							return PhoneNumber.isValidNumber(number);
+							// var PhoneNumber = window.libphonenumber.PhoneNumberUtil.getInstance();
+							// var number = PhoneNumber.parse(phone, 'US');
+							// return PhoneNumber.isValidNumber(number);
+							// NOTE: tried using PhoneNumber.isPossibleNumber but it throws an error
+							//       referencing some internal function not being defined
+							return true;
 						},
 						errorMessage: 'Invalid phone number'
 					}
