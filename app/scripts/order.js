@@ -628,6 +628,12 @@
 			}
 		}
 
+		$('#input-shipping-country').on('change', function (event) {
+			var country = $(this).val();
+			var fn = (country === 'US') ? 'addClass' : 'removeClass';
+			$('.international-note')[fn]('hidden');
+		});
+
 		// Form validation
 		$('#form').validetta({
 			realTime: false,

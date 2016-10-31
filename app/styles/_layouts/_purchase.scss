@@ -470,6 +470,10 @@
                 clear: both;
                 @include clearfix;
               }
+
+              .international-note.hidden {
+                display: none;
+              }
             }
         }
 
