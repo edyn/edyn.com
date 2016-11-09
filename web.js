@@ -113,8 +113,8 @@ app.get('/inventory', function(req, res) {
           }
 
           var ships = {
-            sensor: 'Ships in 1 business day',
-            valve: 'Ships in 1 business day'
+            sensor: 'Ships immediately',
+            valve: 'Ships immediately'
           }[device];
 
           products.push({

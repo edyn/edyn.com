@@ -192,9 +192,9 @@
             }
 
             @include media($bp-medium) {
-				padding-left: em(20);
-                margin: em(10) 0 0;
-			}
+				      padding-left: em(20);
+              margin: em(10) 0 0;
+			      }
         }
 
         .input-checkbox {
@@ -469,6 +469,10 @@
               @include media($bp-medium) {
                 clear: both;
                 @include clearfix;
+              }
+
+              .international-note.hidden {
+                display: none;
               }
             }
         }

@@ -111,74 +111,19 @@ block content
                                 label.invisible(for="input-shipping-address-line-2") Address
                                 input.form-control#input-shipping-address-line-2(type="text", placeholder="Address line 2", name="input-shipping-address-line-2")
                             .input-wrapper
-                                label(for="input-shipping-city") City
-                                    span.required *
-                                input.form-control#input-shipping-city(type="text", placeholder="City", name="input-shipping-city", data-validetta="required", data-vd-message-required="This field is required.")
+                                label(for="input-shipping-country") Country
+                                select.input-select.crs-country#input-shipping-country(data-region-id="input-shipping-state", data-blacklist="IR,KP", data-value="shortcode", data-default-value="US", data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
-                                label(for="input-shipping-state") State
-                                    span.required *
-                                .input-select
-                                    span.label State
-                                    select.custom-select.form-control#input-shipping-state(name="input-shipping-state", data-validetta="required", data-vd-message-required="This field is required.")
-                                        option(value="AL") AL
-                                        option(value="AK") AK
-                                        option(value="AZ") AZ
-                                        option(value="AR") AR
-                                        option(value="CA") CA
-                                        option(value="CO") CO
-                                        option(value="CT") CT
-                                        option(value="DE") DE
-                                        option(value="DC") DC
-                                        option(value="FL") FL
-                                        option(value="GA") GA
-                                        option(value="HI") HI
-                                        option(value="ID") ID
-                                        option(value="IL") IL
-                                        option(value="IN") IN
-                                        option(value="IA") IA
-                                        option(value="KS") KS
-                                        option(value="KY") KY
-                                        option(value="LA") LA
-                                        option(value="ME") ME
-                                        option(value="MD") MD
-                                        option(value="MA") MA
-                                        option(value="MI") MI
-                                        option(value="MN") MN
-                                        option(value="MS") MS
-                                        option(value="MO") MO
-                                        option(value="MT") MT
-                                        option(value="NE") NE
-                                        option(value="NV") NV
-                                        option(value="NH") NH
-                                        option(value="NJ") NJ
-                                        option(value="NM") NM
-                                        option(value="NY") NY
-                                        option(value="NC") NC
-                                        option(value="ND") ND
-                                        option(value="OH") OH
-                                        option(value="OK") OK
-                                        option(value="OR") OR
-                                        option(value="PA") PA
-                                        option(value="RI") RI
-                                        option(value="SC") SC
-                                        option(value="SD") SD
-                                        option(value="TN") TN
-                                        option(value="TX") TX
-                                        option(value="UT") UT
-                                        option(value="VT") VT
-                                        option(value="VA") VA
-                                        option(value="WA") WA
-                                        option(value="WV") WV
-                                        option(value="WI") WI
-                                        option(value="WY") WY
+                                label(for="input-shipping-state") State/Region
+                                select.input-select#input-shipping-state(data-validetta="required", data-vd-message-required="This field is required.")
                             .input-wrapper
-                                label(for="input-shipping-zip") Zip
+                                label(for="input-shipping-city") City/Town
+                                    span.required *
+                                input.form-control#input-shipping-city(type="text", placeholder="City/Town", name="input-shipping-city", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label(for="input-shipping-zip") Postal Code
                                     span.required *
                                 input.form-control#input-shipping-zip(type="text", placeholder="Zip", name="input-shipping-zip", data-bind-input="input-billing-zip", data-validetta="required", data-vd-message-required="This field is required.")
-                            .input-wrapper
-                                label(for="input-shipping-country") Country
-                                input.form-control#input-shipping-country(type="text", value="United States", disabled)
-                                span.notice More countries coming soon
                             .input-wrapper
                                 label(for="input-shipping-telephone") Telephone
                                     span.required *
@@ -212,74 +157,19 @@ block content
                                 label.invisible(for="input-billing-address-line-2") Address
                                 input.form-control.billing-field#input-billing-address-line-2(type="text", placeholder="Address line 2", name="input-billing-address-line-2")
                             .input-wrapper
-                                label(for="input-billing-city") City
+                                label(for="input-billing-country") Country
+                                select.input-select.crs-country#input-billing-country(data-region-id="input-billing-state", data-blacklist="IR,KP", data-value="shortcode", data-default-value="US", data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label(for="input-billing-state") State/Region
+                                select.input-select#input-billing-state(data-validetta="required", data-vd-message-required="This field is required.")
+                            .input-wrapper
+                                label(for="input-billing-city") City/Town
                                     span.required *
                                 input.form-control.billing-field#input-billing-city(type="text", placeholder="City", name="input-billing-city", data-validetta="required", data-vd-message-required="This field is required.")
-                            .input-wrapper
-                                label(for="input-billing-state") State
-                                    span.required *
-                                .input-select
-                                    span.label State
-                                    select.custom-select.form-control.billing-field#input-billing-state(name="input-billing-state", data-validetta="required", data-vd-message-required="This field is required.")
-                                        option(value="AL") AL
-                                        option(value="AK") AK
-                                        option(value="AZ") AZ
-                                        option(value="AR") AR
-                                        option(value="CA") CA
-                                        option(value="CO") CO
-                                        option(value="CT") CT
-                                        option(value="DE") DE
-                                        option(value="DC") DC
-                                        option(value="FL") FL
-                                        option(value="GA") GA
-                                        option(value="HI") HI
-                                        option(value="ID") ID
-                                        option(value="IL") IL
-                                        option(value="IN") IN
-                                        option(value="IA") IA
-                                        option(value="KS") KS
-                                        option(value="KY") KY
-                                        option(value="LA") LA
-                                        option(value="ME") ME
-                                        option(value="MD") MD
-                                        option(value="MA") MA
-                                        option(value="MI") MI
-                                        option(value="MN") MN
-                                        option(value="MS") MS
-                                        option(value="MO") MO
-                                        option(value="MT") MT
-                                        option(value="NE") NE
-                                        option(value="NV") NV
-                                        option(value="NH") NH
-                                        option(value="NJ") NJ
-                                        option(value="NM") NM
-                                        option(value="NY") NY
-                                        option(value="NC") NC
-                                        option(value="ND") ND
-                                        option(value="OH") OH
-                                        option(value="OK") OK
-                                        option(value="OR") OR
-                                        option(value="PA") PA
-                                        option(value="RI") RI
-                                        option(value="SC") SC
-                                        option(value="SD") SD
-                                        option(value="TN") TN
-                                        option(value="TX") TX
-                                        option(value="UT") UT
-                                        option(value="VT") VT
-                                        option(value="VA") VA
-                                        option(value="WA") WA
-                                        option(value="WV") WV
-                                        option(value="WI") WI
-                                        option(value="WY") WY
                             .input-wrapper
                                 label(for="input-billing-zip") Zip
                                     span.required *
                                 input.form-control.billing-field#input-billing-zip(type="text", placeholder="Zip", name="input-billing-zip", data-validetta="required", data-vd-message-required="This field is required.")
-                            .input-wrapper
-                                label(for="input-billing-country") Country
-                                input.billing-field#input-billing-country(type="text", value="United States", disabled)
-                                span.notice More countries coming soon
                             .input-wrapper
                                 label(for="input-billing-telephone") Telephone
                                     span.required *
@@ -344,6 +234,7 @@ block content
                                         td.price-total
 
                         .order-support
+                            div.international-note.hidden International customers are responsible for all import duties assessed by their local governments. Due to US Department of Agriculture regulations, we cannot accept returns from outside the US once the devices have touched foreign soil.
                             div Having problems placing an order? Please use the chat button on this page to get in touch with us.
                             div
                               a(href="https://edyn.zendesk.com/hc/en-us/articles/211641903-What-is-your-return-policy") Return Policy

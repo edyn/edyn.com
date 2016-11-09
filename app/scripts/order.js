@@ -434,6 +434,7 @@
 	}
 
 	function setupUi() {
+		var isMobile = $('html').hasClass('ua-mobile');
 		setupTooltips();
 
 		if (edynStore.outOfStock()) {
@@ -453,7 +454,7 @@
 			$(this).prev('span').hide();
 		});
 
-		if($('html').hasClass('ua-mobile')) {
+		if (isMobile) {
 			if($('#input-coupon').length) {
 				$($('#input-coupon').attr('placeholder', 'Enter Code'));
 			}
@@ -627,6 +628,12 @@
 			}
 		}
 
+		$('#input-shipping-country').on('change', function (event) {
+			var country = $(this).val();
+			var fn = (country === 'US') ? 'addClass' : 'removeClass';
+			$('.international-note')[fn]('hidden');
+		});
+
 		// Form validation
 		$('#form').validetta({
 			realTime: false,
@@ -634,9 +641,12 @@
 				callback: {
 					phone: {
 						callback: function (el, phone) {
-							var PhoneNumber = window.libphonenumber.PhoneNumberUtil.getInstance();
-							var number = PhoneNumber.parse(phone, 'US');
-							return PhoneNumber.isValidNumber(number);
+							// var PhoneNumber = window.libphonenumber.PhoneNumberUtil.getInstance();
+							// var number = PhoneNumber.parse(phone, 'US');
+							// return PhoneNumber.isValidNumber(number);
+							// NOTE: tried using PhoneNumber.isPossibleNumber but it throws an error
+							//       referencing some internal function not being defined
+							return true;
 						},
 						errorMessage: 'Invalid phone number'
 					}
