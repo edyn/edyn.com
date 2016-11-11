@@ -71,7 +71,6 @@ var devicesByName = {
 
 app.get('/inventory', function(req, res) {
     var config = Config.get('celery');
-
     var apiUrl = config.url;
     var token = config.token;
 
