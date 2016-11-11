@@ -48,7 +48,7 @@ block content
                               .input-wrapper.input-coupon-wrapper
                                   label(for="input-coupon") Coupon Code?
                                   input.form-control#input-coupon(type="text", placeholder="Coupon Code?", name="input-coupon")
-                                  span.validetta-bubble
+                                  input.error-message
                               .button-group.button-group-coupon
                                   button.button.button-outline.button-apply Apply
                                   button.button.button-outline.button-cancel Cancel
@@ -91,43 +91,43 @@ block content
                             .input-wrapper
                                 label(for="input-shipping-first-name") First name
                                     span.required *
-                                input.form-control#input-shipping-first-name(type="text", placeholder="First name", name="input-shipping-first-name", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control#input-shipping-first-name(type="text", placeholder="First name", name="input-shipping-first-name", data-required)
                             .input-wrapper
                                 label(for="input-shipping-last-name") Last name
                                     span.required *
-                                input.form-control#input-shipping-last-name(type="text", placeholder="Last name", name="input-shipping-last-name", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control#input-shipping-last-name(type="text", placeholder="Last name", name="input-shipping-last-name", data-required)
                             .input-wrapper
                                 label(for="input-shipping-email") Email
                                     span.required *
-                                input.form-control#input-shipping-email(type="text", placeholder="Email", name="input-shipping-email", data-validetta="required,email", data-vd-message-required="This field is required.", data-vd-message-email="Your email address appears to be invalid.")
+                                input.form-control#input-shipping-email(type="text", placeholder="Email", name="input-shipping-email", data-required)
                             .input-wrapper
                                 label(for="input-shipping-company") Company
                                 input.form-control#input-shipping-company(type="text", placeholder="Company", name="input-shipping-company")
                             .input-wrapper
                                 label(for="input-shipping-address-line-1") Address
                                     span.required *
-                                input.form-control#input-shipping-address-line-1(type="text", placeholder="Address line 1", name="input-shipping-address-line-1", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control#input-shipping-address-line-1(type="text", placeholder="Address line 1", name="input-shipping-address-line-1", data-required)
                             .input-wrapper
                                 label.invisible(for="input-shipping-address-line-2") Address
                                 input.form-control#input-shipping-address-line-2(type="text", placeholder="Address line 2", name="input-shipping-address-line-2")
                             .input-wrapper
                                 label(for="input-shipping-country") Country
-                                select.input-select.crs-country#input-shipping-country(data-region-id="input-shipping-state", data-blacklist="IR,KP", data-value="shortcode", data-default-value="US", data-validetta="required", data-vd-message-required="This field is required.")
+                                select.input-select.crs-country#input-shipping-country(data-region-id="input-shipping-state", data-blacklist="IR,KP", data-value="shortcode", data-default-value="US", data-required)
                             .input-wrapper
                                 label(for="input-shipping-state") State/Region
-                                select.input-select#input-shipping-state(data-validetta="required", data-vd-message-required="This field is required.")
+                                select.input-select#input-shipping-state(data-required)
                             .input-wrapper
                                 label(for="input-shipping-city") City/Town
                                     span.required *
-                                input.form-control#input-shipping-city(type="text", placeholder="City/Town", name="input-shipping-city", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control#input-shipping-city(type="text", placeholder="City/Town", name="input-shipping-city", data-required)
                             .input-wrapper
                                 label(for="input-shipping-zip") Postal Code
                                     span.required *
-                                input.form-control#input-shipping-zip(type="text", placeholder="Zip", name="input-shipping-zip", data-bind-input="input-billing-zip", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control#input-shipping-zip(type="text", placeholder="Zip", name="input-shipping-zip", data-required)
                             .input-wrapper
                                 label(for="input-shipping-telephone") Telephone
                                     span.required *
-                                input.form-control#input-shipping-telephone(type="tel", placeholder="Telephone", name="input-shipping-telephone", data-bind-input="input-billing-telephone", data-validetta="required,callback[phone]", data-vd-message-required="This field is required.")
+                                input.form-control#input-shipping-telephone(type="tel", placeholder="Telephone", name="input-shipping-telephone", data-required)
                         h2 2. Billing Information
                         .input-checkbox
                             label(for="input-billing")
@@ -137,56 +137,56 @@ block content
                             .input-wrapper
                                 label(for="input-billing-first-name") First name
                                     span.required *
-                                input.form-control.billing-field#input-billing-first-name(type="text", placeholder="First name", name="input-billing-first-name", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control.billing-field#input-billing-first-name(type="text", placeholder="First name", name="input-billing-first-name", data-required)
                             .input-wrapper
                                 label(for="input-billing-last-name") Last name
                                     span.required *
-                                input.form-control.billing-field#input-billing-last-name(type="text", placeholder="Last name", name="input-billing-last-name", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control.billing-field#input-billing-last-name(type="text", placeholder="Last name", name="input-billing-last-name", data-required)
                             .input-wrapper
                                 label(for="input-billing-email") Email
                                     span.required *
-                                input.form-control.billing-field#input-billing-email(type="text", placeholder="Email", name="input-billing-email", data-validetta="required,email", data-vd-message-required="This field is required.", data-vd-message-email="Your email address appears to be invalid.")
+                                input.form-control.billing-field#input-billing-email(type="text", placeholder="Email", name="input-billing-email", data-required)
                             .input-wrapper
                                 label(for="input-billing-company") Company
                                 input.form-control.billing-field#input-billing-company(type="text", placeholder="Company", name="input-billing-company")
                             .input-wrapper
                                 label(for="input-billing-address-line-1") Address
                                     span.required *
-                                input.form-control.billing-field#input-billing-address-line-1(type="text", placeholder="Address line 1", name="input-billing-address-line-1", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control.billing-field#input-billing-address-line-1(type="text", placeholder="Address line 1", name="input-billing-address-line-1", data-required)
                             .input-wrapper
                                 label.invisible(for="input-billing-address-line-2") Address
                                 input.form-control.billing-field#input-billing-address-line-2(type="text", placeholder="Address line 2", name="input-billing-address-line-2")
                             .input-wrapper
                                 label(for="input-billing-country") Country
-                                select.input-select.crs-country#input-billing-country(data-region-id="input-billing-state", data-blacklist="IR,KP", data-value="shortcode", data-default-value="US", data-validetta="required", data-vd-message-required="This field is required.")
+                                select.input-select.crs-country#input-billing-country(data-region-id="input-billing-state", data-blacklist="IR,KP", data-value="shortcode", data-default-value="US", data-required)
                             .input-wrapper
                                 label(for="input-billing-state") State/Region
-                                select.input-select#input-billing-state(data-validetta="required", data-vd-message-required="This field is required.")
+                                select.input-select#input-billing-state(data-required)
                             .input-wrapper
                                 label(for="input-billing-city") City/Town
                                     span.required *
-                                input.form-control.billing-field#input-billing-city(type="text", placeholder="City", name="input-billing-city", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control.billing-field#input-billing-city(type="text", placeholder="City", name="input-billing-city", data-required)
                             .input-wrapper
                                 label(for="input-billing-zip") Zip
                                     span.required *
-                                input.form-control.billing-field#input-billing-zip(type="text", placeholder="Zip", name="input-billing-zip", data-validetta="required", data-vd-message-required="This field is required.")
+                                input.form-control.billing-field#input-billing-zip(type="text", placeholder="Zip", name="input-billing-zip", data-required)
                             .input-wrapper
                                 label(for="input-billing-telephone") Telephone
                                     span.required *
-                                input.form-control.billing-field#input-billing-telephone(type="tel", placeholder="Telephone", name="input-billing-telephone", data-validetta="required,callback[phone]")
+                                input.form-control.billing-field#input-billing-telephone(type="tel", placeholder="Telephone", name="input-billing-telephone", data-required)
                         h2 3. Payment Method
                             i(class="icon icon-ui-lock", title="All transactions are secure and encrypted. Credit card information is never stored.", rel="tooltip")
                         fieldset
                             .input-wrapper
                                 label(for="input-card-number") Card number
                                     span.required *
-                                input.form-control#input-card-number(type="number", placeholder="Card number", name="input-card-number", data-validetta="required", data-vd-message-required="This field is required.", data-vd-message-creditcard="Invalid credit card number.")
+                                input.form-control#input-card-number(type="number", placeholder="Card number", name="input-card-number", data-required)
                             .input-wrapper
                                 label(for="input-card-month") Exp. month
                                     span.required *
                                 .input-select
                                     span.label(data-mobile-label="Exp. Month") Expiration Month
-                                    select.custom-select.form-control#input-card-month(name="input-card-month", placeholder="Expiration Month", data-validetta="required", data-vd-message-required="This field is required.")
+                                    select.custom-select.form-control#input-card-month(name="input-card-month", placeholder="Expiration Month", data-required)
                                         option(value="01") 01
                                         option(value="02") 02
                                         option(value="03") 03
@@ -204,11 +204,11 @@ block content
                                     span.required *
                                 .input-select
                                     span.label(data-mobile-label="Exp. Year") Expiration Year
-                                    select.custom-select.form-control#input-card-year(name="input-card-year", placeholder="Expiration Year", data-validetta="required", data-vd-message-required="This field is required.")
+                                    select.custom-select.form-control#input-card-year(name="input-card-year", placeholder="Expiration Year", data-required)
                             .input-wrapper
                                 label(for="input-card-code") Security code
                                     span.required *
-                                input.form-control#input-card-code(type="number", placeholder="Code", name="input-card-code", data-validetta="required,number,minLength[3],maxLength[4]", data-vd-message-required="This field is required.")
+                                input.form-control#input-card-code(type="number", placeholder="Code", name="input-card-code", data-required)
                                 i(class="icon icon-ui-question trigger-cvv")
                                 .card-cvv
                                     img(src="images/card-cvv_2x.png", alt="Card CVV", width="171", height="124")

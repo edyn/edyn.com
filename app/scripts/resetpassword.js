@@ -113,6 +113,8 @@
 			showSection(sels.update.start);
 		});
 
+		// TODO: remove validetta from here since we don't use on order page anymore
+		// and it is a total garbage library
 		$(sels.forgot.start).validetta({
 			realTime: false,
 			onValid: function(event) {

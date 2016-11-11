@@ -170,7 +170,7 @@
 	function checkCoupon () {
 		syncStoreToView();
 
-		var errorNode = $('.input-coupon-wrapper .validetta-bubble');
+		var errorNode = $('.input-coupon-wrapper .error-message');
 
 		function clearErrorAndUpdatePrices () {
 			$('.button-group-coupon').hide();
@@ -617,6 +617,36 @@
 
 		// Disable default form behaviour
 		$('#form').on('submit', function(e) {
+			var wantsBilling = wantsBillingAddress();
+			var required = $.makeArray($(this).find('[data-required]')).filter(function (el) {
+				var $el = $(el);
+				var isBilling = $el.is('.billing-field');
+				return (!isBilling || (wantsBilling && isBilling));
+			});
+
+			var errorClass = 'validetta-bubble';
+			var errorSel = '.' + errorClass;
+
+			var emptyRequired = required.filter(function (el) {
+				var $el = $(el);
+				var isEmpty = !$el.val();
+				var error = $el.siblings(errorSel);
+				if (isEmpty) {
+					if (!error.length) {
+						error = $('<span class="' + errorClass + '">This field is required.</span>');
+						$el.after(error);
+					}
+				}
+				else {
+					error.remove();
+				}
+				return isEmpty;
+			});
+
+			if (!emptyRequired.length) {
+				doCheckout();
+			}
+
 			return false;
 		});
 
@@ -632,43 +662,6 @@
 			var country = $(this).val();
 			var fn = (country === 'US') ? 'addClass' : 'removeClass';
 			$('.international-note')[fn]('hidden');
-		});
-
-		// Form validation
-		$('#form').validetta({
-			realTime: false,
-			validators: {
-				callback: {
-					phone: {
-						callback: function (el, phone) {
-							// var PhoneNumber = window.libphonenumber.PhoneNumberUtil.getInstance();
-							// var number = PhoneNumber.parse(phone, 'US');
-							// return PhoneNumber.isValidNumber(number);
-							// NOTE: tried using PhoneNumber.isPossibleNumber but it throws an error
-							//       referencing some internal function not being defined
-							return true;
-						},
-						errorMessage: 'Invalid phone number'
-					}
-				}
-			},
-			onValid: function (event) {
-				doCheckout();
-			},
-			onError: function (event) {
-				if (!wantsBillingAddress()) {
-					// ignore billing address validation errors if its not specified
-					var invalidFields = this.getInvalidFields();
-
-					var allInvalidFieldsAreBilling = invalidFields.every(function (fieldError) {
-						return $(fieldError.field).is('.billing-field');
-					});
-
-					if (allInvalidFieldsAreBilling) {
-						doCheckout();
-					}
-				}
-			}
 		});
 	}
 
