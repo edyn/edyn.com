@@ -646,6 +646,9 @@
 			if (!emptyRequired.length) {
 				doCheckout();
 			}
+			else {
+				console.log(emptyRequired);
+			}
 
 			return false;
 		});
