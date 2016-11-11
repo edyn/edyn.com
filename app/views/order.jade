@@ -164,12 +164,12 @@ block content
                                 label(for="input-billing-country") Country
                                     span.required *
                                 .input-select
-                                  select.crs-country#input-billing-country(data-region-id="input-billing-state", data-blacklist="IR,KP", data-value="shortcode", data-default-value="US", data-required)
+                                  select.billing-field.crs-country#input-billing-country(data-region-id="input-billing-state", data-blacklist="IR,KP", data-value="shortcode", data-default-value="US", data-required)
                             .input-wrapper
                                 label(for="input-billing-state") State/Region
                                     span.required *
                                 .input-select
-                                    select#input-billing-state(data-required)
+                                    select.billing-field#input-billing-state(data-required)
                             .input-wrapper
                                 label(for="input-billing-city") City/Town
                                     span.required *
