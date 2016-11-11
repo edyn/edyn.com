@@ -215,7 +215,7 @@ form {
     }
     textarea {}
 
-    span.notice, span.validetta-bubble {
+    span.notice, .validetta-bubble {
         font-size: em(12);
         color: $silver;
         font-style: italic;
@@ -241,7 +241,7 @@ form {
         }
     }
 
-    span.validetta-bubble {
+    .validetta-bubble {
         color: red;
     }
 
@@ -525,7 +525,7 @@ form {
             text-align: center;
         }
 
-        span.validetta-bubble {
+        .validetta-bubble {
             margin-left: em(10);
 
             @include media($bp-medium) {

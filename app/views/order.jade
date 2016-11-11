@@ -48,7 +48,7 @@ block content
                               .input-wrapper.input-coupon-wrapper
                                   label(for="input-coupon") Coupon Code?
                                   input.form-control#input-coupon(type="text", placeholder="Coupon Code?", name="input-coupon")
-                                  input.error-message
+                                  span.error-message
                               .button-group.button-group-coupon
                                   button.button.button-outline.button-apply Apply
                                   button.button.button-outline.button-cancel Cancel
@@ -112,10 +112,14 @@ block content
                                 input.form-control#input-shipping-address-line-2(type="text", placeholder="Address line 2", name="input-shipping-address-line-2")
                             .input-wrapper
                                 label(for="input-shipping-country") Country
-                                select.input-select.crs-country#input-shipping-country(data-region-id="input-shipping-state", data-blacklist="IR,KP", data-value="shortcode", data-default-value="US", data-required)
+                                    span.required *
+                                .input-select
+                                    select.crs-country#input-shipping-country(data-region-id="input-shipping-state", data-blacklist="IR,KP", data-value="shortcode", data-default-value="US", data-required)
                             .input-wrapper
                                 label(for="input-shipping-state") State/Region
-                                select.input-select#input-shipping-state(data-required)
+                                    span.required *
+                                .input-select
+                                    select#input-shipping-state(data-required)
                             .input-wrapper
                                 label(for="input-shipping-city") City/Town
                                     span.required *
@@ -158,10 +162,14 @@ block content
                                 input.form-control.billing-field#input-billing-address-line-2(type="text", placeholder="Address line 2", name="input-billing-address-line-2")
                             .input-wrapper
                                 label(for="input-billing-country") Country
-                                select.input-select.crs-country#input-billing-country(data-region-id="input-billing-state", data-blacklist="IR,KP", data-value="shortcode", data-default-value="US", data-required)
+                                    span.required *
+                                .input-select
+                                  select.crs-country#input-billing-country(data-region-id="input-billing-state", data-blacklist="IR,KP", data-value="shortcode", data-default-value="US", data-required)
                             .input-wrapper
                                 label(for="input-billing-state") State/Region
-                                select.input-select#input-billing-state(data-required)
+                                    span.required *
+                                .input-select
+                                    select#input-billing-state(data-required)
                             .input-wrapper
                                 label(for="input-billing-city") City/Town
                                     span.required *
@@ -186,7 +194,8 @@ block content
                                     span.required *
                                 .input-select
                                     span.label(data-mobile-label="Exp. Month") Expiration Month
-                                    select.custom-select.form-control#input-card-month(name="input-card-month", placeholder="Expiration Month", data-required)
+                                    select.custom-select.form-control#input-card-month(name="input-card-month", data-required)
+                                        option(value="", disabled, selected) Expiration Month
                                         option(value="01") 01
                                         option(value="02") 02
                                         option(value="03") 03
@@ -205,6 +214,7 @@ block content
                                 .input-select
                                     span.label(data-mobile-label="Exp. Year") Expiration Year
                                     select.custom-select.form-control#input-card-year(name="input-card-year", placeholder="Expiration Year", data-required)
+                                      option(value="", disabled, selected) Expiration Year
                             .input-wrapper
                                 label(for="input-card-code") Security code
                                     span.required *
