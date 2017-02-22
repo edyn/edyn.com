@@ -159,6 +159,36 @@ app.post('/confirmation', function(req, res) {
     });
 });
 
+///
+// ifttt trigger ingredient example urls
+///
+app.get('/sensor/example-sensor/derived-readings/example-reading/timestamp', function(req, res) {
+    res.send('February 21, 2017 at 05:36PM');
+});
+
+app.get('/sensor/example-sensor/derived-readings/example-reading/light', function(req, res) {
+    res.send('20270');
+});
+
+app.get('/sensor/example-sensor/derived-readings/example-reading/temperature', function(req, res) {
+    res.send('21.6');
+});
+
+app.get('/sensor/example-sensor/derived-readings/example-reading/moisture', function(req, res) {
+    res.send('12');
+});
+
+app.get('/sensor/example-sensor/derived-readings/example-reading/humidity', function(req, res) {
+    res.send('74');
+});
+
+app.get('/sensor/example-sensor/derived-readings/example-reading/battery', function(req, res) {
+    res.send('90');
+});
+
+app.get('/sensor/example-sensor/derived-readings/example-reading/wifi', function(req, res) {
+    res.send('4');
+});
 
 ///
 // Backwards compatibility
