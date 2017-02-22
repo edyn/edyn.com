@@ -60,6 +60,8 @@ app.get('/resetpassword', function(req, res) {
     res.sendfile('./dist/resetpassword.html');
 });
 
+// TODO: Add a route that's /sensors/[hardcodedexamplesensor]/derived-readings/[hardcodedreadingid]/light for IFTTT ingredient example
+
 app.get('/order', function(req, res) {
     res.sendfile('./dist/order.html');
 });
