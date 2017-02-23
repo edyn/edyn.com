@@ -190,6 +190,13 @@ app.get('/sensors/example-sensor/derived-readings/example-reading/wifi', functio
     res.send('4');
 });
 
+app.get('/sensors/example-sensor/derived-readings/example-reading/sensor_id', function(req, res) {
+    res.send('54cffd4510c00000');
+});
+
+app.get('/sensors/example-sensor/derived-readings/example-reading/garden_name', function(req, res) {
+    res.send('My Garden');
+});
 ///
 // Backwards compatibility
 ///
