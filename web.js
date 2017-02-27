@@ -195,7 +195,7 @@ app.get('/sensors/example-sensor/derived-readings/example-reading/sensor_id', fu
 });
 
 app.get('/sensors/example-sensor/derived-readings/example-reading/garden_name', function(req, res) {
-    res.send('My Garden');
+    res.send('Front garden bed');
 });
 ///
 // Backwards compatibility
