@@ -1,6 +1,8 @@
 # edyn.com
 Edyn marketing website
 
+This website is deployed with Heroku.
+
 Make sure to use [nvm](https://github.com/creationix/nvm) so that you can install node 4. node 8 will not work.
 
 The template structure is generated using [Gulp Web App](https://github.com/yeoman/generator-gulp-webapp). It provides basic Gulp setup to build, test & preview the app. Here are few commands to run while developping the marketing website:
