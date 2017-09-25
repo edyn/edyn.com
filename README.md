@@ -1,7 +1,7 @@
 # edyn.com
 Edyn marketing website
 
-This website is deployed with Heroku.
+The Edyn website is deployed using Heroku.
 
 Make sure to use [nvm](https://github.com/creationix/nvm) so that you can install node 4. node 8 will not work.
 
